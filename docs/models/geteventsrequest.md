@@ -1,0 +1,13 @@
+# GetEventsRequest
+
+
+## Fields
+
+| Field                                                                        | Type                                                                         | Required                                                                     | Description                                                                  |
+| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `type`                                                                       | *int*                                                                        | :heavy_check_mark:                                                           | N/A                                                                          |
+| `page`                                                                       | *Optional[int]*                                                              | :heavy_minus_sign:                                                           | N/A                                                                          |
+| `limit`                                                                      | *Optional[int]*                                                              | :heavy_minus_sign:                                                           | N/A                                                                          |
+| `lan`                                                                        | *Optional[str]*                                                              | :heavy_minus_sign:                                                           | N/A                                                                          |
+| `sdate`                                                                      | [datetime](https://docs.python.org/3/library/datetime.html#datetime-objects) | :heavy_minus_sign:                                                           | N/A                                                                          |
+| `edate`                                                                      | [datetime](https://docs.python.org/3/library/datetime.html#datetime-objects) | :heavy_minus_sign:                                                           | N/A                                                                          |

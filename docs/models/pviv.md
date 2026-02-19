@@ -1,0 +1,15 @@
+# PvIv
+
+
+## Fields
+
+| Field                                                                | Type                                                                 | Required                                                             | Description                                                          |
+| -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| `id`                                                                 | *Optional[int]*                                                      | :heavy_minus_sign:                                                   | N/A                                                                  |
+| `pv_no`                                                              | *Optional[int]*                                                      | :heavy_minus_sign:                                                   | PV string number                                                     |
+| `vpv`                                                                | *Optional[float]*                                                    | :heavy_minus_sign:                                                   | PV voltage (V)                                                       |
+| `ipv`                                                                | *Optional[float]*                                                    | :heavy_minus_sign:                                                   | PV current (A)                                                       |
+| `ppv`                                                                | *Optional[float]*                                                    | :heavy_minus_sign:                                                   | PV power (kW)                                                        |
+| `today_pv`                                                           | *Optional[float]*                                                    | :heavy_minus_sign:                                                   | Today's PV energy (kWh)                                              |
+| `sn`                                                                 | *Optional[str]*                                                      | :heavy_minus_sign:                                                   | Serial number                                                        |
+| `time`                                                               | [date](https://docs.python.org/3/library/datetime.html#date-objects) | :heavy_minus_sign:                                                   | Record timestamp                                                     |
