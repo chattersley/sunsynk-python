@@ -16,7 +16,7 @@ class PlantTypedDict(TypedDict):
     r"""Plant name"""
     thumb_url: NotRequired[str]
     r"""Thumbnail URL"""
-    status: NotRequired[str]
+    status: NotRequired[float]
     r"""Plant status"""
     address: NotRequired[str]
     r"""Plant address"""
@@ -32,11 +32,11 @@ class PlantTypedDict(TypedDict):
     r"""Last update timestamp"""
     create_at: NotRequired[datetime]
     r"""Creation timestamp"""
-    type: NotRequired[str]
+    type: NotRequired[float]
     r"""Plant type"""
     master_id: NotRequired[int]
     r"""Master ID"""
-    share: NotRequired[str]
+    share: NotRequired[bool]
     r"""Share settings"""
     plant_permission: NotRequired[List[str]]
     exist_camera: NotRequired[bool]
@@ -53,7 +53,7 @@ class Plant(BaseModel):
     thumb_url: Annotated[Optional[str], pydantic.Field(alias="thumbUrl")] = None
     r"""Thumbnail URL"""
 
-    status: Optional[str] = None
+    status: Optional[float] = None
     r"""Plant status"""
 
     address: Optional[str] = None
@@ -77,13 +77,13 @@ class Plant(BaseModel):
     create_at: Annotated[Optional[datetime], pydantic.Field(alias="createAt")] = None
     r"""Creation timestamp"""
 
-    type: Optional[str] = None
+    type: Optional[float] = None
     r"""Plant type"""
 
     master_id: Annotated[Optional[int], pydantic.Field(alias="masterId")] = None
     r"""Master ID"""
 
-    share: Optional[str] = None
+    share: Optional[bool] = None
     r"""Share settings"""
 
     plant_permission: Annotated[
