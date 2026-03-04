@@ -1,0 +1,37 @@
+speakeasyVersion: 1.728.0
+sources:
+    SunSynk Power View API:
+        sourceNamespace: sun-synk-power-view-api
+        sourceRevisionDigest: sha256:8e614493c59cf8c35f39106887204cc8baed4cbcf416aaed031f6cd448ea3f44
+        sourceBlobDigest: sha256:08c0e6aa038e1072134bc78ef10bea6c4006814f009113151a5d17f8db7acfd4
+        tags:
+            - latest
+            - 1.1.0
+targets:
+    sun-synk:
+        source: SunSynk Power View API
+        sourceNamespace: sun-synk-power-view-api
+        sourceRevisionDigest: sha256:8e614493c59cf8c35f39106887204cc8baed4cbcf416aaed031f6cd448ea3f44
+        sourceBlobDigest: sha256:08c0e6aa038e1072134bc78ef10bea6c4006814f009113151a5d17f8db7acfd4
+        codeSamplesNamespace: sun-synk-power-view-api-python-code-samples
+        codeSamplesRevisionDigest: sha256:dd49fab5b0b494f9d0de1547129b0a704c9ad1fd1d2e5e33b198d6aaf0e1ec0b
+workflow:
+    workflowVersion: 1.0.0
+    speakeasyVersion: latest
+    sources:
+        SunSynk Power View API:
+            inputs:
+                - location: ../../../sunsynk-api-merged.json
+            output: .speakeasy/out.openapi.yaml
+            registry:
+                location: registry.speakeasyapi.dev/finchdean/home-assistant/sun-synk-power-view-api
+    targets:
+        sun-synk:
+            target: python
+            source: SunSynk Power View API
+            codeSamples:
+                registry:
+                    location: registry.speakeasyapi.dev/finchdean/home-assistant/sun-synk-power-view-api-python-code-samples
+                labelOverride:
+                    fixedValue: Python (SDK)
+                blocking: false

@@ -1,0 +1,860 @@
+lockVersion: 2.0.0
+id: cd8d666b-f509-49a0-a4af-72e58bb4b75f
+management:
+  docChecksum: e73de395f3119e8d4162a821c336a892
+  docVersion: 1.1.0
+  speakeasyVersion: 1.728.0
+  generationVersion: 2.839.0
+  releaseVersion: 0.0.3
+  configChecksum: eb5670c9832d65d208309dc42e0f50e5
+persistentEdits:
+  generation_id: 5403c4a5-6c4b-437d-a113-199e0fac78c0
+  pristine_commit_hash: 878582b971f0cbadd9bc3f975f697d6c34adf23d
+  pristine_tree_hash: 8644ba976ffd262bfb8715f20d030f6d497a2722
+features:
+  python:
+    additionalDependencies: 1.0.0
+    constsAndDefaults: 1.0.7
+    core: 6.0.12
+    defaultEnabledRetries: 0.2.0
+    devContainers: 3.0.0
+    enumUnions: 0.1.0
+    envVarSecurityUsage: 0.3.2
+    flatRequests: 1.0.1
+    flattening: 3.1.1
+    globalSecurity: 3.0.5
+    globalSecurityCallbacks: 1.0.0
+    globalSecurityFlattening: 1.0.0
+    globalServerURLs: 3.2.0
+    methodArguments: 1.0.2
+    responseFormat: 1.1.0
+    retries: 3.0.4
+    sdkHooks: 1.2.1
+trackedFiles:
+  .devcontainer/README.md:
+    id: b170c0f184ac
+    last_write_checksum: sha1:3c63dfd4dcea8df0d4add09e975a6887e6da4aab
+    pristine_git_object: 396929ab2e57cf09dd25ec83bd4496f733b95701
+  .devcontainer/devcontainer.json:
+    id: b34062a34eb1
+    last_write_checksum: sha1:94309e8c8eab5ab063986bf625f513a59825e947
+    pristine_git_object: 75edff51e68d2934c825764459ba3071044ce2ab
+  .devcontainer/setup.sh:
+    id: 5f1dfbfeb8eb
+    last_write_checksum: sha1:234faaf21a8a7028346590d1eb3fac0429f4991c
+    pristine_git_object: b39c28c38cf46135982ab5576b4723ea777bf510
+  .gitattributes:
+    id: 24139dae6567
+    last_write_checksum: sha1:53134de3ada576f37c22276901e1b5b6d85cd2da
+    pristine_git_object: 4d75d59008e4d8609876d263419a9dc56c8d6f3a
+  .vscode/settings.json:
+    id: 89aa447020cd
+    last_write_checksum: sha1:f84632c81029fcdda8c3b0c768d02b836fc80526
+    pristine_git_object: 8d79f0abb72526f1fb34a4c03e5bba612c6ba2ae
+  USAGE.md:
+    id: 3aed33ce6e6f
+    last_write_checksum: sha1:f3bf1736016d6cfe43200ef593cfb6279aa75c1e
+    pristine_git_object: ddcafed3bb64248b857654d6983546a70a87a17a
+  docs/errors/error.md:
+    id: 098e4ba23534
+    last_write_checksum: sha1:d0d5e74a3384735b373bd49016e61e9d79c6309e
+    pristine_git_object: 2c32e27bdf5e53fba78c170bba97d480989cff39
+  docs/models/batterydata.md:
+    id: 0f36fe8f8c1f
+    last_write_checksum: sha1:1a85af560aef34d22e8fc0873a1ef032b63a45de
+    pristine_git_object: f928ba7fc25c51bc80b9f50702c78226a5ff978c
+  docs/models/batteryresponse.md:
+    id: 0ba033a69008
+    last_write_checksum: sha1:52e1a35f6bf0c57687ce132559f5af4c736ecbaf
+    pristine_git_object: 79e0619b20ed027b469e23b7c75ab471ab5683f1
+  docs/models/clientid.md:
+    id: 0da44d8670de
+    last_write_checksum: sha1:d701fc4c0b6e3de931e9a99cafa815158f2f7fe9
+    pristine_git_object: 1ececa1d6a2d0eb470fee50a90718b3e05f230c0
+  docs/models/gatewayinfo.md:
+    id: 9113d41ba8c6
+    last_write_checksum: sha1:0e24de5ba3d1e2f2e50b590e19434c25baf6fda3
+    pristine_git_object: f1e2a321725dbe7fdf3e03b7cc3a46f961feeea6
+  docs/models/getapiv1invertersrequest.md:
+    id: 13581009a790
+    last_write_checksum: sha1:9a47386183db6fc1b078fd3212c21000bbcaa546
+    pristine_git_object: 77dd31a75e8333ea0e4483b17fea7c65b55ad1b6
+  docs/models/getbatteryrealtimerequest.md:
+    id: 5a8c0733f92c
+    last_write_checksum: sha1:578c2bbbbae3bc0b7ff9e4644047e1c10532bd44
+    pristine_git_object: 50b718c09e35f2e54b32173a2d8ef2e47630cb06
+  docs/models/getbearertokendata.md:
+    id: 13c23f62d471
+    last_write_checksum: sha1:5748e42711e930e7292f335e35e4210cb756c040
+    pristine_git_object: 433550ce327265de6c93ba89849c8a5b705d32d1
+  docs/models/getbearertokenrequest.md:
+    id: 5fb32c70fa13
+    last_write_checksum: sha1:f86dfdde2d65d364a37d17ed0dca3fc35e891e9a
+    pristine_git_object: b0f70879ac618767aaa15057b18662c24903e11e
+  docs/models/getbearertokenresponse.md:
+    id: f372f1d2467a
+    last_write_checksum: sha1:5ad249551e2866e096b775a6d1462e646c9cf79f
+    pristine_git_object: 2fb83a48ac92cdf91484c46f390cd5e47b8c765c
+  docs/models/geteventsrequest.md:
+    id: a411104040f4
+    last_write_checksum: sha1:23f2ba373e35483682cdf81794880a9b8e14a123
+    pristine_git_object: 224b9b39e939552d7882b587bdb4a515fb07fdfe
+  docs/models/geteventsresponse.md:
+    id: 3825bca01108
+    last_write_checksum: sha1:d398c319e20ad024f2d070430d20270682519a24
+    pristine_git_object: 90c8218bef569ba3019bf5a55433160a162a7ac9
+  docs/models/getgatewaysrequest.md:
+    id: ef6145251e4e
+    last_write_checksum: sha1:275c69eb7e84249c5093817e6b51e0afde1218ce
+    pristine_git_object: 495571772ae2e1afea6d6ed9e7ee52260ba42fc6
+  docs/models/getgatewaysresponse.md:
+    id: 353d93514b64
+    last_write_checksum: sha1:43425b9951191b572bf802e46c73b7e19ca502ea
+    pristine_git_object: dd77c46e966b2bddb40cb1f6a2c1916bc3b3c884
+  docs/models/getgenrealtimerequest.md:
+    id: 59dfa5072f7b
+    last_write_checksum: sha1:d715c9abd9834b2fa41d1f59e2eaff7dfc06a384
+    pristine_git_object: 53fdaf1a2219b771151b7bef03b36be5392c2612
+  docs/models/getgenrealtimeresponse.md:
+    id: 385be397c014
+    last_write_checksum: sha1:11e6742b8c405884b2d1e7bde8273322fa91db97
+    pristine_git_object: 169ed564939d774469d90f4d2e74424e125f4b71
+  docs/models/getgridrealtimerequest.md:
+    id: b9427937dd47
+    last_write_checksum: sha1:050859c7b08b11031554671872e08ce40994e8fb
+    pristine_git_object: c2ec69ba603062810234799731f5dd917c4e4def
+  docs/models/getinverterdailyoutputrequest.md:
+    id: f94be7bb4c85
+    last_write_checksum: sha1:5bc905dd8ee272f8d210bec49dc53c02348dbc1c
+    pristine_git_object: b33c34f30a8391068ab813d1e93e489adb790069
+  docs/models/getinverterdailyoutputresponse.md:
+    id: 8458362e13b1
+    last_write_checksum: sha1:052826b70fb3b417060171a162729a1bcaa37c8a
+    pristine_git_object: 952f8b337df94790dba7700174849440d2ef2002
+  docs/models/getinverterinputrequest.md:
+    id: cf6e85c75c7c
+    last_write_checksum: sha1:516ba9efc2f1c3432d5ad14c3177bfb934241abf
+    pristine_git_object: 044062698e56da34e29f8e26271e9b162410bf5c
+  docs/models/getinverteroutputrequest.md:
+    id: c2020f2d5a84
+    last_write_checksum: sha1:724bbef101837cf7b85068e0aff05f9c993aea4a
+    pristine_git_object: cec4ada4fb8c1b4f44aa84e594052972594ef07a
+  docs/models/getloadrealtimerequest.md:
+    id: 16b3c7340ac1
+    last_write_checksum: sha1:f756889df5357a4ce36f6625ef1f2c5274345b6c
+    pristine_git_object: 854fc31376e425450f70c17c092a92089f1a58e6
+  docs/models/getloadrealtimeresponse.md:
+    id: ed609e960a85
+    last_write_checksum: sha1:87a080f66e13f47f60bd956ed2f60bfff953fdbb
+    pristine_git_object: 7879eeb14e2bdcca129d797028eb40caacf374a3
+  docs/models/getmessagesrequest.md:
+    id: cada1f7dac1d
+    last_write_checksum: sha1:8d75d4c23fb6034629dd731616a8a4553a844980
+    pristine_git_object: 95a8b250c63687763fd86c67f8aaf6b4aa192624
+  docs/models/getmessagesresponse.md:
+    id: d55fa4f0b503
+    last_write_checksum: sha1:43740237d0208759e40c943171b8f9af0dfe94b2
+    pristine_git_object: 76115c5c99a2e16f5e919d9cbbcd859f72311e83
+  docs/models/getplantflowrequest.md:
+    id: 6ec147e94c70
+    last_write_checksum: sha1:37aeffdf5c0b89558ce5e8679600f786991c13e7
+    pristine_git_object: d293323625a82c1329ac2e86cc1552034ce35bcb
+  docs/models/getplantflowresponse.md:
+    id: 2142a1eb9ddb
+    last_write_checksum: sha1:b420f82afa8d0a6f0a5600ab07ba708c8a03b982
+    pristine_git_object: 2db6c0b68811994e9a2bb2e3c4f4d08591ee8f6e
+  docs/models/getplantinvertersrequest.md:
+    id: 1c7c62785f1d
+    last_write_checksum: sha1:334388af20092ef81921feb730da13b4c487d770
+    pristine_git_object: 5f489c185fe00601ab71eec5a2aba95a4aa68f13
+  docs/models/getplantinvertersresponse.md:
+    id: 34c7a24b706f
+    last_write_checksum: sha1:551774d8de2139eb2cecd69fc04e2b89c58325e4
+    pristine_git_object: ac01095bc8e538ecfefe8b64b8c83b75c6213ac1
+  docs/models/getplantsrequest.md:
+    id: e0394303a928
+    last_write_checksum: sha1:09cab1cfba28baaf3faa03ee1194db5db8543f67
+    pristine_git_object: 295d73b354eddbd405770906a529f0b118da2744
+  docs/models/getpublickeyrequest.md:
+    id: acbe2d8dad78
+    last_write_checksum: sha1:55cc10ff00cf95a6a4c6a26b29538f603d2b8f83
+    pristine_git_object: 6e4ac4eac311172fff422d7eea97e9265d59baba
+  docs/models/getpublickeyresponse.md:
+    id: f2e3f440c047
+    last_write_checksum: sha1:e7e407f300b16cb3f451f4942fccf7508346b0a8
+    pristine_git_object: f7618943c072699b471cb74c00ac32685305955b
+  docs/models/granttype.md:
+    id: c3d5681ac7bd
+    last_write_checksum: sha1:07e30f523fe5cc07a236254bae42c62a4c3b85c8
+    pristine_git_object: af7209f7d04c4b75119c4709fc1d3d765751dc3d
+  docs/models/griddata.md:
+    id: 10d04e3797a1
+    last_write_checksum: sha1:5641893ea8eaaffde700896f9657f79039e1b589
+    pristine_git_object: ce7a1be7367775d1737190d5c9caa6cb81b8c1a7
+  docs/models/gridresponse.md:
+    id: 649f9c8ceb29
+    last_write_checksum: sha1:25f15bdc180d9eb83baa0fe0e463249db913cbc0
+    pristine_git_object: befa922c4b58d678c8f9ad483bb4075d80841eb6
+  docs/models/inputdata.md:
+    id: 7d13a4036130
+    last_write_checksum: sha1:fbf15e248cea44ea5f1b2f1f1d99facd26304823
+    pristine_git_object: 1fefd893acaba5bd9a50dd6f04c183ee04ede53a
+  docs/models/inputresponse.md:
+    id: 5f7c578ba0f0
+    last_write_checksum: sha1:ff9c34a01d5eeb20754dec02a8a226857c710b1b
+    pristine_git_object: d1229ddbdb7b855a7ee4577a659034c1ae090a79
+  docs/models/inverter.md:
+    id: c5639da0e593
+    last_write_checksum: sha1:c4ce7bef07ac67bbf7e52977b7207298ab2c53d5
+    pristine_git_object: 6bc6edd28991923ea1ad6853b1c0fdad7ad979f5
+  docs/models/invertersresponse.md:
+    id: 67e4bddae6b5
+    last_write_checksum: sha1:d3f8902b4c4bbce99b1e6d8681ca6ab67b69a970
+    pristine_git_object: e6c15a4b820eb00c1c5f9132d0cacb7885588e8a
+  docs/models/invertersresponsedata.md:
+    id: a19d1ff201f5
+    last_write_checksum: sha1:fd348a3bf12c9f7798dea7e5756fbfb0108d8976
+    pristine_git_object: e69ffef995ecbfca0f720ace4fd8755b0cedded4
+  docs/models/inverterversion.md:
+    id: 981943a7758e
+    last_write_checksum: sha1:441d1532f09f6d17fc9bdb7b2badc7f18bf5adae
+    pristine_git_object: b9d7cb0f4a1def07fbe965cafc475dcf414a5b37
+  docs/models/outputdata.md:
+    id: 6f6247f749ac
+    last_write_checksum: sha1:9a9dcb625e4031c1b08db1ced4b350a537ef5794
+    pristine_git_object: 20f4d93e2e1236b6b3536c952c390f6ef2ec0058
+  docs/models/outputresponse.md:
+    id: e09d17192e47
+    last_write_checksum: sha1:2eef66889f9db802041222d7920c9b556536d79a
+    pristine_git_object: 68e59bb7ec0763d411a38cb2a799479ebb35d9e6
+  docs/models/plant.md:
+    id: 213f9322743e
+    last_write_checksum: sha1:a59ce7d16279df2f6cc5f7d20d8b9d74083abe87
+    pristine_git_object: 1ae717c4d1a8d9a91d03423f5325f28910931b38
+  docs/models/plantsresponse.md:
+    id: b1de7ae6bce5
+    last_write_checksum: sha1:56c487ffd683e3a6b79fdd7e4e8dded8e1671c30
+    pristine_git_object: ba972400c99bc270608ff06d00fb31803f962983
+  docs/models/plantsresponsedata.md:
+    id: ec368b6597d2
+    last_write_checksum: sha1:e81ee4e3e64bc36da903a2eeb2ddd40ab4a2a33c
+    pristine_git_object: e6cf4da9d81b2950719ce9cf00e3b1043eb84998
+  docs/models/plantsummary.md:
+    id: 27fc2050c96b
+    last_write_checksum: sha1:c3e8af9e1dce1624bbc0068c005ee5a7be6fa432
+    pristine_git_object: 7f3846b848d9a854546d391cf863bd5566e91d91
+  docs/models/pviv.md:
+    id: ae7f4299f93a
+    last_write_checksum: sha1:c677593e71a369152c7b7f00376ddbfc476850b1
+    pristine_git_object: c5eed76b387042c1a6e85541c2028e8a518221b8
+  docs/models/readinvertersettingsrequest.md:
+    id: 243f8fe64428
+    last_write_checksum: sha1:3848654d650f92256be96bf9edfa14dd801af55a
+    pristine_git_object: b19268bfefa50ac0fb0ff54173a6f73dd5250fb4
+  docs/models/readinvertersettingsresponse.md:
+    id: a1674341b3d6
+    last_write_checksum: sha1:35f10a001b1ddef638379ceece34c6f06cd4780a
+    pristine_git_object: f7fe8bbe4ac3e174068c9562f66c2c534f9d428a
+  docs/models/security.md:
+    id: 452e4d4eb67a
+    last_write_checksum: sha1:b92237f55b89698b718cee58634a51a5cdb29edb
+    pristine_git_object: 8ca6325b43081d6b8849bf8cfab3d65678d3d386
+  docs/models/tokenrequest.md:
+    id: 5bb7ce641db1
+    last_write_checksum: sha1:f7fa9b6cf984ec7698cf1bb237e7a5a56770333d
+    pristine_git_object: 669243b1c96d84bf117f8ead4d00e58a8be934ed
+  docs/models/tokenresponse.md:
+    id: e7059d0b17e1
+    last_write_checksum: sha1:d84233b520b379011eba8677759446ef579507a8
+    pristine_git_object: 12a497299c7c7c07f3c94620c905b3211baea20c
+  docs/models/tokenresponsedata.md:
+    id: 5128c0b34806
+    last_write_checksum: sha1:dbfdef1768c2734805a96455762109913b39b744
+    pristine_git_object: 7f4b02cf7bc57f044a3c20a2b5591939ce438941
+  docs/models/utils/retryconfig.md:
+    id: 4343ac43161c
+    last_write_checksum: sha1:562c0f21e308ad10c27f85f75704c15592c6929d
+    pristine_git_object: 69dd549ec7f5f885101d08dd502e25748183aebf
+  docs/models/vip.md:
+    id: 0525ca5df8d2
+    last_write_checksum: sha1:6e4516a04022f77a623857503065408b3786c9a5
+    pristine_git_object: 41f8c2f8eca0379b2b4017905dc549233e813d54
+  docs/models/writeinvertersettingsrequest.md:
+    id: 39ac37b75d1e
+    last_write_checksum: sha1:c26dcd0c40c18646b776cfc68e1cd0a7bb1685d0
+    pristine_git_object: f386e05cef635d96280016f534d3fe0cf92ee5f1
+  docs/models/writeinvertersettingsrequestbody.md:
+    id: f17a8526b309
+    last_write_checksum: sha1:61ac434640ce270fe07bc010c1bb26e5ad7f5ded
+    pristine_git_object: d5735c429d614c27490cf9ee5b5cc4a237eacec0
+  docs/models/writeinvertersettingsresponse.md:
+    id: 5f88fb967aa6
+    last_write_checksum: sha1:e1146a1c282dc7f6a35cddfd964bb08111d4fea5
+    pristine_git_object: a038d9901d8616d1867e476d3b7abe92d120acc2
+  docs/sdks/authentication/README.md:
+    id: 45be241adfc3
+    last_write_checksum: sha1:15afcc9da2af18211d05f8dafd100af426eb3118
+    pristine_git_object: 23d01735a19cfb342a2877cb12bc41d864bab237
+  docs/sdks/events/README.md:
+    id: cf45a4390b9b
+    last_write_checksum: sha1:cb02fab1fdbbaa8eba0c72c14e11cdfa98158e36
+    pristine_git_object: e7d3ea27648b427d1004e9222f3a15cb3441a543
+  docs/sdks/gateways/README.md:
+    id: e51e55778a70
+    last_write_checksum: sha1:53f98a52874502b741f010ba47473b6b53c78676
+    pristine_git_object: 8d5c87a6b866e582ef7f1269e1d10d24971d8179
+  docs/sdks/inverterdata/README.md:
+    id: e0a04a87724e
+    last_write_checksum: sha1:0ebbef7985d7d02d4c1791811c900a8ec1dc8a7a
+    pristine_git_object: c147839f7a17f27e9ae8763f435162b7686f482c
+  docs/sdks/inverters/README.md:
+    id: 399d8541a169
+    last_write_checksum: sha1:14788e95176a94084d87b74764b60612b72e9231
+    pristine_git_object: bafa77cea19bf83ccd2b4563407b1220393a9c61
+  docs/sdks/notifications/README.md:
+    id: 271bac956045
+    last_write_checksum: sha1:fd276ab82a989e22ae5841ef7935078a22ce36db
+    pristine_git_object: aad8d7c08ae564f89794666fc0d4be0a9fd68682
+  docs/sdks/plants/README.md:
+    id: 249c5fadedb2
+    last_write_checksum: sha1:feceef76b14029496368ce2a0f266a7ed9663b4b
+    pristine_git_object: 755713029334021a6b00e35d647302d6465fc9cf
+  docs/sdks/settings/README.md:
+    id: ffd4dbcfc0ce
+    last_write_checksum: sha1:79845a4868a78c573368fd3e4d25a90232d1e8e2
+    pristine_git_object: 093bb60863d0c48cd3d81af3b374c28d1b186641
+  py.typed:
+    id: 258c3ed47ae4
+    last_write_checksum: sha1:8efc425ffe830805ffcc0f3055871bdcdc542c60
+    pristine_git_object: 3e38f1a929f7d6b1d6de74604aa87e3d8f010544
+  pylintrc:
+    id: 7ce8b9f946e6
+    last_write_checksum: sha1:593ddd03a917eb1437e2cc73b5d48f1052607b93
+    pristine_git_object: 78382a2efcaa26bcf55dffd7fbebca6a9e234cf4
+  pyproject.toml:
+    id: 5d07e7d72637
+    last_write_checksum: sha1:48c2189146a64abd6d40be8001152ae2dcdd862e
+    pristine_git_object: 8f9520526a08595cef47c915d3fbbf8970bfbf74
+  scripts/publish.sh:
+    id: fe273b08f514
+    last_write_checksum: sha1:adc9b741c12ad1591ab4870eabe20f0d0a86cd1a
+    pristine_git_object: ef28dc10c60d7d6a4bac0c6a1e9caba36b471861
+  src/sunsynk_api_client/__init__.py:
+    id: ba26f8bc3175
+    last_write_checksum: sha1:da077c0bdfcef64a4a5aea91a17292f72fa2b088
+    pristine_git_object: 833c68cd526fe34aab2b7e7c45f974f7f4b9e120
+  src/sunsynk_api_client/_hooks/__init__.py:
+    id: 11308fbc58ca
+    last_write_checksum: sha1:e3111289afd28ad557c21d9e2f918caabfb7037d
+    pristine_git_object: 2ee66cdd592fe41731c24ddd407c8ca31c50aec1
+  src/sunsynk_api_client/_hooks/sdkhooks.py:
+    id: 8b20474d7387
+    last_write_checksum: sha1:2d66b7694002fdf982d6d6c24737c9e96119f2d5
+    pristine_git_object: d2e55fbb19f055dc8ab1e8a8412543fec208ffcc
+  src/sunsynk_api_client/_hooks/types.py:
+    id: 6ffd1d7d0f1f
+    last_write_checksum: sha1:ab7ffdfb983fcaee390acc00eb60acfc3b5750e9
+    pristine_git_object: a294be32b47f3d5275ce28592d7ad3afc64f14a2
+  src/sunsynk_api_client/_version.py:
+    id: 4f638efaf76d
+    last_write_checksum: sha1:ee51f9b96e1ed189aff772dc2c6a97a3aed5f351
+    pristine_git_object: 09b723eb466cc77c4356e84777af31477c371dbf
+  src/sunsynk_api_client/authentication.py:
+    id: d27011b9ebd3
+    last_write_checksum: sha1:4730f017ed98ac0f012de50a4215b163ebe8135f
+    pristine_git_object: 0c563b470cfb7ed6913b525df839c5f887125154
+  src/sunsynk_api_client/basesdk.py:
+    id: b2186043abb6
+    last_write_checksum: sha1:c3b16e377982c8a2406d9a8f2c9484719763b10b
+    pristine_git_object: a075428316e1369ec6ae8f6b7b164f8ab2bb380e
+  src/sunsynk_api_client/errors/__init__.py:
+    id: b628a506d9e4
+    last_write_checksum: sha1:0b9a76b2a793a2918c470c9e6879f28034bd38f6
+    pristine_git_object: 6619f05264af5f11aab81b03e721404748c8845c
+  src/sunsynk_api_client/errors/error.py:
+    id: dcdf4e93dea5
+    last_write_checksum: sha1:ffb9bdfd38b3b1a8e3f94ba5d5f75b400df865c5
+    pristine_git_object: 7ffb9c309a17578011af6f24aa903c983da49c36
+  src/sunsynk_api_client/errors/no_response_error.py:
+    id: 7c2b396ab4ec
+    last_write_checksum: sha1:7f326424a7d5ae1bcd5c89a0d6b3dbda9138942f
+    pristine_git_object: 1deab64bc43e1e65bf3c412d326a4032ce342366
+  src/sunsynk_api_client/errors/responsevalidationerror.py:
+    id: 04d6d66f7b1d
+    last_write_checksum: sha1:c0a5bf19a54164726cd03d9aa3340e3b600cf5c5
+    pristine_git_object: 962b330fef8949143936217fb303bee1de06bd67
+  src/sunsynk_api_client/errors/sunsynkdefaulterror.py:
+    id: d2b3f10ab10a
+    last_write_checksum: sha1:ada477519dd86e079e95e4efc7d3d9d71c04d1af
+    pristine_git_object: 524e9c9458b93d9879b562aadf35d6e43ed17a17
+  src/sunsynk_api_client/errors/sunsynkerror.py:
+    id: c7f8921f6922
+    last_write_checksum: sha1:9c775de66a458a0a42f755685a9b748c4c3b304b
+    pristine_git_object: 49f00bc74ec040da97a4a4d992ac6b0bae5adcc8
+  src/sunsynk_api_client/events.py:
+    id: a616e5dead94
+    last_write_checksum: sha1:e2f6b1b49565d02a15c472d502705416842f2640
+    pristine_git_object: 28a7e28c2f5e1250444790c56fd9c33cb5ce21aa
+  src/sunsynk_api_client/gateways.py:
+    id: 25e9ef1ca83b
+    last_write_checksum: sha1:4cd4d55d4e7b7c8d812916647adea5061891f497
+    pristine_git_object: f1e7ff8f0de96a323fd446fbc911fecf9cf2ff62
+  src/sunsynk_api_client/httpclient.py:
+    id: 9fb17b163f6a
+    last_write_checksum: sha1:5e55338d6ee9f01ab648cad4380201a8a3da7dd7
+    pristine_git_object: 89560b566073785535643e694c112bedbd3db13d
+  src/sunsynk_api_client/inverter_data.py:
+    id: 7b9c386d9e15
+    last_write_checksum: sha1:69e750cf196b68e21effbff3a7509f8a3d617df0
+    pristine_git_object: fd17c37325131c84a917df6f96faaaffd7fd2afc
+  src/sunsynk_api_client/inverters.py:
+    id: 34aa29baa98e
+    last_write_checksum: sha1:91a7ae0ae6d7934fdc6fd61c9e013aabd50016b9
+    pristine_git_object: 2336407eb7111a4376dffeab116e5c1f1b357089
+  src/sunsynk_api_client/models/__init__.py:
+    id: 6a4f28ac4ff7
+    last_write_checksum: sha1:acf3f93e2c49ae5e80ddbf51dd836e02fddd153f
+    pristine_git_object: bf19e6ee3ee69ff50aaf9a90857cf445ff143aa5
+  src/sunsynk_api_client/models/batterydata.py:
+    id: 72a0e6c9ab5e
+    last_write_checksum: sha1:6941c2f8b22e5d63db4b48167b3a33afc720173b
+    pristine_git_object: 69d80cb69897b6ef577889d69920b7c325963292
+  src/sunsynk_api_client/models/batteryresponse.py:
+    id: fafea8c4add0
+    last_write_checksum: sha1:f1d5ebe5109ddac6ee3edd9914c1471f2d7de19d
+    pristine_git_object: 97dd6314a948334904b40fb08477c2fff920f88d
+  src/sunsynk_api_client/models/gatewayinfo.py:
+    id: b783e91efd1f
+    last_write_checksum: sha1:30217b3afc1132b7c4db0494fe94f14f4787ef62
+    pristine_git_object: c1bf8f1de7a274853dc6f8d61a6f3d626307f657
+  src/sunsynk_api_client/models/get_api_v1_invertersop.py:
+    id: 9c53cb62e768
+    last_write_checksum: sha1:21af410c8a38b2a35634a8c9eebc73668608edab
+    pristine_git_object: 91c86fe4313838f0123acfd59dc483d3d7883454
+  src/sunsynk_api_client/models/getbatteryrealtimeop.py:
+    id: 64f3c2ffb96e
+    last_write_checksum: sha1:38b156e42e93ada6f35e15bc6766b39a5b007d33
+    pristine_git_object: f1019a19fe144d962408b346b3ab0bba7de89b85
+  src/sunsynk_api_client/models/getbearertokenop.py:
+    id: 22419fa6b5a8
+    last_write_checksum: sha1:61ccb316b30303985d196b1dd9dcae297e8d3733
+    pristine_git_object: 5c1ed74f36317bea22751a840845c258785442fd
+  src/sunsynk_api_client/models/geteventsop.py:
+    id: ae13b1ff8b65
+    last_write_checksum: sha1:5e30d2bfb1cff83f719c09b2986d1e2d8d73594f
+    pristine_git_object: 6cb38e498c79f3ebf4d8bb419350564a61dcca49
+  src/sunsynk_api_client/models/getgatewaysop.py:
+    id: 12595f425288
+    last_write_checksum: sha1:0595f6e31644b17edc797aecb31a2009237c8bd7
+    pristine_git_object: 246184cbd8ee892b00cc4cc5f195e7442224b00b
+  src/sunsynk_api_client/models/getgenrealtimeop.py:
+    id: fe796f9f860d
+    last_write_checksum: sha1:5af032a16ed6321d15fcebbb32c3537139342a55
+    pristine_git_object: bc453dbd01b284219a32b3732b6bb7251a109a3f
+  src/sunsynk_api_client/models/getgridrealtimeop.py:
+    id: 85edebe1dec3
+    last_write_checksum: sha1:10a55524094fb9c23ffcfa5977d6a67e0649235d
+    pristine_git_object: af3ae2d90d9d6e6dd6fbc7f70b7bd2de76ebfdfc
+  src/sunsynk_api_client/models/getinverterdailyoutputop.py:
+    id: 438a1232453f
+    last_write_checksum: sha1:c93374682c6f0de0d301723f4ea362ed511e6675
+    pristine_git_object: 4fe510510d3d8ca4291421c15026a6d96706d792
+  src/sunsynk_api_client/models/getinverterinputop.py:
+    id: 1ef6503112b2
+    last_write_checksum: sha1:bb7ed55e7e710762154fac47b2fbc550631ad6d8
+    pristine_git_object: 29cb64186871cdf19246aeda2f8313eaf30b8573
+  src/sunsynk_api_client/models/getinverteroutputop.py:
+    id: b32d8850c8b7
+    last_write_checksum: sha1:eec096e8098d1c599d2447e5edfef155c52645ab
+    pristine_git_object: eb68ed7c3de0e6b04bf272ed850124267a6fb4eb
+  src/sunsynk_api_client/models/getloadrealtimeop.py:
+    id: 19612fe0b137
+    last_write_checksum: sha1:cdf40d6646cfd9d79cc8918d01a8d3c368a5a658
+    pristine_git_object: 59fcece9fd75e1cb0080a4a52ea768fd5c41e10a
+  src/sunsynk_api_client/models/getmessagesop.py:
+    id: 2a9fd6430a71
+    last_write_checksum: sha1:73dc6964f14f8a67650258e080dd2f5cf6bd5430
+    pristine_git_object: a505f567e3fc41794036e8199759f36c983eccea
+  src/sunsynk_api_client/models/getplantflowop.py:
+    id: d0dd790dce17
+    last_write_checksum: sha1:bcdab1b0a89ae2bdc68048ff85079c1b2d2fd847
+    pristine_git_object: d108c398d55a1194e81f2f703689ea8aa7ae0d0b
+  src/sunsynk_api_client/models/getplantinvertersop.py:
+    id: 44978ac8a4b8
+    last_write_checksum: sha1:63bc6de138ce95d7ec504d8a8c65018286d4f3b4
+    pristine_git_object: 32b6fbb4fdbdcb6203892d9a43260e519f1eb277
+  src/sunsynk_api_client/models/getplantsop.py:
+    id: f2e4181ed83f
+    last_write_checksum: sha1:ad5f684360f0072a856d747613c58fedb57fc39b
+    pristine_git_object: 510d2bf24f411ff8d3ae5fa00e6b32d7c4dc170a
+  src/sunsynk_api_client/models/getpublickeyop.py:
+    id: ac22199290a8
+    last_write_checksum: sha1:877af897af2a5a0ca018810f8df9d43a3b9899ae
+    pristine_git_object: 31ef1b18e02e0de8c6d02785ebf521b47b5b62a1
+  src/sunsynk_api_client/models/griddata.py:
+    id: 89046ffee12f
+    last_write_checksum: sha1:0298994fcdbdfb336f88f2c70782cfc1c49f1a7e
+    pristine_git_object: b563fc7c006f08508c0dadebf9d4c08728303a47
+  src/sunsynk_api_client/models/gridresponse.py:
+    id: c8ad1df84a3a
+    last_write_checksum: sha1:8be7d961851e1c7ffe610111c1b4eb42dc17e53e
+    pristine_git_object: 6b126cc7fa2cb9cf86299392bc302a6d721571b9
+  src/sunsynk_api_client/models/inputdata.py:
+    id: 524aadcfb6c7
+    last_write_checksum: sha1:4a02337d5d82faae6fa3590213cdc3c7c5c38fd9
+    pristine_git_object: e11a0feb9d8593e143ed317908ab048113ffabee
+  src/sunsynk_api_client/models/inputresponse.py:
+    id: 70dc55f84b56
+    last_write_checksum: sha1:9205ccfa561d69de6e8bb1a740dc7875fcb6eb5c
+    pristine_git_object: a678ead7df7176546d7446405a7ad9fe02b3d47f
+  src/sunsynk_api_client/models/inverter.py:
+    id: d2f170f27d03
+    last_write_checksum: sha1:a131811a6d78a98ff8e498bf9898eb8736f3e162
+    pristine_git_object: 9ff0a30b16e519cd5fd06529765c5099baaa5374
+  src/sunsynk_api_client/models/invertersresponse.py:
+    id: aa037b65da18
+    last_write_checksum: sha1:2f23cddd4e83a4a78584731a7d711e2ec3abe40c
+    pristine_git_object: 770409a3b3a3ca0358e51e61f6fa9725473986d7
+  src/sunsynk_api_client/models/inverterversion.py:
+    id: 45511741a410
+    last_write_checksum: sha1:02796c9b7d9cf26ae03b6734cdd3c00bbaa9d511
+    pristine_git_object: 8a21bbb7908700237ad48ffdd8b486e023dbe0e1
+  src/sunsynk_api_client/models/outputdata.py:
+    id: 89a97c23fd07
+    last_write_checksum: sha1:11db1413de6914b18412cc6b814999f16aa21c03
+    pristine_git_object: ebf4ab91af9df22df0a9b240970cf097e67cee34
+  src/sunsynk_api_client/models/outputresponse.py:
+    id: a7a556bf4bdb
+    last_write_checksum: sha1:6c200bc59086856c7bb56b3ff4b59b7db1b440ea
+    pristine_git_object: 4b10ed6dc1867295d2ac865d8e9b7b1f28f43a4d
+  src/sunsynk_api_client/models/plant.py:
+    id: 9a0fc3c3cf65
+    last_write_checksum: sha1:b4c5888e24f0e8ed544122e2c6b92fdedeeb3d67
+    pristine_git_object: 1119daa6c27efb26b7f8c4209cb458fda6327fa8
+  src/sunsynk_api_client/models/plantsresponse.py:
+    id: cefa12176979
+    last_write_checksum: sha1:4f535e9406d560a24cc476c16473bfd20297f1a3
+    pristine_git_object: f72785140ff7c2420f39f241b742204c931b39fa
+  src/sunsynk_api_client/models/plantsummary.py:
+    id: 8c4fa959ca26
+    last_write_checksum: sha1:f37f2fa74656f0cd102876e807a293bb2776d443
+    pristine_git_object: 873f08304647026941c35c11e2b4f9cba31a3a22
+  src/sunsynk_api_client/models/pviv.py:
+    id: 3084b756c80f
+    last_write_checksum: sha1:eb5b55cb138034863c32a5935f6007d5e60ccf7c
+    pristine_git_object: 1888828175aab657b3092009862ea2b665ee5713
+  src/sunsynk_api_client/models/readinvertersettingsop.py:
+    id: de30e26e0bbb
+    last_write_checksum: sha1:61480ec8cedf22d5d4835753bbf65b107ed9f3be
+    pristine_git_object: 7ad993fcc70376a88e5e71ed98b374a5e4b93bb1
+  src/sunsynk_api_client/models/security.py:
+    id: 83915f7aefba
+    last_write_checksum: sha1:407ccb9558595a03e7b76242be42f561592b8dcf
+    pristine_git_object: 01ba03cdbdfe2cf809dd5525e1193a76897a10fb
+  src/sunsynk_api_client/models/tokenrequest.py:
+    id: cbd1b55b8cfa
+    last_write_checksum: sha1:f78758bce0736ac421ecabe4292070abef25f770
+    pristine_git_object: 1c26b0786fb3e667d40f48a4fc5eb023b6cfc9f3
+  src/sunsynk_api_client/models/tokenresponse.py:
+    id: 2a3cb0754557
+    last_write_checksum: sha1:c8ce7a9fd9006ece8a530945abcd7e4e7803fe77
+    pristine_git_object: 8bf7dcf28b6a9aecf233338c6cbbd9bbc9d7e6fe
+  src/sunsynk_api_client/models/vip.py:
+    id: 2f2eb5af586e
+    last_write_checksum: sha1:9b7c0e4da908188e4c40bfd2e3a19dee3abe49bc
+    pristine_git_object: 44f2551857df3973276d757f4b0e7e0c83cce32e
+  src/sunsynk_api_client/models/writeinvertersettingsop.py:
+    id: 8deb9213fd78
+    last_write_checksum: sha1:f61dfb0877519f579d1a7cfb2c6e10bb8f35feea
+    pristine_git_object: ed05765b98fb5b7cbab9b4be452167f824961d4d
+  src/sunsynk_api_client/notifications.py:
+    id: b394ee789f85
+    last_write_checksum: sha1:39592d65a6d5bea5c1451e8dcd2f5ce3e407d342
+    pristine_git_object: c1e21571eada50cda874cdfbead6a7007b5791de
+  src/sunsynk_api_client/plants.py:
+    id: 46a102955992
+    last_write_checksum: sha1:2df7341080d6d45ca5178c15ed1090286d032a57
+    pristine_git_object: 8132d44560572c2d71c1ff5af26b15468397288e
+  src/sunsynk_api_client/py.typed:
+    id: 57af27e7e77c
+    last_write_checksum: sha1:8efc425ffe830805ffcc0f3055871bdcdc542c60
+    pristine_git_object: 3e38f1a929f7d6b1d6de74604aa87e3d8f010544
+  src/sunsynk_api_client/sdk.py:
+    id: ad6433d553ae
+    last_write_checksum: sha1:189b74c1e969bb0f33bb84ef48d1222af03c1257
+    pristine_git_object: 564ca7312dbcf884c4507607f8da9bfbf7c815e0
+  src/sunsynk_api_client/sdkconfiguration.py:
+    id: 7c1e09b01728
+    last_write_checksum: sha1:57c05f42cd942494f500bf2e9c60876918353ec8
+    pristine_git_object: 363cab62da72d8a402fac06a878f9f12886085c6
+  src/sunsynk_api_client/settings.py:
+    id: 049d751d159c
+    last_write_checksum: sha1:87377afcbc09d69e7dd40e8a88e21bf82de56a5b
+    pristine_git_object: 6dc221788b9e6ca4888e2633f6beeadf6b488e72
+  src/sunsynk_api_client/types/__init__.py:
+    id: 9366151b80c1
+    last_write_checksum: sha1:140ebdd01a46f92ffc710c52c958c4eba3cf68ed
+    pristine_git_object: fc76fe0c5505e29859b5d2bb707d48fd27661b8c
+  src/sunsynk_api_client/types/basemodel.py:
+    id: aa8ebf6998b0
+    last_write_checksum: sha1:10d84aedeb9d35edfdadf2c3020caa1d24d8b584
+    pristine_git_object: a9a640a1a7048736383f96c67c6290c86bf536ee
+  src/sunsynk_api_client/utils/__init__.py:
+    id: 235bf57e99aa
+    last_write_checksum: sha1:0f93d821f9cb3e061ea125d881bb6f61166738dd
+    pristine_git_object: aded7597c2bbc4e3fa7f555755d894671ac57741
+  src/sunsynk_api_client/utils/annotations.py:
+    id: 82b3cf13fe21
+    last_write_checksum: sha1:a4824ad65f730303e4e1e3ec1febf87b4eb46dbc
+    pristine_git_object: 12e0aa4f1151bb52474cc02e88397329b90703f6
+  src/sunsynk_api_client/utils/datetimes.py:
+    id: 55db73101a30
+    last_write_checksum: sha1:c721e4123000e7dc61ec52b28a739439d9e17341
+    pristine_git_object: a6c52cd61bbe2d459046c940ce5e8c469f2f0664
+  src/sunsynk_api_client/utils/dynamic_imports.py:
+    id: d76b3c498065
+    last_write_checksum: sha1:a1940c63feb8eddfd8026de53384baf5056d5dcc
+    pristine_git_object: 673edf82a97d0fea7295625d3e092ea369a36b79
+  src/sunsynk_api_client/utils/enums.py:
+    id: 5b6f9c9362db
+    last_write_checksum: sha1:bc8c3c1285ae09ba8a094ee5c3d9c7f41fa1284d
+    pristine_git_object: 3324e1bc2668c54c4d5f5a1a845675319757a828
+  src/sunsynk_api_client/utils/eventstreaming.py:
+    id: f1fa3b928db6
+    last_write_checksum: sha1:ffa870a25a7e4e2015bfd7a467ccd3aa1de97f0e
+    pristine_git_object: f2052fc22d9fd6c663ba3dce019fe234ca37108b
+  src/sunsynk_api_client/utils/forms.py:
+    id: "74923551e015"
+    last_write_checksum: sha1:0ca31459b99f761fcc6d0557a0a38daac4ad50f4
+    pristine_git_object: 1e550bd5c2c35d977ddc10f49d77c23cb12c158d
+  src/sunsynk_api_client/utils/headers.py:
+    id: 13dd48db0162
+    last_write_checksum: sha1:7c6df233ee006332b566a8afa9ce9a245941d935
+    pristine_git_object: 37864cbbbc40d1a47112bbfdd3ba79568fc8818a
+  src/sunsynk_api_client/utils/logger.py:
+    id: 18f35da44f22
+    last_write_checksum: sha1:6c12ea892e47886b2fefabeeb92f3352ae98bbe5
+    pristine_git_object: dfe646216640db1233dae6b08f7fdb712ffb1631
+  src/sunsynk_api_client/utils/metadata.py:
+    id: e4d388b8ba49
+    last_write_checksum: sha1:c6a560bd0c63ab158582f34dadb69433ea73b3d4
+    pristine_git_object: 173b3e5ce658675c2f504222a56b3daaaa68107d
+  src/sunsynk_api_client/utils/queryparams.py:
+    id: bd2c54831ecd
+    last_write_checksum: sha1:b94c3f314fd3da0d1d215afc2731f48748e2aa59
+    pristine_git_object: c04e0db82b68eca041f2cb2614d748fbac80fd41
+  src/sunsynk_api_client/utils/requestbodies.py:
+    id: aa26120fa2c3
+    last_write_checksum: sha1:41e2d2d2d3ecc394c8122ca4d4b85e1c3e03f054
+    pristine_git_object: 1de32b6d26f46590232f398fdba6ce0072f1659c
+  src/sunsynk_api_client/utils/retries.py:
+    id: f6a317f0cffa
+    last_write_checksum: sha1:471372f5c5d1dd5583239c9cf3c75f1b636e5d87
+    pristine_git_object: af07d4e941007af4213c5ec9047ef8a2fca04e5e
+  src/sunsynk_api_client/utils/security.py:
+    id: a43877f34e3a
+    last_write_checksum: sha1:38795877ab4db3db245f725f6fd49a7c18dcfc88
+    pristine_git_object: 92b7f181ad5c8f3cc320483e3706f7b63c2f7182
+  src/sunsynk_api_client/utils/serializers.py:
+    id: 35e7edbda0a7
+    last_write_checksum: sha1:ce1d8d7f500a9ccba0aeca5057cee9c271f4dfd7
+    pristine_git_object: 14321eb479de81d0d9580ec8291e0ff91bf29e57
+  src/sunsynk_api_client/utils/unmarshal_json_response.py:
+    id: 87db9d1ed9a6
+    last_write_checksum: sha1:fac2667b45de0cfd8abacdb0618f03ee43b9033d
+    pristine_git_object: 11ba8703d4fc5db33a1119bf49f2ccd8a7d638ed
+  src/sunsynk_api_client/utils/url.py:
+    id: 6df5dde75d7d
+    last_write_checksum: sha1:6479961baa90432ca25626f8e40a7bbc32e73b41
+    pristine_git_object: c78ccbae426ce6d385709d97ce0b1c2813ea2418
+  src/sunsynk_api_client/utils/values.py:
+    id: bd8a58f2dc8a
+    last_write_checksum: sha1:acaa178a7c41ddd000f58cc691e4632d925b2553
+    pristine_git_object: dae01a44384ac3bc13ae07453a053bf6c898ebe3
+examples:
+  post_/oauth/token:
+    speakeasy-default-post-/oauth/token:
+      requestBody:
+        application/json: {"username": "Florencio.Stiedemann", "password": "yES5j6h4HZfL6Pn", "grant_type": "password", "client_id": "csp-web"}
+      responses:
+        "200":
+          application/json: {}
+        "401":
+          application/json: {}
+  getBearerToken:
+    speakeasy-default-get-bearer-token:
+      requestBody:
+        application/json: {"areaCode": "sunsynk", "client_id": "csp-web", "grant_type": "password", "password": "sauNiCGaWRkCfz7", "source": "sunsynk", "username": "Assunta57"}
+      responses:
+        "200":
+          application/json: {}
+  getPublicKey:
+    speakeasy-default-get-public-key:
+      parameters:
+        query:
+          nonce: 736433
+          source: "sunsynk"
+          sign: "<value>"
+      responses:
+        "200":
+          application/json: {}
+  getPlants:
+    speakeasy-default-get-plants:
+      parameters:
+        query:
+          page: 1
+          limit: 100
+      responses:
+        "200":
+          application/json: {}
+  getPlantFlow:
+    speakeasy-default-get-plant-flow:
+      parameters:
+        path:
+          plantId: "<id>"
+      responses:
+        "200":
+          application/json: {}
+  get_/api/v1/inverters:
+    speakeasy-default-get-/api/v1-/inverters:
+      parameters:
+        query:
+          page: 1
+          limit: 10
+          total: 0
+          status: -1
+          sn: ""
+          plantId: ""
+          type: -2
+          softVer: ""
+          hmiVer: ""
+          agentCompanyId: -1
+          gsn: ""
+      responses:
+        "200":
+          application/json: {}
+  getPlantInverters:
+    speakeasy-default-get-plant-inverters:
+      parameters:
+        path:
+          plantId: "<id>"
+        query:
+          page: 1
+          status: "-1"
+          type: "-2"
+      responses:
+        "200":
+          application/json: {}
+  getInverterInput:
+    speakeasy-default-get-inverter-input:
+      parameters:
+        path:
+          sn: "<value>"
+      responses:
+        "200":
+          application/json: {}
+  getInverterOutput:
+    speakeasy-default-get-inverter-output:
+      parameters:
+        path:
+          sn: "<value>"
+      responses:
+        "200":
+          application/json: {}
+  getBatteryRealtime:
+    speakeasy-default-get-battery-realtime:
+      parameters:
+        path:
+          sn: "<value>"
+      responses:
+        "200":
+          application/json: {}
+  getGridRealtime:
+    speakeasy-default-get-grid-realtime:
+      parameters:
+        path:
+          sn: "<value>"
+      responses:
+        "200":
+          application/json: {}
+  getLoadRealtime:
+    speakeasy-default-get-load-realtime:
+      parameters:
+        path:
+          sn: "<value>"
+      responses:
+        "200":
+          application/json: {}
+  getGenRealtime:
+    speakeasy-default-get-gen-realtime:
+      parameters:
+        path:
+          sn: "<value>"
+      responses:
+        "200":
+          application/json: {}
+  getInverterDailyOutput:
+    speakeasy-default-get-inverter-daily-output:
+      parameters:
+        path:
+          sn: "<value>"
+        query:
+          lan: "en"
+      responses:
+        "200":
+          application/json: {}
+  readInverterSettings:
+    speakeasy-default-read-inverter-settings:
+      parameters:
+        path:
+          sn: "<value>"
+      responses:
+        "200":
+          application/json: {}
+  writeInverterSettings:
+    speakeasy-default-write-inverter-settings:
+      parameters:
+        path:
+          sn: "<value>"
+      requestBody:
+        application/json: {}
+      responses:
+        "200":
+          application/json: {}
+  getGateways:
+    speakeasy-default-get-gateways:
+      parameters:
+        query:
+          page: 1
+          limit: 10
+          status: "-1"
+          uploadCycle: "-1"
+          protocol: "-1"
+          agentCompanyId: "-1"
+          lan: "en"
+      responses:
+        "200":
+          application/json: {}
+  getEvents:
+    speakeasy-default-get-events:
+      parameters:
+        query:
+          type: 108693
+          page: 1
+          limit: 50
+          lan: "en"
+      responses:
+        "200":
+          application/json: {}
+  getMessages:
+    speakeasy-default-get-messages:
+      parameters:
+        query:
+          pageSize: 10
+          pageNumber: 1
+          status: -1
+          lan: "en"
+      responses:
+        "200":
+          application/json: {}
+examplesVersion: 1.0.2

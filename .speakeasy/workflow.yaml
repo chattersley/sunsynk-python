@@ -1,0 +1,19 @@
+workflowVersion: 1.0.0
+speakeasyVersion: latest
+sources:
+    SunSynk Power View API:
+        inputs:
+            - location: ../../../sunsynk-api-merged.json
+        output: .speakeasy/out.openapi.yaml
+        registry:
+            location: registry.speakeasyapi.dev/finchdean/home-assistant/sun-synk-power-view-api
+targets:
+    sun-synk:
+        target: python
+        source: SunSynk Power View API
+        codeSamples:
+            registry:
+                location: registry.speakeasyapi.dev/finchdean/home-assistant/sun-synk-power-view-api-python-code-samples
+            labelOverride:
+                fixedValue: Python (SDK)
+            blocking: false

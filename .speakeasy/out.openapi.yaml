@@ -1,0 +1,1285 @@
+openapi: "3.0.3"
+info:
+  title: "SunSynk Power View API"
+  description: "API specification for SunSynk Power View (Inverter monitoring system). Combined from Node-RED flows and Python client library."
+  version: "1.1.0"
+  contact:
+    name: "SunSynk Community"
+    url: "https://powerforum.co.za/topic/16806-sunsynk-logger-integration-into-home-assistant/"
+  license:
+    name: "MIT"
+servers:
+  - url: "https://pv.inteless.com"
+    description: "Region 1 - Production server"
+  - url: "https://api.sunsynk.net"
+    description: "Region 2 - Alternative server"
+  - url: "{base_url}"
+    description: "Custom server"
+    variables:
+      base_url:
+        default: "https://pv.inteless.com"
+        description: "Base URL for the Sunsynk API"
+paths:
+  /oauth/token:
+    post:
+      summary: "Authenticate user and obtain access token"
+      description: "OAuth2 token endpoint for user authentication. For new authentication flow, use /oauth/token/new with RSA encrypted password."
+      tags:
+        - "Authentication"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/TokenRequest"
+      responses:
+        "200":
+          description: "Authentication successful"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TokenResponse"
+        "401":
+          description: "Invalid credentials"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+  /oauth/token/new:
+    post:
+      summary: "Authenticate and get bearer token (new flow)"
+      description: "Authenticates user with credentials and returns a bearer token. Requires RSA encryption of password with public key from /anonymous/publicKey."
+      operationId: "getBearerToken"
+      tags:
+        - "Authentication"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: "object"
+              required:
+                - "username"
+                - "password"
+                - "grant_type"
+                - "client_id"
+              properties:
+                areaCode:
+                  type: "string"
+                  default: "sunsynk"
+                client_id:
+                  type: "string"
+                  default: "csp-web"
+                grant_type:
+                  type: "string"
+                  default: "password"
+                password:
+                  type: "string"
+                  description: "RSA encrypted password (Base64 encoded)"
+                source:
+                  type: "string"
+                  default: "sunsynk"
+                username:
+                  type: "string"
+                  description: "User's username"
+                nonce:
+                  type: "integer"
+                  description: "Unix timestamp for request"
+                sign:
+                  type: "string"
+                  description: "MD5 hash of nonce + source + public key snippet"
+      security: []
+      responses:
+        "200":
+          description: "Successful authentication"
+          content:
+            application/json:
+              schema:
+                type: "object"
+                properties:
+                  msg:
+                    type: "string"
+                  code:
+                    type: "integer"
+                  data:
+                    type: "object"
+                    properties:
+                      access_token:
+                        type: "string"
+                      expires_in:
+                        type: "integer"
+                      token_type:
+                        type: "string"
+  /anonymous/publicKey:
+    get:
+      summary: "Get public key for password encryption"
+      description: "Retrieves the RSA public key used to encrypt the password before login"
+      operationId: "getPublicKey"
+      tags:
+        - "Authentication"
+      parameters:
+        - name: "nonce"
+          in: "query"
+          required: true
+          schema:
+            type: "integer"
+            description: "Unix timestamp"
+        - name: "source"
+          in: "query"
+          required: true
+          schema:
+            type: "string"
+            default: "sunsynk"
+        - name: "sign"
+          in: "query"
+          required: true
+          schema:
+            type: "string"
+            description: "MD5 hash of nonce + source + source value"
+      responses:
+        "200":
+          description: "Public key retrieved"
+          content:
+            application/json:
+              schema:
+                type: "object"
+                properties:
+                  data:
+                    type: "string"
+                    description: "Base64 encoded RSA public key"
+  /api/v1/plants:
+    get:
+      summary: "Get list of plants"
+      description: "Retrieves a list of all plants associated with the account"
+      operationId: "getPlants"
+      tags:
+        - "Plants"
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: "page"
+          in: "query"
+          schema:
+            type: "integer"
+            default: 1
+        - name: "limit"
+          in: "query"
+          schema:
+            type: "integer"
+            default: 100
+        - name: "name"
+          in: "query"
+          schema:
+            type: "string"
+        - name: "status"
+          in: "query"
+          schema:
+            type: "string"
+      responses:
+        "200":
+          description: "List of plants"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PlantsResponse"
+  /api/v1/inverters:
+    get:
+      summary: "Get list of inverters"
+      description: "Retrieve all inverters associated with the user account"
+      tags:
+        - "Inverters"
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: "page"
+          in: "query"
+          schema:
+            type: "integer"
+            default: 1
+        - name: "limit"
+          in: "query"
+          schema:
+            type: "integer"
+            default: 10
+        - name: "total"
+          in: "query"
+          schema:
+            type: "integer"
+            default: 0
+        - name: "status"
+          in: "query"
+          schema:
+            type: "integer"
+            default: -1
+        - name: "sn"
+          in: "query"
+          schema:
+            type: "string"
+            default: ""
+        - name: "plantId"
+          in: "query"
+          schema:
+            type: "string"
+            default: ""
+        - name: "type"
+          in: "query"
+          schema:
+            type: "integer"
+            default: -2
+        - name: "softVer"
+          in: "query"
+          schema:
+            type: "string"
+            default: ""
+        - name: "hmiVer"
+          in: "query"
+          schema:
+            type: "string"
+            default: ""
+        - name: "agentCompanyId"
+          in: "query"
+          schema:
+            type: "integer"
+            default: -1
+        - name: "gsn"
+          in: "query"
+          schema:
+            type: "string"
+            default: ""
+      responses:
+        "200":
+          description: "Successful response"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/InvertersResponse"
+        "401":
+          description: "Unauthorized"
+  /api/v1/plant/energy/{plantId}/flow:
+    get:
+      summary: "Get plant energy flow data"
+      description: "Retrieves real-time energy flow data for a specific plant"
+      operationId: "getPlantFlow"
+      tags:
+        - "Plants"
+      parameters:
+        - name: "plantId"
+          in: "path"
+          required: true
+          schema:
+            type: "string"
+      security:
+        - bearerAuth: []
+      responses:
+        "200":
+          description: "Plant flow data"
+          content:
+            application/json:
+              schema:
+                type: "object"
+  /api/v1/plant/{plantId}/inverters:
+    get:
+      summary: "Get inverters for a plant"
+      description: "Retrieves list of inverters associated with a specific plant"
+      operationId: "getPlantInverters"
+      tags:
+        - "Inverters"
+      parameters:
+        - name: "plantId"
+          in: "path"
+          required: true
+          schema:
+            type: "string"
+        - name: "page"
+          in: "query"
+          schema:
+            type: "integer"
+            default: 1
+        - name: "limit"
+          in: "query"
+          schema:
+            type: "integer"
+        - name: "status"
+          in: "query"
+          schema:
+            type: "string"
+            default: "-1"
+        - name: "type"
+          in: "query"
+          schema:
+            type: "string"
+            default: "-2"
+      security:
+        - bearerAuth: []
+      responses:
+        "200":
+          description: "List of inverters"
+          content:
+            application/json:
+              schema:
+                type: "object"
+  /api/v1/inverter/{sn}/realtime/input:
+    get:
+      summary: "Get inverter input data"
+      description: "Retrieves real-time input data (PV) for a specific inverter"
+      operationId: "getInverterInput"
+      tags:
+        - "Inverter Data"
+      parameters:
+        - name: "sn"
+          in: "path"
+          required: true
+          schema:
+            type: "string"
+            description: "Inverter serial number"
+      security:
+        - bearerAuth: []
+      responses:
+        "200":
+          description: "Inverter input data"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/InputResponse"
+        "401":
+          description: "Unauthorized"
+  /api/v1/inverter/{sn}/realtime/output:
+    get:
+      summary: "Get inverter output data"
+      description: "Retrieves real-time output data for a specific inverter"
+      operationId: "getInverterOutput"
+      tags:
+        - "Inverter Data"
+      parameters:
+        - name: "sn"
+          in: "path"
+          required: true
+          schema:
+            type: "string"
+            description: "Inverter serial number"
+      security:
+        - bearerAuth: []
+      responses:
+        "200":
+          description: "Inverter output data"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OutputResponse"
+        "401":
+          description: "Unauthorized"
+  /api/v1/inverter/battery/{sn}/realtime:
+    get:
+      summary: "Get battery realtime data"
+      description: "Retrieves real-time battery information for a specific inverter"
+      operationId: "getBatteryRealtime"
+      tags:
+        - "Inverter Data"
+      parameters:
+        - name: "sn"
+          in: "path"
+          required: true
+          schema:
+            type: "string"
+            description: "Inverter serial number"
+        - name: "lan"
+          in: "query"
+          schema:
+            type: "string"
+      security:
+        - bearerAuth: []
+      responses:
+        "200":
+          description: "Battery realtime data"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BatteryResponse"
+        "401":
+          description: "Unauthorized"
+  /api/v1/inverter/grid/{sn}/realtime:
+    get:
+      summary: "Get grid realtime data"
+      description: "Retrieves real-time grid information for a specific inverter"
+      operationId: "getGridRealtime"
+      tags:
+        - "Inverter Data"
+      parameters:
+        - name: "sn"
+          in: "path"
+          required: true
+          schema:
+            type: "string"
+            description: "Inverter serial number"
+      security:
+        - bearerAuth: []
+      responses:
+        "200":
+          description: "Grid realtime data"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GridResponse"
+        "401":
+          description: "Unauthorized"
+  /api/v1/inverter/load/{sn}/realtime:
+    get:
+      summary: "Get load realtime data"
+      description: "Retrieves real-time load information for a specific inverter"
+      operationId: "getLoadRealtime"
+      tags:
+        - "Inverter Data"
+      parameters:
+        - name: "sn"
+          in: "path"
+          required: true
+          schema:
+            type: "string"
+            description: "Inverter serial number"
+      security:
+        - bearerAuth: []
+      responses:
+        "200":
+          description: "Load realtime data"
+          content:
+            application/json:
+              schema:
+                type: "object"
+  /api/v1/inverter/gen/{sn}/realtime:
+    get:
+      summary: "Get generation realtime data"
+      description: "Retrieves real-time solar generation information for a specific inverter"
+      operationId: "getGenRealtime"
+      tags:
+        - "Inverter Data"
+      parameters:
+        - name: "sn"
+          in: "path"
+          required: true
+          schema:
+            type: "string"
+            description: "Inverter serial number"
+      security:
+        - bearerAuth: []
+      responses:
+        "200":
+          description: "Generation realtime data"
+          content:
+            application/json:
+              schema:
+                type: "object"
+  /api/v1/inverter/{sn}/output/day:
+    get:
+      summary: "Get inverter daily output"
+      description: "Retrieves daily output statistics for a specific inverter"
+      operationId: "getInverterDailyOutput"
+      tags:
+        - "Inverter Data"
+      parameters:
+        - name: "sn"
+          in: "path"
+          required: true
+          schema:
+            type: "string"
+            description: "Inverter serial number"
+        - name: "lan"
+          in: "query"
+          schema:
+            type: "string"
+            default: "en"
+        - name: "date"
+          in: "query"
+          schema:
+            type: "string"
+            format: "date"
+            description: "Date in YYYY-MM-DD format"
+        - name: "column"
+          in: "query"
+          schema:
+            type: "string"
+            description: "Comma-separated column names (e.g., dc_temp,igbt_temp)"
+      security:
+        - bearerAuth: []
+      responses:
+        "200":
+          description: "Daily output data"
+          content:
+            application/json:
+              schema:
+                type: "object"
+  /api/v1/common/setting/{sn}/read:
+    get:
+      summary: "Read inverter settings"
+      description: "Retrieves the configuration settings for a specific inverter"
+      operationId: "readInverterSettings"
+      tags:
+        - "Settings"
+      parameters:
+        - name: "sn"
+          in: "path"
+          required: true
+          schema:
+            type: "string"
+            description: "Inverter serial number"
+      security:
+        - bearerAuth: []
+      responses:
+        "200":
+          description: "Inverter settings"
+          content:
+            application/json:
+              schema:
+                type: "object"
+  /api/v1/common/setting/{sn}/write:
+    post:
+      summary: "Write inverter settings"
+      description: "Updates the configuration settings for a specific inverter"
+      operationId: "writeInverterSettings"
+      tags:
+        - "Settings"
+      parameters:
+        - name: "sn"
+          in: "path"
+          required: true
+          schema:
+            type: "string"
+            description: "Inverter serial number"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: "object"
+              description: "Inverter settings object containing configuration key-value pairs"
+              example:
+                sn: "2106054422"
+                safetyType: "2"
+                battMode: "-1"
+                solarSell: "0"
+                pvMaxLimit: "8000"
+                energyMode: "1"
+                peakAndVallery: "0"
+                sysWorkMode: "1"
+                sellTime1: "00:00"
+                sellTime2: "04:00"
+                sellTime3: "09:00"
+                sellTime4: "15:00"
+                sellTime5: "22:00"
+                sellTime6: "23:00"
+                sellTime1Pac: "8000"
+                sellTime2Pac: "8000"
+                sellTime3Pac: "8000"
+                sellTime4Pac: "8000"
+                sellTime5Pac: "8000"
+                sellTime6Pac: "8000"
+                cap1: "50"
+                cap2: "40"
+                cap3: "30"
+                cap4: "90"
+                cap5: "70"
+                cap6: "60"
+                sellTime1Volt: "49"
+                sellTime2Volt: "49"
+                sellTime3Volt: "49"
+                sellTime4Volt: "49"
+                sellTime5Volt: "49"
+                sellTime6Volt: "49"
+                zeroExportPower: "20"
+                solarMaxSellPower: "9000"
+                mondayOn: true
+                tuesdayOn: true
+                wednesdayOn: true
+                thursdayOn: true
+                fridayOn: true
+                saturdayOn: true
+                sundayOn: true
+                time1on: true
+                time2on: true
+                time3on: true
+                time4on: true
+                time5on: true
+                time6on: true
+                genTime1on: true
+                genTime2on: true
+                genTime3on: true
+                genTime4on: true
+                genTime5on: true
+                genTime6on: true
+      security:
+        - bearerAuth: []
+      responses:
+        "200":
+          description: "Settings updated successfully"
+          content:
+            application/json:
+              schema:
+                type: "object"
+                properties:
+                  msg:
+                    type: "string"
+                  code:
+                    type: "integer"
+  /api/v1/gateways:
+    get:
+      summary: "Get gateways"
+      description: "Retrieves list of gateways associated with the account"
+      operationId: "getGateways"
+      tags:
+        - "Gateways"
+      parameters:
+        - name: "page"
+          in: "query"
+          schema:
+            type: "integer"
+            default: 1
+        - name: "limit"
+          in: "query"
+          schema:
+            type: "integer"
+            default: 10
+        - name: "status"
+          in: "query"
+          schema:
+            type: "string"
+            default: "-1"
+        - name: "sn"
+          in: "query"
+          schema:
+            type: "string"
+        - name: "plantId"
+          in: "query"
+          schema:
+            type: "string"
+        - name: "uploadCycle"
+          in: "query"
+          schema:
+            type: "string"
+            default: "-1"
+        - name: "softVer"
+          in: "query"
+          schema:
+            type: "string"
+        - name: "hardVer"
+          in: "query"
+          schema:
+            type: "string"
+        - name: "invSn"
+          in: "query"
+          schema:
+            type: "string"
+        - name: "protocol"
+          in: "query"
+          schema:
+            type: "string"
+            default: "-1"
+        - name: "agentCompanyId"
+          in: "query"
+          schema:
+            type: "string"
+            default: "-1"
+        - name: "lan"
+          in: "query"
+          schema:
+            type: "string"
+            default: "en"
+      security:
+        - bearerAuth: []
+      responses:
+        "200":
+          description: "List of gateways"
+          content:
+            application/json:
+              schema:
+                type: "object"
+  /api/v1/events:
+    get:
+      summary: "Get events"
+      description: "Retrieves system events (warnings, alarms, etc.)"
+      operationId: "getEvents"
+      tags:
+        - "Events"
+      parameters:
+        - name: "type"
+          in: "query"
+          required: true
+          schema:
+            type: "integer"
+            description: "Event type (1=Info, 2=Warning, 3=Alarm)"
+        - name: "page"
+          in: "query"
+          schema:
+            type: "integer"
+            default: 1
+        - name: "limit"
+          in: "query"
+          schema:
+            type: "integer"
+            default: 50
+        - name: "lan"
+          in: "query"
+          schema:
+            type: "string"
+            default: "en"
+        - name: "sdate"
+          in: "query"
+          schema:
+            type: "string"
+            format: "date"
+            description: "Start date (YYYY-MM-DD)"
+        - name: "edate"
+          in: "query"
+          schema:
+            type: "string"
+            format: "date"
+            description: "End date (YYYY-MM-DD)"
+      security:
+        - bearerAuth: []
+      responses:
+        "200":
+          description: "List of events"
+          content:
+            application/json:
+              schema:
+                type: "object"
+  /api/v1/messages:
+    get:
+      summary: "Get notifications/messages"
+      description: "Retrieves system notifications and messages"
+      operationId: "getMessages"
+      tags:
+        - "Notifications"
+      parameters:
+        - name: "pageSize"
+          in: "query"
+          schema:
+            type: "integer"
+            default: 10
+        - name: "pageNumber"
+          in: "query"
+          schema:
+            type: "integer"
+            default: 1
+        - name: "status"
+          in: "query"
+          schema:
+            type: "integer"
+            default: -1
+        - name: "lan"
+          in: "query"
+          schema:
+            type: "string"
+            default: "en"
+      security:
+        - bearerAuth: []
+      responses:
+        "200":
+          description: "List of messages"
+          content:
+            application/json:
+              schema:
+                type: "object"
+components:
+  securitySchemes:
+    bearerAuth:
+      type: "http"
+      scheme: "bearer"
+      bearerFormat: "JWT"
+      description: "Bearer token obtained from /oauth/token or /oauth/token/new endpoint"
+  schemas:
+    TokenRequest:
+      type: "object"
+      required:
+        - "username"
+        - "password"
+        - "grant_type"
+        - "client_id"
+      properties:
+        username:
+          type: "string"
+          description: "User's username"
+        password:
+          type: "string"
+          description: "User's password"
+          format: "password"
+        grant_type:
+          type: "string"
+          enum:
+            - "password"
+        client_id:
+          type: "string"
+          enum:
+            - "csp-web"
+    TokenResponse:
+      type: "object"
+      properties:
+        success:
+          type: "boolean"
+        data:
+          type: "object"
+          properties:
+            access_token:
+              type: "string"
+            refresh_token:
+              type: "string"
+            expires_in:
+              type: "integer"
+            token_type:
+              type: "string"
+    Plant:
+      type: "object"
+      properties:
+        id:
+          type: "integer"
+          description: "Plant ID"
+        name:
+          type: "string"
+          description: "Plant name"
+        thumbUrl:
+          type: "string"
+          description: "Thumbnail URL"
+        status:
+          type: "number"
+          description: "Plant status"
+        address:
+          type: "string"
+          description: "Plant address"
+        pac:
+          type: "number"
+          description: "Current power"
+        efficiency:
+          type: "number"
+          description: "Efficiency percentage"
+        etoday:
+          type: "number"
+          description: "Energy generated today (kWh)"
+        etotal:
+          type: "number"
+          description: "Total energy generated (kWh)"
+        updateAt:
+          type: "string"
+          format: "date-time"
+          description: "Last update timestamp"
+        createAt:
+          type: "string"
+          format: "date-time"
+          description: "Creation timestamp"
+        type:
+          type: "number"
+          description: "Plant type"
+        masterId:
+          type: "integer"
+          description: "Master ID"
+        share:
+          type: "boolean"
+          description: "Share settings"
+        plantPermission:
+          type: "array"
+          items:
+            type: "string"
+        existCamera:
+          type: "boolean"
+          description: "Whether camera exists"
+    PlantsResponse:
+      type: "object"
+      properties:
+        success:
+          type: "boolean"
+        data:
+          type: "object"
+          properties:
+            total:
+              type: "integer"
+            infos:
+              type: "array"
+              items:
+                $ref: "#/components/schemas/Plant"
+    InverterVersion:
+      type: "object"
+      properties:
+        masterVer:
+          type: "string"
+        softVer:
+          type: "string"
+        hardVer:
+          type: "string"
+        hmiVer:
+          type: "string"
+        bmsVer:
+          type: "string"
+    PlantSummary:
+      type: "object"
+      properties:
+        id:
+          type: "integer"
+        name:
+          type: "string"
+        type:
+          type: "string"
+        master:
+          type: "string"
+        installer:
+          type: "string"
+        email:
+          type: "string"
+        phone:
+          type: "string"
+    GatewayInfo:
+      type: "object"
+      properties:
+        gsn:
+          type: "string"
+        status:
+          type: "string"
+    Inverter:
+      type: "object"
+      properties:
+        sn:
+          type: "string"
+          description: "Serial number"
+        alias:
+          type: "string"
+          description: "Inverter alias"
+        gsn:
+          type: "string"
+          description: "Gateway serial number"
+        status:
+          type: "string"
+          description: "Inverter status"
+        type:
+          type: "string"
+          description: "Inverter type"
+        commTypeName:
+          type: "string"
+          description: "Communication type name"
+        custCode:
+          type: "string"
+          description: "Customer code"
+        version:
+          $ref: "#/components/schemas/InverterVersion"
+        model:
+          type: "string"
+          description: "Inverter model"
+        equipMode:
+          type: "integer"
+          description: "Equipment mode"
+        pac:
+          type: "number"
+          description: "Current power (AC)"
+        etoday:
+          type: "number"
+          description: "Energy generated today"
+        etotal:
+          type: "number"
+          description: "Total energy generated"
+        updateAt:
+          type: "string"
+          format: "date-time"
+          description: "Last update timestamp"
+        opened:
+          type: "boolean"
+          description: "Whether inverter is opened"
+        plant:
+          $ref: "#/components/schemas/PlantSummary"
+        gateway:
+          $ref: "#/components/schemas/GatewayInfo"
+        sunsynkEquip:
+          type: "string"
+        protocolIdentifier:
+          type: "string"
+    InvertersResponse:
+      type: "object"
+      properties:
+        success:
+          type: "boolean"
+        data:
+          type: "object"
+          properties:
+            total:
+              type: "integer"
+            infos:
+              type: "array"
+              items:
+                $ref: "#/components/schemas/Inverter"
+    Vip:
+      type: "object"
+      properties:
+        voltage:
+          type: "number"
+          format: "float"
+          description: "Voltage (V)"
+        current:
+          type: "number"
+          format: "float"
+          description: "Current (A)"
+        power:
+          type: "number"
+          format: "float"
+          description: "Power (kW)"
+    PvIv:
+      type: "object"
+      properties:
+        id:
+          type: "integer"
+        pvNo:
+          type: "integer"
+          description: "PV string number"
+        vpv:
+          type: "number"
+          description: "PV voltage (V)"
+        ipv:
+          type: "number"
+          description: "PV current (A)"
+        ppv:
+          type: "number"
+          description: "PV power (kW)"
+        todayPv:
+          type: "number"
+          description: "Today's PV energy (kWh)"
+        sn:
+          type: "string"
+          description: "Serial number"
+        time:
+          type: "string"
+          format: "date-time"
+          description: "Record timestamp"
+    InputData:
+      type: "object"
+      properties:
+        etoday:
+          type: "number"
+          description: "Energy generated today (kWh)"
+        etotal:
+          type: "number"
+          description: "Total energy generated (kWh)"
+        pac:
+          type: "number"
+          description: "Current power (kW)"
+        pvIV:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/PvIv"
+    InputResponse:
+      type: "object"
+      properties:
+        success:
+          type: "boolean"
+        data:
+          $ref: "#/components/schemas/InputData"
+    OutputData:
+      type: "object"
+      properties:
+        vip:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/Vip"
+        pInv:
+          type: "number"
+          description: "Inverter power (kW)"
+        pac:
+          type: "number"
+          description: "Output power (kW)"
+        fac:
+          type: "number"
+          description: "Frequency (Hz)"
+    OutputResponse:
+      type: "object"
+      properties:
+        success:
+          type: "boolean"
+        data:
+          $ref: "#/components/schemas/OutputData"
+    GridData:
+      type: "object"
+      properties:
+        vip:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/Vip"
+        pac:
+          type: "number"
+          description: "Grid power (kW)"
+        qac:
+          type: "number"
+          description: "Reactive power (kVar)"
+        fac:
+          type: "number"
+          description: "Grid frequency (Hz)"
+        pf:
+          type: "number"
+          description: "Power factor"
+        status:
+          type: "string"
+          description: "Grid status"
+        etodayFrom:
+          type: "number"
+          description: "Energy imported today (kWh)"
+        etodayTo:
+          type: "number"
+          description: "Energy exported today (kWh)"
+        etotalFrom:
+          type: "number"
+          description: "Total energy imported (kWh)"
+        etotalTo:
+          type: "number"
+          description: "Total energy exported (kWh)"
+        limiterPowerArr:
+          type: "array"
+          items:
+            type: "number"
+        limiterTotalPower:
+          type: "number"
+          description: "Total limiter power (kW)"
+    GridResponse:
+      type: "object"
+      properties:
+        success:
+          type: "boolean"
+        data:
+          $ref: "#/components/schemas/GridData"
+    BatteryData:
+      type: "object"
+      properties:
+        etodayChg:
+          type: "number"
+          description: "Battery charge energy today (kWh)"
+        etodayDischg:
+          type: "number"
+          description: "Battery discharge energy today (kWh)"
+        emonthChg:
+          type: "number"
+          description: "Battery charge energy this month (kWh)"
+        emonthDischg:
+          type: "number"
+          description: "Battery discharge energy this month (kWh)"
+        eyearChg:
+          type: "number"
+          description: "Battery charge energy this year (kWh)"
+        eyearDischg:
+          type: "number"
+          description: "Battery discharge energy this year (kWh)"
+        etotalChg:
+          type: "number"
+          description: "Total battery charge energy (kWh)"
+        etotalDischg:
+          type: "number"
+          description: "Total battery discharge energy (kWh)"
+        type:
+          type: "string"
+          description: "Battery type"
+        power:
+          type: "number"
+          description: "Battery power (kW)"
+        capacity:
+          type: "number"
+          description: "Battery capacity (kWh)"
+        correctCap:
+          type: "number"
+          description: "Corrected capacity (kWh)"
+        current:
+          type: "number"
+          description: "Battery current (A)"
+        voltage:
+          type: "number"
+          description: "Battery voltage (V)"
+        temp:
+          type: "number"
+          description: "Battery temperature (°C)"
+        soc:
+          type: "number"
+          description: "State of charge (%)"
+        chargeVolt:
+          type: "number"
+          description: "Charge voltage (V)"
+        dischargeVolt:
+          type: "number"
+          description: "Discharge voltage (V)"
+        chargeCurrentLimit:
+          type: "number"
+          description: "Charge current limit (A)"
+        dischargeCurrentLimit:
+          type: "number"
+          description: "Discharge current limit (A)"
+        maxChargeCurrentLimit:
+          type: "number"
+          description: "Maximum charge current limit (A)"
+        maxDischargeCurrentLimit:
+          type: "number"
+          description: "Maximum discharge current limit (A)"
+        status:
+          type: "string"
+          description: "Battery status"
+        batterySoc1:
+          type: "number"
+          description: "Battery 1 state of charge (%)"
+        batteryCurrent1:
+          type: "number"
+          description: "Battery 1 current (A)"
+        batteryVolt1:
+          type: "number"
+          description: "Battery 1 voltage (V)"
+        batteryPower1:
+          type: "number"
+          description: "Battery 1 power (kW)"
+        batteryTemp1:
+          type: "number"
+          description: "Battery 1 temperature (°C)"
+        batteryStatus2:
+          type: "string"
+          description: "Battery 2 status"
+        batterySoc2:
+          type: "number"
+          description: "Battery 2 state of charge (%)"
+        batteryCurrent2:
+          type: "number"
+          description: "Battery 2 current (A)"
+        batteryVolt2:
+          type: "number"
+          description: "Battery 2 voltage (V)"
+        batteryPower2:
+          type: "number"
+          description: "Battery 2 power (kW)"
+        batteryTemp2:
+          type: "number"
+          description: "Battery 2 temperature (°C)"
+        numberOfBatteries:
+          type: "integer"
+          description: "Number of batteries"
+        batt1Factory:
+          type: "string"
+          description: "Battery 1 factory"
+        batt2Factory:
+          type: "string"
+          description: "Battery 2 factory"
+    BatteryResponse:
+      type: "object"
+      properties:
+        success:
+          type: "boolean"
+        data:
+          $ref: "#/components/schemas/BatteryData"
+    Error:
+      type: "object"
+      properties:
+        success:
+          type: "boolean"
+        code:
+          type: "integer"
+        msg:
+          type: "string"
+tags:
+  - name: "Authentication"
+    description: "Endpoints for authentication and obtaining access tokens"
+  - name: "Plants"
+    description: "Endpoints for retrieving plant and energy flow data"
+  - name: "Inverters"
+    description: "Endpoints for inverter management"
+  - name: "Inverter Data"
+    description: "Real-time inverter data endpoints (battery, grid, load, generation)"
+  - name: "Settings"
+    description: "Endpoints for reading and writing inverter settings"
+  - name: "Gateways"
+    description: "Endpoints for gateway information"
+  - name: "Events"
+    description: "Endpoints for system events"
+  - name: "Notifications"
+    description: "Endpoints for system notifications"

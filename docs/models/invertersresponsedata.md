@@ -1,0 +1,9 @@
+# InvertersResponseData
+
+
+## Fields
+
+| Field                                          | Type                                           | Required                                       | Description                                    |
+| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
+| `total`                                        | *Optional[int]*                                | :heavy_minus_sign:                             | N/A                                            |
+| `infos`                                        | List[[models.Inverter](../models/inverter.md)] | :heavy_minus_sign:                             | N/A                                            |
