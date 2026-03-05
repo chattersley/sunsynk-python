@@ -276,7 +276,7 @@ paths:
           content:
             application/json:
               schema:
-                type: "object"
+                $ref: "#/components/schemas/PlantFlowResponse"
   /api/v1/plant/{plantId}/inverters:
     get:
       summary: "Get inverters for a plant"
@@ -317,7 +317,7 @@ paths:
           content:
             application/json:
               schema:
-                type: "object"
+                $ref: "#/components/schemas/PlantInvertersResponse"
   /api/v1/inverter/{sn}/realtime/input:
     get:
       summary: "Get inverter input data"
@@ -444,7 +444,7 @@ paths:
           content:
             application/json:
               schema:
-                type: "object"
+                $ref: "#/components/schemas/LoadRealtimeResponse"
   /api/v1/inverter/gen/{sn}/realtime:
     get:
       summary: "Get generation realtime data"
@@ -467,7 +467,7 @@ paths:
           content:
             application/json:
               schema:
-                type: "object"
+                $ref: "#/components/schemas/GenRealtimeResponse"
   /api/v1/inverter/{sn}/output/day:
     get:
       summary: "Get inverter daily output"
@@ -506,7 +506,7 @@ paths:
           content:
             application/json:
               schema:
-                type: "object"
+                $ref: "#/components/schemas/DailyOutputResponse"
   /api/v1/common/setting/{sn}/read:
     get:
       summary: "Read inverter settings"
@@ -529,7 +529,7 @@ paths:
           content:
             application/json:
               schema:
-                type: "object"
+                $ref: "#/components/schemas/InverterSettingsResponse"
   /api/v1/common/setting/{sn}/write:
     post:
       summary: "Write inverter settings"
@@ -690,7 +690,7 @@ paths:
           content:
             application/json:
               schema:
-                type: "object"
+                $ref: "#/components/schemas/GatewaysResponse"
   /api/v1/events:
     get:
       summary: "Get events"
@@ -740,7 +740,7 @@ paths:
           content:
             application/json:
               schema:
-                type: "object"
+                $ref: "#/components/schemas/EventsResponse"
   /api/v1/messages:
     get:
       summary: "Get notifications/messages"
@@ -777,7 +777,7 @@ paths:
           content:
             application/json:
               schema:
-                type: "object"
+                $ref: "#/components/schemas/MessagesResponse"
 components:
   securitySchemes:
     bearerAuth:
@@ -1257,6 +1257,1038 @@ components:
           type: "boolean"
         data:
           $ref: "#/components/schemas/BatteryData"
+    RealtimeVip:
+      type: "object"
+      properties:
+        volt:
+          type: "string"
+        current:
+          type: "string"
+        power:
+          type: "number"
+    PlantFlowData:
+      type: "object"
+      properties:
+        custCode:
+          type: "integer"
+        protocolIdentifier:
+          type: "string"
+        meterCode:
+          type: "integer"
+        pvPower:
+          type: "number"
+        battPower:
+          type: "number"
+        battPower2:
+          type: "number"
+        gridOrMeterPower:
+          type: "number"
+        loadOrEpsPower:
+          type: "number"
+        genPower:
+          type: "number"
+        minPower:
+          type: "number"
+        soc:
+          type: "number"
+        smartLoadPower:
+          type: "number"
+        upsLoadPower:
+          type: "number"
+        homeLoadPower:
+          type: "number"
+        chargePilePower:
+          type: "number"
+        pvTo:
+          type: "boolean"
+        toLoad:
+          type: "boolean"
+        toSmartLoad:
+          type: "boolean"
+        toUpsLoad:
+          type: "boolean"
+        toHomeLoad:
+          type: "boolean"
+        toGrid:
+          type: "boolean"
+        toBat:
+          type: "boolean"
+        batTo:
+          type: "boolean"
+        gridTo:
+          type: "boolean"
+        genTo:
+          type: "boolean"
+        minTo:
+          type: "boolean"
+        toChargePile:
+          type: "boolean"
+        existsGen:
+          type: "boolean"
+        existsMin:
+          type: "boolean"
+        existsGrid:
+          type: "boolean"
+        genOn:
+          type: "boolean"
+        microOn:
+          type: "boolean"
+        existsMeter:
+          type: "boolean"
+        bmsCommFaultFlag:
+          type: "boolean"
+        existsThreeLoad:
+          type: "boolean"
+        existsSmartLoad:
+          type: "boolean"
+        existsChargePile:
+          type: "boolean"
+        pv:
+          type: "object"
+          nullable: true
+        existThinkPower:
+          type: "boolean"
+        time:
+          type: "string"
+          format: "date-time"
+          nullable: true
+    PlantFlowResponse:
+      type: "object"
+      properties:
+        success:
+          type: "boolean"
+        code:
+          type: "integer"
+        msg:
+          type: "string"
+        data:
+          $ref: "#/components/schemas/PlantFlowData"
+    LoadRealtimeData:
+      type: "object"
+      properties:
+        totalUsed:
+          type: "number"
+        dailyUsed:
+          type: "number"
+        vip:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/RealtimeVip"
+        totalPower:
+          type: "number"
+        smartLoadStatus:
+          type: "integer"
+        loadFac:
+          type: "number"
+        upsPowerL1:
+          type: "number"
+        upsPowerL2:
+          type: "number"
+        upsPowerL3:
+          type: "number"
+        upsPowerTotal:
+          type: "number"
+    LoadRealtimeResponse:
+      type: "object"
+      properties:
+        success:
+          type: "boolean"
+        code:
+          type: "integer"
+        msg:
+          type: "string"
+        data:
+          $ref: "#/components/schemas/LoadRealtimeData"
+    GenRealtimeData:
+      type: "object"
+      properties:
+        genTotal:
+          type: "number"
+        genDaily:
+          type: "number"
+        totalPower:
+          type: "number"
+        genFac:
+          type: "number"
+        vip:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/RealtimeVip"
+    GenRealtimeResponse:
+      type: "object"
+      properties:
+        success:
+          type: "boolean"
+        code:
+          type: "integer"
+        msg:
+          type: "string"
+        data:
+          $ref: "#/components/schemas/GenRealtimeData"
+    PlantInverterInfo:
+      type: "object"
+      properties:
+        id:
+          type: "integer"
+        sn:
+          type: "string"
+        alias:
+          type: "string"
+        gsn:
+          type: "string"
+        status:
+          type: "integer"
+        type:
+          type: "integer"
+        commTypeName:
+          type: "string"
+        custCode:
+          type: "integer"
+        version:
+          $ref: "#/components/schemas/InverterVersion"
+        model:
+          type: "string"
+        pac:
+          type: "number"
+        etoday:
+          type: "number"
+        etotal:
+          type: "number"
+        updateAt:
+          type: "string"
+          format: "date-time"
+        opened:
+          type: "integer"
+        plant:
+          $ref: "#/components/schemas/PlantSummary"
+        gatewayVO:
+          $ref: "#/components/schemas/GatewayInfo"
+        sunsynkEquip:
+          type: "boolean"
+        protocolIdentifier:
+          type: "string"
+    PlantInvertersData:
+      type: "object"
+      properties:
+        pageSize:
+          type: "integer"
+        pageNumber:
+          type: "integer"
+        total:
+          type: "integer"
+        infos:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/PlantInverterInfo"
+    PlantInvertersResponse:
+      type: "object"
+      properties:
+        success:
+          type: "boolean"
+        code:
+          type: "integer"
+        msg:
+          type: "string"
+        data:
+          $ref: "#/components/schemas/PlantInvertersData"
+    DailyOutputResponse:
+      type: "object"
+      properties:
+        success:
+          type: "boolean"
+        code:
+          type: "integer"
+        msg:
+          type: "string"
+        data:
+          type: "object"
+          properties:
+            infos:
+              type: "array"
+              items:
+                type: "object"
+    GatewayExtendedInfo:
+      type: "object"
+      properties:
+        id:
+          type: "integer"
+        sn:
+          type: "string"
+        key:
+          type: "string"
+        status:
+          type: "integer"
+        commType:
+          type: "integer"
+        signal:
+          type: "integer"
+        softVer:
+          type: "string"
+        hardVer:
+          type: "string"
+        updateAt:
+          type: "string"
+          format: "date-time"
+        protocolType:
+          type: "integer"
+        model:
+          type: "string"
+        lldt:
+          type: "string"
+          format: "date-time"
+        uploadCycle:
+          type: "integer"
+        devName:
+          type: "string"
+        commTypeName:
+          type: "string"
+        proto:
+          type: "string"
+    GatewaysResponse:
+      type: "object"
+      properties:
+        success:
+          type: "boolean"
+        code:
+          type: "integer"
+        msg:
+          type: "string"
+        data:
+          type: "object"
+          properties:
+            total:
+              type: "integer"
+            infos:
+              type: "array"
+              items:
+                $ref: "#/components/schemas/GatewayExtendedInfo"
+    EventsResponse:
+      type: "object"
+      properties:
+        success:
+          type: "boolean"
+        code:
+          type: "integer"
+        msg:
+          type: "string"
+        data:
+          type: "object"
+          properties:
+            nextToken:
+              type: "string"
+              nullable: true
+            record:
+              type: "array"
+              items:
+                type: "object"
+    MessagesResponse:
+      type: "object"
+      properties:
+        success:
+          type: "boolean"
+        code:
+          type: "integer"
+        msg:
+          type: "string"
+        data:
+          type: "object"
+          properties:
+            total:
+              type: "integer"
+            infos:
+              type: "array"
+              items:
+                type: "object"
+    InverterSettings:
+      type: "object"
+      properties:
+        sellTime1:
+          type: "string"
+        genTime2on:
+          type: "string"
+        beep:
+          type: "string"
+        sellTime2:
+          type: "string"
+        wattOverExitFreqStopDelay:
+          type: "string"
+        sellTime5:
+          type: "string"
+        sellTime6:
+          type: "string"
+        sellTime3:
+          type: "string"
+        sellTime4:
+          type: "string"
+        exMeterCtSwitch:
+          type: "string"
+        sdChargeOn:
+          type: "string"
+        lockInVoltVar:
+          type: "string"
+        time2on:
+          type: "string"
+        batWarn:
+          type: "string"
+        wattVarEnable:
+          type: "string"
+        reconnMinVolt:
+          type: "string"
+        caFStart:
+          type: "string"
+        pvMaxLimit:
+          type: "string"
+        sensorsCheck:
+          type: "string"
+        underFreq2Delay:
+          type: "string"
+        varQac2:
+          type: "string"
+        varQac3:
+          type: "string"
+        varQac1:
+          type: "string"
+        wattUnderExitFreq:
+          type: "string"
+        overVolt1:
+          type: "string"
+        overVolt2:
+          type: "string"
+        varQac4:
+          type: "string"
+        genPeakPower:
+          type: "string"
+        meterB:
+          type: "string"
+        eeprom:
+          type: "string"
+        meterA:
+          type: "string"
+        comSet:
+          type: "string"
+        caVoltPressureEnable:
+          type: "string"
+        meterC:
+          type: "string"
+        wattUnderFreq1:
+          type: "string"
+        solarMaxSellPower:
+          type: "string"
+        acCoupleOnGridSideEnable:
+          type: "string"
+        thursdayOn:
+          type: "string"
+        time3On:
+          type: "string"
+        batteryRestartCap:
+          type: "string"
+        overFreq1Delay:
+          type: "string"
+        bmsErrStop:
+          type: "string"
+        checkTime:
+          type: "string"
+        acOutputPowerLimit:
+          type: "string"
+        atsSwitch:
+          type: "string"
+        pv1SelfCheck:
+          type: "string"
+        acCurrentUp:
+          type: "string"
+        rsd:
+          type: "string"
+        batteryOn:
+          type: "string"
+        genTime1on:
+          type: "string"
+        volt12:
+          type: "string"
+        volt10:
+          type: "string"
+        volt11:
+          type: "string"
+        time1on:
+          type: "string"
+        wattUnderFreq1StartDelay:
+          type: "string"
+        rcd:
+          type: "string"
+        chargeVolt:
+          type: "string"
+        wednesdayOn:
+          type: "string"
+        mpptMulti:
+          type: "string"
+        floatVolt:
+          type: "string"
+        workState:
+          type: "string"
+        loadMode:
+          type: "string"
+        sysWorkMode:
+          type: "string"
+        sn:
+          type: "string"
+        genCoolingTime:
+          type: "string"
+        genPeakShaving:
+          type: "string"
+        offGridImmediatelyOff:
+          type: "string"
+        sellTime3Volt:
+          type: "string"
+        sellTime2Pac:
+          type: "string"
+        current12:
+          type: "string"
+        time2On:
+          type: "string"
+        current10:
+          type: "string"
+        current11:
+          type: "string"
+        batteryEfficiency:
+          type: "string"
+        genAndGridSignal:
+          type: "string"
+        pv3SelfCheck:
+          type: "string"
+        wattV4:
+          type: "string"
+        acFreqLow:
+          type: "string"
+        wattV2:
+          type: "string"
+        wattV3:
+          type: "string"
+        wattV1:
+          type: "string"
+        batteryEmptyV:
+          type: "string"
+        open:
+          type: "string"
+        reconnMaxFreq:
+          type: "string"
+        standard:
+          type: "string"
+        wattVarReactive2:
+          type: "string"
+        disableFloatCharge:
+          type: "string"
+        inverterType:
+          type: "string"
+        wattVarReactive3:
+          type: "string"
+        wattVarReactive4:
+          type: "string"
+        solarPSU:
+          type: "string"
+        fridayOn:
+          type: "string"
+        wattVarReactive1:
+          type: "string"
+        time4on:
+          type: "string"
+        cap6:
+          type: "string"
+        generatorForcedStart:
+          type: "string"
+        overLongVolt:
+          type: "string"
+        cap4:
+          type: "string"
+        cap5:
+          type: "string"
+        batteryChargeType:
+          type: "string"
+        genOffVolt:
+          type: "string"
+        cap2:
+          type: "string"
+        cap3:
+          type: "string"
+        absorptionVolt:
+          type: "string"
+        genToLoad:
+          type: "string"
+        mpptNum:
+          type: "string"
+        underFreq2:
+          type: "string"
+        underFreq1:
+          type: "string"
+        wattPfEnable:
+          type: "string"
+        remoteLock:
+          type: "string"
+        generatorStartCap:
+          type: "string"
+        batteryMaxCurrentCharge:
+          type: "string"
+        overFreq1:
+          type: "string"
+        tuesdayOn:
+          type: "string"
+        genOnVolt:
+          type: "string"
+        overFreq2:
+          type: "string"
+        solar2WindInputEnable:
+          type: "string"
+        caVStop:
+          type: "string"
+        time5On:
+          type: "string"
+        battMode:
+          type: "string"
+        allowRemoteControl:
+          type: "string"
+        genOnCap:
+          type: "string"
+        gridAlwaysOn:
+          type: "string"
+        batteryLowVolt:
+          type: "string"
+        acFreqUp:
+          type: "string"
+        cap1:
+          type: "string"
+        chargeLimit:
+          type: "string"
+        generatorStartVolt:
+          type: "string"
+        overVolt1Delay:
+          type: "string"
+        sellTime1Pac:
+          type: "string"
+        californiaFreqPressureEnable:
+          type: "string"
+        activePowerControl:
+          type: "string"
+        batteryRestartVolt:
+          type: "string"
+        zeroExportPower:
+          type: "string"
+        overVolt2Delay:
+          type: "string"
+        equChargeCycle:
+          type: "string"
+        dischargeCurrent:
+          type: "string"
+        solarSell:
+          type: "string"
+        mpptVoltLow:
+          type: "string"
+        time3on:
+          type: "string"
+        wattVoltEnable:
+          type: "string"
+        caFwEnable:
+          type: "string"
+        maxOperatingTimeOfGen:
+          type: "string"
+        micExportGridOff:
+          type: "string"
+        importPower:
+          type: "string"
+        pvLine:
+          type: "string"
+        three41:
+          type: "string"
+        caVwEnable:
+          type: "string"
+        batteryShutdownVolt:
+          type: "string"
+        volt3:
+          type: "string"
+        volt4:
+          type: "string"
+        volt1:
+          type: "string"
+        volt2:
+          type: "string"
+        startVoltUp:
+          type: "string"
+        volt7:
+          type: "string"
+        volt8:
+          type: "string"
+        volt5:
+          type: "string"
+        sellTime6Pac:
+          type: "string"
+        volt6:
+          type: "string"
+        time4On:
+          type: "string"
+        sellTime4Volt:
+          type: "string"
+        volt9:
+          type: "string"
+        facLowProtect:
+          type: "string"
+        wattOverFreq1:
+          type: "string"
+        wattPf4:
+          type: "string"
+        lowNoiseMode:
+          type: "string"
+        tempco:
+          type: "string"
+        arcFactFrz:
+          type: "string"
+        wattPf1:
+          type: "string"
+        wattPf2:
+          type: "string"
+        wattPf3:
+          type: "string"
+        meterSelect:
+          type: "string"
+        genChargeOn:
+          type: "string"
+        externalCtRatio:
+          type: "string"
+        gridMode:
+          type: "string"
+        sellTime5Pac:
+          type: "string"
+        lowThrough:
+          type: "string"
+        drmEnable:
+          type: "string"
+        pv2SelfCheck:
+          type: "string"
+        underFreq1Delay:
+          type: "string"
+        energyMode:
+          type: "string"
+        ampm:
+          type: "string"
+        gridPeakShaving:
+          type: "string"
+        time6on:
+          type: "string"
+        fac:
+          type: "string"
+        vacLowProtect:
+          type: "string"
+        chargeCurrentLimit:
+          type: "string"
+        caLv3:
+          type: "string"
+        sundayOn:
+          type: "string"
+        genTime6on:
+          type: "string"
+        batteryImpedance:
+          type: "string"
+        safetyType:
+          type: "string"
+        varVolt4:
+          type: "string"
+        varVolt3:
+          type: "string"
+        varVolt2:
+          type: "string"
+        specialFunction:
+          type: "string"
+        varVolt1:
+          type: "string"
+        mondayOn:
+          type: "string"
+        commAddr:
+          type: "string"
+        saturdayOn:
+          type: "string"
+        dischargeLimit:
+          type: "string"
+        atsEnable:
+          type: "string"
+        exMeterCt:
+          type: "string"
+        overFreq2Delay:
+          type: "string"
+        phase:
+          type: "string"
+        autoDim:
+          type: "string"
+        batteryWorkStatus:
+          type: "string"
+        genToLoadOn:
+          type: "string"
+        timeSync:
+          type: "string"
+        wattOverWgralFreq:
+          type: "string"
+        sdBatteryCurrent:
+          type: "string"
+        peakAndVallery:
+          type: "string"
+        batteryEmptyVolt:
+          type: "string"
+        batteryLowCap:
+          type: "string"
+        underVolt2Delay:
+          type: "string"
+        equChargeTime:
+          type: "string"
+        battType:
+          type: "string"
+        gridPeakPower:
+          type: "string"
+        reset:
+          type: "string"
+        vacHighProtect:
+          type: "string"
+        genTime5on:
+          type: "string"
+        deyeGenPowerDoubleFlag:
+          type: "string"
+        pwm:
+          type: "string"
+        time5on:
+          type: "string"
+        highThrough:
+          type: "string"
+        lockOutVoltVar:
+          type: "string"
+        lockInWattPF:
+          type: "string"
+        caVStart:
+          type: "string"
+        acVoltUp:
+          type: "string"
+        wattFreqEnable:
+          type: "string"
+        wattOverExitFreq:
+          type: "string"
+        sellTime5Volt:
+          type: "string"
+        caFStop:
+          type: "string"
+        lowPowerMode:
+          type: "string"
+        varVoltEnable:
+          type: "string"
+        acCoupleFreqUpper:
+          type: "string"
+        impedanceLow:
+          type: "string"
+        acType:
+          type: "string"
+        facHighProtect:
+          type: "string"
+        recoveryTime:
+          type: "string"
+        underVolt2:
+          type: "string"
+        lithiumMode:
+          type: "string"
+        underVolt1:
+          type: "string"
+        gridSignal:
+          type: "string"
+        wattOverFreq1StartDelay:
+          type: "string"
+        testCommand:
+          type: "string"
+        time6On:
+          type: "string"
+        signalIslandModeEnable:
+          type: "string"
+        upsStandard:
+          type: "string"
+        reconnMinFreq:
+          type: "string"
+        parallelRegister2:
+          type: "string"
+        parallelRegister1:
+          type: "string"
+        startVoltLow:
+          type: "string"
+        smartLoadOpenDelay:
+          type: "string"
+        genTime4on:
+          type: "string"
+        sellTime1Volt:
+          type: "string"
+        wattVarActive4:
+          type: "string"
+        wattVarActive3:
+          type: "string"
+        genConnectGrid:
+          type: "string"
+        flag2:
+          type: "string"
+        softStart:
+          type: "string"
+        lockOutWattPF:
+          type: "string"
+        sdStartCap:
+          type: "string"
+        current4:
+          type: "string"
+        current3:
+          type: "string"
+        current2:
+          type: "string"
+        current1:
+          type: "string"
+        gfdi:
+          type: "string"
+        current8:
+          type: "string"
+        current7:
+          type: "string"
+        current6:
+          type: "string"
+        current5:
+          type: "string"
+        checkSelfTime:
+          type: "string"
+        limit:
+          type: "string"
+        wattW3:
+          type: "string"
+        wattVarActive2:
+          type: "string"
+        wattW4:
+          type: "string"
+        wattVarActive1:
+          type: "string"
+        externalCurrent:
+          type: "string"
+        wattW1:
+          type: "string"
+        wattW2:
+          type: "string"
+        vnResponseTime:
+          type: "string"
+        batteryShutdownCap:
+          type: "string"
+        wattUnderExitFreqStopDelay:
+          type: "string"
+        offset:
+          type: "string"
+        sellTime4Pac:
+          type: "string"
+        wattActivePf1:
+          type: "string"
+        current9:
+          type: "string"
+        dischargeVolt:
+          type: "string"
+        qvResponseTime:
+          type: "string"
+        wattActivePf4:
+          type: "string"
+        time1On:
+          type: "string"
+        wattActivePf2:
+          type: "string"
+        four19:
+          type: "string"
+        wattActivePf3:
+          type: "string"
+        micExportAll:
+          type: "string"
+        batteryMaxCurrentDischarge:
+          type: "string"
+        isletProtect:
+          type: "string"
+        lockOutChange:
+          type: "string"
+        californiaVoltPressureEnable:
+          type: "string"
+        equVoltCharge:
+          type: "string"
+        batteryCap:
+          type: "string"
+        genOffCap:
+          type: "string"
+        genTime3on:
+          type: "string"
+        sellTime6Volt:
+          type: "string"
+        sellTime3Pac:
+          type: "string"
+        acCoupleOnLoadSideEnable:
+          type: "string"
+        sdStartVolt:
+          type: "string"
+        generatorBatteryCurrent:
+          type: "string"
+        reconnMaxVolt:
+          type: "string"
+        modbusSn:
+          type: "string"
+        inverterOutputVoltage:
+          type: "string"
+        chargeCurrent:
+          type: "string"
+        solar1WindInputEnable:
+          type: "string"
+        dcVoltUp:
+          type: "string"
+        parallel:
+          type: "string"
+        limter:
+          type: "string"
+        batErr:
+          type: "string"
+        backupDelay:
+          type: "string"
+        dischargeCurrentLimit:
+          type: "string"
+        arcFactT:
+          type: "string"
+        wattUnderWgalFreq:
+          type: "string"
+        commBaudRate:
+          type: "string"
+        equipMode:
+          type: "string"
+        gridSideINVMeter2:
+          type: "string"
+        underVolt1Delay:
+          type: "string"
+        arcFaultType:
+          type: "string"
+        arcFactB:
+          type: "string"
+        normalUpwardSlope:
+          type: "string"
+        arcFactC:
+          type: "string"
+        pf:
+          type: "string"
+        arcFactD:
+          type: "string"
+        genMinSolar:
+          type: "string"
+        sellTime2Volt:
+          type: "string"
+        arcFactF:
+          type: "string"
+        arcFactI:
+          type: "string"
+        acVoltLow:
+          type: "string"
+        genSignal:
+          type: "string"
+    InverterSettingsResponse:
+      type: "object"
+      properties:
+        success:
+          type: "boolean"
+        code:
+          type: "integer"
+        msg:
+          type: "string"
+        data:
+          $ref: "#/components/schemas/InverterSettings"
     Error:
       type: "object"
       properties:

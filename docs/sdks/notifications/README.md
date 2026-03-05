@@ -43,7 +43,7 @@ with SunSynk(
 
 ### Response
 
-**[models.GetMessagesResponse](../../models/getmessagesresponse.md)**
+**[models.MessagesResponse](../../models/messagesresponse.md)**
 
 ### Errors
 

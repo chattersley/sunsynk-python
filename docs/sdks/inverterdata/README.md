@@ -207,7 +207,7 @@ with SunSynk(
 
 ### Response
 
-**[models.GetLoadRealtimeResponse](../../models/getloadrealtimeresponse.md)**
+**[models.LoadRealtimeResponse](../../models/loadrealtimeresponse.md)**
 
 ### Errors
 
@@ -247,7 +247,7 @@ with SunSynk(
 
 ### Response
 
-**[models.GetGenRealtimeResponse](../../models/getgenrealtimeresponse.md)**
+**[models.GenRealtimeResponse](../../models/genrealtimeresponse.md)**
 
 ### Errors
 
@@ -290,7 +290,7 @@ with SunSynk(
 
 ### Response
 
-**[models.GetInverterDailyOutputResponse](../../models/getinverterdailyoutputresponse.md)**
+**[models.DailyOutputResponse](../../models/dailyoutputresponse.md)**
 
 ### Errors
 

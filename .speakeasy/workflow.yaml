@@ -3,7 +3,7 @@ speakeasyVersion: latest
 sources:
     SunSynk Power View API:
         inputs:
-            - location: ../../../sunsynk-api-merged.json
+            - location: ../sunsynk-openapi.json
         output: .speakeasy/out.openapi.yaml
         registry:
             location: registry.speakeasyapi.dev/finchdean/home-assistant/sun-synk-power-view-api

@@ -14,11 +14,3 @@ class GetGenRealtimeRequest(BaseModel):
     sn: Annotated[
         str, FieldMetadata(path=PathParamMetadata(style="simple", explode=False))
     ]
-
-
-class GetGenRealtimeResponseTypedDict(TypedDict):
-    r"""Generation realtime data"""
-
-
-class GetGenRealtimeResponse(BaseModel):
-    r"""Generation realtime data"""

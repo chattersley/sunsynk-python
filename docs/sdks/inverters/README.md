@@ -95,7 +95,7 @@ with SunSynk(
 
 ### Response
 
-**[models.GetPlantInvertersResponse](../../models/getplantinvertersresponse.md)**
+**[models.PlantInvertersResponse](../../models/plantinvertersresponse.md)**
 
 ### Errors
 

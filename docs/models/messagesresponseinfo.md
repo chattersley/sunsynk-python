@@ -1,6 +1,4 @@
-# GetMessagesResponse
-
-List of messages
+# MessagesResponseInfo
 
 
 ## Fields

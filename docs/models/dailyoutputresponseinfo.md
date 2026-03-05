@@ -1,6 +1,4 @@
-# GetLoadRealtimeResponse
-
-Load realtime data
+# DailyOutputResponseInfo
 
 
 ## Fields

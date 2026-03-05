@@ -17,11 +17,3 @@ class GetPlantFlowRequest(BaseModel):
         pydantic.Field(alias="plantId"),
         FieldMetadata(path=PathParamMetadata(style="simple", explode=False)),
     ]
-
-
-class GetPlantFlowResponseTypedDict(TypedDict):
-    r"""Plant flow data"""
-
-
-class GetPlantFlowResponse(BaseModel):
-    r"""Plant flow data"""
