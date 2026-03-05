@@ -1,6 +1,4 @@
-# GetGenRealtimeResponse
-
-Generation realtime data
+# Record
 
 
 ## Fields

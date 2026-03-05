@@ -45,7 +45,7 @@ with SunSynk(
 
 ### Response
 
-**[models.GetEventsResponse](../../models/geteventsresponse.md)**
+**[models.EventsResponse](../../models/eventsresponse.md)**
 
 ### Errors
 

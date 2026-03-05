@@ -63,11 +63,3 @@ class GetPlantInvertersRequest(BaseModel):
                     m[k] = val
 
         return m
-
-
-class GetPlantInvertersResponseTypedDict(TypedDict):
-    r"""List of inverters"""
-
-
-class GetPlantInvertersResponse(BaseModel):
-    r"""List of inverters"""

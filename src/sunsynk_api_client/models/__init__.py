@@ -7,7 +7,32 @@ from sunsynk_api_client.utils.dynamic_imports import lazy_getattr, lazy_dir
 if TYPE_CHECKING:
     from .batterydata import BatteryData, BatteryDataTypedDict
     from .batteryresponse import BatteryResponse, BatteryResponseTypedDict
+    from .dailyoutputresponse import (
+        DailyOutputResponse,
+        DailyOutputResponseData,
+        DailyOutputResponseDataTypedDict,
+        DailyOutputResponseInfo,
+        DailyOutputResponseInfoTypedDict,
+        DailyOutputResponseTypedDict,
+    )
+    from .eventsresponse import (
+        EventsResponse,
+        EventsResponseData,
+        EventsResponseDataTypedDict,
+        EventsResponseTypedDict,
+        Record,
+        RecordTypedDict,
+    )
+    from .gatewayextendedinfo import GatewayExtendedInfo, GatewayExtendedInfoTypedDict
     from .gatewayinfo import GatewayInfo, GatewayInfoTypedDict
+    from .gatewaysresponse import (
+        GatewaysResponse,
+        GatewaysResponseData,
+        GatewaysResponseDataTypedDict,
+        GatewaysResponseTypedDict,
+    )
+    from .genrealtimedata import GenRealtimeData, GenRealtimeDataTypedDict
+    from .genrealtimeresponse import GenRealtimeResponse, GenRealtimeResponseTypedDict
     from .get_api_v1_invertersop import (
         GetAPIV1InvertersRequest,
         GetAPIV1InvertersRequestTypedDict,
@@ -24,24 +49,9 @@ if TYPE_CHECKING:
         GetBearerTokenResponse,
         GetBearerTokenResponseTypedDict,
     )
-    from .geteventsop import (
-        GetEventsRequest,
-        GetEventsRequestTypedDict,
-        GetEventsResponse,
-        GetEventsResponseTypedDict,
-    )
-    from .getgatewaysop import (
-        GetGatewaysRequest,
-        GetGatewaysRequestTypedDict,
-        GetGatewaysResponse,
-        GetGatewaysResponseTypedDict,
-    )
-    from .getgenrealtimeop import (
-        GetGenRealtimeRequest,
-        GetGenRealtimeRequestTypedDict,
-        GetGenRealtimeResponse,
-        GetGenRealtimeResponseTypedDict,
-    )
+    from .geteventsop import GetEventsRequest, GetEventsRequestTypedDict
+    from .getgatewaysop import GetGatewaysRequest, GetGatewaysRequestTypedDict
+    from .getgenrealtimeop import GetGenRealtimeRequest, GetGenRealtimeRequestTypedDict
     from .getgridrealtimeop import (
         GetGridRealtimeRequest,
         GetGridRealtimeRequestTypedDict,
@@ -49,8 +59,6 @@ if TYPE_CHECKING:
     from .getinverterdailyoutputop import (
         GetInverterDailyOutputRequest,
         GetInverterDailyOutputRequestTypedDict,
-        GetInverterDailyOutputResponse,
-        GetInverterDailyOutputResponseTypedDict,
     )
     from .getinverterinputop import (
         GetInverterInputRequest,
@@ -63,26 +71,12 @@ if TYPE_CHECKING:
     from .getloadrealtimeop import (
         GetLoadRealtimeRequest,
         GetLoadRealtimeRequestTypedDict,
-        GetLoadRealtimeResponse,
-        GetLoadRealtimeResponseTypedDict,
     )
-    from .getmessagesop import (
-        GetMessagesRequest,
-        GetMessagesRequestTypedDict,
-        GetMessagesResponse,
-        GetMessagesResponseTypedDict,
-    )
-    from .getplantflowop import (
-        GetPlantFlowRequest,
-        GetPlantFlowRequestTypedDict,
-        GetPlantFlowResponse,
-        GetPlantFlowResponseTypedDict,
-    )
+    from .getmessagesop import GetMessagesRequest, GetMessagesRequestTypedDict
+    from .getplantflowop import GetPlantFlowRequest, GetPlantFlowRequestTypedDict
     from .getplantinvertersop import (
         GetPlantInvertersRequest,
         GetPlantInvertersRequestTypedDict,
-        GetPlantInvertersResponse,
-        GetPlantInvertersResponseTypedDict,
     )
     from .getplantsop import GetPlantsRequest, GetPlantsRequestTypedDict
     from .getpublickeyop import (
@@ -96,6 +90,11 @@ if TYPE_CHECKING:
     from .inputdata import InputData, InputDataTypedDict
     from .inputresponse import InputResponse, InputResponseTypedDict
     from .inverter import Inverter, InverterTypedDict
+    from .invertersettings import InverterSettings, InverterSettingsTypedDict
+    from .invertersettingsresponse import (
+        InverterSettingsResponse,
+        InverterSettingsResponseTypedDict,
+    )
     from .invertersresponse import (
         InvertersResponse,
         InvertersResponseData,
@@ -103,9 +102,30 @@ if TYPE_CHECKING:
         InvertersResponseTypedDict,
     )
     from .inverterversion import InverterVersion, InverterVersionTypedDict
+    from .loadrealtimedata import LoadRealtimeData, LoadRealtimeDataTypedDict
+    from .loadrealtimeresponse import (
+        LoadRealtimeResponse,
+        LoadRealtimeResponseTypedDict,
+    )
+    from .messagesresponse import (
+        MessagesResponse,
+        MessagesResponseData,
+        MessagesResponseDataTypedDict,
+        MessagesResponseInfo,
+        MessagesResponseInfoTypedDict,
+        MessagesResponseTypedDict,
+    )
     from .outputdata import OutputData, OutputDataTypedDict
     from .outputresponse import OutputResponse, OutputResponseTypedDict
     from .plant import Plant, PlantTypedDict
+    from .plantflowdata import PlantFlowData, PlantFlowDataTypedDict, Pv, PvTypedDict
+    from .plantflowresponse import PlantFlowResponse, PlantFlowResponseTypedDict
+    from .plantinverterinfo import PlantInverterInfo, PlantInverterInfoTypedDict
+    from .plantinvertersdata import PlantInvertersData, PlantInvertersDataTypedDict
+    from .plantinvertersresponse import (
+        PlantInvertersResponse,
+        PlantInvertersResponseTypedDict,
+    )
     from .plantsresponse import (
         PlantsResponse,
         PlantsResponseData,
@@ -117,9 +137,8 @@ if TYPE_CHECKING:
     from .readinvertersettingsop import (
         ReadInverterSettingsRequest,
         ReadInverterSettingsRequestTypedDict,
-        ReadInverterSettingsResponse,
-        ReadInverterSettingsResponseTypedDict,
     )
+    from .realtimevip import RealtimeVip, RealtimeVipTypedDict
     from .security import Security, SecurityTypedDict
     from .tokenrequest import ClientID, GrantType, TokenRequest, TokenRequestTypedDict
     from .tokenresponse import (
@@ -144,8 +163,28 @@ __all__ = [
     "BatteryResponse",
     "BatteryResponseTypedDict",
     "ClientID",
+    "DailyOutputResponse",
+    "DailyOutputResponseData",
+    "DailyOutputResponseDataTypedDict",
+    "DailyOutputResponseInfo",
+    "DailyOutputResponseInfoTypedDict",
+    "DailyOutputResponseTypedDict",
+    "EventsResponse",
+    "EventsResponseData",
+    "EventsResponseDataTypedDict",
+    "EventsResponseTypedDict",
+    "GatewayExtendedInfo",
+    "GatewayExtendedInfoTypedDict",
     "GatewayInfo",
     "GatewayInfoTypedDict",
+    "GatewaysResponse",
+    "GatewaysResponseData",
+    "GatewaysResponseDataTypedDict",
+    "GatewaysResponseTypedDict",
+    "GenRealtimeData",
+    "GenRealtimeDataTypedDict",
+    "GenRealtimeResponse",
+    "GenRealtimeResponseTypedDict",
     "GetAPIV1InvertersRequest",
     "GetAPIV1InvertersRequestTypedDict",
     "GetBatteryRealtimeRequest",
@@ -158,42 +197,26 @@ __all__ = [
     "GetBearerTokenResponseTypedDict",
     "GetEventsRequest",
     "GetEventsRequestTypedDict",
-    "GetEventsResponse",
-    "GetEventsResponseTypedDict",
     "GetGatewaysRequest",
     "GetGatewaysRequestTypedDict",
-    "GetGatewaysResponse",
-    "GetGatewaysResponseTypedDict",
     "GetGenRealtimeRequest",
     "GetGenRealtimeRequestTypedDict",
-    "GetGenRealtimeResponse",
-    "GetGenRealtimeResponseTypedDict",
     "GetGridRealtimeRequest",
     "GetGridRealtimeRequestTypedDict",
     "GetInverterDailyOutputRequest",
     "GetInverterDailyOutputRequestTypedDict",
-    "GetInverterDailyOutputResponse",
-    "GetInverterDailyOutputResponseTypedDict",
     "GetInverterInputRequest",
     "GetInverterInputRequestTypedDict",
     "GetInverterOutputRequest",
     "GetInverterOutputRequestTypedDict",
     "GetLoadRealtimeRequest",
     "GetLoadRealtimeRequestTypedDict",
-    "GetLoadRealtimeResponse",
-    "GetLoadRealtimeResponseTypedDict",
     "GetMessagesRequest",
     "GetMessagesRequestTypedDict",
-    "GetMessagesResponse",
-    "GetMessagesResponseTypedDict",
     "GetPlantFlowRequest",
     "GetPlantFlowRequestTypedDict",
-    "GetPlantFlowResponse",
-    "GetPlantFlowResponseTypedDict",
     "GetPlantInvertersRequest",
     "GetPlantInvertersRequestTypedDict",
-    "GetPlantInvertersResponse",
-    "GetPlantInvertersResponseTypedDict",
     "GetPlantsRequest",
     "GetPlantsRequestTypedDict",
     "GetPublicKeyRequest",
@@ -210,6 +233,10 @@ __all__ = [
     "InputResponse",
     "InputResponseTypedDict",
     "Inverter",
+    "InverterSettings",
+    "InverterSettingsResponse",
+    "InverterSettingsResponseTypedDict",
+    "InverterSettingsTypedDict",
     "InverterTypedDict",
     "InverterVersion",
     "InverterVersionTypedDict",
@@ -217,11 +244,31 @@ __all__ = [
     "InvertersResponseData",
     "InvertersResponseDataTypedDict",
     "InvertersResponseTypedDict",
+    "LoadRealtimeData",
+    "LoadRealtimeDataTypedDict",
+    "LoadRealtimeResponse",
+    "LoadRealtimeResponseTypedDict",
+    "MessagesResponse",
+    "MessagesResponseData",
+    "MessagesResponseDataTypedDict",
+    "MessagesResponseInfo",
+    "MessagesResponseInfoTypedDict",
+    "MessagesResponseTypedDict",
     "OutputData",
     "OutputDataTypedDict",
     "OutputResponse",
     "OutputResponseTypedDict",
     "Plant",
+    "PlantFlowData",
+    "PlantFlowDataTypedDict",
+    "PlantFlowResponse",
+    "PlantFlowResponseTypedDict",
+    "PlantInverterInfo",
+    "PlantInverterInfoTypedDict",
+    "PlantInvertersData",
+    "PlantInvertersDataTypedDict",
+    "PlantInvertersResponse",
+    "PlantInvertersResponseTypedDict",
     "PlantSummary",
     "PlantSummaryTypedDict",
     "PlantTypedDict",
@@ -229,12 +276,16 @@ __all__ = [
     "PlantsResponseData",
     "PlantsResponseDataTypedDict",
     "PlantsResponseTypedDict",
+    "Pv",
     "PvIv",
     "PvIvTypedDict",
+    "PvTypedDict",
     "ReadInverterSettingsRequest",
     "ReadInverterSettingsRequestTypedDict",
-    "ReadInverterSettingsResponse",
-    "ReadInverterSettingsResponseTypedDict",
+    "RealtimeVip",
+    "RealtimeVipTypedDict",
+    "Record",
+    "RecordTypedDict",
     "Security",
     "SecurityTypedDict",
     "TokenRequest",
@@ -258,8 +309,30 @@ _dynamic_imports: dict[str, str] = {
     "BatteryDataTypedDict": ".batterydata",
     "BatteryResponse": ".batteryresponse",
     "BatteryResponseTypedDict": ".batteryresponse",
+    "DailyOutputResponse": ".dailyoutputresponse",
+    "DailyOutputResponseData": ".dailyoutputresponse",
+    "DailyOutputResponseDataTypedDict": ".dailyoutputresponse",
+    "DailyOutputResponseInfo": ".dailyoutputresponse",
+    "DailyOutputResponseInfoTypedDict": ".dailyoutputresponse",
+    "DailyOutputResponseTypedDict": ".dailyoutputresponse",
+    "EventsResponse": ".eventsresponse",
+    "EventsResponseData": ".eventsresponse",
+    "EventsResponseDataTypedDict": ".eventsresponse",
+    "EventsResponseTypedDict": ".eventsresponse",
+    "Record": ".eventsresponse",
+    "RecordTypedDict": ".eventsresponse",
+    "GatewayExtendedInfo": ".gatewayextendedinfo",
+    "GatewayExtendedInfoTypedDict": ".gatewayextendedinfo",
     "GatewayInfo": ".gatewayinfo",
     "GatewayInfoTypedDict": ".gatewayinfo",
+    "GatewaysResponse": ".gatewaysresponse",
+    "GatewaysResponseData": ".gatewaysresponse",
+    "GatewaysResponseDataTypedDict": ".gatewaysresponse",
+    "GatewaysResponseTypedDict": ".gatewaysresponse",
+    "GenRealtimeData": ".genrealtimedata",
+    "GenRealtimeDataTypedDict": ".genrealtimedata",
+    "GenRealtimeResponse": ".genrealtimeresponse",
+    "GenRealtimeResponseTypedDict": ".genrealtimeresponse",
     "GetAPIV1InvertersRequest": ".get_api_v1_invertersop",
     "GetAPIV1InvertersRequestTypedDict": ".get_api_v1_invertersop",
     "GetBatteryRealtimeRequest": ".getbatteryrealtimeop",
@@ -272,42 +345,26 @@ _dynamic_imports: dict[str, str] = {
     "GetBearerTokenResponseTypedDict": ".getbearertokenop",
     "GetEventsRequest": ".geteventsop",
     "GetEventsRequestTypedDict": ".geteventsop",
-    "GetEventsResponse": ".geteventsop",
-    "GetEventsResponseTypedDict": ".geteventsop",
     "GetGatewaysRequest": ".getgatewaysop",
     "GetGatewaysRequestTypedDict": ".getgatewaysop",
-    "GetGatewaysResponse": ".getgatewaysop",
-    "GetGatewaysResponseTypedDict": ".getgatewaysop",
     "GetGenRealtimeRequest": ".getgenrealtimeop",
     "GetGenRealtimeRequestTypedDict": ".getgenrealtimeop",
-    "GetGenRealtimeResponse": ".getgenrealtimeop",
-    "GetGenRealtimeResponseTypedDict": ".getgenrealtimeop",
     "GetGridRealtimeRequest": ".getgridrealtimeop",
     "GetGridRealtimeRequestTypedDict": ".getgridrealtimeop",
     "GetInverterDailyOutputRequest": ".getinverterdailyoutputop",
     "GetInverterDailyOutputRequestTypedDict": ".getinverterdailyoutputop",
-    "GetInverterDailyOutputResponse": ".getinverterdailyoutputop",
-    "GetInverterDailyOutputResponseTypedDict": ".getinverterdailyoutputop",
     "GetInverterInputRequest": ".getinverterinputop",
     "GetInverterInputRequestTypedDict": ".getinverterinputop",
     "GetInverterOutputRequest": ".getinverteroutputop",
     "GetInverterOutputRequestTypedDict": ".getinverteroutputop",
     "GetLoadRealtimeRequest": ".getloadrealtimeop",
     "GetLoadRealtimeRequestTypedDict": ".getloadrealtimeop",
-    "GetLoadRealtimeResponse": ".getloadrealtimeop",
-    "GetLoadRealtimeResponseTypedDict": ".getloadrealtimeop",
     "GetMessagesRequest": ".getmessagesop",
     "GetMessagesRequestTypedDict": ".getmessagesop",
-    "GetMessagesResponse": ".getmessagesop",
-    "GetMessagesResponseTypedDict": ".getmessagesop",
     "GetPlantFlowRequest": ".getplantflowop",
     "GetPlantFlowRequestTypedDict": ".getplantflowop",
-    "GetPlantFlowResponse": ".getplantflowop",
-    "GetPlantFlowResponseTypedDict": ".getplantflowop",
     "GetPlantInvertersRequest": ".getplantinvertersop",
     "GetPlantInvertersRequestTypedDict": ".getplantinvertersop",
-    "GetPlantInvertersResponse": ".getplantinvertersop",
-    "GetPlantInvertersResponseTypedDict": ".getplantinvertersop",
     "GetPlantsRequest": ".getplantsop",
     "GetPlantsRequestTypedDict": ".getplantsop",
     "GetPublicKeyRequest": ".getpublickeyop",
@@ -324,18 +381,44 @@ _dynamic_imports: dict[str, str] = {
     "InputResponseTypedDict": ".inputresponse",
     "Inverter": ".inverter",
     "InverterTypedDict": ".inverter",
+    "InverterSettings": ".invertersettings",
+    "InverterSettingsTypedDict": ".invertersettings",
+    "InverterSettingsResponse": ".invertersettingsresponse",
+    "InverterSettingsResponseTypedDict": ".invertersettingsresponse",
     "InvertersResponse": ".invertersresponse",
     "InvertersResponseData": ".invertersresponse",
     "InvertersResponseDataTypedDict": ".invertersresponse",
     "InvertersResponseTypedDict": ".invertersresponse",
     "InverterVersion": ".inverterversion",
     "InverterVersionTypedDict": ".inverterversion",
+    "LoadRealtimeData": ".loadrealtimedata",
+    "LoadRealtimeDataTypedDict": ".loadrealtimedata",
+    "LoadRealtimeResponse": ".loadrealtimeresponse",
+    "LoadRealtimeResponseTypedDict": ".loadrealtimeresponse",
+    "MessagesResponse": ".messagesresponse",
+    "MessagesResponseData": ".messagesresponse",
+    "MessagesResponseDataTypedDict": ".messagesresponse",
+    "MessagesResponseInfo": ".messagesresponse",
+    "MessagesResponseInfoTypedDict": ".messagesresponse",
+    "MessagesResponseTypedDict": ".messagesresponse",
     "OutputData": ".outputdata",
     "OutputDataTypedDict": ".outputdata",
     "OutputResponse": ".outputresponse",
     "OutputResponseTypedDict": ".outputresponse",
     "Plant": ".plant",
     "PlantTypedDict": ".plant",
+    "PlantFlowData": ".plantflowdata",
+    "PlantFlowDataTypedDict": ".plantflowdata",
+    "Pv": ".plantflowdata",
+    "PvTypedDict": ".plantflowdata",
+    "PlantFlowResponse": ".plantflowresponse",
+    "PlantFlowResponseTypedDict": ".plantflowresponse",
+    "PlantInverterInfo": ".plantinverterinfo",
+    "PlantInverterInfoTypedDict": ".plantinverterinfo",
+    "PlantInvertersData": ".plantinvertersdata",
+    "PlantInvertersDataTypedDict": ".plantinvertersdata",
+    "PlantInvertersResponse": ".plantinvertersresponse",
+    "PlantInvertersResponseTypedDict": ".plantinvertersresponse",
     "PlantsResponse": ".plantsresponse",
     "PlantsResponseData": ".plantsresponse",
     "PlantsResponseDataTypedDict": ".plantsresponse",
@@ -346,8 +429,8 @@ _dynamic_imports: dict[str, str] = {
     "PvIvTypedDict": ".pviv",
     "ReadInverterSettingsRequest": ".readinvertersettingsop",
     "ReadInverterSettingsRequestTypedDict": ".readinvertersettingsop",
-    "ReadInverterSettingsResponse": ".readinvertersettingsop",
-    "ReadInverterSettingsResponseTypedDict": ".readinvertersettingsop",
+    "RealtimeVip": ".realtimevip",
+    "RealtimeVipTypedDict": ".realtimevip",
     "Security": ".security",
     "SecurityTypedDict": ".security",
     "ClientID": ".tokenrequest",

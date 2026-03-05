@@ -121,11 +121,3 @@ class GetGatewaysRequest(BaseModel):
                     m[k] = val
 
         return m
-
-
-class GetGatewaysResponseTypedDict(TypedDict):
-    r"""List of gateways"""
-
-
-class GetGatewaysResponse(BaseModel):
-    r"""List of gateways"""

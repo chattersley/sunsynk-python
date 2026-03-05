@@ -57,11 +57,3 @@ class GetInverterDailyOutputRequest(BaseModel):
                     m[k] = val
 
         return m
-
-
-class GetInverterDailyOutputResponseTypedDict(TypedDict):
-    r"""Daily output data"""
-
-
-class GetInverterDailyOutputResponse(BaseModel):
-    r"""Daily output data"""

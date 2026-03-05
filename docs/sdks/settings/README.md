@@ -41,7 +41,7 @@ with SunSynk(
 
 ### Response
 
-**[models.ReadInverterSettingsResponse](../../models/readinvertersettingsresponse.md)**
+**[models.InverterSettingsResponse](../../models/invertersettingsresponse.md)**
 
 ### Errors
 

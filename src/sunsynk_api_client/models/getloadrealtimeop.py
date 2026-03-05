@@ -14,11 +14,3 @@ class GetLoadRealtimeRequest(BaseModel):
     sn: Annotated[
         str, FieldMetadata(path=PathParamMetadata(style="simple", explode=False))
     ]
-
-
-class GetLoadRealtimeResponseTypedDict(TypedDict):
-    r"""Load realtime data"""
-
-
-class GetLoadRealtimeResponse(BaseModel):
-    r"""Load realtime data"""

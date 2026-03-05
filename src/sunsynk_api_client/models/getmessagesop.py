@@ -54,11 +54,3 @@ class GetMessagesRequest(BaseModel):
                     m[k] = val
 
         return m
-
-
-class GetMessagesResponseTypedDict(TypedDict):
-    r"""List of messages"""
-
-
-class GetMessagesResponse(BaseModel):
-    r"""List of messages"""

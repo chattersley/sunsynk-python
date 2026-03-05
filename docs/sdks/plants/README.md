@@ -84,7 +84,7 @@ with SunSynk(
 
 ### Response
 
-**[models.GetPlantFlowResponse](../../models/getplantflowresponse.md)**
+**[models.PlantFlowResponse](../../models/plantflowresponse.md)**
 
 ### Errors
 

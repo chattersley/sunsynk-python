@@ -14,11 +14,3 @@ class ReadInverterSettingsRequest(BaseModel):
     sn: Annotated[
         str, FieldMetadata(path=PathParamMetadata(style="simple", explode=False))
     ]
-
-
-class ReadInverterSettingsResponseTypedDict(TypedDict):
-    r"""Inverter settings"""
-
-
-class ReadInverterSettingsResponse(BaseModel):
-    r"""Inverter settings"""

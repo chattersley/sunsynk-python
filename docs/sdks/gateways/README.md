@@ -51,7 +51,7 @@ with SunSynk(
 
 ### Response
 
-**[models.GetGatewaysResponse](../../models/getgatewaysresponse.md)**
+**[models.GatewaysResponse](../../models/gatewaysresponse.md)**
 
 ### Errors
 

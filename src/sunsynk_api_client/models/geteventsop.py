@@ -63,11 +63,3 @@ class GetEventsRequest(BaseModel):
                     m[k] = val
 
         return m
-
-
-class GetEventsResponseTypedDict(TypedDict):
-    r"""List of events"""
-
-
-class GetEventsResponse(BaseModel):
-    r"""List of events"""
