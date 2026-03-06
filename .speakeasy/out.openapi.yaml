@@ -1507,6 +1507,11 @@ components:
               type: "array"
               items:
                 type: "object"
+                properties:
+                  dc_temp:
+                    type: "string"
+                  igbt_temp:
+                    type: "string"
     GatewayExtendedInfo:
       type: "object"
       properties:

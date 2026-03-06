@@ -8,11 +8,30 @@ from typing_extensions import NotRequired, TypedDict
 
 
 class DailyOutputResponseInfoTypedDict(TypedDict):
-    pass
+    dc_temp: NotRequired[str]
+    igbt_temp: NotRequired[str]
 
 
 class DailyOutputResponseInfo(BaseModel):
-    pass
+    dc_temp: Optional[str] = None
+
+    igbt_temp: Optional[str] = None
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["dc_temp", "igbt_temp"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k, serialized.get(n))
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
 
 
 class DailyOutputResponseDataTypedDict(TypedDict):
@@ -30,7 +49,7 @@ class DailyOutputResponseData(BaseModel):
 
         for n, f in type(self).model_fields.items():
             k = f.alias or n
-            val = serialized.get(k)
+            val = serialized.get(k, serialized.get(n))
 
             if val != UNSET_SENTINEL:
                 if val is not None or k not in optional_fields:
@@ -63,7 +82,7 @@ class DailyOutputResponse(BaseModel):
 
         for n, f in type(self).model_fields.items():
             k = f.alias or n
-            val = serialized.get(k)
+            val = serialized.get(k, serialized.get(n))
 
             if val != UNSET_SENTINEL:
                 if val is not None or k not in optional_fields:

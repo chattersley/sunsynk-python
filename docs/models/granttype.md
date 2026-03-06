@@ -10,6 +10,4 @@ value: GrantType = "password"
 
 ## Values
 
-| Name       | Value      |
-| ---------- | ---------- |
-| `PASSWORD` | password   |
+- `"password"`

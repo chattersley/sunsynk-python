@@ -10,6 +10,4 @@ value: ClientID = "csp-web"
 
 ## Values
 
-| Name      | Value     |
-| --------- | --------- |
-| `CSP_WEB` | csp-web   |
+- `"csp-web"`
