@@ -3,10 +3,10 @@
 import importlib.metadata
 
 __title__: str = "sunsynk-api-client"
-__version__: str = "0.1.0"
+__version__: str = "0.1.1"
 __openapi_doc_version__: str = "1.1.0"
-__gen_version__: str = "2.850.3"
-__user_agent__: str = "speakeasy-sdk/python 0.1.0 2.850.3 1.1.0 sunsynk-api-client"
+__gen_version__: str = "2.852.1"
+__user_agent__: str = "speakeasy-sdk/python 0.1.1 2.852.1 1.1.0 sunsynk-api-client"
 
 try:
     if __package__ is not None:
