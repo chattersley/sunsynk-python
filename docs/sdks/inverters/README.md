@@ -75,7 +75,7 @@ with SunSynk(
     bearer_auth=os.getenv("SUNSYNK_BEARER_AUTH", ""),
 ) as sun_synk:
 
-    res = sun_synk.inverters.get_plant_inverters(plant_id="<id>", page=1, status="-1", type_="-2")
+    res = sun_synk.inverters.get_plant_inverters(plant_id="<id>", page=1, limit=1, status="-1", type_="-2")
 
     # Handle response
     print(res)
@@ -87,10 +87,10 @@ with SunSynk(
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | `plant_id`                                                          | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
-| `page`                                                              | *Optional[int]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `limit`                                                             | *Optional[int]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `status`                                                            | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `type`                                                              | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `page`                                                              | *int*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
+| `limit`                                                             | *int*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
+| `status`                                                            | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
+| `type`                                                              | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
