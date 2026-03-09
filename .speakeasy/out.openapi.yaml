@@ -292,20 +292,25 @@ paths:
             type: "string"
         - name: "page"
           in: "query"
+          required: true
           schema:
             type: "integer"
             default: 1
         - name: "limit"
           in: "query"
+          required: true
           schema:
             type: "integer"
+            default: "1"
         - name: "status"
           in: "query"
+          required: true
           schema:
             type: "string"
             default: "-1"
         - name: "type"
           in: "query"
+          required: true
           schema:
             type: "string"
             default: "-2"
@@ -914,7 +919,7 @@ components:
         name:
           type: "string"
         type:
-          type: "string"
+          type: "integer"
         master:
           type: "string"
         installer:
@@ -929,7 +934,7 @@ components:
         gsn:
           type: "string"
         status:
-          type: "string"
+          type: "integer"
     Inverter:
       type: "object"
       properties:
