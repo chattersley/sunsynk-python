@@ -10,13 +10,13 @@ from typing_extensions import NotRequired, TypedDict
 
 class GatewayInfoTypedDict(TypedDict):
     gsn: NotRequired[str]
-    status: NotRequired[float]
+    status: NotRequired[int]
 
 
 class GatewayInfo(BaseModel):
     gsn: Optional[str] = None
 
-    status: Optional[float] = None
+    status: Optional[int] = None
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

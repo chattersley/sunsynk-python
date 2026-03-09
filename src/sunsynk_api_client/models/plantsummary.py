@@ -11,7 +11,7 @@ from typing_extensions import NotRequired, TypedDict
 class PlantSummaryTypedDict(TypedDict):
     id: NotRequired[int]
     name: NotRequired[str]
-    type: NotRequired[str]
+    type: NotRequired[int]
     master: NotRequired[str]
     installer: NotRequired[str]
     email: NotRequired[str]
@@ -23,7 +23,7 @@ class PlantSummary(BaseModel):
 
     name: Optional[str] = None
 
-    type: Optional[str] = None
+    type: Optional[int] = None
 
     master: Optional[str] = None
 
