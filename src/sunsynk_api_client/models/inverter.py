@@ -20,7 +20,7 @@ class InverterTypedDict(TypedDict):
     r"""Inverter alias"""
     gsn: NotRequired[str]
     r"""Gateway serial number"""
-    status: NotRequired[str]
+    status: NotRequired[int]
     r"""Inverter status"""
     type: NotRequired[str]
     r"""Inverter type"""
@@ -59,7 +59,7 @@ class Inverter(BaseModel):
     gsn: Optional[str] = None
     r"""Gateway serial number"""
 
-    status: Optional[str] = None
+    status: Optional[int] = None
     r"""Inverter status"""
 
     type: Optional[str] = None

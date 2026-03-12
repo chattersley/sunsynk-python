@@ -16,7 +16,7 @@ class GetPlantInvertersRequestTypedDict(TypedDict):
     plant_id: str
     page: int
     limit: int
-    status: str
+    status: int
     type: str
 
 
@@ -36,8 +36,8 @@ class GetPlantInvertersRequest(BaseModel):
     ] = 1
 
     status: Annotated[
-        str, FieldMetadata(query=QueryParamMetadata(style="form", explode=True))
-    ] = "-1"
+        int, FieldMetadata(query=QueryParamMetadata(style="form", explode=True))
+    ] = -1
 
     type: Annotated[
         str, FieldMetadata(query=QueryParamMetadata(style="form", explode=True))

@@ -54,7 +54,7 @@ class BatteryDataTypedDict(TypedDict):
     r"""Maximum charge current limit (A)"""
     max_discharge_current_limit: NotRequired[float]
     r"""Maximum discharge current limit (A)"""
-    status: NotRequired[str]
+    status: NotRequired[int]
     r"""Battery status"""
     battery_soc1: NotRequired[float]
     r"""Battery 1 state of charge (%)"""
@@ -169,7 +169,7 @@ class BatteryData(BaseModel):
     ] = None
     r"""Maximum discharge current limit (A)"""
 
-    status: Optional[str] = None
+    status: Optional[int] = None
     r"""Battery status"""
 
     battery_soc1: Annotated[Optional[float], pydantic.Field(alias="batterySoc1")] = None
