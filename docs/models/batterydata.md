@@ -27,7 +27,7 @@
 | `discharge_current_limit`                 | *Optional[float]*                         | :heavy_minus_sign:                        | Discharge current limit (A)               |
 | `max_charge_current_limit`                | *Optional[float]*                         | :heavy_minus_sign:                        | Maximum charge current limit (A)          |
 | `max_discharge_current_limit`             | *Optional[float]*                         | :heavy_minus_sign:                        | Maximum discharge current limit (A)       |
-| `status`                                  | *Optional[str]*                           | :heavy_minus_sign:                        | Battery status                            |
+| `status`                                  | *Optional[int]*                           | :heavy_minus_sign:                        | Battery status                            |
 | `battery_soc1`                            | *Optional[float]*                         | :heavy_minus_sign:                        | Battery 1 state of charge (%)             |
 | `battery_current1`                        | *Optional[float]*                         | :heavy_minus_sign:                        | Battery 1 current (A)                     |
 | `battery_volt1`                           | *Optional[float]*                         | :heavy_minus_sign:                        | Battery 1 voltage (V)                     |

@@ -20,7 +20,7 @@ class GridDataTypedDict(TypedDict):
     r"""Grid frequency (Hz)"""
     pf: NotRequired[float]
     r"""Power factor"""
-    status: NotRequired[str]
+    status: NotRequired[int]
     r"""Grid status"""
     etoday_from: NotRequired[float]
     r"""Energy imported today (kWh)"""
@@ -50,7 +50,7 @@ class GridData(BaseModel):
     pf: Optional[float] = None
     r"""Power factor"""
 
-    status: Optional[str] = None
+    status: Optional[int] = None
     r"""Grid status"""
 
     etoday_from: Annotated[Optional[float], pydantic.Field(alias="etodayFrom")] = None

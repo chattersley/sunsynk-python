@@ -24,7 +24,7 @@ with SunSynk(
     bearer_auth=os.getenv("SUNSYNK_BEARER_AUTH", ""),
 ) as sun_synk:
 
-    res = sun_synk.gateways.get_gateways(page=1, limit=10, status="-1", upload_cycle="-1", protocol="-1", agent_company_id="-1", lan="en")
+    res = sun_synk.gateways.get_gateways(page=1, limit=10, status=-1, upload_cycle="-1", protocol="-1", agent_company_id="-1", lan="en")
 
     # Handle response
     print(res)
@@ -37,7 +37,7 @@ with SunSynk(
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | `page`                                                              | *Optional[int]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `limit`                                                             | *Optional[int]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `status`                                                            | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `status`                                                            | *Optional[int]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `sn`                                                                | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `plant_id`                                                          | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `upload_cycle`                                                      | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |

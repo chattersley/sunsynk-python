@@ -13,7 +13,7 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 class GetGatewaysRequestTypedDict(TypedDict):
     page: NotRequired[int]
     limit: NotRequired[int]
-    status: NotRequired[str]
+    status: NotRequired[int]
     sn: NotRequired[str]
     plant_id: NotRequired[str]
     upload_cycle: NotRequired[str]
@@ -37,9 +37,9 @@ class GetGatewaysRequest(BaseModel):
     ] = 10
 
     status: Annotated[
-        Optional[str],
+        Optional[int],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
-    ] = "-1"
+    ] = -1
 
     sn: Annotated[
         Optional[str],

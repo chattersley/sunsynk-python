@@ -17,7 +17,7 @@ class PlantTypedDict(TypedDict):
     r"""Plant name"""
     thumb_url: NotRequired[str]
     r"""Thumbnail URL"""
-    status: NotRequired[float]
+    status: NotRequired[int]
     r"""Plant status"""
     address: NotRequired[str]
     r"""Plant address"""
@@ -54,7 +54,7 @@ class Plant(BaseModel):
     thumb_url: Annotated[Optional[str], pydantic.Field(alias="thumbUrl")] = None
     r"""Thumbnail URL"""
 
-    status: Optional[float] = None
+    status: Optional[int] = None
     r"""Plant status"""
 
     address: Optional[str] = None

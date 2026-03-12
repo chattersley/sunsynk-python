@@ -7,7 +7,7 @@
 | ------------------ | ------------------ | ------------------ | ------------------ |
 | `page`             | *Optional[int]*    | :heavy_minus_sign: | N/A                |
 | `limit`            | *Optional[int]*    | :heavy_minus_sign: | N/A                |
-| `status`           | *Optional[str]*    | :heavy_minus_sign: | N/A                |
+| `status`           | *Optional[int]*    | :heavy_minus_sign: | N/A                |
 | `sn`               | *Optional[str]*    | :heavy_minus_sign: | N/A                |
 | `plant_id`         | *Optional[str]*    | :heavy_minus_sign: | N/A                |
 | `upload_cycle`     | *Optional[str]*    | :heavy_minus_sign: | N/A                |

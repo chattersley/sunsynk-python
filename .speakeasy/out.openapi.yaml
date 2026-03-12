@@ -306,7 +306,7 @@ paths:
           in: "query"
           required: true
           schema:
-            type: "string"
+            type: "integer"
             default: "-1"
         - name: "type"
           in: "query"
@@ -645,7 +645,7 @@ paths:
         - name: "status"
           in: "query"
           schema:
-            type: "string"
+            type: "integer"
             default: "-1"
         - name: "sn"
           in: "query"
@@ -843,7 +843,7 @@ components:
           type: "string"
           description: "Thumbnail URL"
         status:
-          type: "number"
+          type: "integer"
           description: "Plant status"
         address:
           type: "string"
@@ -948,7 +948,7 @@ components:
           type: "string"
           description: "Gateway serial number"
         status:
-          type: "string"
+          type: "integer"
           description: "Inverter status"
         type:
           type: "string"
@@ -1113,7 +1113,7 @@ components:
           type: "number"
           description: "Power factor"
         status:
-          type: "string"
+          type: "integer"
           description: "Grid status"
         etodayFrom:
           type: "number"
@@ -1211,7 +1211,7 @@ components:
           type: "number"
           description: "Maximum discharge current limit (A)"
         status:
-          type: "string"
+          type: "integer"
           description: "Battery status"
         batterySoc1:
           type: "number"
