@@ -4,22 +4,20 @@
 from __future__ import annotations
 from datetime import date
 import pydantic
-from pydantic import model_serializer
-from sunsynk_api_client.types import BaseModel, UNSET_SENTINEL
+from sunsynk_api_client.types import BaseModel
 from sunsynk_api_client.utils import (
     FieldMetadata,
     PathParamMetadata,
     QueryParamMetadata,
 )
-from typing import Optional
-from typing_extensions import Annotated, NotRequired, TypedDict
+from typing_extensions import Annotated, TypedDict
 
 
 class GetInverterDailyOutputRequestTypedDict(TypedDict):
     sn: str
-    lan: NotRequired[str]
-    date_: NotRequired[date]
-    column: NotRequired[str]
+    date_: date
+    lan: str
+    column: str
 
 
 class GetInverterDailyOutputRequest(BaseModel):
@@ -27,34 +25,16 @@ class GetInverterDailyOutputRequest(BaseModel):
         str, FieldMetadata(path=PathParamMetadata(style="simple", explode=False))
     ]
 
-    lan: Annotated[
-        Optional[str],
-        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
-    ] = "en"
-
     date_: Annotated[
-        Optional[date],
+        date,
         pydantic.Field(alias="date"),
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
-    ] = None
+    ]
+
+    lan: Annotated[
+        str, FieldMetadata(query=QueryParamMetadata(style="form", explode=True))
+    ] = "en"
 
     column: Annotated[
-        Optional[str],
-        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
-    ] = None
-
-    @model_serializer(mode="wrap")
-    def serialize_model(self, handler):
-        optional_fields = set(["lan", "date", "column"])
-        serialized = handler(self)
-        m = {}
-
-        for n, f in type(self).model_fields.items():
-            k = f.alias or n
-            val = serialized.get(k, serialized.get(n))
-
-            if val != UNSET_SENTINEL:
-                if val is not None or k not in optional_fields:
-                    m[k] = val
-
-        return m
+        str, FieldMetadata(query=QueryParamMetadata(style="form", explode=True))
+    ] = "dc_temp,igbt_temp"

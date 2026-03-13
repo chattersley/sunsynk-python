@@ -389,8 +389,10 @@ paths:
             description: "Inverter serial number"
         - name: "lan"
           in: "query"
+          required: true
           schema:
-            type: "string"
+            type: "integer"
+            default: -1
       security:
         - bearerAuth: []
       responses:
@@ -489,20 +491,24 @@ paths:
             description: "Inverter serial number"
         - name: "lan"
           in: "query"
+          required: true
           schema:
             type: "string"
             default: "en"
         - name: "date"
           in: "query"
+          required: true
           schema:
             type: "string"
             format: "date"
             description: "Date in YYYY-MM-DD format"
         - name: "column"
           in: "query"
+          required: true
           schema:
             type: "string"
             description: "Comma-separated column names (e.g., dc_temp,igbt_temp)"
+            default: "dc_temp,igbt_temp"
       security:
         - bearerAuth: []
       responses:

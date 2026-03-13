@@ -1,9 +1,9 @@
-speakeasyVersion: 1.753.0
+speakeasyVersion: 1.754.0
 sources:
     SunSynk Power View API:
         sourceNamespace: sun-synk-power-view-api
-        sourceRevisionDigest: sha256:ce0de4429832b0afb9594f8caf0691340adea3cc9b2394a5ed4a9318fe1880cc
-        sourceBlobDigest: sha256:14027f248f7dc2616a03676965b2bba9c3ba1b8d3fd65fa1ca3be0cd58d82140
+        sourceRevisionDigest: sha256:b40b625477b1e7764b17ebc8eee788a187cf32c0d25362820a18bff01d655ed1
+        sourceBlobDigest: sha256:26b2b585c44e3b0e58290953d1cb3148c7a60e4d708a06e516837602e6ad2f51
         tags:
             - latest
             - 1.1.0
@@ -11,10 +11,10 @@ targets:
     sun-synk:
         source: SunSynk Power View API
         sourceNamespace: sun-synk-power-view-api
-        sourceRevisionDigest: sha256:ce0de4429832b0afb9594f8caf0691340adea3cc9b2394a5ed4a9318fe1880cc
-        sourceBlobDigest: sha256:14027f248f7dc2616a03676965b2bba9c3ba1b8d3fd65fa1ca3be0cd58d82140
+        sourceRevisionDigest: sha256:b40b625477b1e7764b17ebc8eee788a187cf32c0d25362820a18bff01d655ed1
+        sourceBlobDigest: sha256:26b2b585c44e3b0e58290953d1cb3148c7a60e4d708a06e516837602e6ad2f51
         codeSamplesNamespace: sun-synk-power-view-api-python-code-samples
-        codeSamplesRevisionDigest: sha256:3c3e391720d914c839ed58384c58ddead160420b282a734d16bfed94b6e8bee2
+        codeSamplesRevisionDigest: sha256:8aebdee551b6824225c8a9552d6b002eea71a28175eaa0434b60261a8bcd4fbb
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
