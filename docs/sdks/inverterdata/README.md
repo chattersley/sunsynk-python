@@ -110,7 +110,7 @@ with SunSynk(
     bearer_auth=os.getenv("SUNSYNK_BEARER_AUTH", ""),
 ) as sun_synk:
 
-    res = sun_synk.inverter_data.get_battery_realtime(sn="<value>")
+    res = sun_synk.inverter_data.get_battery_realtime(sn="<value>", lan=-1)
 
     # Handle response
     print(res)
@@ -122,7 +122,7 @@ with SunSynk(
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | `sn`                                                                | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
-| `lan`                                                               | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `lan`                                                               | *int*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
@@ -263,6 +263,7 @@ Retrieves daily output statistics for a specific inverter
 
 <!-- UsageSnippet language="python" operationID="getInverterDailyOutput" method="get" path="/api/v1/inverter/{sn}/output/day" -->
 ```python
+from datetime import date
 import os
 from sunsynk_api_client import SunSynk
 
@@ -271,7 +272,7 @@ with SunSynk(
     bearer_auth=os.getenv("SUNSYNK_BEARER_AUTH", ""),
 ) as sun_synk:
 
-    res = sun_synk.inverter_data.get_inverter_daily_output(sn="<value>", lan="en")
+    res = sun_synk.inverter_data.get_inverter_daily_output(sn="<value>", lan="en", date_=date.fromisoformat("2025-12-02"), column="dc_temp,igbt_temp")
 
     # Handle response
     print(res)
@@ -283,9 +284,9 @@ with SunSynk(
 | Parameter                                                                    | Type                                                                         | Required                                                                     | Description                                                                  |
 | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
 | `sn`                                                                         | *str*                                                                        | :heavy_check_mark:                                                           | N/A                                                                          |
-| `lan`                                                                        | *Optional[str]*                                                              | :heavy_minus_sign:                                                           | N/A                                                                          |
-| `date_`                                                                      | [datetime](https://docs.python.org/3/library/datetime.html#datetime-objects) | :heavy_minus_sign:                                                           | N/A                                                                          |
-| `column`                                                                     | *Optional[str]*                                                              | :heavy_minus_sign:                                                           | N/A                                                                          |
+| `lan`                                                                        | *str*                                                                        | :heavy_check_mark:                                                           | N/A                                                                          |
+| `date_`                                                                      | [datetime](https://docs.python.org/3/library/datetime.html#datetime-objects) | :heavy_check_mark:                                                           | N/A                                                                          |
+| `column`                                                                     | *str*                                                                        | :heavy_check_mark:                                                           | N/A                                                                          |
 | `retries`                                                                    | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)             | :heavy_minus_sign:                                                           | Configuration to override the default retry behavior of the client.          |
 
 ### Response

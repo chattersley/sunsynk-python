@@ -6,4 +6,4 @@
 | Field              | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
 | `sn`               | *str*              | :heavy_check_mark: | N/A                |
-| `lan`              | *Optional[str]*    | :heavy_minus_sign: | N/A                |
+| `lan`              | *int*              | :heavy_check_mark: | N/A                |

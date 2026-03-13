@@ -2,20 +2,18 @@
 # @generated-id: 64f3c2ffb96e
 
 from __future__ import annotations
-from pydantic import model_serializer
-from sunsynk_api_client.types import BaseModel, UNSET_SENTINEL
+from sunsynk_api_client.types import BaseModel
 from sunsynk_api_client.utils import (
     FieldMetadata,
     PathParamMetadata,
     QueryParamMetadata,
 )
-from typing import Optional
-from typing_extensions import Annotated, NotRequired, TypedDict
+from typing_extensions import Annotated, TypedDict
 
 
 class GetBatteryRealtimeRequestTypedDict(TypedDict):
     sn: str
-    lan: NotRequired[str]
+    lan: int
 
 
 class GetBatteryRealtimeRequest(BaseModel):
@@ -24,22 +22,5 @@ class GetBatteryRealtimeRequest(BaseModel):
     ]
 
     lan: Annotated[
-        Optional[str],
-        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
-    ] = None
-
-    @model_serializer(mode="wrap")
-    def serialize_model(self, handler):
-        optional_fields = set(["lan"])
-        serialized = handler(self)
-        m = {}
-
-        for n, f in type(self).model_fields.items():
-            k = f.alias or n
-            val = serialized.get(k, serialized.get(n))
-
-            if val != UNSET_SENTINEL:
-                if val is not None or k not in optional_fields:
-                    m[k] = val
-
-        return m
+        int, FieldMetadata(query=QueryParamMetadata(style="form", explode=True))
+    ] = -1
