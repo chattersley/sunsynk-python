@@ -13,7 +13,7 @@
 | `eyear_dischg`                            | *Optional[float]*                         | :heavy_minus_sign:                        | Battery discharge energy this year (kWh)  |
 | `etotal_chg`                              | *Optional[float]*                         | :heavy_minus_sign:                        | Total battery charge energy (kWh)         |
 | `etotal_dischg`                           | *Optional[float]*                         | :heavy_minus_sign:                        | Total battery discharge energy (kWh)      |
-| `type`                                    | *Optional[str]*                           | :heavy_minus_sign:                        | Battery type                              |
+| `type`                                    | *Optional[float]*                         | :heavy_minus_sign:                        | Battery type                              |
 | `power`                                   | *Optional[float]*                         | :heavy_minus_sign:                        | Battery power (kW)                        |
 | `capacity`                                | *Optional[float]*                         | :heavy_minus_sign:                        | Battery capacity (kWh)                    |
 | `correct_cap`                             | *Optional[float]*                         | :heavy_minus_sign:                        | Corrected capacity (kWh)                  |
@@ -33,7 +33,7 @@
 | `battery_volt1`                           | *Optional[float]*                         | :heavy_minus_sign:                        | Battery 1 voltage (V)                     |
 | `battery_power1`                          | *Optional[float]*                         | :heavy_minus_sign:                        | Battery 1 power (kW)                      |
 | `battery_temp1`                           | *Optional[float]*                         | :heavy_minus_sign:                        | Battery 1 temperature (°C)                |
-| `battery_status2`                         | *Optional[str]*                           | :heavy_minus_sign:                        | Battery 2 status                          |
+| `battery_status2`                         | *Optional[float]*                         | :heavy_minus_sign:                        | Battery 2 status                          |
 | `battery_soc2`                            | *Optional[float]*                         | :heavy_minus_sign:                        | Battery 2 state of charge (%)             |
 | `battery_current2`                        | *Optional[float]*                         | :heavy_minus_sign:                        | Battery 2 current (A)                     |
 | `battery_volt2`                           | *Optional[float]*                         | :heavy_minus_sign:                        | Battery 2 voltage (V)                     |

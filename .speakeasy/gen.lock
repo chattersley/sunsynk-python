@@ -1,16 +1,16 @@
 lockVersion: 2.0.0
 id: cd8d666b-f509-49a0-a4af-72e58bb4b75f
 management:
-  docChecksum: ecb640f2505b616f33ab758018b86ef5
+  docChecksum: 1c9e787656d563d231718a812cd4e1f5
   docVersion: 1.1.0
   speakeasyVersion: 1.754.0
   generationVersion: 2.862.0
-  releaseVersion: 0.1.5
-  configChecksum: f047e092a28f95779e0f3abe29f2ddc1
+  releaseVersion: 0.1.6
+  configChecksum: 9ba669f4d4ff2781abafe1525092b8d0
 persistentEdits:
-  generation_id: 68e8eb44-ef84-4cda-8390-6f7d13b2de91
-  pristine_commit_hash: 4e71382c77d947861320b00fccacee9618f4ae2b
-  pristine_tree_hash: 925e0b3dcb5548f093414dfa7ffcd86a7289c56e
+  generation_id: 0eae7cce-f528-479d-95ad-3ec9228f5d80
+  pristine_commit_hash: 44c0a1829d3a9d8bf496c403bedc82e567350535
+  pristine_tree_hash: d3a532a6463736e0479e99cc87cd413c2a63e65e
 features:
   python:
     additionalDependencies: 1.0.0
@@ -62,8 +62,8 @@ trackedFiles:
     pristine_git_object: 2c32e27bdf5e53fba78c170bba97d480989cff39
   docs/models/batterydata.md:
     id: 0f36fe8f8c1f
-    last_write_checksum: sha1:f9a604ba3b79261a428b2efda68824c5769d1b68
-    pristine_git_object: 549ffeb7a1dc1d7ca79d4ebc3075a12e8a2bcd5d
+    last_write_checksum: sha1:dff04aca616b8e636c79441b55c7177c91f06563
+    pristine_git_object: 74164b6aa9585eaab37f3e0912c88e4f6a55bdb3
   docs/models/batteryresponse.md:
     id: 0ba033a69008
     last_write_checksum: sha1:52e1a35f6bf0c57687ce132559f5af4c736ecbaf
@@ -398,8 +398,8 @@ trackedFiles:
     pristine_git_object: 31fcd7a7c93dbda80f4fa7d653be0a74ccb4a401
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:e8010bccbceb6ca5b004db9af34973b9918ad60a
-    pristine_git_object: c819e73c96ca545aa245da34e655670c556afb15
+    last_write_checksum: sha1:3c6c3a235a60fe10abce64dbeed0137585c95e5f
+    pristine_git_object: e487311c67ca349eebe5f95907efe2ce762930cd
   scripts/publish.sh:
     id: fe273b08f514
     last_write_checksum: sha1:adc9b741c12ad1591ab4870eabe20f0d0a86cd1a
@@ -422,8 +422,8 @@ trackedFiles:
     pristine_git_object: 8d03873e72022ad3f31254c1db04f4564198ea72
   src/sunsynk_api_client/_version.py:
     id: 4f638efaf76d
-    last_write_checksum: sha1:511bb0598730d3555d66bd2a5c84d2db79b5233d
-    pristine_git_object: 60ab6d338303a946e9402c1c8c34d7c221672609
+    last_write_checksum: sha1:783fff90108b077bf40c8ca377f3a40700ffcf8f
+    pristine_git_object: 7602701972fc79e478d3b582e1ec8bcc93d73c0e
   src/sunsynk_api_client/authentication.py:
     id: d27011b9ebd3
     last_write_checksum: sha1:de5caddf40092d8ae2eedc708cb5aa938c7a9d10
@@ -482,8 +482,8 @@ trackedFiles:
     pristine_git_object: 38df48399f0b3a37d39480565692d64e179a5669
   src/sunsynk_api_client/models/batterydata.py:
     id: 72a0e6c9ab5e
-    last_write_checksum: sha1:dc63398695c55ea118a351a2f1ff97cb573abdb5
-    pristine_git_object: d0760276d669a6e040b7af20a6ed8f121b46fba9
+    last_write_checksum: sha1:fba3888ea573c2c0ef69d3d78e3f4b7be17c90f2
+    pristine_git_object: 0a7a0eecf0462cedfe4869316f0c6e2a2da9e0fa
   src/sunsynk_api_client/models/batteryresponse.py:
     id: fafea8c4add0
     last_write_checksum: sha1:eccbcb2a49be1c4526989617b780eeafa4e0a131

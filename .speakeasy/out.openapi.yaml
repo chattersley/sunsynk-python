@@ -1175,7 +1175,7 @@ components:
           type: "number"
           description: "Total battery discharge energy (kWh)"
         type:
-          type: "string"
+          type: "number"
           description: "Battery type"
         power:
           type: "number"
@@ -1235,7 +1235,7 @@ components:
           type: "number"
           description: "Battery 1 temperature (°C)"
         batteryStatus2:
-          type: "string"
+          type: "number"
           description: "Battery 2 status"
         batterySoc2:
           type: "number"

@@ -26,7 +26,7 @@ class BatteryDataTypedDict(TypedDict):
     r"""Total battery charge energy (kWh)"""
     etotal_dischg: NotRequired[float]
     r"""Total battery discharge energy (kWh)"""
-    type: NotRequired[str]
+    type: NotRequired[float]
     r"""Battery type"""
     power: NotRequired[float]
     r"""Battery power (kW)"""
@@ -66,7 +66,7 @@ class BatteryDataTypedDict(TypedDict):
     r"""Battery 1 power (kW)"""
     battery_temp1: NotRequired[float]
     r"""Battery 1 temperature (°C)"""
-    battery_status2: NotRequired[str]
+    battery_status2: NotRequired[float]
     r"""Battery 2 status"""
     battery_soc2: NotRequired[float]
     r"""Battery 2 state of charge (%)"""
@@ -117,7 +117,7 @@ class BatteryData(BaseModel):
     )
     r"""Total battery discharge energy (kWh)"""
 
-    type: Optional[str] = None
+    type: Optional[float] = None
     r"""Battery type"""
 
     power: Optional[float] = None
@@ -196,7 +196,7 @@ class BatteryData(BaseModel):
     r"""Battery 1 temperature (°C)"""
 
     battery_status2: Annotated[
-        Optional[str], pydantic.Field(alias="batteryStatus2")
+        Optional[float], pydantic.Field(alias="batteryStatus2")
     ] = None
     r"""Battery 2 status"""
 
