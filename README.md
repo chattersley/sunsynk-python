@@ -3,12 +3,8 @@
 Developer-friendly & type-safe Python SDK specifically catered to leverage *sunsynk-api-client* API.
 
 [![Built by Speakeasy](https://img.shields.io/badge/Built_by-SPEAKEASY-374151?style=for-the-badge&labelColor=f3f4f6)](https://www.speakeasy.com/?utm_source=sunsynk-api-client&utm_campaign=python)
-[![License: MIT](https://img.shields.io/badge/LICENSE_//_MIT-3b5bdb?style=for-the-badge&labelColor=eff6ff)](https://opensource.org/licenses/MIT)
+[![License: Apache-2.0](https://img.shields.io/badge/LICENSE_//_Apache--2.0-3b5bdb?style=for-the-badge&labelColor=eff6ff)](https://opensource.org/licenses/Apache-2.0)
 
-
-<br /><br />
-> [!IMPORTANT]
-> This SDK is not yet ready for production use. To complete setup please follow the steps outlined in your [workspace](https://app.speakeasy.com/org/finchdean/home-assistant). Delete this section before > publishing to a package manager.
 
 <!-- Start Summary [summary] -->
 ## Summary
@@ -39,10 +35,6 @@ SunSynk Power View API: API specification for SunSynk Power View (Inverter monit
 
 <!-- Start SDK Installation [installation] -->
 ## SDK Installation
-
-> [!TIP]
-> To finish publishing your SDK to PyPI you must [run your first generation action](https://www.speakeasy.com/docs/github-setup#step-by-step-guide).
-
 
 > [!NOTE]
 > **Python version upgrade policy**
