@@ -1,8 +1,8 @@
-# sunsynk-api-client
+# sunsynk-python
 
-Developer-friendly & type-safe Python SDK specifically catered to leverage *sunsynk-api-client* API.
+Developer-friendly & type-safe Python SDK specifically catered to leverage *sunsynk-python* API.
 
-[![Built by Speakeasy](https://img.shields.io/badge/Built_by-SPEAKEASY-374151?style=for-the-badge&labelColor=f3f4f6)](https://www.speakeasy.com/?utm_source=sunsynk-api-client&utm_campaign=python)
+[![Built by Speakeasy](https://img.shields.io/badge/Built_by-SPEAKEASY-374151?style=for-the-badge&labelColor=f3f4f6)](https://www.speakeasy.com/?utm_source=sunsynk-python&utm_campaign=python)
 [![License: Apache-2.0](https://img.shields.io/badge/LICENSE_//_Apache--2.0-3b5bdb?style=for-the-badge&labelColor=eff6ff)](https://opensource.org/licenses/Apache-2.0)
 
 
@@ -15,7 +15,7 @@ SunSynk Power View API: API specification for SunSynk Power View (Inverter monit
 <!-- Start Table of Contents [toc] -->
 ## Table of Contents
 <!-- $toc-max-depth=2 -->
-* [sunsynk-api-client](#sunsynk-api-client)
+* [sunsynk-python](#sunsynk-python)
   * [SDK Installation](#sdk-installation)
   * [IDE Support](#ide-support)
   * [SDK Example Usage](#sdk-example-usage)
@@ -72,7 +72,7 @@ poetry add git+<UNSET>.git
 You can use this SDK in a Python shell with [uv](https://docs.astral.sh/uv/) and the `uvx` command that comes with it like so:
 
 ```shell
-uvx --from sunsynk-api-client python
+uvx --from sunsynk-python python
 ```
 
 It's also possible to write a standalone Python script without needing to set up a whole project like so:
@@ -82,7 +82,7 @@ It's also possible to write a standalone Python script without needing to set up
 # /// script
 # requires-python = ">=3.10"
 # dependencies = [
-#     "sunsynk-api-client",
+#     "sunsynk-python",
 # ]
 # ///
 
@@ -551,4 +551,4 @@ looking for the latest version.
 While we value open-source contributions to this SDK, this library is generated programmatically. Any manual changes added to internal files will be overwritten on the next generation. 
 We look forward to hearing your feedback. Feel free to open a PR or an issue with a proof of concept and we'll do our best to include it in a future release. 
 
-### SDK Created by [Speakeasy](https://www.speakeasy.com/?utm_source=sunsynk-api-client&utm_campaign=python)
+### SDK Created by [Speakeasy](https://www.speakeasy.com/?utm_source=sunsynk-python&utm_campaign=python)

@@ -1,5 +1,5 @@
 [project]
-name = "sunsynk-api-client"
+name = "sunsynk-python"
 version = "0.1.7"
 description = "Python Client SDK for the SunSynk Power View API."
 authors = [{ name = "Speakeasy" },]
