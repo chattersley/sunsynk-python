@@ -3,9 +3,6 @@ info:
   title: "SunSynk Power View API"
   description: "API specification for SunSynk Power View (Inverter monitoring system). Combined from Node-RED flows and Python client library."
   version: "1.1.0"
-  contact:
-    name: "SunSynk Community"
-    url: "https://powerforum.co.za/topic/16806-sunsynk-logger-integration-into-home-assistant/"
   license:
     name: "MIT"
 servers:
