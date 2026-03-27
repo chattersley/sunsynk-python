@@ -36,6 +36,10 @@ SunSynk Power View API: API specification for SunSynk Power View (Inverter monit
 <!-- Start SDK Installation [installation] -->
 ## SDK Installation
 
+> [!TIP]
+> To finish publishing your SDK to PyPI you must [run your first generation action](https://www.speakeasy.com/docs/github-setup#step-by-step-guide).
+
+
 > [!NOTE]
 > **Python version upgrade policy**
 >
@@ -72,7 +76,7 @@ poetry add git+<UNSET>.git
 You can use this SDK in a Python shell with [uv](https://docs.astral.sh/uv/) and the `uvx` command that comes with it like so:
 
 ```shell
-uvx --from sunsynk-python python
+uvx --from sunsynk-api-client python
 ```
 
 It's also possible to write a standalone Python script without needing to set up a whole project like so:
@@ -82,7 +86,7 @@ It's also possible to write a standalone Python script without needing to set up
 # /// script
 # requires-python = ">=3.10"
 # dependencies = [
-#     "sunsynk-python",
+#     "sunsynk-api-client",
 # ]
 # ///
 

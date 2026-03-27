@@ -14,7 +14,7 @@ targets:
         sourceRevisionDigest: sha256:5595c6b2f8190113809543f8f9dc00e363eabee199c6759f7a25791c34885a2d
         sourceBlobDigest: sha256:fc4ffd0f1845e273da4e61d96bf066a74d032b8007cbdb92905e3afbb389ffc8
         codeSamplesNamespace: sun-synk-power-view-api-python-code-samples
-        codeSamplesRevisionDigest: sha256:60cf5bfd1779eb38d0f999ee0866da2b66f46f520f20cb87c9d96a6460964aaf
+        codeSamplesRevisionDigest: sha256:29bfa180f3ccec6e382b6a7e9e200139f0cd6df7a770defb33d16cd6ed246874
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest

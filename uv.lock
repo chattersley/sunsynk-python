@@ -376,8 +376,8 @@ wheels = [
 ]
 
 [[package]]
-name = "sunsynk-api-client"
-version = "0.1.7"
+name = "sunsynk-python"
+version = "0.1.8"
 source = { editable = "." }
 dependencies = [
     { name = "httpcore" },
