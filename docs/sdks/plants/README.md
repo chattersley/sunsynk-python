@@ -8,6 +8,7 @@ Endpoints for retrieving plant and energy flow data
 
 * [get_plants](#get_plants) - Get list of plants
 * [get_plant_flow](#get_plant_flow) - Get plant energy flow data
+* [get_plant](#get_plant) - Get plant information
 * [set_plant_income](#set_plant_income) - Set plant income pricing
 
 ## get_plants
@@ -86,6 +87,48 @@ with SunSynk(
 ### Response
 
 **[models.PlantFlowResponse](../../models/plantflowresponse.md)**
+
+### Errors
+
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| errors.SunSynkDefaultError | 4XX, 5XX                   | \*/\*                      |
+
+## get_plant
+
+Retrieves detailed information for a specific plant, including pricing charges, location, owner, currency, timezone, realtime energy data, and permissions.
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="getPlant" method="get" path="/api/v1/plant/{plantId}" -->
+```python
+import os
+from sunsynk_api_client import SunSynk
+
+
+with SunSynk(
+    bearer_auth=os.getenv("SUNSYNK_BEARER_AUTH", ""),
+) as sun_synk:
+
+    res = sun_synk.plants.get_plant(plant_id="<id>", lan="en")
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `plant_id`                                                          | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
+| `lan`                                                               | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
+| `id`                                                                | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.PlantInfoResponse](../../models/plantinforesponse.md)**
 
 ### Errors
 
