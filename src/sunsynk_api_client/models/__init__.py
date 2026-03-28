@@ -96,6 +96,7 @@ if TYPE_CHECKING:
         InverterSettingsResponse,
         InverterSettingsResponseTypedDict,
     )
+    from .invertersettingsset import InverterSettingsSet, InverterSettingsSetTypedDict
     from .invertersresponse import (
         InvertersResponse,
         InvertersResponseData,
@@ -121,6 +122,23 @@ if TYPE_CHECKING:
     from .plant import Plant, PlantTypedDict
     from .plantflowdata import PlantFlowData, PlantFlowDataTypedDict, Pv, PvTypedDict
     from .plantflowresponse import PlantFlowResponse, PlantFlowResponseTypedDict
+    from .plantincomecharge import (
+        PlantIncomeCharge,
+        PlantIncomeChargeTypedDict,
+        Price,
+        PriceTypedDict,
+        Type,
+        Type2,
+        TypeEnum,
+        TypeTypedDict,
+    )
+    from .plantincomeproduct import (
+        PlantIncomeProduct,
+        PlantIncomeProductTypedDict,
+        RatesThreshold,
+        RatesThresholdTypedDict,
+    )
+    from .plantincomerequest import PlantIncomeRequest, PlantIncomeRequestTypedDict
     from .plantinverterinfo import PlantInverterInfo, PlantInverterInfoTypedDict
     from .plantinvertersdata import PlantInvertersData, PlantInvertersDataTypedDict
     from .plantinvertersresponse import (
@@ -141,6 +159,18 @@ if TYPE_CHECKING:
     )
     from .realtimevip import RealtimeVip, RealtimeVipTypedDict
     from .security import Security, SecurityTypedDict
+    from .setinvertersettingsop import (
+        SetInverterSettingsRequest,
+        SetInverterSettingsRequestTypedDict,
+        SetInverterSettingsResponse,
+        SetInverterSettingsResponseTypedDict,
+    )
+    from .setplantincomeop import (
+        SetPlantIncomeRequest,
+        SetPlantIncomeRequestTypedDict,
+        SetPlantIncomeResponse,
+        SetPlantIncomeResponseTypedDict,
+    )
     from .tokenrequest import ClientID, GrantType, TokenRequest, TokenRequestTypedDict
     from .tokenresponse import (
         TokenResponse,
@@ -149,14 +179,6 @@ if TYPE_CHECKING:
         TokenResponseTypedDict,
     )
     from .vip import Vip, VipTypedDict
-    from .writeinvertersettingsop import (
-        WriteInverterSettingsRequest,
-        WriteInverterSettingsRequestBody,
-        WriteInverterSettingsRequestBodyTypedDict,
-        WriteInverterSettingsRequestTypedDict,
-        WriteInverterSettingsResponse,
-        WriteInverterSettingsResponseTypedDict,
-    )
 
 __all__ = [
     "BatteryData",
@@ -237,6 +259,8 @@ __all__ = [
     "InverterSettings",
     "InverterSettingsResponse",
     "InverterSettingsResponseTypedDict",
+    "InverterSettingsSet",
+    "InverterSettingsSetTypedDict",
     "InverterSettingsTypedDict",
     "InverterTypedDict",
     "InverterVersion",
@@ -264,6 +288,12 @@ __all__ = [
     "PlantFlowDataTypedDict",
     "PlantFlowResponse",
     "PlantFlowResponseTypedDict",
+    "PlantIncomeCharge",
+    "PlantIncomeChargeTypedDict",
+    "PlantIncomeProduct",
+    "PlantIncomeProductTypedDict",
+    "PlantIncomeRequest",
+    "PlantIncomeRequestTypedDict",
     "PlantInverterInfo",
     "PlantInverterInfoTypedDict",
     "PlantInvertersData",
@@ -277,10 +307,14 @@ __all__ = [
     "PlantsResponseData",
     "PlantsResponseDataTypedDict",
     "PlantsResponseTypedDict",
+    "Price",
+    "PriceTypedDict",
     "Pv",
     "PvIv",
     "PvIvTypedDict",
     "PvTypedDict",
+    "RatesThreshold",
+    "RatesThresholdTypedDict",
     "ReadInverterSettingsRequest",
     "ReadInverterSettingsRequestTypedDict",
     "RealtimeVip",
@@ -289,20 +323,26 @@ __all__ = [
     "RecordTypedDict",
     "Security",
     "SecurityTypedDict",
+    "SetInverterSettingsRequest",
+    "SetInverterSettingsRequestTypedDict",
+    "SetInverterSettingsResponse",
+    "SetInverterSettingsResponseTypedDict",
+    "SetPlantIncomeRequest",
+    "SetPlantIncomeRequestTypedDict",
+    "SetPlantIncomeResponse",
+    "SetPlantIncomeResponseTypedDict",
     "TokenRequest",
     "TokenRequestTypedDict",
     "TokenResponse",
     "TokenResponseData",
     "TokenResponseDataTypedDict",
     "TokenResponseTypedDict",
+    "Type",
+    "Type2",
+    "TypeEnum",
+    "TypeTypedDict",
     "Vip",
     "VipTypedDict",
-    "WriteInverterSettingsRequest",
-    "WriteInverterSettingsRequestBody",
-    "WriteInverterSettingsRequestBodyTypedDict",
-    "WriteInverterSettingsRequestTypedDict",
-    "WriteInverterSettingsResponse",
-    "WriteInverterSettingsResponseTypedDict",
 ]
 
 _dynamic_imports: dict[str, str] = {
@@ -386,6 +426,8 @@ _dynamic_imports: dict[str, str] = {
     "InverterSettingsTypedDict": ".invertersettings",
     "InverterSettingsResponse": ".invertersettingsresponse",
     "InverterSettingsResponseTypedDict": ".invertersettingsresponse",
+    "InverterSettingsSet": ".invertersettingsset",
+    "InverterSettingsSetTypedDict": ".invertersettingsset",
     "InvertersResponse": ".invertersresponse",
     "InvertersResponseData": ".invertersresponse",
     "InvertersResponseDataTypedDict": ".invertersresponse",
@@ -414,6 +456,20 @@ _dynamic_imports: dict[str, str] = {
     "PvTypedDict": ".plantflowdata",
     "PlantFlowResponse": ".plantflowresponse",
     "PlantFlowResponseTypedDict": ".plantflowresponse",
+    "PlantIncomeCharge": ".plantincomecharge",
+    "PlantIncomeChargeTypedDict": ".plantincomecharge",
+    "Price": ".plantincomecharge",
+    "PriceTypedDict": ".plantincomecharge",
+    "Type": ".plantincomecharge",
+    "Type2": ".plantincomecharge",
+    "TypeEnum": ".plantincomecharge",
+    "TypeTypedDict": ".plantincomecharge",
+    "PlantIncomeProduct": ".plantincomeproduct",
+    "PlantIncomeProductTypedDict": ".plantincomeproduct",
+    "RatesThreshold": ".plantincomeproduct",
+    "RatesThresholdTypedDict": ".plantincomeproduct",
+    "PlantIncomeRequest": ".plantincomerequest",
+    "PlantIncomeRequestTypedDict": ".plantincomerequest",
     "PlantInverterInfo": ".plantinverterinfo",
     "PlantInverterInfoTypedDict": ".plantinverterinfo",
     "PlantInvertersData": ".plantinvertersdata",
@@ -434,6 +490,14 @@ _dynamic_imports: dict[str, str] = {
     "RealtimeVipTypedDict": ".realtimevip",
     "Security": ".security",
     "SecurityTypedDict": ".security",
+    "SetInverterSettingsRequest": ".setinvertersettingsop",
+    "SetInverterSettingsRequestTypedDict": ".setinvertersettingsop",
+    "SetInverterSettingsResponse": ".setinvertersettingsop",
+    "SetInverterSettingsResponseTypedDict": ".setinvertersettingsop",
+    "SetPlantIncomeRequest": ".setplantincomeop",
+    "SetPlantIncomeRequestTypedDict": ".setplantincomeop",
+    "SetPlantIncomeResponse": ".setplantincomeop",
+    "SetPlantIncomeResponseTypedDict": ".setplantincomeop",
     "ClientID": ".tokenrequest",
     "GrantType": ".tokenrequest",
     "TokenRequest": ".tokenrequest",
@@ -444,12 +508,6 @@ _dynamic_imports: dict[str, str] = {
     "TokenResponseTypedDict": ".tokenresponse",
     "Vip": ".vip",
     "VipTypedDict": ".vip",
-    "WriteInverterSettingsRequest": ".writeinvertersettingsop",
-    "WriteInverterSettingsRequestBody": ".writeinvertersettingsop",
-    "WriteInverterSettingsRequestBodyTypedDict": ".writeinvertersettingsop",
-    "WriteInverterSettingsRequestTypedDict": ".writeinvertersettingsop",
-    "WriteInverterSettingsResponse": ".writeinvertersettingsop",
-    "WriteInverterSettingsResponseTypedDict": ".writeinvertersettingsop",
 }
 
 
