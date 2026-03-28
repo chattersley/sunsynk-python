@@ -420,6 +420,60 @@
         }
       }
     },
+    "/api/v1/plant/{plantId}": {
+      "get": {
+        "summary": "Get plant information",
+        "description": "Retrieves detailed information for a specific plant, including pricing charges, location, owner, currency, timezone, realtime energy data, and permissions.",
+        "operationId": "getPlant",
+        "tags": ["Plants"],
+        "parameters": [
+          {
+            "name": "plantId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Plant ID"
+            }
+          },
+          {
+            "name": "lan",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "en",
+              "description": "Language code"
+            }
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "description": "Plant ID (repeated as query parameter)"
+            }
+          }
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Plant information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlantInfoResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/plant/{plantId}/inverters": {
       "get": {
         "summary": "Get inverters for a plant",
@@ -2243,6 +2297,126 @@
               }
             }
           }
+        }
+      },
+      "PlantInfoResponse": {
+        "type": "object",
+        "properties": {
+          "code": { "type": "integer" },
+          "msg": { "type": "string" },
+          "success": { "type": "boolean" },
+          "data": { "$ref": "#/components/schemas/PlantInfo" }
+        }
+      },
+      "PlantInfo": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer", "description": "Plant ID" },
+          "name": { "type": "string", "description": "Plant name" },
+          "totalPower": { "type": "number", "description": "Total power capacity (kW)" },
+          "thumbUrl": { "type": "string", "description": "Thumbnail image URL" },
+          "joinDate": { "type": "string", "format": "date-time", "description": "Date the plant was registered" },
+          "type": { "type": "integer", "description": "Plant type" },
+          "status": { "type": "integer", "description": "Plant status" },
+          "charges": {
+            "type": "array",
+            "description": "Current electricity pricing charges (half-hourly slots for Live Price type 3)",
+            "items": { "$ref": "#/components/schemas/PlantInfoCharge" }
+          },
+          "products": {
+            "type": "array",
+            "nullable": true,
+            "description": "Energy provider products (present for Live Price type 3)",
+            "items": { "$ref": "#/components/schemas/PlantInfoProduct" }
+          },
+          "lon": { "type": "number", "description": "Longitude" },
+          "lat": { "type": "number", "description": "Latitude" },
+          "address": { "type": "string", "description": "Plant address" },
+          "master": { "$ref": "#/components/schemas/PlantInfoMaster" },
+          "currency": { "$ref": "#/components/schemas/PlantInfoCurrency" },
+          "timezone": { "$ref": "#/components/schemas/PlantInfoTimezone" },
+          "realtime": { "$ref": "#/components/schemas/PlantInfoRealtime" },
+          "createAt": { "type": "string", "format": "date-time" },
+          "phone": { "type": "string" },
+          "email": { "type": "string" },
+          "installer": { "type": "string" },
+          "principal": { "type": "string" },
+          "plantPermission": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "List of permission strings for this plant"
+          },
+          "fluxProducts": { "type": "object", "nullable": true },
+          "productWarrantyRegistered": { "type": "integer" },
+          "ctEnable": { "type": "integer" },
+          "invest": { "type": "number", "description": "Total investment amount" },
+          "epexProduct": { "type": "object", "nullable": true }
+        }
+      },
+      "PlantInfoCharge": {
+        "type": "object",
+        "description": "A pricing charge entry returned in the plant info response",
+        "properties": {
+          "id": { "type": "integer" },
+          "startRange": { "type": "string", "description": "Start time (HH:MM)" },
+          "endRange": { "type": "string", "description": "End time (HH:MM)" },
+          "price": { "type": "number", "description": "Price per unit" },
+          "type": { "type": "integer", "description": "Pricing type: 1 = Constant, 2 = Time of Use, 3 = Live Price" },
+          "stationId": { "type": "integer", "description": "Plant/station ID" },
+          "createAt": { "type": "string", "format": "date-time" },
+          "status": { "type": "string", "enum": ["import", "export"], "description": "Energy direction for this charge" }
+        }
+      },
+      "PlantInfoProduct": {
+        "type": "object",
+        "description": "Energy provider product in plant info response",
+        "properties": {
+          "direction": { "type": "integer", "description": "1 = export, 0 = import" },
+          "ratesThreshold": { "type": "number" },
+          "limitSoc": { "type": "integer", "nullable": true, "description": "State of charge limit (%). Null for export." },
+          "provider": { "type": "integer", "description": "Energy provider ID" },
+          "regionId": { "type": "integer", "description": "Region ID" }
+        }
+      },
+      "PlantInfoMaster": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer" },
+          "nickname": { "type": "string" },
+          "mobile": { "type": "string", "nullable": true }
+        }
+      },
+      "PlantInfoCurrency": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer" },
+          "code": { "type": "string", "description": "Currency code (e.g. GBP)" },
+          "text": { "type": "string", "description": "Currency symbol (e.g. £)" }
+        }
+      },
+      "PlantInfoTimezone": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer" },
+          "code": { "type": "string", "description": "Timezone code (e.g. Europe/London)" },
+          "text": { "type": "string", "description": "Timezone display text" }
+        }
+      },
+      "PlantInfoRealtime": {
+        "type": "object",
+        "description": "Real-time energy and financial data for the plant",
+        "properties": {
+          "pac": { "type": "number", "description": "Current power (W)" },
+          "efficiency": { "type": "number" },
+          "etoday": { "type": "number", "description": "Energy generated today (kWh)" },
+          "emonth": { "type": "number", "description": "Energy generated this month (kWh)" },
+          "eyear": { "type": "number", "description": "Energy generated this year (kWh)" },
+          "etotal": { "type": "number", "description": "Total energy generated (kWh)" },
+          "totalPower": { "type": "number", "description": "Total power capacity (kW)" },
+          "currency": { "$ref": "#/components/schemas/PlantInfoCurrency" },
+          "invest": { "type": "number" },
+          "income": { "type": "number", "description": "Income amount" },
+          "updateAt": { "type": "string", "format": "date-time" }
         }
       },
       "PlantIncomeRequest": {

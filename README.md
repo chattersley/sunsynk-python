@@ -231,6 +231,7 @@ with SunSynk(
 
 * [get_plants](docs/sdks/plants/README.md#get_plants) - Get list of plants
 * [get_plant_flow](docs/sdks/plants/README.md#get_plant_flow) - Get plant energy flow data
+* [get_plant](docs/sdks/plants/README.md#get_plant) - Get plant information
 * [set_plant_income](docs/sdks/plants/README.md#set_plant_income) - Set plant income pricing
 
 ### [Settings](docs/sdks/settings/README.md)
@@ -347,7 +348,7 @@ with SunSynk(
 
 
 **Inherit from [`SunSynkError`](./src/sunsynk_api_client/errors/sunsynkerror.py)**:
-* [`Error`](./src/sunsynk_api_client/errors/error.py): Invalid credentials. Status code `401`. Applicable to 1 of 20 methods.*
+* [`Error`](./src/sunsynk_api_client/errors/error.py): Invalid credentials. Status code `401`. Applicable to 1 of 21 methods.*
 * [`ResponseValidationError`](./src/sunsynk_api_client/errors/responsevalidationerror.py): Type mismatch between the response data and the expected Pydantic model. Provides access to the Pydantic validation error via the `cause` attribute.
 
 </details>

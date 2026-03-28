@@ -1,0 +1,20 @@
+# PlantInfoRealtime
+
+Real-time energy and financial data for the plant
+
+
+## Fields
+
+| Field                                                                | Type                                                                 | Required                                                             | Description                                                          |
+| -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| `pac`                                                                | *Optional[float]*                                                    | :heavy_minus_sign:                                                   | Current power (W)                                                    |
+| `efficiency`                                                         | *Optional[float]*                                                    | :heavy_minus_sign:                                                   | N/A                                                                  |
+| `etoday`                                                             | *Optional[float]*                                                    | :heavy_minus_sign:                                                   | Energy generated today (kWh)                                         |
+| `emonth`                                                             | *Optional[float]*                                                    | :heavy_minus_sign:                                                   | Energy generated this month (kWh)                                    |
+| `eyear`                                                              | *Optional[float]*                                                    | :heavy_minus_sign:                                                   | Energy generated this year (kWh)                                     |
+| `etotal`                                                             | *Optional[float]*                                                    | :heavy_minus_sign:                                                   | Total energy generated (kWh)                                         |
+| `total_power`                                                        | *Optional[float]*                                                    | :heavy_minus_sign:                                                   | Total power capacity (kW)                                            |
+| `currency`                                                           | [Optional[models.PlantInfoCurrency]](../models/plantinfocurrency.md) | :heavy_minus_sign:                                                   | N/A                                                                  |
+| `invest`                                                             | *Optional[float]*                                                    | :heavy_minus_sign:                                                   | N/A                                                                  |
+| `income`                                                             | *Optional[float]*                                                    | :heavy_minus_sign:                                                   | Income amount                                                        |
+| `update_at`                                                          | [date](https://docs.python.org/3/library/datetime.html#date-objects) | :heavy_minus_sign:                                                   | N/A                                                                  |
