@@ -1,6 +1,6 @@
 [project]
 name = "sunsynk-python"
-version = "0.1.8"
+version = "0.2.0"
 description = "Python Client SDK for the SunSynk Power View API."
 authors = [{ name = "Speakeasy" },]
 readme = "README.md"

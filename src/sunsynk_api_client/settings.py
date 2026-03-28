@@ -7,7 +7,7 @@ from sunsynk_api_client._hooks import HookContext
 from sunsynk_api_client.types import OptionalNullable, UNSET
 from sunsynk_api_client.utils import get_security_from_env
 from sunsynk_api_client.utils.unmarshal_json_response import unmarshal_json_response
-from typing import Mapping, Optional, Union
+from typing import Mapping, Optional
 
 
 class Settings(BaseSDK):
@@ -189,25 +189,134 @@ class Settings(BaseSDK):
 
         raise errors.SunSynkDefaultError("Unexpected response received", http_res)
 
-    def write_inverter_settings(
+    def set_inverter_settings(
         self,
         *,
-        sn: str,
-        body: Union[
-            models.WriteInverterSettingsRequestBody,
-            models.WriteInverterSettingsRequestBodyTypedDict,
-        ],
+        sn_param: str,
+        sn: Optional[str] = None,
+        safety_type: Optional[str] = None,
+        batt_mode: Optional[str] = None,
+        solar_sell: Optional[str] = None,
+        pv_max_limit: Optional[str] = None,
+        energy_mode: Optional[str] = None,
+        peak_and_vallery: Optional[str] = None,
+        sys_work_mode: Optional[str] = None,
+        sell_time1: Optional[str] = None,
+        sell_time2: Optional[str] = None,
+        sell_time3: Optional[str] = None,
+        sell_time4: Optional[str] = None,
+        sell_time5: Optional[str] = None,
+        sell_time6: Optional[str] = None,
+        sell_time1_pac: Optional[str] = None,
+        sell_time2_pac: Optional[str] = None,
+        sell_time3_pac: Optional[str] = None,
+        sell_time4_pac: Optional[str] = None,
+        sell_time5_pac: Optional[str] = None,
+        sell_time6_pac: Optional[str] = None,
+        cap1: Optional[str] = None,
+        cap2: Optional[str] = None,
+        cap3: Optional[str] = None,
+        cap4: Optional[str] = None,
+        cap5: Optional[str] = None,
+        cap6: Optional[str] = None,
+        sell_time1_volt: Optional[str] = None,
+        sell_time2_volt: Optional[str] = None,
+        sell_time3_volt: Optional[str] = None,
+        sell_time4_volt: Optional[str] = None,
+        sell_time5_volt: Optional[str] = None,
+        sell_time6_volt: Optional[str] = None,
+        zero_export_power: Optional[str] = None,
+        solar_max_sell_power: Optional[str] = None,
+        grid_peak_shaving: Optional[str] = None,
+        low_volt_cross_en: Optional[str] = None,
+        generator_start_cap: Optional[str] = None,
+        battery_low_cap: Optional[str] = None,
+        time1on: Optional[bool] = None,
+        time2on: Optional[bool] = None,
+        time3on: Optional[bool] = None,
+        time4on: Optional[bool] = None,
+        time5on: Optional[bool] = None,
+        time6on: Optional[bool] = None,
+        gen_time1on: Optional[bool] = None,
+        gen_time2on: Optional[bool] = None,
+        gen_time3on: Optional[bool] = None,
+        gen_time4on: Optional[bool] = None,
+        gen_time5on: Optional[bool] = None,
+        gen_time6on: Optional[bool] = None,
+        monday_on: Optional[bool] = None,
+        tuesday_on: Optional[bool] = None,
+        wednesday_on: Optional[bool] = None,
+        thursday_on: Optional[bool] = None,
+        friday_on: Optional[bool] = None,
+        saturday_on: Optional[bool] = None,
+        sunday_on: Optional[bool] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.WriteInverterSettingsResponse:
-        r"""Write inverter settings
+    ) -> models.SetInverterSettingsResponse:
+        r"""Set inverter settings
 
-        Updates the configuration settings for a specific inverter
+        Updates the configuration settings for a specific inverter. Accepts partial requests — only the fields included in the request body will be updated, all other settings remain unchanged.
 
-        :param sn:
-        :param body:
+        :param sn_param:
+        :param sn: Inverter serial number
+        :param safety_type:
+        :param batt_mode:
+        :param solar_sell:
+        :param pv_max_limit:
+        :param energy_mode:
+        :param peak_and_vallery:
+        :param sys_work_mode:
+        :param sell_time1: Time slot 1 start time (HH:MM)
+        :param sell_time2: Time slot 2 start time (HH:MM)
+        :param sell_time3: Time slot 3 start time (HH:MM)
+        :param sell_time4: Time slot 4 start time (HH:MM)
+        :param sell_time5: Time slot 5 start time (HH:MM)
+        :param sell_time6: Time slot 6 start time (HH:MM)
+        :param sell_time1_pac:
+        :param sell_time2_pac:
+        :param sell_time3_pac:
+        :param sell_time4_pac:
+        :param sell_time5_pac:
+        :param sell_time6_pac:
+        :param cap1: Battery capacity threshold for time slot 1 (%)
+        :param cap2: Battery capacity threshold for time slot 2 (%)
+        :param cap3: Battery capacity threshold for time slot 3 (%)
+        :param cap4: Battery capacity threshold for time slot 4 (%)
+        :param cap5: Battery capacity threshold for time slot 5 (%)
+        :param cap6: Battery capacity threshold for time slot 6 (%)
+        :param sell_time1_volt:
+        :param sell_time2_volt:
+        :param sell_time3_volt:
+        :param sell_time4_volt:
+        :param sell_time5_volt:
+        :param sell_time6_volt:
+        :param zero_export_power:
+        :param solar_max_sell_power:
+        :param grid_peak_shaving:
+        :param low_volt_cross_en:
+        :param generator_start_cap:
+        :param battery_low_cap:
+        :param time1on: Enable time slot 1
+        :param time2on: Enable time slot 2
+        :param time3on: Enable time slot 3
+        :param time4on: Enable time slot 4
+        :param time5on: Enable time slot 5
+        :param time6on: Enable time slot 6
+        :param gen_time1on: Enable generator time slot 1
+        :param gen_time2on: Enable generator time slot 2
+        :param gen_time3on: Enable generator time slot 3
+        :param gen_time4on: Enable generator time slot 4
+        :param gen_time5on: Enable generator time slot 5
+        :param gen_time6on: Enable generator time slot 6
+        :param monday_on:
+        :param tuesday_on:
+        :param wednesday_on:
+        :param thursday_on:
+        :param friday_on:
+        :param saturday_on:
+        :param sunday_on:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -223,16 +332,72 @@ class Settings(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.WriteInverterSettingsRequest(
-            sn=sn,
-            body=utils.get_pydantic_model(
-                body, models.WriteInverterSettingsRequestBody
+        request = models.SetInverterSettingsRequest(
+            sn_param=sn_param,
+            body=models.InverterSettingsSet(
+                sn=sn,
+                safety_type=safety_type,
+                batt_mode=batt_mode,
+                solar_sell=solar_sell,
+                pv_max_limit=pv_max_limit,
+                energy_mode=energy_mode,
+                peak_and_vallery=peak_and_vallery,
+                sys_work_mode=sys_work_mode,
+                sell_time1=sell_time1,
+                sell_time2=sell_time2,
+                sell_time3=sell_time3,
+                sell_time4=sell_time4,
+                sell_time5=sell_time5,
+                sell_time6=sell_time6,
+                sell_time1_pac=sell_time1_pac,
+                sell_time2_pac=sell_time2_pac,
+                sell_time3_pac=sell_time3_pac,
+                sell_time4_pac=sell_time4_pac,
+                sell_time5_pac=sell_time5_pac,
+                sell_time6_pac=sell_time6_pac,
+                cap1=cap1,
+                cap2=cap2,
+                cap3=cap3,
+                cap4=cap4,
+                cap5=cap5,
+                cap6=cap6,
+                sell_time1_volt=sell_time1_volt,
+                sell_time2_volt=sell_time2_volt,
+                sell_time3_volt=sell_time3_volt,
+                sell_time4_volt=sell_time4_volt,
+                sell_time5_volt=sell_time5_volt,
+                sell_time6_volt=sell_time6_volt,
+                zero_export_power=zero_export_power,
+                solar_max_sell_power=solar_max_sell_power,
+                grid_peak_shaving=grid_peak_shaving,
+                low_volt_cross_en=low_volt_cross_en,
+                generator_start_cap=generator_start_cap,
+                battery_low_cap=battery_low_cap,
+                time1on=time1on,
+                time2on=time2on,
+                time3on=time3on,
+                time4on=time4on,
+                time5on=time5on,
+                time6on=time6on,
+                gen_time1on=gen_time1on,
+                gen_time2on=gen_time2on,
+                gen_time3on=gen_time3on,
+                gen_time4on=gen_time4on,
+                gen_time5on=gen_time5on,
+                gen_time6on=gen_time6on,
+                monday_on=monday_on,
+                tuesday_on=tuesday_on,
+                wednesday_on=wednesday_on,
+                thursday_on=thursday_on,
+                friday_on=friday_on,
+                saturday_on=saturday_on,
+                sunday_on=sunday_on,
             ),
         )
 
         req = self._build_request(
             method="POST",
-            path="/api/v1/common/setting/{sn}/write",
+            path="/api/v1/common/setting/{sn}/set",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -244,11 +409,7 @@ class Settings(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
-                request.body,
-                False,
-                False,
-                "json",
-                models.WriteInverterSettingsRequestBody,
+                request.body, False, False, "json", models.InverterSettingsSet
             ),
             allow_empty_value=None,
             timeout_ms=timeout_ms,
@@ -266,7 +427,7 @@ class Settings(BaseSDK):
             hook_ctx=HookContext(
                 config=self.sdk_configuration,
                 base_url=base_url or "",
-                operation_id="writeInverterSettings",
+                operation_id="setInverterSettings",
                 oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
@@ -278,9 +439,7 @@ class Settings(BaseSDK):
         )
 
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(
-                models.WriteInverterSettingsResponse, http_res
-            )
+            return unmarshal_json_response(models.SetInverterSettingsResponse, http_res)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
             raise errors.SunSynkDefaultError(
@@ -294,25 +453,134 @@ class Settings(BaseSDK):
 
         raise errors.SunSynkDefaultError("Unexpected response received", http_res)
 
-    async def write_inverter_settings_async(
+    async def set_inverter_settings_async(
         self,
         *,
-        sn: str,
-        body: Union[
-            models.WriteInverterSettingsRequestBody,
-            models.WriteInverterSettingsRequestBodyTypedDict,
-        ],
+        sn_param: str,
+        sn: Optional[str] = None,
+        safety_type: Optional[str] = None,
+        batt_mode: Optional[str] = None,
+        solar_sell: Optional[str] = None,
+        pv_max_limit: Optional[str] = None,
+        energy_mode: Optional[str] = None,
+        peak_and_vallery: Optional[str] = None,
+        sys_work_mode: Optional[str] = None,
+        sell_time1: Optional[str] = None,
+        sell_time2: Optional[str] = None,
+        sell_time3: Optional[str] = None,
+        sell_time4: Optional[str] = None,
+        sell_time5: Optional[str] = None,
+        sell_time6: Optional[str] = None,
+        sell_time1_pac: Optional[str] = None,
+        sell_time2_pac: Optional[str] = None,
+        sell_time3_pac: Optional[str] = None,
+        sell_time4_pac: Optional[str] = None,
+        sell_time5_pac: Optional[str] = None,
+        sell_time6_pac: Optional[str] = None,
+        cap1: Optional[str] = None,
+        cap2: Optional[str] = None,
+        cap3: Optional[str] = None,
+        cap4: Optional[str] = None,
+        cap5: Optional[str] = None,
+        cap6: Optional[str] = None,
+        sell_time1_volt: Optional[str] = None,
+        sell_time2_volt: Optional[str] = None,
+        sell_time3_volt: Optional[str] = None,
+        sell_time4_volt: Optional[str] = None,
+        sell_time5_volt: Optional[str] = None,
+        sell_time6_volt: Optional[str] = None,
+        zero_export_power: Optional[str] = None,
+        solar_max_sell_power: Optional[str] = None,
+        grid_peak_shaving: Optional[str] = None,
+        low_volt_cross_en: Optional[str] = None,
+        generator_start_cap: Optional[str] = None,
+        battery_low_cap: Optional[str] = None,
+        time1on: Optional[bool] = None,
+        time2on: Optional[bool] = None,
+        time3on: Optional[bool] = None,
+        time4on: Optional[bool] = None,
+        time5on: Optional[bool] = None,
+        time6on: Optional[bool] = None,
+        gen_time1on: Optional[bool] = None,
+        gen_time2on: Optional[bool] = None,
+        gen_time3on: Optional[bool] = None,
+        gen_time4on: Optional[bool] = None,
+        gen_time5on: Optional[bool] = None,
+        gen_time6on: Optional[bool] = None,
+        monday_on: Optional[bool] = None,
+        tuesday_on: Optional[bool] = None,
+        wednesday_on: Optional[bool] = None,
+        thursday_on: Optional[bool] = None,
+        friday_on: Optional[bool] = None,
+        saturday_on: Optional[bool] = None,
+        sunday_on: Optional[bool] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.WriteInverterSettingsResponse:
-        r"""Write inverter settings
+    ) -> models.SetInverterSettingsResponse:
+        r"""Set inverter settings
 
-        Updates the configuration settings for a specific inverter
+        Updates the configuration settings for a specific inverter. Accepts partial requests — only the fields included in the request body will be updated, all other settings remain unchanged.
 
-        :param sn:
-        :param body:
+        :param sn_param:
+        :param sn: Inverter serial number
+        :param safety_type:
+        :param batt_mode:
+        :param solar_sell:
+        :param pv_max_limit:
+        :param energy_mode:
+        :param peak_and_vallery:
+        :param sys_work_mode:
+        :param sell_time1: Time slot 1 start time (HH:MM)
+        :param sell_time2: Time slot 2 start time (HH:MM)
+        :param sell_time3: Time slot 3 start time (HH:MM)
+        :param sell_time4: Time slot 4 start time (HH:MM)
+        :param sell_time5: Time slot 5 start time (HH:MM)
+        :param sell_time6: Time slot 6 start time (HH:MM)
+        :param sell_time1_pac:
+        :param sell_time2_pac:
+        :param sell_time3_pac:
+        :param sell_time4_pac:
+        :param sell_time5_pac:
+        :param sell_time6_pac:
+        :param cap1: Battery capacity threshold for time slot 1 (%)
+        :param cap2: Battery capacity threshold for time slot 2 (%)
+        :param cap3: Battery capacity threshold for time slot 3 (%)
+        :param cap4: Battery capacity threshold for time slot 4 (%)
+        :param cap5: Battery capacity threshold for time slot 5 (%)
+        :param cap6: Battery capacity threshold for time slot 6 (%)
+        :param sell_time1_volt:
+        :param sell_time2_volt:
+        :param sell_time3_volt:
+        :param sell_time4_volt:
+        :param sell_time5_volt:
+        :param sell_time6_volt:
+        :param zero_export_power:
+        :param solar_max_sell_power:
+        :param grid_peak_shaving:
+        :param low_volt_cross_en:
+        :param generator_start_cap:
+        :param battery_low_cap:
+        :param time1on: Enable time slot 1
+        :param time2on: Enable time slot 2
+        :param time3on: Enable time slot 3
+        :param time4on: Enable time slot 4
+        :param time5on: Enable time slot 5
+        :param time6on: Enable time slot 6
+        :param gen_time1on: Enable generator time slot 1
+        :param gen_time2on: Enable generator time slot 2
+        :param gen_time3on: Enable generator time slot 3
+        :param gen_time4on: Enable generator time slot 4
+        :param gen_time5on: Enable generator time slot 5
+        :param gen_time6on: Enable generator time slot 6
+        :param monday_on:
+        :param tuesday_on:
+        :param wednesday_on:
+        :param thursday_on:
+        :param friday_on:
+        :param saturday_on:
+        :param sunday_on:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -328,16 +596,72 @@ class Settings(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.WriteInverterSettingsRequest(
-            sn=sn,
-            body=utils.get_pydantic_model(
-                body, models.WriteInverterSettingsRequestBody
+        request = models.SetInverterSettingsRequest(
+            sn_param=sn_param,
+            body=models.InverterSettingsSet(
+                sn=sn,
+                safety_type=safety_type,
+                batt_mode=batt_mode,
+                solar_sell=solar_sell,
+                pv_max_limit=pv_max_limit,
+                energy_mode=energy_mode,
+                peak_and_vallery=peak_and_vallery,
+                sys_work_mode=sys_work_mode,
+                sell_time1=sell_time1,
+                sell_time2=sell_time2,
+                sell_time3=sell_time3,
+                sell_time4=sell_time4,
+                sell_time5=sell_time5,
+                sell_time6=sell_time6,
+                sell_time1_pac=sell_time1_pac,
+                sell_time2_pac=sell_time2_pac,
+                sell_time3_pac=sell_time3_pac,
+                sell_time4_pac=sell_time4_pac,
+                sell_time5_pac=sell_time5_pac,
+                sell_time6_pac=sell_time6_pac,
+                cap1=cap1,
+                cap2=cap2,
+                cap3=cap3,
+                cap4=cap4,
+                cap5=cap5,
+                cap6=cap6,
+                sell_time1_volt=sell_time1_volt,
+                sell_time2_volt=sell_time2_volt,
+                sell_time3_volt=sell_time3_volt,
+                sell_time4_volt=sell_time4_volt,
+                sell_time5_volt=sell_time5_volt,
+                sell_time6_volt=sell_time6_volt,
+                zero_export_power=zero_export_power,
+                solar_max_sell_power=solar_max_sell_power,
+                grid_peak_shaving=grid_peak_shaving,
+                low_volt_cross_en=low_volt_cross_en,
+                generator_start_cap=generator_start_cap,
+                battery_low_cap=battery_low_cap,
+                time1on=time1on,
+                time2on=time2on,
+                time3on=time3on,
+                time4on=time4on,
+                time5on=time5on,
+                time6on=time6on,
+                gen_time1on=gen_time1on,
+                gen_time2on=gen_time2on,
+                gen_time3on=gen_time3on,
+                gen_time4on=gen_time4on,
+                gen_time5on=gen_time5on,
+                gen_time6on=gen_time6on,
+                monday_on=monday_on,
+                tuesday_on=tuesday_on,
+                wednesday_on=wednesday_on,
+                thursday_on=thursday_on,
+                friday_on=friday_on,
+                saturday_on=saturday_on,
+                sunday_on=sunday_on,
             ),
         )
 
         req = self._build_request_async(
             method="POST",
-            path="/api/v1/common/setting/{sn}/write",
+            path="/api/v1/common/setting/{sn}/set",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -349,11 +673,7 @@ class Settings(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
-                request.body,
-                False,
-                False,
-                "json",
-                models.WriteInverterSettingsRequestBody,
+                request.body, False, False, "json", models.InverterSettingsSet
             ),
             allow_empty_value=None,
             timeout_ms=timeout_ms,
@@ -371,7 +691,7 @@ class Settings(BaseSDK):
             hook_ctx=HookContext(
                 config=self.sdk_configuration,
                 base_url=base_url or "",
-                operation_id="writeInverterSettings",
+                operation_id="setInverterSettings",
                 oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
@@ -383,9 +703,7 @@ class Settings(BaseSDK):
         )
 
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(
-                models.WriteInverterSettingsResponse, http_res
-            )
+            return unmarshal_json_response(models.SetInverterSettingsResponse, http_res)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
             raise errors.SunSynkDefaultError(

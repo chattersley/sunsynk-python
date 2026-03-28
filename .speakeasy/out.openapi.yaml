@@ -320,6 +320,105 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/PlantInvertersResponse"
+  /api/v1/plant/{plantId}/income:
+    post:
+      summary: "Set plant income pricing"
+      description: "Configures the electricity pricing model for a plant. Supports three pricing types: Constant Price (type 1), Time of Use (type 2), and Live Price (type 3, UK only). Time of Use allows a maximum of 6 time slots and must have one entry starting at 00:00 and one ending at 24:00."
+      operationId: "setPlantIncome"
+      tags:
+        - "Plants"
+      parameters:
+        - name: "plantId"
+          in: "path"
+          required: true
+          schema:
+            type: "string"
+            description: "Plant ID"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PlantIncomeRequest"
+            examples:
+              constantPrice:
+                summary: "Constant Price (type 1) — single flat rate"
+                value:
+                  id: "345964"
+                  currency: 366
+                  invest: 10730.12
+                  charges:
+                    - price: "27"
+                      type: "1"
+                      startRange: "00:00"
+                      endRange: "24:00"
+              timeOfUse:
+                summary: "Time of Use (type 2) — up to 6 time slots"
+                value:
+                  id: "345964"
+                  currency: 366
+                  invest: 10730.12
+                  charges:
+                    - startRange: "00:00"
+                      endRange: "03:30"
+                      price: "83"
+                      type: 2
+                    - startRange: "03:30"
+                      endRange: "05:00"
+                      price: "100"
+                      type: 2
+                    - startRange: "05:00"
+                      endRange: "07:30"
+                      price: "20"
+                      type: 2
+                    - startRange: "07:30"
+                      endRange: "13:00"
+                      price: "20"
+                      type: 2
+                    - startRange: "13:00"
+                      endRange: "16:30"
+                      price: "100"
+                      type: 2
+                    - startRange: "16:30"
+                      endRange: "24:00"
+                      price: "20"
+                      type: 2
+              livePrice:
+                summary: "Live Price (type 3) — UK only, uses external provider rates"
+                value:
+                  id: "345964"
+                  currency: 366
+                  invest: 10730.12
+                  charges:
+                    - price: 0
+                      type: "3"
+                      startRange: ""
+                      endRange: ""
+                  products:
+                    - direction: 1
+                      ratesThreshold: "25"
+                      provider: 1
+                      limitSoc: null
+                      regionId: 8
+                    - direction: 0
+                      ratesThreshold: 30
+                      provider: 1
+                      limitSoc: 20
+                      regionId: 8
+      security:
+        - bearerAuth: []
+      responses:
+        "200":
+          description: "Income pricing updated successfully"
+          content:
+            application/json:
+              schema:
+                type: "object"
+                properties:
+                  msg:
+                    type: "string"
+                  code:
+                    type: "integer"
   /api/v1/inverter/{sn}/realtime/input:
     get:
       summary: "Get inverter input data"
@@ -538,11 +637,11 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/InverterSettingsResponse"
-  /api/v1/common/setting/{sn}/write:
+  /api/v1/common/setting/{sn}/set:
     post:
-      summary: "Write inverter settings"
-      description: "Updates the configuration settings for a specific inverter"
-      operationId: "writeInverterSettings"
+      summary: "Set inverter settings"
+      description: "Updates the configuration settings for a specific inverter. Accepts partial requests — only the fields included in the request body will be updated, all other settings remain unchanged."
+      operationId: "setInverterSettings"
       tags:
         - "Settings"
       parameters:
@@ -557,62 +656,94 @@ paths:
         content:
           application/json:
             schema:
-              type: "object"
-              description: "Inverter settings object containing configuration key-value pairs"
-              example:
-                sn: "2106054422"
-                safetyType: "2"
-                battMode: "-1"
-                solarSell: "0"
-                pvMaxLimit: "8000"
-                energyMode: "1"
-                peakAndVallery: "0"
-                sysWorkMode: "1"
-                sellTime1: "00:00"
-                sellTime2: "04:00"
-                sellTime3: "09:00"
-                sellTime4: "15:00"
-                sellTime5: "22:00"
-                sellTime6: "23:00"
-                sellTime1Pac: "8000"
-                sellTime2Pac: "8000"
-                sellTime3Pac: "8000"
-                sellTime4Pac: "8000"
-                sellTime5Pac: "8000"
-                sellTime6Pac: "8000"
-                cap1: "50"
-                cap2: "40"
-                cap3: "30"
-                cap4: "90"
-                cap5: "70"
-                cap6: "60"
-                sellTime1Volt: "49"
-                sellTime2Volt: "49"
-                sellTime3Volt: "49"
-                sellTime4Volt: "49"
-                sellTime5Volt: "49"
-                sellTime6Volt: "49"
-                zeroExportPower: "20"
-                solarMaxSellPower: "9000"
-                mondayOn: true
-                tuesdayOn: true
-                wednesdayOn: true
-                thursdayOn: true
-                fridayOn: true
-                saturdayOn: true
-                sundayOn: true
-                time1on: true
-                time2on: true
-                time3on: true
-                time4on: true
-                time5on: true
-                time6on: true
-                genTime1on: true
-                genTime2on: true
-                genTime3on: true
-                genTime4on: true
-                genTime5on: true
-                genTime6on: true
+              $ref: "#/components/schemas/InverterSettingsSet"
+            examples:
+              full:
+                summary: "Full settings request"
+                value:
+                  sn: "2210085392"
+                  safetyType: "0"
+                  battMode: "-1"
+                  solarSell: "1"
+                  pvMaxLimit: "5000"
+                  energyMode: "1"
+                  peakAndVallery: "1"
+                  sysWorkMode: "2"
+                  sellTime1: "08:00"
+                  sellTime2: "08:30"
+                  sellTime3: "05:00"
+                  sellTime4: "10:00"
+                  sellTime5: "12:30"
+                  sellTime6: "16:00"
+                  sellTime1Pac: "5000"
+                  sellTime2Pac: "5000"
+                  sellTime3Pac: "5000"
+                  sellTime4Pac: "5000"
+                  sellTime5Pac: "5000"
+                  sellTime6Pac: "5000"
+                  cap1: "20"
+                  cap2: "20"
+                  cap3: "20"
+                  cap4: "40"
+                  cap5: "100"
+                  cap6: "20"
+                  sellTime1Volt: "41"
+                  sellTime2Volt: "41"
+                  sellTime3Volt: "49"
+                  sellTime4Volt: "49"
+                  sellTime5Volt: "49"
+                  sellTime6Volt: "49"
+                  zeroExportPower: "20"
+                  solarMaxSellPower: "6500"
+                  gridPeakShaving: "0"
+                  generatorStartCap: "10"
+                  batteryLowCap: "35"
+                  mondayOn: true
+                  tuesdayOn: true
+                  wednesdayOn: true
+                  thursdayOn: true
+                  fridayOn: true
+                  saturdayOn: true
+                  sundayOn: true
+                  time1on: false
+                  time2on: false
+                  time3on: false
+                  time4on: true
+                  time5on: true
+                  time6on: false
+                  genTime1on: false
+                  genTime2on: false
+                  genTime3on: false
+                  genTime4on: false
+                  genTime5on: false
+                  genTime6on: false
+              minimal:
+                summary: "Partial settings request (only time slots and capacities)"
+                value:
+                  sellTime1: "08:30"
+                  sellTime2: "09:30"
+                  sellTime3: "05:00"
+                  sellTime4: "10:00"
+                  sellTime5: "12:30"
+                  sellTime6: "16:00"
+                  cap1: "20"
+                  cap2: "20"
+                  cap3: "20"
+                  cap4: "40"
+                  cap5: "100"
+                  cap6: "20"
+                  time1on: true
+                  time2on: false
+                  time3on: true
+                  time4on: false
+                  time5on: true
+                  time6on: false
+                  genTime1on: false
+                  genTime2on: false
+                  genTime3on: false
+                  genTime4on: false
+                  genTime5on: false
+                  genTime6on: false
       security:
         - bearerAuth: []
       responses:
@@ -1612,6 +1743,223 @@ components:
               type: "array"
               items:
                 type: "object"
+    PlantIncomeRequest:
+      type: "object"
+      required:
+        - "id"
+        - "currency"
+        - "invest"
+        - "charges"
+      properties:
+        id:
+          type: "string"
+          description: "Plant ID"
+        currency:
+          type: "integer"
+          description: "Currency code"
+        invest:
+          type: "number"
+          description: "Total investment amount"
+        charges:
+          type: "array"
+          description: "Pricing entries. For Constant Price (type 1): single entry covering 00:00–24:00. For Time of Use (type 2): up to 6 time slots, must start at 00:00 and end at 24:00. For Live Price (type 3, UK only): single entry with empty time ranges."
+          maxItems: 6
+          items:
+            $ref: "#/components/schemas/PlantIncomeCharge"
+        products:
+          type: "array"
+          description: "Energy provider products. Only used with Live Price (type 3, UK only)."
+          items:
+            $ref: "#/components/schemas/PlantIncomeProduct"
+    PlantIncomeCharge:
+      type: "object"
+      properties:
+        price:
+          oneOf:
+            - type: "string"
+            - type: "integer"
+          description: "Price per unit of energy. String for types 1 and 2, integer (0) for type 3."
+        type:
+          oneOf:
+            - type: "string"
+              enum:
+                - "1"
+                - "3"
+            - type: "integer"
+              enum:
+                - 2
+          description: "Pricing type: 1 = Constant Price, 2 = Time of Use, 3 = Live Price (UK only)"
+        startRange:
+          type: "string"
+          description: "Start time (HH:MM). Empty string for Live Price."
+        endRange:
+          type: "string"
+          description: "End time (HH:MM). Empty string for Live Price."
+    PlantIncomeProduct:
+      type: "object"
+      description: "Energy provider product configuration for Live Price (UK only)"
+      properties:
+        direction:
+          type: "integer"
+          description: "Energy direction: 1 = export, 0 = import"
+        ratesThreshold:
+          oneOf:
+            - type: "string"
+            - type: "integer"
+          description: "Rate threshold value"
+        provider:
+          type: "integer"
+          description: "Energy provider ID"
+        limitSoc:
+          type: "integer"
+          nullable: true
+          description: "State of charge limit (%). Null for export direction."
+        regionId:
+          type: "integer"
+          description: "Region ID for the energy provider"
+    InverterSettingsSet:
+      type: "object"
+      description: "Inverter settings to update. All properties are optional — only included fields will be updated. This endpoint accepts partial requests."
+      properties:
+        sn:
+          type: "string"
+          description: "Inverter serial number"
+        safetyType:
+          type: "string"
+        battMode:
+          type: "string"
+        solarSell:
+          type: "string"
+        pvMaxLimit:
+          type: "string"
+        energyMode:
+          type: "string"
+        peakAndVallery:
+          type: "string"
+        sysWorkMode:
+          type: "string"
+        sellTime1:
+          type: "string"
+          description: "Time slot 1 start time (HH:MM)"
+        sellTime2:
+          type: "string"
+          description: "Time slot 2 start time (HH:MM)"
+        sellTime3:
+          type: "string"
+          description: "Time slot 3 start time (HH:MM)"
+        sellTime4:
+          type: "string"
+          description: "Time slot 4 start time (HH:MM)"
+        sellTime5:
+          type: "string"
+          description: "Time slot 5 start time (HH:MM)"
+        sellTime6:
+          type: "string"
+          description: "Time slot 6 start time (HH:MM)"
+        sellTime1Pac:
+          type: "string"
+        sellTime2Pac:
+          type: "string"
+        sellTime3Pac:
+          type: "string"
+        sellTime4Pac:
+          type: "string"
+        sellTime5Pac:
+          type: "string"
+        sellTime6Pac:
+          type: "string"
+        cap1:
+          type: "string"
+          description: "Battery capacity threshold for time slot 1 (%)"
+        cap2:
+          type: "string"
+          description: "Battery capacity threshold for time slot 2 (%)"
+        cap3:
+          type: "string"
+          description: "Battery capacity threshold for time slot 3 (%)"
+        cap4:
+          type: "string"
+          description: "Battery capacity threshold for time slot 4 (%)"
+        cap5:
+          type: "string"
+          description: "Battery capacity threshold for time slot 5 (%)"
+        cap6:
+          type: "string"
+          description: "Battery capacity threshold for time slot 6 (%)"
+        sellTime1Volt:
+          type: "string"
+        sellTime2Volt:
+          type: "string"
+        sellTime3Volt:
+          type: "string"
+        sellTime4Volt:
+          type: "string"
+        sellTime5Volt:
+          type: "string"
+        sellTime6Volt:
+          type: "string"
+        zeroExportPower:
+          type: "string"
+        solarMaxSellPower:
+          type: "string"
+        gridPeakShaving:
+          type: "string"
+        lowVoltCrossEn:
+          type: "string"
+        generatorStartCap:
+          type: "string"
+        batteryLowCap:
+          type: "string"
+        time1on:
+          type: "boolean"
+          description: "Enable time slot 1"
+        time2on:
+          type: "boolean"
+          description: "Enable time slot 2"
+        time3on:
+          type: "boolean"
+          description: "Enable time slot 3"
+        time4on:
+          type: "boolean"
+          description: "Enable time slot 4"
+        time5on:
+          type: "boolean"
+          description: "Enable time slot 5"
+        time6on:
+          type: "boolean"
+          description: "Enable time slot 6"
+        genTime1on:
+          type: "boolean"
+          description: "Enable generator time slot 1"
+        genTime2on:
+          type: "boolean"
+          description: "Enable generator time slot 2"
+        genTime3on:
+          type: "boolean"
+          description: "Enable generator time slot 3"
+        genTime4on:
+          type: "boolean"
+          description: "Enable generator time slot 4"
+        genTime5on:
+          type: "boolean"
+          description: "Enable generator time slot 5"
+        genTime6on:
+          type: "boolean"
+          description: "Enable generator time slot 6"
+        mondayOn:
+          type: "boolean"
+        tuesdayOn:
+          type: "boolean"
+        wednesdayOn:
+          type: "boolean"
+        thursdayOn:
+          type: "boolean"
+        fridayOn:
+          type: "boolean"
+        saturdayOn:
+          type: "boolean"
+        sundayOn:
+          type: "boolean"
     InverterSettings:
       type: "object"
       properties:

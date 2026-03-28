@@ -1,21 +1,21 @@
 lockVersion: 2.0.0
 id: cd8d666b-f509-49a0-a4af-72e58bb4b75f
 management:
-  docChecksum: a3150154fd0b042036abe0c1755901f1
+  docChecksum: 0610bd187535ada88ca335752e1a62e3
   docVersion: 1.1.0
-  speakeasyVersion: 1.755.0
-  generationVersion: 2.865.2
-  releaseVersion: 0.1.8
-  configChecksum: be1862a8cc10f56c0e8389e7fc7884e1
+  speakeasyVersion: 1.759.3
+  generationVersion: 2.869.25
+  releaseVersion: 0.2.0
+  configChecksum: 148c515a105383637200690ef490bab0
 persistentEdits:
-  generation_id: 9a40b323-fb5b-4765-9d0a-257fa0909d7a
-  pristine_commit_hash: 62606cae4b86ed9890dc496013878f0edc175887
-  pristine_tree_hash: 47b06be50cc31c19608e5be4ac3660942a938fec
+  generation_id: 25c7a131-65fa-4837-b563-b3b2283db6ce
+  pristine_commit_hash: 6a4c273d0c6e4380bb17a58c17fa4e9f33609d0f
+  pristine_tree_hash: 7d215cd933c1030a6ab96135015ed3e717560926
 features:
   python:
     additionalDependencies: 1.0.0
     constsAndDefaults: 1.0.7
-    core: 6.0.18
+    core: 6.0.20
     defaultEnabledRetries: 0.2.0
     devContainers: 3.0.0
     enumUnions: 0.1.1
@@ -31,6 +31,7 @@ features:
     responseFormat: 1.1.0
     retries: 3.0.4
     sdkHooks: 1.2.1
+    unions: 3.1.4
 trackedFiles:
   .devcontainer/README.md:
     id: b170c0f184ac
@@ -224,6 +225,10 @@ trackedFiles:
     id: bbe7ab66c2c4
     last_write_checksum: sha1:e0b5da612990aebd3741e181ff314db93329bc4f
     pristine_git_object: 1b9c499e4ff361b6ff0cd5d0d3fc7e508e8bf8d9
+  docs/models/invertersettingsset.md:
+    id: 6f68c4d20ebb
+    last_write_checksum: sha1:aa292635f6116058bcf0fee7607734b2605271df
+    pristine_git_object: 5dbe1e0c142c3161d6bdb428bf5a122d869b2293
   docs/models/invertersresponse.md:
     id: 67e4bddae6b5
     last_write_checksum: sha1:d3f8902b4c4bbce99b1e6d8681ca6ab67b69a970
@@ -276,6 +281,18 @@ trackedFiles:
     id: fedaf3006839
     last_write_checksum: sha1:deebf7b9ae6af884cc07b88deaa3825d34330e9a
     pristine_git_object: 9f2e47c378213c8a7f632e9ccfd64db669faa70b
+  docs/models/plantincomecharge.md:
+    id: 5211a289dabe
+    last_write_checksum: sha1:d9ce058c8b8132de5c5a5117d29baf5b3837300f
+    pristine_git_object: bef181a84a4ae2f4ecf1e22ab1d432d00a27c798
+  docs/models/plantincomeproduct.md:
+    id: ada669b6416b
+    last_write_checksum: sha1:84ca54399b93e5b7f00d47776089f57e95261d44
+    pristine_git_object: 818ef86309679b463a3b531b48038b50a9c1457a
+  docs/models/plantincomerequest.md:
+    id: 7901bf1b44d5
+    last_write_checksum: sha1:81a0f940f90b18f808ed435b576b25fcb32e5ae4
+    pristine_git_object: e7dda5da8fe1d56c1d03249bbf0cd2e83c057f2e
   docs/models/plantinverterinfo.md:
     id: 788447cf6348
     last_write_checksum: sha1:1a60461d1fd26190a07da21a870907f478063f01
@@ -300,6 +317,10 @@ trackedFiles:
     id: 27fc2050c96b
     last_write_checksum: sha1:0e6b6d03cea60b14cf6f5daa74771645f3fdbcef
     pristine_git_object: b8c9fbf786c4d0df5fd03586cfb7d68958f418f4
+  docs/models/price.md:
+    id: 8c2608dc8674
+    last_write_checksum: sha1:1731799bceec84cd9dda52b2fe8e5b25b2a76e2c
+    pristine_git_object: 044cb663fd6bc0a97e9930a4a8eefbdefc604d99
   docs/models/pv.md:
     id: e28b7f130114
     last_write_checksum: sha1:04ebe243958b441321bb08d300af8a8f818b1c31
@@ -308,6 +329,10 @@ trackedFiles:
     id: ae7f4299f93a
     last_write_checksum: sha1:c677593e71a369152c7b7f00376ddbfc476850b1
     pristine_git_object: c5eed76b387042c1a6e85541c2028e8a518221b8
+  docs/models/ratesthreshold.md:
+    id: 3db405555db1
+    last_write_checksum: sha1:40bec755464062b2d55920e62b530189a407cea8
+    pristine_git_object: b8aa889b87bfb426c69ef6fc29c2bf12ce70aa9c
   docs/models/readinvertersettingsrequest.md:
     id: 243f8fe64428
     last_write_checksum: sha1:3848654d650f92256be96bf9edfa14dd801af55a
@@ -324,6 +349,22 @@ trackedFiles:
     id: 452e4d4eb67a
     last_write_checksum: sha1:b92237f55b89698b718cee58634a51a5cdb29edb
     pristine_git_object: 8ca6325b43081d6b8849bf8cfab3d65678d3d386
+  docs/models/setinvertersettingsrequest.md:
+    id: 9fe78e93aa67
+    last_write_checksum: sha1:efb8c8da2990b0c5c97901435505e8a470935406
+    pristine_git_object: 2733d6f62695a74ce2db5b00079fa076dc3fca5e
+  docs/models/setinvertersettingsresponse.md:
+    id: 6ed0c3b3d9d6
+    last_write_checksum: sha1:ee5a6f5836d271c6dd6b8a204a5c582bc7d50b42
+    pristine_git_object: a8c7fa8cd7d35a777372a244b118a86cb6354daf
+  docs/models/setplantincomerequest.md:
+    id: b40d52c5e22a
+    last_write_checksum: sha1:3fe5b869250f0014e2ac3a8af9aa15f86002ff05
+    pristine_git_object: 95cbb1f65be9487a452bb3a49c80f353ddcc8635
+  docs/models/setplantincomeresponse.md:
+    id: ce1429daf9ad
+    last_write_checksum: sha1:44b3d89ad24743b85b7dd70c8d66a75383cfb923
+    pristine_git_object: 564aeba291dc82f11c2b3016648dee89f20f39bf
   docs/models/tokenrequest.md:
     id: 5bb7ce641db1
     last_write_checksum: sha1:f7fa9b6cf984ec7698cf1bb237e7a5a56770333d
@@ -336,6 +377,18 @@ trackedFiles:
     id: 5128c0b34806
     last_write_checksum: sha1:dbfdef1768c2734805a96455762109913b39b744
     pristine_git_object: 7f4b02cf7bc57f044a3c20a2b5591939ce438941
+  docs/models/type.md:
+    id: 98c32f09b2c8
+    last_write_checksum: sha1:22324ce5ce438a56f33e6f10318aea5ed67eb36d
+    pristine_git_object: f787ea9b789e59511a979b20c7168c218d5c75cb
+  docs/models/type2.md:
+    id: 00bf4b88c800
+    last_write_checksum: sha1:1198b2d247d9361b5820eb1a627bc38eb8374ee2
+    pristine_git_object: bc129b3e8f693be8aca4cbb0db1dd2d850945669
+  docs/models/typeenum.md:
+    id: d306d1d601a4
+    last_write_checksum: sha1:b3c6869d3e604859967855adafbe230b06776856
+    pristine_git_object: b5573ec7952f164abeb59f9e3a63b59177bba325
   docs/models/utils/retryconfig.md:
     id: 4343ac43161c
     last_write_checksum: sha1:562c0f21e308ad10c27f85f75704c15592c6929d
@@ -344,18 +397,6 @@ trackedFiles:
     id: 0525ca5df8d2
     last_write_checksum: sha1:6e4516a04022f77a623857503065408b3786c9a5
     pristine_git_object: 41f8c2f8eca0379b2b4017905dc549233e813d54
-  docs/models/writeinvertersettingsrequest.md:
-    id: 39ac37b75d1e
-    last_write_checksum: sha1:c26dcd0c40c18646b776cfc68e1cd0a7bb1685d0
-    pristine_git_object: f386e05cef635d96280016f534d3fe0cf92ee5f1
-  docs/models/writeinvertersettingsrequestbody.md:
-    id: f17a8526b309
-    last_write_checksum: sha1:61ac434640ce270fe07bc010c1bb26e5ad7f5ded
-    pristine_git_object: d5735c429d614c27490cf9ee5b5cc4a237eacec0
-  docs/models/writeinvertersettingsresponse.md:
-    id: 5f88fb967aa6
-    last_write_checksum: sha1:e1146a1c282dc7f6a35cddfd964bb08111d4fea5
-    pristine_git_object: a038d9901d8616d1867e476d3b7abe92d120acc2
   docs/sdks/authentication/README.md:
     id: 45be241adfc3
     last_write_checksum: sha1:15afcc9da2af18211d05f8dafd100af426eb3118
@@ -382,12 +423,12 @@ trackedFiles:
     pristine_git_object: dc408a8f1ec70555adb23e655c9a082e37c72028
   docs/sdks/plants/README.md:
     id: 249c5fadedb2
-    last_write_checksum: sha1:e3627f749675fb9b5b41851736d624aaf7dcd722
-    pristine_git_object: f0b77c872012874a7c2e22fb866d84d401779cb7
+    last_write_checksum: sha1:46f40b3f4eaf1e72b7e08dc5fbb20fcbe797a70e
+    pristine_git_object: 2bebaa7c1c470376342f90ac3f0e69e0f7c16c92
   docs/sdks/settings/README.md:
     id: ffd4dbcfc0ce
-    last_write_checksum: sha1:5b703209f7ae8813ca2f723a04f0fea9c906277b
-    pristine_git_object: 8c18153693c2e83fc023bafd09d05093b8ff22e7
+    last_write_checksum: sha1:d0199c51db21556cebad60bf779313b7e3a8fd0c
+    pristine_git_object: bc9e447ee2b777a7e6544b36a8618228beca7609
   py.typed:
     id: 258c3ed47ae4
     last_write_checksum: sha1:8efc425ffe830805ffcc0f3055871bdcdc542c60
@@ -398,8 +439,8 @@ trackedFiles:
     pristine_git_object: 31fcd7a7c93dbda80f4fa7d653be0a74ccb4a401
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:3ecc7433a8e43ae30aa9e852bd61a88774f56346
-    pristine_git_object: 673d9e6ecf3480f6fd7095fb4578d8b689206d90
+    last_write_checksum: sha1:f963449fbecea85e0207fd7411a31aa0eea5467a
+    pristine_git_object: d8ee03a9c0346cc2134bde481e3868717165a6c0
   scripts/publish.sh:
     id: fe273b08f514
     last_write_checksum: sha1:adc9b741c12ad1591ab4870eabe20f0d0a86cd1a
@@ -422,16 +463,16 @@ trackedFiles:
     pristine_git_object: 8d03873e72022ad3f31254c1db04f4564198ea72
   src/sunsynk_api_client/_version.py:
     id: 4f638efaf76d
-    last_write_checksum: sha1:7dec672645c57c779a1a1c4e406a9425dd3c47ce
-    pristine_git_object: 0ec15719cfdda6fbbecd906b7ee615433f7b999e
+    last_write_checksum: sha1:d86ad2e9b18d3e87e149da83cb4ba3ed2322a241
+    pristine_git_object: e789b1785f9d517a95c8715faeb2f5b4aafd62a1
   src/sunsynk_api_client/authentication.py:
     id: d27011b9ebd3
     last_write_checksum: sha1:de5caddf40092d8ae2eedc708cb5aa938c7a9d10
     pristine_git_object: f96e9feca0c8a282e8a1a4c868030f81af4d5fc6
   src/sunsynk_api_client/basesdk.py:
     id: b2186043abb6
-    last_write_checksum: sha1:444daf402bd4a35f68058fc00e9591399ef513c0
-    pristine_git_object: a8fba710df2e6fcb7105661b535fec4306fdace2
+    last_write_checksum: sha1:34544bbf858d7605e63106b3fc9ab0d1af0c7815
+    pristine_git_object: 444d909e508ded3bf9ef677dcfeaefbde248bcb4
   src/sunsynk_api_client/errors/__init__.py:
     id: b628a506d9e4
     last_write_checksum: sha1:be8c09c9bbc8942b8fc730ef5020eda38876a94b
@@ -478,8 +519,8 @@ trackedFiles:
     pristine_git_object: c049cb58b70a3cd810f181411553ffdcbbb54333
   src/sunsynk_api_client/models/__init__.py:
     id: 6a4f28ac4ff7
-    last_write_checksum: sha1:c05f284989c469bbd69094d05ce05ea6e3eaad24
-    pristine_git_object: 38df48399f0b3a37d39480565692d64e179a5669
+    last_write_checksum: sha1:163198f306ebec1c4278188de932cc085ce96d14
+    pristine_git_object: 8c0a4bf6439d09867c5be9b56e506f8c2f7e5e4b
   src/sunsynk_api_client/models/batterydata.py:
     id: 72a0e6c9ab5e
     last_write_checksum: sha1:fba3888ea573c2c0ef69d3d78e3f4b7be17c90f2
@@ -608,6 +649,10 @@ trackedFiles:
     id: d34fcd6dd545
     last_write_checksum: sha1:c5666f049307c09286e4e900f1154261240a80cd
     pristine_git_object: 436b9a7c72c23ca4fe766a7ac40881b48733ed41
+  src/sunsynk_api_client/models/invertersettingsset.py:
+    id: f1e8c68ff1a9
+    last_write_checksum: sha1:afaccf8d39e58e2292fb261eb4f6a23f2072cec8
+    pristine_git_object: 2617e9783998a8df1ecd21b11e795576592532b6
   src/sunsynk_api_client/models/invertersresponse.py:
     id: aa037b65da18
     last_write_checksum: sha1:da0caf5627151bcfbf98a93992c3a078bee29ce7
@@ -648,6 +693,18 @@ trackedFiles:
     id: 4fd68f3b3b08
     last_write_checksum: sha1:c0abbc85dad6e01d5c5a195b9e7ac27e407b4259
     pristine_git_object: 5c41f82c90b08799dc252cc55f6097e68f4df955
+  src/sunsynk_api_client/models/plantincomecharge.py:
+    id: 148776de54ca
+    last_write_checksum: sha1:e3b3d3900506997bba04e297a1a07c4cdc492776
+    pristine_git_object: ecad30da031bc07803a8a67dd4938d6307007cf7
+  src/sunsynk_api_client/models/plantincomeproduct.py:
+    id: 15f8bc994b16
+    last_write_checksum: sha1:99c9ccbf5d22db0518618d21cb8d0e01c241cb70
+    pristine_git_object: 9cc5860a133acc73232530e0f4dcd0e59dbe8a03
+  src/sunsynk_api_client/models/plantincomerequest.py:
+    id: 026e4f433c53
+    last_write_checksum: sha1:09a9c63574137b77ca10061f58ba57e2de696036
+    pristine_git_object: 052d82dd228141218921367533eac072702e68c0
   src/sunsynk_api_client/models/plantinverterinfo.py:
     id: b5860e931663
     last_write_checksum: sha1:b415860a7ad91c9c2931d8e289082ba691446257
@@ -684,6 +741,14 @@ trackedFiles:
     id: 83915f7aefba
     last_write_checksum: sha1:7ce6a3a0e1fff25f4d849c62d4ed3ec1f7bb9873
     pristine_git_object: 1d0aaad3594b11021c0b9dfcedafc2aa7b21f7d4
+  src/sunsynk_api_client/models/setinvertersettingsop.py:
+    id: cc1bb354ea23
+    last_write_checksum: sha1:761362cf020d3b16bfa79481213832af95bff589
+    pristine_git_object: 420bbe9638165fc1d6ad24cde8663ead85a37f04
+  src/sunsynk_api_client/models/setplantincomeop.py:
+    id: d0d7872bd965
+    last_write_checksum: sha1:cb80727c222d3f3d7006f71f4aea802206771d50
+    pristine_git_object: 6bf47089812511c4b10d2e3dd2151a94ed1e2f26
   src/sunsynk_api_client/models/tokenrequest.py:
     id: cbd1b55b8cfa
     last_write_checksum: sha1:3ba13be43353ce1e06ac0512a4978c6a65092908
@@ -696,18 +761,14 @@ trackedFiles:
     id: 2f2eb5af586e
     last_write_checksum: sha1:ce9c6eaa4d4eea54c2ca4334cd688f6cafc9178d
     pristine_git_object: be5cb7d8b4359d379d97fd2f4c5c31ad512daca5
-  src/sunsynk_api_client/models/writeinvertersettingsop.py:
-    id: 8deb9213fd78
-    last_write_checksum: sha1:830ccaec8a1d8ebaa880c1d6036d33f0ce9c4e05
-    pristine_git_object: 71b534d3de98262b2629957c7e436a5b5676924d
   src/sunsynk_api_client/notifications.py:
     id: b394ee789f85
     last_write_checksum: sha1:90c8a540c72a1f93a7e9ae9e86e29040ecbaca5d
     pristine_git_object: b0e4d544307dc30a73cd306379c113ae4a438e96
   src/sunsynk_api_client/plants.py:
     id: 46a102955992
-    last_write_checksum: sha1:ed73d4adbbc9fcacacd8c7ea6f95018ded60810b
-    pristine_git_object: 8be7c0eeb5076ac4ba4cf1a945b4cdbe8b0ab168
+    last_write_checksum: sha1:2db911eb885e43dc1acb5fe54d7b19a320faf925
+    pristine_git_object: d185be8bc18d96a3014a5a3de029e3d41ea1b1ec
   src/sunsynk_api_client/py.typed:
     id: 57af27e7e77c
     last_write_checksum: sha1:8efc425ffe830805ffcc0f3055871bdcdc542c60
@@ -722,8 +783,8 @@ trackedFiles:
     pristine_git_object: 8db965faa47fd7be97694b826678cea55d0ce777
   src/sunsynk_api_client/settings.py:
     id: 049d751d159c
-    last_write_checksum: sha1:e77e43cb5c1329b8fd0635749b776e67fa4dc5e0
-    pristine_git_object: f6caf3b5b7c8ad25566227cd84f72df4a101a171
+    last_write_checksum: sha1:1aa365a8bfb917b6937e016336a603bbc9022597
+    pristine_git_object: 5e87ea8f8d7b0f8a1bf7c0425d804553c40163c3
   src/sunsynk_api_client/types/__init__.py:
     id: 9366151b80c1
     last_write_checksum: sha1:f9c95dc84cc9262aef8ffe731b4570584face827
@@ -992,6 +1053,71 @@ examples:
           pageNumber: 1
           status: -1
           lan: "en"
+      responses:
+        "200":
+          application/json: {}
+  setPlantIncome:
+    constantPrice:
+      parameters:
+        path:
+          plantId: "<id>"
+      requestBody:
+        application/json: {"id": "345964", "currency": 366, "invest": 10730.12, "charges": [{"price": "27", "type": "1", "startRange": "00:00", "endRange": "24:00"}]}
+      responses:
+        "200":
+          application/json: {}
+    timeOfUse:
+      parameters:
+        path:
+          plantId: "<id>"
+      requestBody:
+        application/json: {"id": "345964", "currency": 366, "invest": 10730.12, "charges": [{"price": "83", "type": 2, "startRange": "00:00", "endRange": "03:30"}, {"price": "100", "type": 2, "startRange": "03:30", "endRange": "05:00"}, {"price": "20", "type": 2, "startRange": "05:00", "endRange": "07:30"}, {"price": "20", "type": 2, "startRange": "07:30", "endRange": "13:00"}, {"price": "100", "type": 2, "startRange": "13:00", "endRange": "16:30"}, {"price": "20", "type": 2, "startRange": "16:30", "endRange": "24:00"}]}
+      responses:
+        "200":
+          application/json: {}
+    livePrice:
+      parameters:
+        path:
+          plantId: "<id>"
+      requestBody:
+        application/json: {"id": "345964", "currency": 366, "invest": 10730.12, "charges": [{"price": 0, "type": "3", "startRange": "", "endRange": ""}], "products": [{"direction": 1, "ratesThreshold": "25", "provider": 1, "limitSoc": null, "regionId": 8}, {"direction": 0, "ratesThreshold": 30, "provider": 1, "limitSoc": 20, "regionId": 8}]}
+      responses:
+        "200":
+          application/json: {}
+    speakeasy-default-set-plant-income:
+      parameters:
+        path:
+          plantId: "<id>"
+      requestBody:
+        application/json: {"id": "<id>", "currency": 532226, "invest": 5787.46, "charges": [{}]}
+      responses:
+        "200":
+          application/json: {}
+  setInverterSettings:
+    full:
+      parameters:
+        path:
+          sn: "<value>"
+      requestBody:
+        application/json: {"sn": "2210085392", "safetyType": "0", "battMode": "-1", "solarSell": "1", "pvMaxLimit": "5000", "energyMode": "1", "peakAndVallery": "1", "sysWorkMode": "2", "sellTime1": "08:00", "sellTime2": "08:30", "sellTime3": "05:00", "sellTime4": "10:00", "sellTime5": "12:30", "sellTime6": "16:00", "sellTime1Pac": "5000", "sellTime2Pac": "5000", "sellTime3Pac": "5000", "sellTime4Pac": "5000", "sellTime5Pac": "5000", "sellTime6Pac": "5000", "cap1": "20", "cap2": "20", "cap3": "20", "cap4": "40", "cap5": "100", "cap6": "20", "sellTime1Volt": "41", "sellTime2Volt": "41", "sellTime3Volt": "49", "sellTime4Volt": "49", "sellTime5Volt": "49", "sellTime6Volt": "49", "zeroExportPower": "20", "solarMaxSellPower": "6500", "gridPeakShaving": "0", "generatorStartCap": "10", "batteryLowCap": "35", "time1on": false, "time2on": false, "time3on": false, "time4on": true, "time5on": true, "time6on": false, "genTime1on": false, "genTime2on": false, "genTime3on": false, "genTime4on": false, "genTime5on": false, "genTime6on": false, "mondayOn": true, "tuesdayOn": true, "wednesdayOn": true, "thursdayOn": true, "fridayOn": true, "saturdayOn": true, "sundayOn": true}
+      responses:
+        "200":
+          application/json: {}
+    minimal:
+      parameters:
+        path:
+          sn: "<value>"
+      requestBody:
+        application/json: {"sellTime1": "08:30", "sellTime2": "09:30", "sellTime3": "05:00", "sellTime4": "10:00", "sellTime5": "12:30", "sellTime6": "16:00", "cap1": "20", "cap2": "20", "cap3": "20", "cap4": "40", "cap5": "100", "cap6": "20", "time1on": true, "time2on": false, "time3on": true, "time4on": false, "time5on": true, "time6on": false, "genTime1on": false, "genTime2on": false, "genTime3on": false, "genTime4on": false, "genTime5on": false, "genTime6on": false}
+      responses:
+        "200":
+          application/json: {}
+    speakeasy-default-set-inverter-settings:
+      parameters:
+        path:
+          sn: "<value>"
+      requestBody:
+        application/json: {}
       responses:
         "200":
           application/json: {}

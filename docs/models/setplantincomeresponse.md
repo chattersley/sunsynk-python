@@ -1,6 +1,6 @@
-# WriteInverterSettingsResponse
+# SetPlantIncomeResponse
 
-Settings updated successfully
+Income pricing updated successfully
 
 
 ## Fields
