@@ -1,17 +1,20 @@
-name: Release OpenAPI spec
+name: Upload OpenAPI spec assets
 
 on:
-  push:
-    tags: ["spec-v*"]
+  release:
+    types: [published]
 
 permissions:
   contents: write
 
 jobs:
-  release:
+  upload-assets:
+    if: startsWith(github.event.release.tag_name, 'spec-v')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.release.tag_name }}
 
       - uses: actions/setup-node@v4
         with:
@@ -41,13 +44,12 @@ jobs:
           )
           PY
 
-      - name: Create GitHub release
+      - name: Upload assets to release
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh release create "$GITHUB_REF_NAME" \
-            --generate-notes \
-            --title "OpenAPI spec $GITHUB_REF_NAME" \
+          gh release upload "${{ github.event.release.tag_name }}" \
             sunsynk-openapi.json \
             sunsynk-openapi.yaml \
-            .speakeasy/out.openapi.yaml
+            .speakeasy/out.openapi.yaml \
+            --clobber
