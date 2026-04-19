@@ -1,0 +1,33 @@
+name: Semantic PR title
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize, reopened]
+
+permissions:
+  pull-requests: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: amannn/action-semantic-pull-request@v5
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          types: |
+            feat
+            fix
+            docs
+            chore
+            ci
+            refactor
+            perf
+            test
+            build
+            revert
+          requireScope: false
+          subjectPattern: ^[A-Z].+[^.]$
+          subjectPatternError: |
+            PR subject must start with a capital letter and not end with a period.
+            Example: "feat: Add grid trickle feed number entity"
