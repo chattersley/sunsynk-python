@@ -1,0 +1,37 @@
+name: Validate OpenAPI spec
+
+on:
+  pull_request:
+    paths:
+      - sunsynk-openapi.json
+      - .speakeasy/**
+      - scripts/check_spec_units.py
+      - .github/workflows/validate-spec.yaml
+  push:
+    branches: [main]
+    paths:
+      - sunsynk-openapi.json
+      - .speakeasy/**
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Redocly lint
+        run: npx --yes @redocly/cli@latest lint sunsynk-openapi.json --skip-rule=security-defined
+
+      - name: Swagger-CLI validate
+        run: npx --yes @apidevtools/swagger-cli@latest validate sunsynk-openapi.json
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Unit-annotation regression check
+        run: python3 scripts/check_spec_units.py

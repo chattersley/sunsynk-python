@@ -3,7 +3,7 @@
   "info": {
     "title": "SunSynk Power View API",
     "description": "API specification for SunSynk Power View (Inverter monitoring system). Combined from Node-RED flows and Python client library.",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "license": {
       "name": "MIT"
     }
@@ -1462,7 +1462,7 @@
           },
           "pac": {
             "type": "number",
-            "description": "Current power"
+            "description": "Current power (W)"
           },
           "efficiency": {
             "type": "number",
@@ -1691,20 +1691,18 @@
       "Vip": {
         "type": "object",
         "properties": {
-          "voltage": {
-            "type": "number",
-            "format": "float",
-            "description": "Voltage (V)"
+          "volt": {
+            "type": "string",
+            "description": "Voltage (V) — returned as a stringified number by the API (e.g. \"236.6\")"
           },
           "current": {
-            "type": "number",
-            "format": "float",
-            "description": "Current (A)"
+            "type": "string",
+            "description": "Current (A) — returned as a stringified number by the API (e.g. \"0.9\")"
           },
           "power": {
             "type": "number",
             "format": "float",
-            "description": "Power (kW)"
+            "description": "Power (W)"
           }
         }
       },
@@ -1728,7 +1726,7 @@
           },
           "ppv": {
             "type": "number",
-            "description": "PV power (kW)"
+            "description": "PV power (W)"
           },
           "todayPv": {
             "type": "number",
@@ -1758,7 +1756,7 @@
           },
           "pac": {
             "type": "number",
-            "description": "Current power (kW)"
+            "description": "Current power (W)"
           },
           "pvIV": {
             "type": "array",
@@ -1790,11 +1788,11 @@
           },
           "pInv": {
             "type": "number",
-            "description": "Inverter power (kW)"
+            "description": "Inverter power (W)"
           },
           "pac": {
             "type": "number",
-            "description": "Output power (kW)"
+            "description": "Output power (W)"
           },
           "fac": {
             "type": "number",
@@ -1824,7 +1822,7 @@
           },
           "pac": {
             "type": "number",
-            "description": "Grid power (kW)"
+            "description": "Grid power (W)"
           },
           "qac": {
             "type": "number",
@@ -1866,7 +1864,7 @@
           },
           "limiterTotalPower": {
             "type": "number",
-            "description": "Total limiter power (kW)"
+            "description": "Total limiter power (W)"
           }
         }
       },
@@ -1922,15 +1920,15 @@
           },
           "power": {
             "type": "number",
-            "description": "Battery power (kW)"
+            "description": "Battery power (W)"
           },
           "capacity": {
             "type": "number",
-            "description": "Battery capacity (kWh)"
+            "description": "Battery capacity (Ah)"
           },
           "correctCap": {
             "type": "number",
-            "description": "Corrected capacity (kWh)"
+            "description": "Corrected capacity (Ah)"
           },
           "current": {
             "type": "number",
@@ -1990,7 +1988,7 @@
           },
           "batteryPower1": {
             "type": "number",
-            "description": "Battery 1 power (kW)"
+            "description": "Battery 1 power (W)"
           },
           "batteryTemp1": {
             "type": "number",
@@ -2014,7 +2012,7 @@
           },
           "batteryPower2": {
             "type": "number",
-            "description": "Battery 2 power (kW)"
+            "description": "Battery 2 power (W)"
           },
           "batteryTemp2": {
             "type": "number",
@@ -2110,13 +2108,13 @@
       "LoadRealtimeData": {
         "type": "object",
         "properties": {
-          "totalUsed": { "type": "number" },
-          "dailyUsed": { "type": "number" },
+          "totalUsed": { "type": "number", "description": "Total energy used (kWh)" },
+          "dailyUsed": { "type": "number", "description": "Daily energy used (kWh)" },
           "vip": {
             "type": "array",
             "items": { "$ref": "#/components/schemas/RealtimeVip" }
           },
-          "totalPower": { "type": "number" },
+          "totalPower": { "type": "number", "description": "Total load power (W)" },
           "smartLoadStatus": { "type": "integer" },
           "loadFac": { "type": "number" },
           "upsPowerL1": { "type": "number" },

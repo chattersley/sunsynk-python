@@ -1,0 +1,53 @@
+name: Release OpenAPI spec
+
+on:
+  push:
+    tags: ["spec-v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Redocly lint
+        run: npx --yes @redocly/cli@latest lint sunsynk-openapi.json --skip-rule=security-defined
+
+      - name: Swagger-CLI validate
+        run: npx --yes @apidevtools/swagger-cli@latest validate sunsynk-openapi.json
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Unit-annotation regression check
+        run: python3 scripts/check_spec_units.py
+
+      - name: Convert JSON to YAML
+        run: |
+          python3 -m pip install --quiet pyyaml
+          python3 - <<'PY'
+          import json, yaml, pathlib
+          spec = json.loads(pathlib.Path("sunsynk-openapi.json").read_text())
+          pathlib.Path("sunsynk-openapi.yaml").write_text(
+              yaml.safe_dump(spec, sort_keys=False, allow_unicode=True)
+          )
+          PY
+
+      - name: Create GitHub release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release create "$GITHUB_REF_NAME" \
+            --generate-notes \
+            --title "OpenAPI spec $GITHUB_REF_NAME" \
+            sunsynk-openapi.json \
+            sunsynk-openapi.yaml \
+            .speakeasy/out.openapi.yaml
