@@ -16,7 +16,7 @@ class InputDataTypedDict(TypedDict):
     etotal: NotRequired[float]
     r"""Total energy generated (kWh)"""
     pac: NotRequired[float]
-    r"""Current power (kW)"""
+    r"""Current power (W)"""
     pv_iv: NotRequired[List[PvIvTypedDict]]
 
 
@@ -28,7 +28,7 @@ class InputData(BaseModel):
     r"""Total energy generated (kWh)"""
 
     pac: Optional[float] = None
-    r"""Current power (kW)"""
+    r"""Current power (W)"""
 
     pv_iv: Annotated[Optional[List[PvIv]], pydantic.Field(alias="pvIV")] = None
 

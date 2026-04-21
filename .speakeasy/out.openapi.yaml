@@ -2,7 +2,7 @@ openapi: "3.0.3"
 info:
   title: "SunSynk Power View API"
   description: "API specification for SunSynk Power View (Inverter monitoring system). Combined from Node-RED flows and Python client library."
-  version: "1.1.0"
+  version: "1.3.0"
   license:
     name: "MIT"
 servers:
@@ -752,6 +752,12 @@ paths:
                   genTime4on: false
                   genTime5on: false
                   genTime6on: false
+                  sellTime1on: false
+                  sellTime2on: false
+                  sellTime3on: false
+                  sellTime4on: true
+                  sellTime5on: true
+                  sellTime6on: false
               minimal:
                 summary: "Partial settings request (only time slots and capacities)"
                 value:
@@ -1019,7 +1025,7 @@ components:
           description: "Plant address"
         pac:
           type: "number"
-          description: "Current power"
+          description: "Current power (W)"
         efficiency:
           type: "number"
           description: "Efficiency percentage"
@@ -1177,18 +1183,16 @@ components:
     Vip:
       type: "object"
       properties:
-        voltage:
-          type: "number"
-          format: "float"
-          description: "Voltage (V)"
+        volt:
+          type: "string"
+          description: "Voltage (V) — returned as a stringified number by the API (e.g. \"236.6\")"
         current:
-          type: "number"
-          format: "float"
-          description: "Current (A)"
+          type: "string"
+          description: "Current (A) — returned as a stringified number by the API (e.g. \"0.9\")"
         power:
           type: "number"
           format: "float"
-          description: "Power (kW)"
+          description: "Power (W)"
     PvIv:
       type: "object"
       properties:
@@ -1205,7 +1209,7 @@ components:
           description: "PV current (A)"
         ppv:
           type: "number"
-          description: "PV power (kW)"
+          description: "PV power (W)"
         todayPv:
           type: "number"
           description: "Today's PV energy (kWh)"
@@ -1227,7 +1231,7 @@ components:
           description: "Total energy generated (kWh)"
         pac:
           type: "number"
-          description: "Current power (kW)"
+          description: "Current power (W)"
         pvIV:
           type: "array"
           items:
@@ -1248,10 +1252,10 @@ components:
             $ref: "#/components/schemas/Vip"
         pInv:
           type: "number"
-          description: "Inverter power (kW)"
+          description: "Inverter power (W)"
         pac:
           type: "number"
-          description: "Output power (kW)"
+          description: "Output power (W)"
         fac:
           type: "number"
           description: "Frequency (Hz)"
@@ -1271,7 +1275,7 @@ components:
             $ref: "#/components/schemas/Vip"
         pac:
           type: "number"
-          description: "Grid power (kW)"
+          description: "Grid power (W)"
         qac:
           type: "number"
           description: "Reactive power (kVar)"
@@ -1302,7 +1306,7 @@ components:
             type: "number"
         limiterTotalPower:
           type: "number"
-          description: "Total limiter power (kW)"
+          description: "Total limiter power (W)"
     GridResponse:
       type: "object"
       properties:
@@ -1342,13 +1346,13 @@ components:
           description: "Battery type"
         power:
           type: "number"
-          description: "Battery power (kW)"
+          description: "Battery power (W)"
         capacity:
           type: "number"
-          description: "Battery capacity (kWh)"
+          description: "Battery capacity (Ah)"
         correctCap:
           type: "number"
-          description: "Corrected capacity (kWh)"
+          description: "Corrected capacity (Ah)"
         current:
           type: "number"
           description: "Battery current (A)"
@@ -1393,7 +1397,7 @@ components:
           description: "Battery 1 voltage (V)"
         batteryPower1:
           type: "number"
-          description: "Battery 1 power (kW)"
+          description: "Battery 1 power (W)"
         batteryTemp1:
           type: "number"
           description: "Battery 1 temperature (°C)"
@@ -1411,7 +1415,7 @@ components:
           description: "Battery 2 voltage (V)"
         batteryPower2:
           type: "number"
-          description: "Battery 2 power (kW)"
+          description: "Battery 2 power (W)"
         batteryTemp2:
           type: "number"
           description: "Battery 2 temperature (°C)"
@@ -1542,14 +1546,17 @@ components:
       properties:
         totalUsed:
           type: "number"
+          description: "Total energy used (kWh)"
         dailyUsed:
           type: "number"
+          description: "Daily energy used (kWh)"
         vip:
           type: "array"
           items:
             $ref: "#/components/schemas/RealtimeVip"
         totalPower:
           type: "number"
+          description: "Total load power (W)"
         smartLoadStatus:
           type: "integer"
         loadFac:
@@ -2189,6 +2196,24 @@ components:
         genTime6on:
           type: "boolean"
           description: "Enable generator time slot 6"
+        sellTime1on:
+          type: "boolean"
+          description: "Enable sell-to-grid for time slot 1"
+        sellTime2on:
+          type: "boolean"
+          description: "Enable sell-to-grid for time slot 2"
+        sellTime3on:
+          type: "boolean"
+          description: "Enable sell-to-grid for time slot 3"
+        sellTime4on:
+          type: "boolean"
+          description: "Enable sell-to-grid for time slot 4"
+        sellTime5on:
+          type: "boolean"
+          description: "Enable sell-to-grid for time slot 5"
+        sellTime6on:
+          type: "boolean"
+          description: "Enable sell-to-grid for time slot 6"
         mondayOn:
           type: "boolean"
         tuesdayOn:
@@ -2881,6 +2906,18 @@ components:
         acVoltLow:
           type: "string"
         genSignal:
+          type: "string"
+        sellTime1on:
+          type: "string"
+        sellTime2on:
+          type: "string"
+        sellTime3on:
+          type: "string"
+        sellTime4on:
+          type: "string"
+        sellTime5on:
+          type: "string"
+        sellTime6on:
           type: "string"
     InverterSettingsResponse:
       type: "object"

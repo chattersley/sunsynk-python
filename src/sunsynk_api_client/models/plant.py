@@ -22,7 +22,7 @@ class PlantTypedDict(TypedDict):
     address: NotRequired[str]
     r"""Plant address"""
     pac: NotRequired[float]
-    r"""Current power"""
+    r"""Current power (W)"""
     efficiency: NotRequired[float]
     r"""Efficiency percentage"""
     etoday: NotRequired[float]
@@ -61,7 +61,7 @@ class Plant(BaseModel):
     r"""Plant address"""
 
     pac: Optional[float] = None
-    r"""Current power"""
+    r"""Current power (W)"""
 
     efficiency: Optional[float] = None
     r"""Efficiency percentage"""

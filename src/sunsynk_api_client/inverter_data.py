@@ -27,6 +27,8 @@ class InverterData(BaseSDK):
 
         Retrieves real-time input data (PV) for a specific inverter
 
+        If set, this operation will use `bearer_auth` from the global security.
+
         :param sn:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -61,6 +63,7 @@ class InverterData(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["bearer_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -83,7 +86,7 @@ class InverterData(BaseSDK):
                 ),
             ),
             request=req,
-            error_status_codes=["401", "4XX", "5XX"],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -115,6 +118,8 @@ class InverterData(BaseSDK):
 
         Retrieves real-time input data (PV) for a specific inverter
 
+        If set, this operation will use `bearer_auth` from the global security.
+
         :param sn:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -149,6 +154,7 @@ class InverterData(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["bearer_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -171,7 +177,7 @@ class InverterData(BaseSDK):
                 ),
             ),
             request=req,
-            error_status_codes=["401", "4XX", "5XX"],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -202,6 +208,8 @@ class InverterData(BaseSDK):
         r"""Get inverter output data
 
         Retrieves real-time output data for a specific inverter
+
+        If set, this operation will use `bearer_auth` from the global security.
 
         :param sn:
         :param retries: Override the default retry configuration for this method
@@ -237,6 +245,7 @@ class InverterData(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["bearer_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -259,7 +268,7 @@ class InverterData(BaseSDK):
                 ),
             ),
             request=req,
-            error_status_codes=["401", "4XX", "5XX"],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -290,6 +299,8 @@ class InverterData(BaseSDK):
         r"""Get inverter output data
 
         Retrieves real-time output data for a specific inverter
+
+        If set, this operation will use `bearer_auth` from the global security.
 
         :param sn:
         :param retries: Override the default retry configuration for this method
@@ -325,6 +336,7 @@ class InverterData(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["bearer_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -347,7 +359,7 @@ class InverterData(BaseSDK):
                 ),
             ),
             request=req,
-            error_status_codes=["401", "4XX", "5XX"],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -380,6 +392,8 @@ class InverterData(BaseSDK):
 
         Retrieves real-time battery information for a specific inverter
 
+        If set, this operation will use `bearer_auth` from the global security.
+
         :param sn:
         :param lan:
         :param retries: Override the default retry configuration for this method
@@ -416,6 +430,7 @@ class InverterData(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["bearer_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -438,7 +453,7 @@ class InverterData(BaseSDK):
                 ),
             ),
             request=req,
-            error_status_codes=["401", "4XX", "5XX"],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -471,6 +486,8 @@ class InverterData(BaseSDK):
 
         Retrieves real-time battery information for a specific inverter
 
+        If set, this operation will use `bearer_auth` from the global security.
+
         :param sn:
         :param lan:
         :param retries: Override the default retry configuration for this method
@@ -507,6 +524,7 @@ class InverterData(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["bearer_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -529,7 +547,7 @@ class InverterData(BaseSDK):
                 ),
             ),
             request=req,
-            error_status_codes=["401", "4XX", "5XX"],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -561,6 +579,8 @@ class InverterData(BaseSDK):
 
         Retrieves real-time grid information for a specific inverter
 
+        If set, this operation will use `bearer_auth` from the global security.
+
         :param sn:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -595,6 +615,7 @@ class InverterData(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["bearer_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -617,7 +638,7 @@ class InverterData(BaseSDK):
                 ),
             ),
             request=req,
-            error_status_codes=["401", "4XX", "5XX"],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -649,6 +670,8 @@ class InverterData(BaseSDK):
 
         Retrieves real-time grid information for a specific inverter
 
+        If set, this operation will use `bearer_auth` from the global security.
+
         :param sn:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -683,6 +706,7 @@ class InverterData(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["bearer_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -705,7 +729,7 @@ class InverterData(BaseSDK):
                 ),
             ),
             request=req,
-            error_status_codes=["401", "4XX", "5XX"],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -737,6 +761,8 @@ class InverterData(BaseSDK):
 
         Retrieves real-time load information for a specific inverter
 
+        If set, this operation will use `bearer_auth` from the global security.
+
         :param sn:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -771,6 +797,7 @@ class InverterData(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["bearer_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -793,7 +820,7 @@ class InverterData(BaseSDK):
                 ),
             ),
             request=req,
-            error_status_codes=["4XX", "5XX"],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -825,6 +852,8 @@ class InverterData(BaseSDK):
 
         Retrieves real-time load information for a specific inverter
 
+        If set, this operation will use `bearer_auth` from the global security.
+
         :param sn:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -859,6 +888,7 @@ class InverterData(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["bearer_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -881,7 +911,7 @@ class InverterData(BaseSDK):
                 ),
             ),
             request=req,
-            error_status_codes=["4XX", "5XX"],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -912,6 +942,8 @@ class InverterData(BaseSDK):
         r"""Get generation realtime data
 
         Retrieves real-time solar generation information for a specific inverter
+
+        If set, this operation will use `bearer_auth` from the global security.
 
         :param sn:
         :param retries: Override the default retry configuration for this method
@@ -947,6 +979,7 @@ class InverterData(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["bearer_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -969,7 +1002,7 @@ class InverterData(BaseSDK):
                 ),
             ),
             request=req,
-            error_status_codes=["4XX", "5XX"],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -1000,6 +1033,8 @@ class InverterData(BaseSDK):
         r"""Get generation realtime data
 
         Retrieves real-time solar generation information for a specific inverter
+
+        If set, this operation will use `bearer_auth` from the global security.
 
         :param sn:
         :param retries: Override the default retry configuration for this method
@@ -1035,6 +1070,7 @@ class InverterData(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["bearer_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -1057,7 +1093,7 @@ class InverterData(BaseSDK):
                 ),
             ),
             request=req,
-            error_status_codes=["4XX", "5XX"],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -1092,6 +1128,8 @@ class InverterData(BaseSDK):
 
         Retrieves daily output statistics for a specific inverter
 
+        If set, this operation will use `bearer_auth` from the global security.
+
         :param sn:
         :param lan:
         :param date_:
@@ -1132,6 +1170,7 @@ class InverterData(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["bearer_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -1154,7 +1193,7 @@ class InverterData(BaseSDK):
                 ),
             ),
             request=req,
-            error_status_codes=["4XX", "5XX"],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -1188,6 +1227,8 @@ class InverterData(BaseSDK):
         r"""Get inverter daily output
 
         Retrieves daily output statistics for a specific inverter
+
+        If set, this operation will use `bearer_auth` from the global security.
 
         :param sn:
         :param lan:
@@ -1229,6 +1270,7 @@ class InverterData(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["bearer_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -1251,7 +1293,7 @@ class InverterData(BaseSDK):
                 ),
             ),
             request=req,
-            error_status_codes=["4XX", "5XX"],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 

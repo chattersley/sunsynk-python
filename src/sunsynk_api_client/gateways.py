@@ -37,6 +37,8 @@ class Gateways(BaseSDK):
 
         Retrieves list of gateways associated with the account
 
+        If set, this operation will use `bearer_auth` from the global security.
+
         :param page:
         :param limit:
         :param status:
@@ -93,6 +95,7 @@ class Gateways(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["bearer_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -115,7 +118,7 @@ class Gateways(BaseSDK):
                 ),
             ),
             request=req,
-            error_status_codes=["4XX", "5XX"],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -157,6 +160,8 @@ class Gateways(BaseSDK):
         r"""Get gateways
 
         Retrieves list of gateways associated with the account
+
+        If set, this operation will use `bearer_auth` from the global security.
 
         :param page:
         :param limit:
@@ -214,6 +219,7 @@ class Gateways(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["bearer_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -236,7 +242,7 @@ class Gateways(BaseSDK):
                 ),
             ),
             request=req,
-            error_status_codes=["4XX", "5XX"],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 

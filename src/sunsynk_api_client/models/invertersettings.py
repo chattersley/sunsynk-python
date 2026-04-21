@@ -348,6 +348,12 @@ class InverterSettingsTypedDict(TypedDict):
     arc_fact_i: NotRequired[str]
     ac_volt_low: NotRequired[str]
     gen_signal: NotRequired[str]
+    sell_time1on: NotRequired[str]
+    sell_time2on: NotRequired[str]
+    sell_time3on: NotRequired[str]
+    sell_time4on: NotRequired[str]
+    sell_time5on: NotRequired[str]
+    sell_time6on: NotRequired[str]
 
 
 class InverterSettings(BaseModel):
@@ -1307,6 +1313,18 @@ class InverterSettings(BaseModel):
 
     gen_signal: Annotated[Optional[str], pydantic.Field(alias="genSignal")] = None
 
+    sell_time1on: Annotated[Optional[str], pydantic.Field(alias="sellTime1on")] = None
+
+    sell_time2on: Annotated[Optional[str], pydantic.Field(alias="sellTime2on")] = None
+
+    sell_time3on: Annotated[Optional[str], pydantic.Field(alias="sellTime3on")] = None
+
+    sell_time4on: Annotated[Optional[str], pydantic.Field(alias="sellTime4on")] = None
+
+    sell_time5on: Annotated[Optional[str], pydantic.Field(alias="sellTime5on")] = None
+
+    sell_time6on: Annotated[Optional[str], pydantic.Field(alias="sellTime6on")] = None
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
@@ -1649,6 +1667,12 @@ class InverterSettings(BaseModel):
                 "arcFactI",
                 "acVoltLow",
                 "genSignal",
+                "sellTime1on",
+                "sellTime2on",
+                "sellTime3on",
+                "sellTime4on",
+                "sellTime5on",
+                "sellTime6on",
             ]
         )
         serialized = handler(self)

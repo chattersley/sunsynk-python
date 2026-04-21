@@ -29,6 +29,8 @@ class Plants(BaseSDK):
 
         Retrieves a list of all plants associated with the account
 
+        If set, this operation will use `bearer_auth` from the global security.
+
         :param page:
         :param limit:
         :param name:
@@ -69,6 +71,7 @@ class Plants(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["bearer_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -91,7 +94,7 @@ class Plants(BaseSDK):
                 ),
             ),
             request=req,
-            error_status_codes=["4XX", "5XX"],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -126,6 +129,8 @@ class Plants(BaseSDK):
 
         Retrieves a list of all plants associated with the account
 
+        If set, this operation will use `bearer_auth` from the global security.
+
         :param page:
         :param limit:
         :param name:
@@ -166,6 +171,7 @@ class Plants(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["bearer_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -188,7 +194,7 @@ class Plants(BaseSDK):
                 ),
             ),
             request=req,
-            error_status_codes=["4XX", "5XX"],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -219,6 +225,8 @@ class Plants(BaseSDK):
         r"""Get plant energy flow data
 
         Retrieves real-time energy flow data for a specific plant
+
+        If set, this operation will use `bearer_auth` from the global security.
 
         :param plant_id:
         :param retries: Override the default retry configuration for this method
@@ -254,6 +262,7 @@ class Plants(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["bearer_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -276,7 +285,7 @@ class Plants(BaseSDK):
                 ),
             ),
             request=req,
-            error_status_codes=["4XX", "5XX"],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -307,6 +316,8 @@ class Plants(BaseSDK):
         r"""Get plant energy flow data
 
         Retrieves real-time energy flow data for a specific plant
+
+        If set, this operation will use `bearer_auth` from the global security.
 
         :param plant_id:
         :param retries: Override the default retry configuration for this method
@@ -342,6 +353,7 @@ class Plants(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["bearer_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -364,7 +376,7 @@ class Plants(BaseSDK):
                 ),
             ),
             request=req,
-            error_status_codes=["4XX", "5XX"],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -398,6 +410,8 @@ class Plants(BaseSDK):
 
         Retrieves detailed information for a specific plant, including pricing charges, location, owner, currency, timezone, realtime energy data, and permissions.
 
+        If set, this operation will use `bearer_auth` from the global security.
+
         :param plant_id:
         :param lan:
         :param id:
@@ -436,6 +450,7 @@ class Plants(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["bearer_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -458,7 +473,7 @@ class Plants(BaseSDK):
                 ),
             ),
             request=req,
-            error_status_codes=["4XX", "5XX"],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -491,6 +506,8 @@ class Plants(BaseSDK):
         r"""Get plant information
 
         Retrieves detailed information for a specific plant, including pricing charges, location, owner, currency, timezone, realtime energy data, and permissions.
+
+        If set, this operation will use `bearer_auth` from the global security.
 
         :param plant_id:
         :param lan:
@@ -530,6 +547,7 @@ class Plants(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["bearer_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -552,7 +570,7 @@ class Plants(BaseSDK):
                 ),
             ),
             request=req,
-            error_status_codes=["4XX", "5XX"],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -596,6 +614,8 @@ class Plants(BaseSDK):
 
         Configures the electricity pricing model for a plant. Supports three pricing types: Constant Price (type 1), Time of Use (type 2), and Live Price (type 3, UK only). Time of Use allows a maximum of 6 time slots and must have one entry starting at 00:00 and one ending at 24:00.
 
+        If set, this operation will use `bearer_auth` from the global security.
+
         :param plant_id:
         :param id: Plant ID
         :param currency: Currency code
@@ -649,6 +669,7 @@ class Plants(BaseSDK):
                 request.body, False, False, "json", models.PlantIncomeRequest
             ),
             allow_empty_value=None,
+            allowed_fields=["bearer_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -671,7 +692,7 @@ class Plants(BaseSDK):
                 ),
             ),
             request=req,
-            error_status_codes=["4XX", "5XX"],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -714,6 +735,8 @@ class Plants(BaseSDK):
         r"""Set plant income pricing
 
         Configures the electricity pricing model for a plant. Supports three pricing types: Constant Price (type 1), Time of Use (type 2), and Live Price (type 3, UK only). Time of Use allows a maximum of 6 time slots and must have one entry starting at 00:00 and one ending at 24:00.
+
+        If set, this operation will use `bearer_auth` from the global security.
 
         :param plant_id:
         :param id: Plant ID
@@ -768,6 +791,7 @@ class Plants(BaseSDK):
                 request.body, False, False, "json", models.PlantIncomeRequest
             ),
             allow_empty_value=None,
+            allowed_fields=["bearer_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -790,7 +814,7 @@ class Plants(BaseSDK):
                 ),
             ),
             request=req,
-            error_status_codes=["4XX", "5XX"],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 

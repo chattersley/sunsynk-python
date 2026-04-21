@@ -343,3 +343,9 @@
 | `arc_fact_i`                      | *Optional[str]*                   | :heavy_minus_sign:                | N/A                               |
 | `ac_volt_low`                     | *Optional[str]*                   | :heavy_minus_sign:                | N/A                               |
 | `gen_signal`                      | *Optional[str]*                   | :heavy_minus_sign:                | N/A                               |
+| `sell_time1on`                    | *Optional[str]*                   | :heavy_minus_sign:                | N/A                               |
+| `sell_time2on`                    | *Optional[str]*                   | :heavy_minus_sign:                | N/A                               |
+| `sell_time3on`                    | *Optional[str]*                   | :heavy_minus_sign:                | N/A                               |
+| `sell_time4on`                    | *Optional[str]*                   | :heavy_minus_sign:                | N/A                               |
+| `sell_time5on`                    | *Optional[str]*                   | :heavy_minus_sign:                | N/A                               |
+| `sell_time6on`                    | *Optional[str]*                   | :heavy_minus_sign:                | N/A                               |

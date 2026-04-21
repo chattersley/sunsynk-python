@@ -5,10 +5,10 @@
 
 | Field                                                | Type                                                 | Required                                             | Description                                          |
 | ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- |
-| `total_used`                                         | *Optional[float]*                                    | :heavy_minus_sign:                                   | N/A                                                  |
-| `daily_used`                                         | *Optional[float]*                                    | :heavy_minus_sign:                                   | N/A                                                  |
+| `total_used`                                         | *Optional[float]*                                    | :heavy_minus_sign:                                   | Total energy used (kWh)                              |
+| `daily_used`                                         | *Optional[float]*                                    | :heavy_minus_sign:                                   | Daily energy used (kWh)                              |
 | `vip`                                                | List[[models.RealtimeVip](../models/realtimevip.md)] | :heavy_minus_sign:                                   | N/A                                                  |
-| `total_power`                                        | *Optional[float]*                                    | :heavy_minus_sign:                                   | N/A                                                  |
+| `total_power`                                        | *Optional[float]*                                    | :heavy_minus_sign:                                   | Total load power (W)                                 |
 | `smart_load_status`                                  | *Optional[int]*                                      | :heavy_minus_sign:                                   | N/A                                                  |
 | `load_fac`                                           | *Optional[float]*                                    | :heavy_minus_sign:                                   | N/A                                                  |
 | `ups_power_l1`                                       | *Optional[float]*                                    | :heavy_minus_sign:                                   | N/A                                                  |
