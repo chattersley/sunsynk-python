@@ -13,9 +13,9 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 class OutputDataTypedDict(TypedDict):
     vip: NotRequired[List[VipTypedDict]]
     p_inv: NotRequired[float]
-    r"""Inverter power (kW)"""
+    r"""Inverter power (W)"""
     pac: NotRequired[float]
-    r"""Output power (kW)"""
+    r"""Output power (W)"""
     fac: NotRequired[float]
     r"""Frequency (Hz)"""
 
@@ -24,10 +24,10 @@ class OutputData(BaseModel):
     vip: Optional[List[Vip]] = None
 
     p_inv: Annotated[Optional[float], pydantic.Field(alias="pInv")] = None
-    r"""Inverter power (kW)"""
+    r"""Inverter power (W)"""
 
     pac: Optional[float] = None
-    r"""Output power (kW)"""
+    r"""Output power (W)"""
 
     fac: Optional[float] = None
     r"""Frequency (Hz)"""

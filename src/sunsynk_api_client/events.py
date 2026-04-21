@@ -32,6 +32,8 @@ class Events(BaseSDK):
 
         Retrieves system events (warnings, alarms, etc.)
 
+        If set, this operation will use `bearer_auth` from the global security.
+
         :param type:
         :param page:
         :param limit:
@@ -76,6 +78,7 @@ class Events(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["bearer_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -98,7 +101,7 @@ class Events(BaseSDK):
                 ),
             ),
             request=req,
-            error_status_codes=["4XX", "5XX"],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -134,6 +137,8 @@ class Events(BaseSDK):
         r"""Get events
 
         Retrieves system events (warnings, alarms, etc.)
+
+        If set, this operation will use `bearer_auth` from the global security.
 
         :param type:
         :param page:
@@ -179,6 +184,7 @@ class Events(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["bearer_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -201,7 +207,7 @@ class Events(BaseSDK):
                 ),
             ),
             request=req,
-            error_status_codes=["4XX", "5XX"],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 

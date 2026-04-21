@@ -9,27 +9,27 @@ from typing_extensions import NotRequired, TypedDict
 
 
 class VipTypedDict(TypedDict):
-    voltage: NotRequired[float]
-    r"""Voltage (V)"""
-    current: NotRequired[float]
-    r"""Current (A)"""
+    volt: NotRequired[str]
+    r"""Voltage (V) — returned as a stringified number by the API (e.g. \"236.6\")"""
+    current: NotRequired[str]
+    r"""Current (A) — returned as a stringified number by the API (e.g. \"0.9\")"""
     power: NotRequired[float]
-    r"""Power (kW)"""
+    r"""Power (W)"""
 
 
 class Vip(BaseModel):
-    voltage: Optional[float] = None
-    r"""Voltage (V)"""
+    volt: Optional[str] = None
+    r"""Voltage (V) — returned as a stringified number by the API (e.g. \"236.6\")"""
 
-    current: Optional[float] = None
-    r"""Current (A)"""
+    current: Optional[str] = None
+    r"""Current (A) — returned as a stringified number by the API (e.g. \"0.9\")"""
 
     power: Optional[float] = None
-    r"""Power (kW)"""
+    r"""Power (W)"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["voltage", "current", "power"])
+        optional_fields = set(["volt", "current", "power"])
         serialized = handler(self)
         m = {}
 

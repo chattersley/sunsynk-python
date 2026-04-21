@@ -26,6 +26,8 @@ class Settings(BaseSDK):
 
         Retrieves the configuration settings for a specific inverter
 
+        If set, this operation will use `bearer_auth` from the global security.
+
         :param sn:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -60,6 +62,7 @@ class Settings(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["bearer_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -82,7 +85,7 @@ class Settings(BaseSDK):
                 ),
             ),
             request=req,
-            error_status_codes=["4XX", "5XX"],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -113,6 +116,8 @@ class Settings(BaseSDK):
         r"""Read inverter settings
 
         Retrieves the configuration settings for a specific inverter
+
+        If set, this operation will use `bearer_auth` from the global security.
 
         :param sn:
         :param retries: Override the default retry configuration for this method
@@ -148,6 +153,7 @@ class Settings(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["bearer_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -170,7 +176,7 @@ class Settings(BaseSDK):
                 ),
             ),
             request=req,
-            error_status_codes=["4XX", "5XX"],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -243,6 +249,12 @@ class Settings(BaseSDK):
         gen_time4on: Optional[bool] = None,
         gen_time5on: Optional[bool] = None,
         gen_time6on: Optional[bool] = None,
+        sell_time1on: Optional[bool] = None,
+        sell_time2on: Optional[bool] = None,
+        sell_time3on: Optional[bool] = None,
+        sell_time4on: Optional[bool] = None,
+        sell_time5on: Optional[bool] = None,
+        sell_time6on: Optional[bool] = None,
         monday_on: Optional[bool] = None,
         tuesday_on: Optional[bool] = None,
         wednesday_on: Optional[bool] = None,
@@ -258,6 +270,8 @@ class Settings(BaseSDK):
         r"""Set inverter settings
 
         Updates the configuration settings for a specific inverter. Accepts partial requests — only the fields included in the request body will be updated, all other settings remain unchanged.
+
+        If set, this operation will use `bearer_auth` from the global security.
 
         :param sn_param:
         :param sn: Inverter serial number
@@ -310,6 +324,12 @@ class Settings(BaseSDK):
         :param gen_time4on: Enable generator time slot 4
         :param gen_time5on: Enable generator time slot 5
         :param gen_time6on: Enable generator time slot 6
+        :param sell_time1on: Enable sell-to-grid for time slot 1
+        :param sell_time2on: Enable sell-to-grid for time slot 2
+        :param sell_time3on: Enable sell-to-grid for time slot 3
+        :param sell_time4on: Enable sell-to-grid for time slot 4
+        :param sell_time5on: Enable sell-to-grid for time slot 5
+        :param sell_time6on: Enable sell-to-grid for time slot 6
         :param monday_on:
         :param tuesday_on:
         :param wednesday_on:
@@ -385,6 +405,12 @@ class Settings(BaseSDK):
                 gen_time4on=gen_time4on,
                 gen_time5on=gen_time5on,
                 gen_time6on=gen_time6on,
+                sell_time1on=sell_time1on,
+                sell_time2on=sell_time2on,
+                sell_time3on=sell_time3on,
+                sell_time4on=sell_time4on,
+                sell_time5on=sell_time5on,
+                sell_time6on=sell_time6on,
                 monday_on=monday_on,
                 tuesday_on=tuesday_on,
                 wednesday_on=wednesday_on,
@@ -412,6 +438,7 @@ class Settings(BaseSDK):
                 request.body, False, False, "json", models.InverterSettingsSet
             ),
             allow_empty_value=None,
+            allowed_fields=["bearer_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -434,7 +461,7 @@ class Settings(BaseSDK):
                 ),
             ),
             request=req,
-            error_status_codes=["4XX", "5XX"],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -507,6 +534,12 @@ class Settings(BaseSDK):
         gen_time4on: Optional[bool] = None,
         gen_time5on: Optional[bool] = None,
         gen_time6on: Optional[bool] = None,
+        sell_time1on: Optional[bool] = None,
+        sell_time2on: Optional[bool] = None,
+        sell_time3on: Optional[bool] = None,
+        sell_time4on: Optional[bool] = None,
+        sell_time5on: Optional[bool] = None,
+        sell_time6on: Optional[bool] = None,
         monday_on: Optional[bool] = None,
         tuesday_on: Optional[bool] = None,
         wednesday_on: Optional[bool] = None,
@@ -522,6 +555,8 @@ class Settings(BaseSDK):
         r"""Set inverter settings
 
         Updates the configuration settings for a specific inverter. Accepts partial requests — only the fields included in the request body will be updated, all other settings remain unchanged.
+
+        If set, this operation will use `bearer_auth` from the global security.
 
         :param sn_param:
         :param sn: Inverter serial number
@@ -574,6 +609,12 @@ class Settings(BaseSDK):
         :param gen_time4on: Enable generator time slot 4
         :param gen_time5on: Enable generator time slot 5
         :param gen_time6on: Enable generator time slot 6
+        :param sell_time1on: Enable sell-to-grid for time slot 1
+        :param sell_time2on: Enable sell-to-grid for time slot 2
+        :param sell_time3on: Enable sell-to-grid for time slot 3
+        :param sell_time4on: Enable sell-to-grid for time slot 4
+        :param sell_time5on: Enable sell-to-grid for time slot 5
+        :param sell_time6on: Enable sell-to-grid for time slot 6
         :param monday_on:
         :param tuesday_on:
         :param wednesday_on:
@@ -649,6 +690,12 @@ class Settings(BaseSDK):
                 gen_time4on=gen_time4on,
                 gen_time5on=gen_time5on,
                 gen_time6on=gen_time6on,
+                sell_time1on=sell_time1on,
+                sell_time2on=sell_time2on,
+                sell_time3on=sell_time3on,
+                sell_time4on=sell_time4on,
+                sell_time5on=sell_time5on,
+                sell_time6on=sell_time6on,
                 monday_on=monday_on,
                 tuesday_on=tuesday_on,
                 wednesday_on=wednesday_on,
@@ -676,6 +723,7 @@ class Settings(BaseSDK):
                 request.body, False, False, "json", models.InverterSettingsSet
             ),
             allow_empty_value=None,
+            allowed_fields=["bearer_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -698,7 +746,7 @@ class Settings(BaseSDK):
                 ),
             ),
             request=req,
-            error_status_codes=["4XX", "5XX"],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 

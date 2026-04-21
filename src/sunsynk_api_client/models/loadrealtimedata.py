@@ -12,9 +12,12 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 class LoadRealtimeDataTypedDict(TypedDict):
     total_used: NotRequired[float]
+    r"""Total energy used (kWh)"""
     daily_used: NotRequired[float]
+    r"""Daily energy used (kWh)"""
     vip: NotRequired[List[RealtimeVipTypedDict]]
     total_power: NotRequired[float]
+    r"""Total load power (W)"""
     smart_load_status: NotRequired[int]
     load_fac: NotRequired[float]
     ups_power_l1: NotRequired[float]
@@ -25,12 +28,15 @@ class LoadRealtimeDataTypedDict(TypedDict):
 
 class LoadRealtimeData(BaseModel):
     total_used: Annotated[Optional[float], pydantic.Field(alias="totalUsed")] = None
+    r"""Total energy used (kWh)"""
 
     daily_used: Annotated[Optional[float], pydantic.Field(alias="dailyUsed")] = None
+    r"""Daily energy used (kWh)"""
 
     vip: Optional[List[RealtimeVip]] = None
 
     total_power: Annotated[Optional[float], pydantic.Field(alias="totalPower")] = None
+    r"""Total load power (W)"""
 
     smart_load_status: Annotated[
         Optional[int], pydantic.Field(alias="smartLoadStatus")

@@ -36,6 +36,8 @@ class Inverters(BaseSDK):
 
         Retrieve all inverters associated with the user account
 
+        If set, this operation will use `bearer_auth` from the global security.
+
         :param page:
         :param limit:
         :param total:
@@ -90,6 +92,7 @@ class Inverters(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["bearer_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -112,7 +115,7 @@ class Inverters(BaseSDK):
                 ),
             ),
             request=req,
-            error_status_codes=["401", "4XX", "5XX"],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -154,6 +157,8 @@ class Inverters(BaseSDK):
 
         Retrieve all inverters associated with the user account
 
+        If set, this operation will use `bearer_auth` from the global security.
+
         :param page:
         :param limit:
         :param total:
@@ -208,6 +213,7 @@ class Inverters(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["bearer_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -230,7 +236,7 @@ class Inverters(BaseSDK):
                 ),
             ),
             request=req,
-            error_status_codes=["401", "4XX", "5XX"],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -265,6 +271,8 @@ class Inverters(BaseSDK):
         r"""Get inverters for a plant
 
         Retrieves list of inverters associated with a specific plant
+
+        If set, this operation will use `bearer_auth` from the global security.
 
         :param plant_id:
         :param page:
@@ -308,6 +316,7 @@ class Inverters(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["bearer_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -330,7 +339,7 @@ class Inverters(BaseSDK):
                 ),
             ),
             request=req,
-            error_status_codes=["4XX", "5XX"],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -365,6 +374,8 @@ class Inverters(BaseSDK):
         r"""Get inverters for a plant
 
         Retrieves list of inverters associated with a specific plant
+
+        If set, this operation will use `bearer_auth` from the global security.
 
         :param plant_id:
         :param page:
@@ -408,6 +419,7 @@ class Inverters(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["bearer_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -430,7 +442,7 @@ class Inverters(BaseSDK):
                 ),
             ),
             request=req,
-            error_status_codes=["4XX", "5XX"],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
