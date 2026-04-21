@@ -13,7 +13,7 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 class GridDataTypedDict(TypedDict):
     vip: NotRequired[List[VipTypedDict]]
     pac: NotRequired[float]
-    r"""Grid power (kW)"""
+    r"""Grid power (W)"""
     qac: NotRequired[float]
     r"""Reactive power (kVar)"""
     fac: NotRequired[float]
@@ -32,14 +32,14 @@ class GridDataTypedDict(TypedDict):
     r"""Total energy exported (kWh)"""
     limiter_power_arr: NotRequired[List[float]]
     limiter_total_power: NotRequired[float]
-    r"""Total limiter power (kW)"""
+    r"""Total limiter power (W)"""
 
 
 class GridData(BaseModel):
     vip: Optional[List[Vip]] = None
 
     pac: Optional[float] = None
-    r"""Grid power (kW)"""
+    r"""Grid power (W)"""
 
     qac: Optional[float] = None
     r"""Reactive power (kVar)"""
@@ -72,7 +72,7 @@ class GridData(BaseModel):
     limiter_total_power: Annotated[
         Optional[float], pydantic.Field(alias="limiterTotalPower")
     ] = None
-    r"""Total limiter power (kW)"""
+    r"""Total limiter power (W)"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

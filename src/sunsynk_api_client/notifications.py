@@ -29,6 +29,8 @@ class Notifications(BaseSDK):
 
         Retrieves system notifications and messages
 
+        If set, this operation will use `bearer_auth` from the global security.
+
         :param page_size:
         :param page_number:
         :param status:
@@ -69,6 +71,7 @@ class Notifications(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["bearer_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -91,7 +94,7 @@ class Notifications(BaseSDK):
                 ),
             ),
             request=req,
-            error_status_codes=["4XX", "5XX"],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -125,6 +128,8 @@ class Notifications(BaseSDK):
         r"""Get notifications/messages
 
         Retrieves system notifications and messages
+
+        If set, this operation will use `bearer_auth` from the global security.
 
         :param page_size:
         :param page_number:
@@ -166,6 +171,7 @@ class Notifications(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["bearer_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -188,7 +194,7 @@ class Notifications(BaseSDK):
                 ),
             ),
             request=req,
-            error_status_codes=["4XX", "5XX"],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 

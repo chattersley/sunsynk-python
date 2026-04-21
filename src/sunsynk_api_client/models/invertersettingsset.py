@@ -87,6 +87,18 @@ class InverterSettingsSetTypedDict(TypedDict):
     r"""Enable generator time slot 5"""
     gen_time6on: NotRequired[bool]
     r"""Enable generator time slot 6"""
+    sell_time1on: NotRequired[bool]
+    r"""Enable sell-to-grid for time slot 1"""
+    sell_time2on: NotRequired[bool]
+    r"""Enable sell-to-grid for time slot 2"""
+    sell_time3on: NotRequired[bool]
+    r"""Enable sell-to-grid for time slot 3"""
+    sell_time4on: NotRequired[bool]
+    r"""Enable sell-to-grid for time slot 4"""
+    sell_time5on: NotRequired[bool]
+    r"""Enable sell-to-grid for time slot 5"""
+    sell_time6on: NotRequired[bool]
+    r"""Enable sell-to-grid for time slot 6"""
     monday_on: NotRequired[bool]
     tuesday_on: NotRequired[bool]
     wednesday_on: NotRequired[bool]
@@ -262,6 +274,24 @@ class InverterSettingsSet(BaseModel):
     gen_time6on: Annotated[Optional[bool], pydantic.Field(alias="genTime6on")] = None
     r"""Enable generator time slot 6"""
 
+    sell_time1on: Annotated[Optional[bool], pydantic.Field(alias="sellTime1on")] = None
+    r"""Enable sell-to-grid for time slot 1"""
+
+    sell_time2on: Annotated[Optional[bool], pydantic.Field(alias="sellTime2on")] = None
+    r"""Enable sell-to-grid for time slot 2"""
+
+    sell_time3on: Annotated[Optional[bool], pydantic.Field(alias="sellTime3on")] = None
+    r"""Enable sell-to-grid for time slot 3"""
+
+    sell_time4on: Annotated[Optional[bool], pydantic.Field(alias="sellTime4on")] = None
+    r"""Enable sell-to-grid for time slot 4"""
+
+    sell_time5on: Annotated[Optional[bool], pydantic.Field(alias="sellTime5on")] = None
+    r"""Enable sell-to-grid for time slot 5"""
+
+    sell_time6on: Annotated[Optional[bool], pydantic.Field(alias="sellTime6on")] = None
+    r"""Enable sell-to-grid for time slot 6"""
+
     monday_on: Annotated[Optional[bool], pydantic.Field(alias="mondayOn")] = None
 
     tuesday_on: Annotated[Optional[bool], pydantic.Field(alias="tuesdayOn")] = None
@@ -330,6 +360,12 @@ class InverterSettingsSet(BaseModel):
                 "genTime4on",
                 "genTime5on",
                 "genTime6on",
+                "sellTime1on",
+                "sellTime2on",
+                "sellTime3on",
+                "sellTime4on",
+                "sellTime5on",
+                "sellTime6on",
                 "mondayOn",
                 "tuesdayOn",
                 "wednesdayOn",

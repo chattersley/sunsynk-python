@@ -57,6 +57,12 @@ Inverter settings to update. All properties are optional — only included field
 | `gen_time4on`                                  | *Optional[bool]*                               | :heavy_minus_sign:                             | Enable generator time slot 4                   |
 | `gen_time5on`                                  | *Optional[bool]*                               | :heavy_minus_sign:                             | Enable generator time slot 5                   |
 | `gen_time6on`                                  | *Optional[bool]*                               | :heavy_minus_sign:                             | Enable generator time slot 6                   |
+| `sell_time1on`                                 | *Optional[bool]*                               | :heavy_minus_sign:                             | Enable sell-to-grid for time slot 1            |
+| `sell_time2on`                                 | *Optional[bool]*                               | :heavy_minus_sign:                             | Enable sell-to-grid for time slot 2            |
+| `sell_time3on`                                 | *Optional[bool]*                               | :heavy_minus_sign:                             | Enable sell-to-grid for time slot 3            |
+| `sell_time4on`                                 | *Optional[bool]*                               | :heavy_minus_sign:                             | Enable sell-to-grid for time slot 4            |
+| `sell_time5on`                                 | *Optional[bool]*                               | :heavy_minus_sign:                             | Enable sell-to-grid for time slot 5            |
+| `sell_time6on`                                 | *Optional[bool]*                               | :heavy_minus_sign:                             | Enable sell-to-grid for time slot 6            |
 | `monday_on`                                    | *Optional[bool]*                               | :heavy_minus_sign:                             | N/A                                            |
 | `tuesday_on`                                   | *Optional[bool]*                               | :heavy_minus_sign:                             | N/A                                            |
 | `wednesday_on`                                 | *Optional[bool]*                               | :heavy_minus_sign:                             | N/A                                            |

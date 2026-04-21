@@ -29,11 +29,11 @@ class BatteryDataTypedDict(TypedDict):
     type: NotRequired[float]
     r"""Battery type"""
     power: NotRequired[float]
-    r"""Battery power (kW)"""
+    r"""Battery power (W)"""
     capacity: NotRequired[float]
-    r"""Battery capacity (kWh)"""
+    r"""Battery capacity (Ah)"""
     correct_cap: NotRequired[float]
-    r"""Corrected capacity (kWh)"""
+    r"""Corrected capacity (Ah)"""
     current: NotRequired[float]
     r"""Battery current (A)"""
     voltage: NotRequired[float]
@@ -63,7 +63,7 @@ class BatteryDataTypedDict(TypedDict):
     battery_volt1: NotRequired[float]
     r"""Battery 1 voltage (V)"""
     battery_power1: NotRequired[float]
-    r"""Battery 1 power (kW)"""
+    r"""Battery 1 power (W)"""
     battery_temp1: NotRequired[float]
     r"""Battery 1 temperature (°C)"""
     battery_status2: NotRequired[float]
@@ -75,7 +75,7 @@ class BatteryDataTypedDict(TypedDict):
     battery_volt2: NotRequired[float]
     r"""Battery 2 voltage (V)"""
     battery_power2: NotRequired[float]
-    r"""Battery 2 power (kW)"""
+    r"""Battery 2 power (W)"""
     battery_temp2: NotRequired[float]
     r"""Battery 2 temperature (°C)"""
     number_of_batteries: NotRequired[int]
@@ -121,13 +121,13 @@ class BatteryData(BaseModel):
     r"""Battery type"""
 
     power: Optional[float] = None
-    r"""Battery power (kW)"""
+    r"""Battery power (W)"""
 
     capacity: Optional[float] = None
-    r"""Battery capacity (kWh)"""
+    r"""Battery capacity (Ah)"""
 
     correct_cap: Annotated[Optional[float], pydantic.Field(alias="correctCap")] = None
-    r"""Corrected capacity (kWh)"""
+    r"""Corrected capacity (Ah)"""
 
     current: Optional[float] = None
     r"""Battery current (A)"""
@@ -188,7 +188,7 @@ class BatteryData(BaseModel):
     battery_power1: Annotated[
         Optional[float], pydantic.Field(alias="batteryPower1")
     ] = None
-    r"""Battery 1 power (kW)"""
+    r"""Battery 1 power (W)"""
 
     battery_temp1: Annotated[Optional[float], pydantic.Field(alias="batteryTemp1")] = (
         None
@@ -216,7 +216,7 @@ class BatteryData(BaseModel):
     battery_power2: Annotated[
         Optional[float], pydantic.Field(alias="batteryPower2")
     ] = None
-    r"""Battery 2 power (kW)"""
+    r"""Battery 2 power (W)"""
 
     battery_temp2: Annotated[Optional[float], pydantic.Field(alias="batteryTemp2")] = (
         None

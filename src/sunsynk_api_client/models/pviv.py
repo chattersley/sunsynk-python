@@ -19,7 +19,7 @@ class PvIvTypedDict(TypedDict):
     ipv: NotRequired[float]
     r"""PV current (A)"""
     ppv: NotRequired[float]
-    r"""PV power (kW)"""
+    r"""PV power (W)"""
     today_pv: NotRequired[float]
     r"""Today's PV energy (kWh)"""
     sn: NotRequired[str]
@@ -41,7 +41,7 @@ class PvIv(BaseModel):
     r"""PV current (A)"""
 
     ppv: Optional[float] = None
-    r"""PV power (kW)"""
+    r"""PV power (W)"""
 
     today_pv: Annotated[Optional[float], pydantic.Field(alias="todayPv")] = None
     r"""Today's PV energy (kWh)"""
