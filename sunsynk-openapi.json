@@ -3,7 +3,7 @@
   "info": {
     "title": "SunSynk Power View API",
     "description": "API specification for SunSynk Power View (Inverter monitoring system). Combined from Node-RED flows and Python client library.",
-    "version": "1.2.0",
+    "version": "1.3.0",
     "license": {
       "name": "MIT"
     }
@@ -33,7 +33,9 @@
       "post": {
         "summary": "Authenticate user and obtain access token",
         "description": "OAuth2 token endpoint for user authentication. For new authentication flow, use /oauth/token/new with RSA encrypted password.",
-        "tags": ["Authentication"],
+        "tags": [
+          "Authentication"
+        ],
         "requestBody": {
           "required": true,
           "content": {
@@ -73,14 +75,21 @@
         "summary": "Authenticate and get bearer token (new flow)",
         "description": "Authenticates user with credentials and returns a bearer token. Requires RSA encryption of password with public key from /anonymous/publicKey.",
         "operationId": "getBearerToken",
-        "tags": ["Authentication"],
+        "tags": [
+          "Authentication"
+        ],
         "requestBody": {
           "required": true,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "required": ["username", "password", "grant_type", "client_id"],
+                "required": [
+                  "username",
+                  "password",
+                  "grant_type",
+                  "client_id"
+                ],
                 "properties": {
                   "areaCode": {
                     "type": "string",
@@ -161,7 +170,9 @@
         "summary": "Get public key for password encryption",
         "description": "Retrieves the RSA public key used to encrypt the password before login",
         "operationId": "getPublicKey",
-        "tags": ["Authentication"],
+        "tags": [
+          "Authentication"
+        ],
         "parameters": [
           {
             "name": "nonce",
@@ -216,7 +227,9 @@
         "summary": "Get list of plants",
         "description": "Retrieves a list of all plants associated with the account",
         "operationId": "getPlants",
-        "tags": ["Plants"],
+        "tags": [
+          "Plants"
+        ],
         "security": [
           {
             "bearerAuth": []
@@ -272,7 +285,9 @@
       "get": {
         "summary": "Get list of inverters",
         "description": "Retrieve all inverters associated with the user account",
-        "tags": ["Inverters"],
+        "tags": [
+          "Inverters"
+        ],
         "security": [
           {
             "bearerAuth": []
@@ -390,7 +405,9 @@
         "summary": "Get plant energy flow data",
         "description": "Retrieves real-time energy flow data for a specific plant",
         "operationId": "getPlantFlow",
-        "tags": ["Plants"],
+        "tags": [
+          "Plants"
+        ],
         "parameters": [
           {
             "name": "plantId",
@@ -425,7 +442,9 @@
         "summary": "Get plant information",
         "description": "Retrieves detailed information for a specific plant, including pricing charges, location, owner, currency, timezone, realtime energy data, and permissions.",
         "operationId": "getPlant",
-        "tags": ["Plants"],
+        "tags": [
+          "Plants"
+        ],
         "parameters": [
           {
             "name": "plantId",
@@ -479,7 +498,9 @@
         "summary": "Get inverters for a plant",
         "description": "Retrieves list of inverters associated with a specific plant",
         "operationId": "getPlantInverters",
-        "tags": ["Inverters"],
+        "tags": [
+          "Inverters"
+        ],
         "parameters": [
           {
             "name": "plantId",
@@ -550,7 +571,9 @@
         "summary": "Set plant income pricing",
         "description": "Configures the electricity pricing model for a plant. Supports three pricing types: Constant Price (type 1), Time of Use (type 2), and Live Price (type 3, UK only). Time of Use allows a maximum of 6 time slots and must have one entry starting at 00:00 and one ending at 24:00.",
         "operationId": "setPlantIncome",
-        "tags": ["Plants"],
+        "tags": [
+          "Plants"
+        ],
         "parameters": [
           {
             "name": "plantId",
@@ -577,7 +600,12 @@
                     "currency": 366,
                     "invest": 10730.12,
                     "charges": [
-                      {"price": "27", "type": "1", "startRange": "00:00", "endRange": "24:00"}
+                      {
+                        "price": "27",
+                        "type": "1",
+                        "startRange": "00:00",
+                        "endRange": "24:00"
+                      }
                     ]
                   }
                 },
@@ -588,12 +616,42 @@
                     "currency": 366,
                     "invest": 10730.12,
                     "charges": [
-                      {"startRange": "00:00", "endRange": "03:30", "price": "83", "type": 2},
-                      {"startRange": "03:30", "endRange": "05:00", "price": "100", "type": 2},
-                      {"startRange": "05:00", "endRange": "07:30", "price": "20", "type": 2},
-                      {"startRange": "07:30", "endRange": "13:00", "price": "20", "type": 2},
-                      {"startRange": "13:00", "endRange": "16:30", "price": "100", "type": 2},
-                      {"startRange": "16:30", "endRange": "24:00", "price": "20", "type": 2}
+                      {
+                        "startRange": "00:00",
+                        "endRange": "03:30",
+                        "price": "83",
+                        "type": 2
+                      },
+                      {
+                        "startRange": "03:30",
+                        "endRange": "05:00",
+                        "price": "100",
+                        "type": 2
+                      },
+                      {
+                        "startRange": "05:00",
+                        "endRange": "07:30",
+                        "price": "20",
+                        "type": 2
+                      },
+                      {
+                        "startRange": "07:30",
+                        "endRange": "13:00",
+                        "price": "20",
+                        "type": 2
+                      },
+                      {
+                        "startRange": "13:00",
+                        "endRange": "16:30",
+                        "price": "100",
+                        "type": 2
+                      },
+                      {
+                        "startRange": "16:30",
+                        "endRange": "24:00",
+                        "price": "20",
+                        "type": 2
+                      }
                     ]
                   }
                 },
@@ -604,11 +662,28 @@
                     "currency": 366,
                     "invest": 10730.12,
                     "charges": [
-                      {"price": 0, "type": "3", "startRange": "", "endRange": ""}
+                      {
+                        "price": 0,
+                        "type": "3",
+                        "startRange": "",
+                        "endRange": ""
+                      }
                     ],
                     "products": [
-                      {"direction": 1, "ratesThreshold": "25", "provider": 1, "limitSoc": null, "regionId": 8},
-                      {"direction": 0, "ratesThreshold": 30, "provider": 1, "limitSoc": 20, "regionId": 8}
+                      {
+                        "direction": 1,
+                        "ratesThreshold": "25",
+                        "provider": 1,
+                        "limitSoc": null,
+                        "regionId": 8
+                      },
+                      {
+                        "direction": 0,
+                        "ratesThreshold": 30,
+                        "provider": 1,
+                        "limitSoc": 20,
+                        "regionId": 8
+                      }
                     ]
                   }
                 }
@@ -629,8 +704,12 @@
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "msg": { "type": "string" },
-                    "code": { "type": "integer" }
+                    "msg": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "integer"
+                    }
                   }
                 }
               }
@@ -644,7 +723,9 @@
         "summary": "Get inverter input data",
         "description": "Retrieves real-time input data (PV) for a specific inverter",
         "operationId": "getInverterInput",
-        "tags": ["Inverter Data"],
+        "tags": [
+          "Inverter Data"
+        ],
         "parameters": [
           {
             "name": "sn",
@@ -683,7 +764,9 @@
         "summary": "Get inverter output data",
         "description": "Retrieves real-time output data for a specific inverter",
         "operationId": "getInverterOutput",
-        "tags": ["Inverter Data"],
+        "tags": [
+          "Inverter Data"
+        ],
         "parameters": [
           {
             "name": "sn",
@@ -722,7 +805,9 @@
         "summary": "Get battery realtime data",
         "description": "Retrieves real-time battery information for a specific inverter",
         "operationId": "getBatteryRealtime",
-        "tags": ["Inverter Data"],
+        "tags": [
+          "Inverter Data"
+        ],
         "parameters": [
           {
             "name": "sn",
@@ -770,7 +855,9 @@
         "summary": "Get grid realtime data",
         "description": "Retrieves real-time grid information for a specific inverter",
         "operationId": "getGridRealtime",
-        "tags": ["Inverter Data"],
+        "tags": [
+          "Inverter Data"
+        ],
         "parameters": [
           {
             "name": "sn",
@@ -809,7 +896,9 @@
         "summary": "Get load realtime data",
         "description": "Retrieves real-time load information for a specific inverter",
         "operationId": "getLoadRealtime",
-        "tags": ["Inverter Data"],
+        "tags": [
+          "Inverter Data"
+        ],
         "parameters": [
           {
             "name": "sn",
@@ -845,7 +934,9 @@
         "summary": "Get generation realtime data",
         "description": "Retrieves real-time solar generation information for a specific inverter",
         "operationId": "getGenRealtime",
-        "tags": ["Inverter Data"],
+        "tags": [
+          "Inverter Data"
+        ],
         "parameters": [
           {
             "name": "sn",
@@ -881,7 +972,9 @@
         "summary": "Get inverter daily output",
         "description": "Retrieves daily output statistics for a specific inverter",
         "operationId": "getInverterDailyOutput",
-        "tags": ["Inverter Data"],
+        "tags": [
+          "Inverter Data"
+        ],
         "parameters": [
           {
             "name": "sn",
@@ -946,7 +1039,9 @@
         "summary": "Read inverter settings",
         "description": "Retrieves the configuration settings for a specific inverter",
         "operationId": "readInverterSettings",
-        "tags": ["Settings"],
+        "tags": [
+          "Settings"
+        ],
         "parameters": [
           {
             "name": "sn",
@@ -982,7 +1077,9 @@
         "summary": "Set inverter settings",
         "description": "Updates the configuration settings for a specific inverter. Accepts partial requests — only the fields included in the request body will be updated, all other settings remain unchanged.",
         "operationId": "setInverterSettings",
-        "tags": ["Settings"],
+        "tags": [
+          "Settings"
+        ],
         "parameters": [
           {
             "name": "sn",
@@ -1134,7 +1231,9 @@
         "summary": "Get gateways",
         "description": "Retrieves list of gateways associated with the account",
         "operationId": "getGateways",
-        "tags": ["Gateways"],
+        "tags": [
+          "Gateways"
+        ],
         "parameters": [
           {
             "name": "page",
@@ -1252,7 +1351,9 @@
         "summary": "Get events",
         "description": "Retrieves system events (warnings, alarms, etc.)",
         "operationId": "getEvents",
-        "tags": ["Events"],
+        "tags": [
+          "Events"
+        ],
         "parameters": [
           {
             "name": "type",
@@ -1330,7 +1431,9 @@
         "summary": "Get notifications/messages",
         "description": "Retrieves system notifications and messages",
         "operationId": "getMessages",
-        "tags": ["Notifications"],
+        "tags": [
+          "Notifications"
+        ],
         "parameters": [
           {
             "name": "pageSize",
@@ -1397,7 +1500,12 @@
     "schemas": {
       "TokenRequest": {
         "type": "object",
-        "required": ["username", "password", "grant_type", "client_id"],
+        "required": [
+          "username",
+          "password",
+          "grant_type",
+          "client_id"
+        ],
         "properties": {
           "username": {
             "type": "string",
@@ -1410,11 +1518,15 @@
           },
           "grant_type": {
             "type": "string",
-            "enum": ["password"]
+            "enum": [
+              "password"
+            ]
           },
           "client_id": {
             "type": "string",
-            "enum": ["csp-web"]
+            "enum": [
+              "csp-web"
+            ]
           }
         }
       },
@@ -2052,165 +2164,372 @@
       "RealtimeVip": {
         "type": "object",
         "properties": {
-          "volt": { "type": "string" },
-          "current": { "type": "string" },
-          "power": { "type": "number" }
+          "volt": {
+            "type": "string"
+          },
+          "current": {
+            "type": "string"
+          },
+          "power": {
+            "type": "number"
+          }
         }
       },
       "PlantFlowData": {
         "type": "object",
         "properties": {
-          "custCode": { "type": "integer" },
-          "protocolIdentifier": { "type": "string" },
-          "meterCode": { "type": "integer" },
-          "pvPower": { "type": "number" },
-          "battPower": { "type": "number" },
-          "battPower2": { "type": "number" },
-          "gridOrMeterPower": { "type": "number" },
-          "loadOrEpsPower": { "type": "number" },
-          "genPower": { "type": "number" },
-          "minPower": { "type": "number" },
-          "soc": { "type": "number" },
-          "smartLoadPower": { "type": "number" },
-          "upsLoadPower": { "type": "number" },
-          "homeLoadPower": { "type": "number" },
-          "chargePilePower": { "type": "number" },
-          "pvTo": { "type": "boolean" },
-          "toLoad": { "type": "boolean" },
-          "toSmartLoad": { "type": "boolean" },
-          "toUpsLoad": { "type": "boolean" },
-          "toHomeLoad": { "type": "boolean" },
-          "toGrid": { "type": "boolean" },
-          "toBat": { "type": "boolean" },
-          "batTo": { "type": "boolean" },
-          "gridTo": { "type": "boolean" },
-          "genTo": { "type": "boolean" },
-          "minTo": { "type": "boolean" },
-          "toChargePile": { "type": "boolean" },
-          "existsGen": { "type": "boolean" },
-          "existsMin": { "type": "boolean" },
-          "existsGrid": { "type": "boolean" },
-          "genOn": { "type": "boolean" },
-          "microOn": { "type": "boolean" },
-          "existsMeter": { "type": "boolean" },
-          "bmsCommFaultFlag": { "type": "boolean" },
-          "existsThreeLoad": { "type": "boolean" },
-          "existsSmartLoad": { "type": "boolean" },
-          "existsChargePile": { "type": "boolean" },
-          "pv": { "type": "object", "nullable": true },
-          "existThinkPower": { "type": "boolean" },
-          "time": { "type": "string", "format": "date-time", "nullable": true }
+          "custCode": {
+            "type": "integer"
+          },
+          "protocolIdentifier": {
+            "type": "string"
+          },
+          "meterCode": {
+            "type": "integer"
+          },
+          "pvPower": {
+            "type": "number"
+          },
+          "battPower": {
+            "type": "number"
+          },
+          "battPower2": {
+            "type": "number"
+          },
+          "gridOrMeterPower": {
+            "type": "number"
+          },
+          "loadOrEpsPower": {
+            "type": "number"
+          },
+          "genPower": {
+            "type": "number"
+          },
+          "minPower": {
+            "type": "number"
+          },
+          "soc": {
+            "type": "number"
+          },
+          "smartLoadPower": {
+            "type": "number"
+          },
+          "upsLoadPower": {
+            "type": "number"
+          },
+          "homeLoadPower": {
+            "type": "number"
+          },
+          "chargePilePower": {
+            "type": "number"
+          },
+          "pvTo": {
+            "type": "boolean"
+          },
+          "toLoad": {
+            "type": "boolean"
+          },
+          "toSmartLoad": {
+            "type": "boolean"
+          },
+          "toUpsLoad": {
+            "type": "boolean"
+          },
+          "toHomeLoad": {
+            "type": "boolean"
+          },
+          "toGrid": {
+            "type": "boolean"
+          },
+          "toBat": {
+            "type": "boolean"
+          },
+          "batTo": {
+            "type": "boolean"
+          },
+          "gridTo": {
+            "type": "boolean"
+          },
+          "genTo": {
+            "type": "boolean"
+          },
+          "minTo": {
+            "type": "boolean"
+          },
+          "toChargePile": {
+            "type": "boolean"
+          },
+          "existsGen": {
+            "type": "boolean"
+          },
+          "existsMin": {
+            "type": "boolean"
+          },
+          "existsGrid": {
+            "type": "boolean"
+          },
+          "genOn": {
+            "type": "boolean"
+          },
+          "microOn": {
+            "type": "boolean"
+          },
+          "existsMeter": {
+            "type": "boolean"
+          },
+          "bmsCommFaultFlag": {
+            "type": "boolean"
+          },
+          "existsThreeLoad": {
+            "type": "boolean"
+          },
+          "existsSmartLoad": {
+            "type": "boolean"
+          },
+          "existsChargePile": {
+            "type": "boolean"
+          },
+          "pv": {
+            "type": "object",
+            "nullable": true
+          },
+          "existThinkPower": {
+            "type": "boolean"
+          },
+          "time": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
         }
       },
       "PlantFlowResponse": {
         "type": "object",
         "properties": {
-          "success": { "type": "boolean" },
-          "code": { "type": "integer" },
-          "msg": { "type": "string" },
-          "data": { "$ref": "#/components/schemas/PlantFlowData" }
+          "success": {
+            "type": "boolean"
+          },
+          "code": {
+            "type": "integer"
+          },
+          "msg": {
+            "type": "string"
+          },
+          "data": {
+            "$ref": "#/components/schemas/PlantFlowData"
+          }
         }
       },
       "LoadRealtimeData": {
         "type": "object",
         "properties": {
-          "totalUsed": { "type": "number", "description": "Total energy used (kWh)" },
-          "dailyUsed": { "type": "number", "description": "Daily energy used (kWh)" },
+          "totalUsed": {
+            "type": "number",
+            "description": "Total energy used (kWh)"
+          },
+          "dailyUsed": {
+            "type": "number",
+            "description": "Daily energy used (kWh)"
+          },
           "vip": {
             "type": "array",
-            "items": { "$ref": "#/components/schemas/RealtimeVip" }
+            "items": {
+              "$ref": "#/components/schemas/RealtimeVip"
+            }
           },
-          "totalPower": { "type": "number", "description": "Total load power (W)" },
-          "smartLoadStatus": { "type": "integer" },
-          "loadFac": { "type": "number" },
-          "upsPowerL1": { "type": "number" },
-          "upsPowerL2": { "type": "number" },
-          "upsPowerL3": { "type": "number" },
-          "upsPowerTotal": { "type": "number" }
+          "totalPower": {
+            "type": "number",
+            "description": "Total load power (W)"
+          },
+          "smartLoadStatus": {
+            "type": "integer"
+          },
+          "loadFac": {
+            "type": "number"
+          },
+          "upsPowerL1": {
+            "type": "number"
+          },
+          "upsPowerL2": {
+            "type": "number"
+          },
+          "upsPowerL3": {
+            "type": "number"
+          },
+          "upsPowerTotal": {
+            "type": "number"
+          }
         }
       },
       "LoadRealtimeResponse": {
         "type": "object",
         "properties": {
-          "success": { "type": "boolean" },
-          "code": { "type": "integer" },
-          "msg": { "type": "string" },
-          "data": { "$ref": "#/components/schemas/LoadRealtimeData" }
+          "success": {
+            "type": "boolean"
+          },
+          "code": {
+            "type": "integer"
+          },
+          "msg": {
+            "type": "string"
+          },
+          "data": {
+            "$ref": "#/components/schemas/LoadRealtimeData"
+          }
         }
       },
       "GenRealtimeData": {
         "type": "object",
         "properties": {
-          "genTotal": { "type": "number" },
-          "genDaily": { "type": "number" },
-          "totalPower": { "type": "number" },
-          "genFac": { "type": "number" },
+          "genTotal": {
+            "type": "number"
+          },
+          "genDaily": {
+            "type": "number"
+          },
+          "totalPower": {
+            "type": "number"
+          },
+          "genFac": {
+            "type": "number"
+          },
           "vip": {
             "type": "array",
-            "items": { "$ref": "#/components/schemas/RealtimeVip" }
+            "items": {
+              "$ref": "#/components/schemas/RealtimeVip"
+            }
           }
         }
       },
       "GenRealtimeResponse": {
         "type": "object",
         "properties": {
-          "success": { "type": "boolean" },
-          "code": { "type": "integer" },
-          "msg": { "type": "string" },
-          "data": { "$ref": "#/components/schemas/GenRealtimeData" }
+          "success": {
+            "type": "boolean"
+          },
+          "code": {
+            "type": "integer"
+          },
+          "msg": {
+            "type": "string"
+          },
+          "data": {
+            "$ref": "#/components/schemas/GenRealtimeData"
+          }
         }
       },
       "PlantInverterInfo": {
         "type": "object",
         "properties": {
-          "id": { "type": "integer" },
-          "sn": { "type": "string" },
-          "alias": { "type": "string" },
-          "gsn": { "type": "string" },
-          "status": { "type": "integer" },
-          "type": { "type": "integer" },
-          "commTypeName": { "type": "string" },
-          "custCode": { "type": "integer" },
-          "version": { "$ref": "#/components/schemas/InverterVersion" },
-          "model": { "type": "string" },
-          "pac": { "type": "number" },
-          "etoday": { "type": "number" },
-          "etotal": { "type": "number" },
-          "updateAt": { "type": "string", "format": "date-time" },
-          "opened": { "type": "integer" },
-          "plant": { "$ref": "#/components/schemas/PlantSummary" },
-          "gatewayVO": { "$ref": "#/components/schemas/GatewayInfo" },
-          "sunsynkEquip": { "type": "boolean" },
-          "protocolIdentifier": { "type": "string" }
+          "id": {
+            "type": "integer"
+          },
+          "sn": {
+            "type": "string"
+          },
+          "alias": {
+            "type": "string"
+          },
+          "gsn": {
+            "type": "string"
+          },
+          "status": {
+            "type": "integer"
+          },
+          "type": {
+            "type": "integer"
+          },
+          "commTypeName": {
+            "type": "string"
+          },
+          "custCode": {
+            "type": "integer"
+          },
+          "version": {
+            "$ref": "#/components/schemas/InverterVersion"
+          },
+          "model": {
+            "type": "string"
+          },
+          "pac": {
+            "type": "number"
+          },
+          "etoday": {
+            "type": "number"
+          },
+          "etotal": {
+            "type": "number"
+          },
+          "updateAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "opened": {
+            "type": "integer"
+          },
+          "plant": {
+            "$ref": "#/components/schemas/PlantSummary"
+          },
+          "gatewayVO": {
+            "$ref": "#/components/schemas/GatewayInfo"
+          },
+          "sunsynkEquip": {
+            "type": "boolean"
+          },
+          "protocolIdentifier": {
+            "type": "string"
+          }
         }
       },
       "PlantInvertersData": {
         "type": "object",
         "properties": {
-          "pageSize": { "type": "integer" },
-          "pageNumber": { "type": "integer" },
-          "total": { "type": "integer" },
+          "pageSize": {
+            "type": "integer"
+          },
+          "pageNumber": {
+            "type": "integer"
+          },
+          "total": {
+            "type": "integer"
+          },
           "infos": {
             "type": "array",
-            "items": { "$ref": "#/components/schemas/PlantInverterInfo" }
+            "items": {
+              "$ref": "#/components/schemas/PlantInverterInfo"
+            }
           }
         }
       },
       "PlantInvertersResponse": {
         "type": "object",
         "properties": {
-          "success": { "type": "boolean" },
-          "code": { "type": "integer" },
-          "msg": { "type": "string" },
-          "data": { "$ref": "#/components/schemas/PlantInvertersData" }
+          "success": {
+            "type": "boolean"
+          },
+          "code": {
+            "type": "integer"
+          },
+          "msg": {
+            "type": "string"
+          },
+          "data": {
+            "$ref": "#/components/schemas/PlantInvertersData"
+          }
         }
       },
       "DailyOutputResponse": {
         "type": "object",
         "properties": {
-          "success": { "type": "boolean" },
-          "code": { "type": "integer" },
-          "msg": { "type": "string" },
+          "success": {
+            "type": "boolean"
+          },
+          "code": {
+            "type": "integer"
+          },
+          "msg": {
+            "type": "string"
+          },
           "data": {
             "type": "object",
             "properties": {
@@ -2219,8 +2538,12 @@
                 "items": {
                   "type": "object",
                   "properties": {
-                    "dc_temp": { "type": "string" },
-                    "igbt_temp": { "type": "string" }
+                    "dc_temp": {
+                      "type": "string"
+                    },
+                    "igbt_temp": {
+                      "type": "string"
+                    }
                   }
                 }
               }
@@ -2231,37 +2554,81 @@
       "GatewayExtendedInfo": {
         "type": "object",
         "properties": {
-          "id": { "type": "integer" },
-          "sn": { "type": "string" },
-          "key": { "type": "string" },
-          "status": { "type": "integer" },
-          "commType": { "type": "integer" },
-          "signal": { "type": "integer" },
-          "softVer": { "type": "string" },
-          "hardVer": { "type": "string" },
-          "updateAt": { "type": "string", "format": "date-time" },
-          "protocolType": { "type": "integer" },
-          "model": { "type": "string" },
-          "lldt": { "type": "string", "format": "date-time" },
-          "uploadCycle": { "type": "integer" },
-          "devName": { "type": "string" },
-          "commTypeName": { "type": "string" },
-          "proto": { "type": "string" }
+          "id": {
+            "type": "integer"
+          },
+          "sn": {
+            "type": "string"
+          },
+          "key": {
+            "type": "string"
+          },
+          "status": {
+            "type": "integer"
+          },
+          "commType": {
+            "type": "integer"
+          },
+          "signal": {
+            "type": "integer"
+          },
+          "softVer": {
+            "type": "string"
+          },
+          "hardVer": {
+            "type": "string"
+          },
+          "updateAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "protocolType": {
+            "type": "integer"
+          },
+          "model": {
+            "type": "string"
+          },
+          "lldt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "uploadCycle": {
+            "type": "integer"
+          },
+          "devName": {
+            "type": "string"
+          },
+          "commTypeName": {
+            "type": "string"
+          },
+          "proto": {
+            "type": "string"
+          }
         }
       },
       "GatewaysResponse": {
         "type": "object",
         "properties": {
-          "success": { "type": "boolean" },
-          "code": { "type": "integer" },
-          "msg": { "type": "string" },
+          "success": {
+            "type": "boolean"
+          },
+          "code": {
+            "type": "integer"
+          },
+          "msg": {
+            "type": "string"
+          },
           "data": {
             "type": "object",
             "properties": {
-              "total": { "type": "integer" },
+              "total": {
+                "type": "integer"
+              },
               "infos": {
                 "type": "array",
-                "items": { "$ref": "#/components/schemas/GatewayExtendedInfo" }
+                "items": {
+                  "$ref": "#/components/schemas/GatewayExtendedInfo"
+                }
               }
             }
           }
@@ -2270,16 +2637,27 @@
       "EventsResponse": {
         "type": "object",
         "properties": {
-          "success": { "type": "boolean" },
-          "code": { "type": "integer" },
-          "msg": { "type": "string" },
+          "success": {
+            "type": "boolean"
+          },
+          "code": {
+            "type": "integer"
+          },
+          "msg": {
+            "type": "string"
+          },
           "data": {
             "type": "object",
             "properties": {
-              "nextToken": { "type": "string", "nullable": true },
+              "nextToken": {
+                "type": "string",
+                "nullable": true
+              },
               "record": {
                 "type": "array",
-                "items": { "type": "object" }
+                "items": {
+                  "type": "object"
+                }
               }
             }
           }
@@ -2288,16 +2666,26 @@
       "MessagesResponse": {
         "type": "object",
         "properties": {
-          "success": { "type": "boolean" },
-          "code": { "type": "integer" },
-          "msg": { "type": "string" },
+          "success": {
+            "type": "boolean"
+          },
+          "code": {
+            "type": "integer"
+          },
+          "msg": {
+            "type": "string"
+          },
           "data": {
             "type": "object",
             "properties": {
-              "total": { "type": "integer" },
+              "total": {
+                "type": "integer"
+              },
               "infos": {
                 "type": "array",
-                "items": { "type": "object" }
+                "items": {
+                  "type": "object"
+                }
               }
             }
           }
@@ -2306,126 +2694,303 @@
       "PlantInfoResponse": {
         "type": "object",
         "properties": {
-          "code": { "type": "integer" },
-          "msg": { "type": "string" },
-          "success": { "type": "boolean" },
-          "data": { "$ref": "#/components/schemas/PlantInfo" }
+          "code": {
+            "type": "integer"
+          },
+          "msg": {
+            "type": "string"
+          },
+          "success": {
+            "type": "boolean"
+          },
+          "data": {
+            "$ref": "#/components/schemas/PlantInfo"
+          }
         }
       },
       "PlantInfo": {
         "type": "object",
         "properties": {
-          "id": { "type": "integer", "description": "Plant ID" },
-          "name": { "type": "string", "description": "Plant name" },
-          "totalPower": { "type": "number", "description": "Total power capacity (kW)" },
-          "thumbUrl": { "type": "string", "description": "Thumbnail image URL" },
-          "joinDate": { "type": "string", "format": "date-time", "description": "Date the plant was registered" },
-          "type": { "type": "integer", "description": "Plant type" },
-          "status": { "type": "integer", "description": "Plant status" },
+          "id": {
+            "type": "integer",
+            "description": "Plant ID"
+          },
+          "name": {
+            "type": "string",
+            "description": "Plant name"
+          },
+          "totalPower": {
+            "type": "number",
+            "description": "Total power capacity (kW)"
+          },
+          "thumbUrl": {
+            "type": "string",
+            "description": "Thumbnail image URL"
+          },
+          "joinDate": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Date the plant was registered"
+          },
+          "type": {
+            "type": "integer",
+            "description": "Plant type"
+          },
+          "status": {
+            "type": "integer",
+            "description": "Plant status"
+          },
           "charges": {
             "type": "array",
             "description": "Current electricity pricing charges (half-hourly slots for Live Price type 3)",
-            "items": { "$ref": "#/components/schemas/PlantInfoCharge" }
+            "items": {
+              "$ref": "#/components/schemas/PlantInfoCharge"
+            }
           },
           "products": {
             "type": "array",
             "nullable": true,
             "description": "Energy provider products (present for Live Price type 3)",
-            "items": { "$ref": "#/components/schemas/PlantInfoProduct" }
+            "items": {
+              "$ref": "#/components/schemas/PlantInfoProduct"
+            }
           },
-          "lon": { "type": "number", "description": "Longitude" },
-          "lat": { "type": "number", "description": "Latitude" },
-          "address": { "type": "string", "description": "Plant address" },
-          "master": { "$ref": "#/components/schemas/PlantInfoMaster" },
-          "currency": { "$ref": "#/components/schemas/PlantInfoCurrency" },
-          "timezone": { "$ref": "#/components/schemas/PlantInfoTimezone" },
-          "realtime": { "$ref": "#/components/schemas/PlantInfoRealtime" },
-          "createAt": { "type": "string", "format": "date-time" },
-          "phone": { "type": "string" },
-          "email": { "type": "string" },
-          "installer": { "type": "string" },
-          "principal": { "type": "string" },
+          "lon": {
+            "type": "number",
+            "description": "Longitude"
+          },
+          "lat": {
+            "type": "number",
+            "description": "Latitude"
+          },
+          "address": {
+            "type": "string",
+            "description": "Plant address"
+          },
+          "master": {
+            "$ref": "#/components/schemas/PlantInfoMaster"
+          },
+          "currency": {
+            "$ref": "#/components/schemas/PlantInfoCurrency"
+          },
+          "timezone": {
+            "$ref": "#/components/schemas/PlantInfoTimezone"
+          },
+          "realtime": {
+            "$ref": "#/components/schemas/PlantInfoRealtime"
+          },
+          "createAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "installer": {
+            "type": "string"
+          },
+          "principal": {
+            "type": "string"
+          },
           "plantPermission": {
             "type": "array",
-            "items": { "type": "string" },
+            "items": {
+              "type": "string"
+            },
             "description": "List of permission strings for this plant"
           },
-          "fluxProducts": { "type": "object", "nullable": true },
-          "productWarrantyRegistered": { "type": "integer" },
-          "ctEnable": { "type": "integer" },
-          "invest": { "type": "number", "description": "Total investment amount" },
-          "epexProduct": { "type": "object", "nullable": true }
+          "fluxProducts": {
+            "type": "object",
+            "nullable": true
+          },
+          "productWarrantyRegistered": {
+            "type": "integer"
+          },
+          "ctEnable": {
+            "type": "integer"
+          },
+          "invest": {
+            "type": "number",
+            "description": "Total investment amount"
+          },
+          "epexProduct": {
+            "type": "object",
+            "nullable": true
+          }
         }
       },
       "PlantInfoCharge": {
         "type": "object",
         "description": "A pricing charge entry returned in the plant info response",
         "properties": {
-          "id": { "type": "integer" },
-          "startRange": { "type": "string", "description": "Start time (HH:MM)" },
-          "endRange": { "type": "string", "description": "End time (HH:MM)" },
-          "price": { "type": "number", "description": "Price per unit" },
-          "type": { "type": "integer", "description": "Pricing type: 1 = Constant, 2 = Time of Use, 3 = Live Price" },
-          "stationId": { "type": "integer", "description": "Plant/station ID" },
-          "createAt": { "type": "string", "format": "date-time" },
-          "status": { "type": "string", "enum": ["import", "export"], "description": "Energy direction for this charge" }
+          "id": {
+            "type": "integer"
+          },
+          "startRange": {
+            "type": "string",
+            "description": "Start time (HH:MM)"
+          },
+          "endRange": {
+            "type": "string",
+            "description": "End time (HH:MM)"
+          },
+          "price": {
+            "type": "number",
+            "description": "Price per unit"
+          },
+          "type": {
+            "type": "integer",
+            "description": "Pricing type: 1 = Constant, 2 = Time of Use, 3 = Live Price"
+          },
+          "stationId": {
+            "type": "integer",
+            "description": "Plant/station ID"
+          },
+          "createAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "import",
+              "export"
+            ],
+            "description": "Energy direction for this charge"
+          }
         }
       },
       "PlantInfoProduct": {
         "type": "object",
         "description": "Energy provider product in plant info response",
         "properties": {
-          "direction": { "type": "integer", "description": "1 = export, 0 = import" },
-          "ratesThreshold": { "type": "number" },
-          "limitSoc": { "type": "integer", "nullable": true, "description": "State of charge limit (%). Null for export." },
-          "provider": { "type": "integer", "description": "Energy provider ID" },
-          "regionId": { "type": "integer", "description": "Region ID" }
+          "direction": {
+            "type": "integer",
+            "description": "1 = export, 0 = import"
+          },
+          "ratesThreshold": {
+            "type": "number"
+          },
+          "limitSoc": {
+            "type": "integer",
+            "nullable": true,
+            "description": "State of charge limit (%). Null for export."
+          },
+          "provider": {
+            "type": "integer",
+            "description": "Energy provider ID"
+          },
+          "regionId": {
+            "type": "integer",
+            "description": "Region ID"
+          }
         }
       },
       "PlantInfoMaster": {
         "type": "object",
         "properties": {
-          "id": { "type": "integer" },
-          "nickname": { "type": "string" },
-          "mobile": { "type": "string", "nullable": true }
+          "id": {
+            "type": "integer"
+          },
+          "nickname": {
+            "type": "string"
+          },
+          "mobile": {
+            "type": "string",
+            "nullable": true
+          }
         }
       },
       "PlantInfoCurrency": {
         "type": "object",
         "properties": {
-          "id": { "type": "integer" },
-          "code": { "type": "string", "description": "Currency code (e.g. GBP)" },
-          "text": { "type": "string", "description": "Currency symbol (e.g. £)" }
+          "id": {
+            "type": "integer"
+          },
+          "code": {
+            "type": "string",
+            "description": "Currency code (e.g. GBP)"
+          },
+          "text": {
+            "type": "string",
+            "description": "Currency symbol (e.g. £)"
+          }
         }
       },
       "PlantInfoTimezone": {
         "type": "object",
         "properties": {
-          "id": { "type": "integer" },
-          "code": { "type": "string", "description": "Timezone code (e.g. Europe/London)" },
-          "text": { "type": "string", "description": "Timezone display text" }
+          "id": {
+            "type": "integer"
+          },
+          "code": {
+            "type": "string",
+            "description": "Timezone code (e.g. Europe/London)"
+          },
+          "text": {
+            "type": "string",
+            "description": "Timezone display text"
+          }
         }
       },
       "PlantInfoRealtime": {
         "type": "object",
         "description": "Real-time energy and financial data for the plant",
         "properties": {
-          "pac": { "type": "number", "description": "Current power (W)" },
-          "efficiency": { "type": "number" },
-          "etoday": { "type": "number", "description": "Energy generated today (kWh)" },
-          "emonth": { "type": "number", "description": "Energy generated this month (kWh)" },
-          "eyear": { "type": "number", "description": "Energy generated this year (kWh)" },
-          "etotal": { "type": "number", "description": "Total energy generated (kWh)" },
-          "totalPower": { "type": "number", "description": "Total power capacity (kW)" },
-          "currency": { "$ref": "#/components/schemas/PlantInfoCurrency" },
-          "invest": { "type": "number" },
-          "income": { "type": "number", "description": "Income amount" },
-          "updateAt": { "type": "string", "format": "date-time" }
+          "pac": {
+            "type": "number",
+            "description": "Current power (W)"
+          },
+          "efficiency": {
+            "type": "number"
+          },
+          "etoday": {
+            "type": "number",
+            "description": "Energy generated today (kWh)"
+          },
+          "emonth": {
+            "type": "number",
+            "description": "Energy generated this month (kWh)"
+          },
+          "eyear": {
+            "type": "number",
+            "description": "Energy generated this year (kWh)"
+          },
+          "etotal": {
+            "type": "number",
+            "description": "Total energy generated (kWh)"
+          },
+          "totalPower": {
+            "type": "number",
+            "description": "Total power capacity (kW)"
+          },
+          "currency": {
+            "$ref": "#/components/schemas/PlantInfoCurrency"
+          },
+          "invest": {
+            "type": "number"
+          },
+          "income": {
+            "type": "number",
+            "description": "Income amount"
+          },
+          "updateAt": {
+            "type": "string",
+            "format": "date-time"
+          }
         }
       },
       "PlantIncomeRequest": {
         "type": "object",
-        "required": ["id", "currency", "invest", "charges"],
+        "required": [
+          "id",
+          "currency",
+          "invest",
+          "charges"
+        ],
         "properties": {
           "id": {
             "type": "string",
@@ -2461,15 +3026,30 @@
         "properties": {
           "price": {
             "oneOf": [
-              { "type": "string" },
-              { "type": "integer" }
+              {
+                "type": "string"
+              },
+              {
+                "type": "integer"
+              }
             ],
             "description": "Price per unit of energy. String for types 1 and 2, integer (0) for type 3."
           },
           "type": {
             "oneOf": [
-              { "type": "string", "enum": ["1", "3"] },
-              { "type": "integer", "enum": [2] }
+              {
+                "type": "string",
+                "enum": [
+                  "1",
+                  "3"
+                ]
+              },
+              {
+                "type": "integer",
+                "enum": [
+                  2
+                ]
+              }
             ],
             "description": "Pricing type: 1 = Constant Price, 2 = Time of Use, 3 = Live Price (UK only)"
           },
@@ -2493,8 +3073,12 @@
           },
           "ratesThreshold": {
             "oneOf": [
-              { "type": "string" },
-              { "type": "integer" }
+              {
+                "type": "string"
+              },
+              {
+                "type": "integer"
+              }
             ],
             "description": "Rate threshold value"
           },
@@ -2517,427 +3101,1280 @@
         "type": "object",
         "description": "Inverter settings to update. All properties are optional — only included fields will be updated. This endpoint accepts partial requests.",
         "properties": {
-          "sn": { "type": "string", "description": "Inverter serial number" },
-          "safetyType": { "type": "string" },
-          "battMode": { "type": "string" },
-          "solarSell": { "type": "string" },
-          "pvMaxLimit": { "type": "string" },
-          "energyMode": { "type": "string" },
-          "peakAndVallery": { "type": "string" },
-          "sysWorkMode": { "type": "string" },
-          "sellTime1": { "type": "string", "description": "Time slot 1 start time (HH:MM)" },
-          "sellTime2": { "type": "string", "description": "Time slot 2 start time (HH:MM)" },
-          "sellTime3": { "type": "string", "description": "Time slot 3 start time (HH:MM)" },
-          "sellTime4": { "type": "string", "description": "Time slot 4 start time (HH:MM)" },
-          "sellTime5": { "type": "string", "description": "Time slot 5 start time (HH:MM)" },
-          "sellTime6": { "type": "string", "description": "Time slot 6 start time (HH:MM)" },
-          "sellTime1Pac": { "type": "string" },
-          "sellTime2Pac": { "type": "string" },
-          "sellTime3Pac": { "type": "string" },
-          "sellTime4Pac": { "type": "string" },
-          "sellTime5Pac": { "type": "string" },
-          "sellTime6Pac": { "type": "string" },
-          "cap1": { "type": "string", "description": "Battery capacity threshold for time slot 1 (%)" },
-          "cap2": { "type": "string", "description": "Battery capacity threshold for time slot 2 (%)" },
-          "cap3": { "type": "string", "description": "Battery capacity threshold for time slot 3 (%)" },
-          "cap4": { "type": "string", "description": "Battery capacity threshold for time slot 4 (%)" },
-          "cap5": { "type": "string", "description": "Battery capacity threshold for time slot 5 (%)" },
-          "cap6": { "type": "string", "description": "Battery capacity threshold for time slot 6 (%)" },
-          "sellTime1Volt": { "type": "string" },
-          "sellTime2Volt": { "type": "string" },
-          "sellTime3Volt": { "type": "string" },
-          "sellTime4Volt": { "type": "string" },
-          "sellTime5Volt": { "type": "string" },
-          "sellTime6Volt": { "type": "string" },
-          "zeroExportPower": { "type": "string" },
-          "solarMaxSellPower": { "type": "string" },
-          "gridPeakShaving": { "type": "string" },
-          "lowVoltCrossEn": { "type": "string" },
-          "generatorStartCap": { "type": "string" },
-          "batteryLowCap": { "type": "string" },
-          "time1on": { "type": "boolean", "description": "Enable time slot 1" },
-          "time2on": { "type": "boolean", "description": "Enable time slot 2" },
-          "time3on": { "type": "boolean", "description": "Enable time slot 3" },
-          "time4on": { "type": "boolean", "description": "Enable time slot 4" },
-          "time5on": { "type": "boolean", "description": "Enable time slot 5" },
-          "time6on": { "type": "boolean", "description": "Enable time slot 6" },
-          "genTime1on": { "type": "boolean", "description": "Enable generator time slot 1" },
-          "genTime2on": { "type": "boolean", "description": "Enable generator time slot 2" },
-          "genTime3on": { "type": "boolean", "description": "Enable generator time slot 3" },
-          "genTime4on": { "type": "boolean", "description": "Enable generator time slot 4" },
-          "genTime5on": { "type": "boolean", "description": "Enable generator time slot 5" },
-          "genTime6on": { "type": "boolean", "description": "Enable generator time slot 6" },
-          "sellTime1on": { "type": "boolean", "description": "Enable sell-to-grid for time slot 1" },
-          "sellTime2on": { "type": "boolean", "description": "Enable sell-to-grid for time slot 2" },
-          "sellTime3on": { "type": "boolean", "description": "Enable sell-to-grid for time slot 3" },
-          "sellTime4on": { "type": "boolean", "description": "Enable sell-to-grid for time slot 4" },
-          "sellTime5on": { "type": "boolean", "description": "Enable sell-to-grid for time slot 5" },
-          "sellTime6on": { "type": "boolean", "description": "Enable sell-to-grid for time slot 6" },
-          "mondayOn": { "type": "boolean" },
-          "tuesdayOn": { "type": "boolean" },
-          "wednesdayOn": { "type": "boolean" },
-          "thursdayOn": { "type": "boolean" },
-          "fridayOn": { "type": "boolean" },
-          "saturdayOn": { "type": "boolean" },
-          "sundayOn": { "type": "boolean" }
+          "sn": {
+            "type": "string",
+            "description": "Inverter serial number"
+          },
+          "safetyType": {
+            "type": "string"
+          },
+          "battMode": {
+            "type": "string"
+          },
+          "solarSell": {
+            "type": "string"
+          },
+          "pvMaxLimit": {
+            "type": "string"
+          },
+          "energyMode": {
+            "type": "string"
+          },
+          "peakAndVallery": {
+            "type": "string"
+          },
+          "sysWorkMode": {
+            "type": "string"
+          },
+          "sellTime1": {
+            "type": "string",
+            "description": "Time slot 1 start time (HH:MM)"
+          },
+          "sellTime2": {
+            "type": "string",
+            "description": "Time slot 2 start time (HH:MM)"
+          },
+          "sellTime3": {
+            "type": "string",
+            "description": "Time slot 3 start time (HH:MM)"
+          },
+          "sellTime4": {
+            "type": "string",
+            "description": "Time slot 4 start time (HH:MM)"
+          },
+          "sellTime5": {
+            "type": "string",
+            "description": "Time slot 5 start time (HH:MM)"
+          },
+          "sellTime6": {
+            "type": "string",
+            "description": "Time slot 6 start time (HH:MM)"
+          },
+          "sellTime1Pac": {
+            "type": "string"
+          },
+          "sellTime2Pac": {
+            "type": "string"
+          },
+          "sellTime3Pac": {
+            "type": "string"
+          },
+          "sellTime4Pac": {
+            "type": "string"
+          },
+          "sellTime5Pac": {
+            "type": "string"
+          },
+          "sellTime6Pac": {
+            "type": "string"
+          },
+          "cap1": {
+            "type": "string",
+            "description": "Battery capacity threshold for time slot 1 (%)"
+          },
+          "cap2": {
+            "type": "string",
+            "description": "Battery capacity threshold for time slot 2 (%)"
+          },
+          "cap3": {
+            "type": "string",
+            "description": "Battery capacity threshold for time slot 3 (%)"
+          },
+          "cap4": {
+            "type": "string",
+            "description": "Battery capacity threshold for time slot 4 (%)"
+          },
+          "cap5": {
+            "type": "string",
+            "description": "Battery capacity threshold for time slot 5 (%)"
+          },
+          "cap6": {
+            "type": "string",
+            "description": "Battery capacity threshold for time slot 6 (%)"
+          },
+          "sellTime1Volt": {
+            "type": "string"
+          },
+          "sellTime2Volt": {
+            "type": "string"
+          },
+          "sellTime3Volt": {
+            "type": "string"
+          },
+          "sellTime4Volt": {
+            "type": "string"
+          },
+          "sellTime5Volt": {
+            "type": "string"
+          },
+          "sellTime6Volt": {
+            "type": "string"
+          },
+          "zeroExportPower": {
+            "type": "string"
+          },
+          "solarMaxSellPower": {
+            "type": "string"
+          },
+          "gridPeakShaving": {
+            "type": "string"
+          },
+          "lowVoltCrossEn": {
+            "type": "string"
+          },
+          "generatorStartCap": {
+            "type": "string"
+          },
+          "batteryLowCap": {
+            "type": "string"
+          },
+          "time1on": {
+            "type": "boolean",
+            "description": "Enable time slot 1"
+          },
+          "time2on": {
+            "type": "boolean",
+            "description": "Enable time slot 2"
+          },
+          "time3on": {
+            "type": "boolean",
+            "description": "Enable time slot 3"
+          },
+          "time4on": {
+            "type": "boolean",
+            "description": "Enable time slot 4"
+          },
+          "time5on": {
+            "type": "boolean",
+            "description": "Enable time slot 5"
+          },
+          "time6on": {
+            "type": "boolean",
+            "description": "Enable time slot 6"
+          },
+          "genTime1on": {
+            "type": "boolean",
+            "description": "Enable generator time slot 1"
+          },
+          "genTime2on": {
+            "type": "boolean",
+            "description": "Enable generator time slot 2"
+          },
+          "genTime3on": {
+            "type": "boolean",
+            "description": "Enable generator time slot 3"
+          },
+          "genTime4on": {
+            "type": "boolean",
+            "description": "Enable generator time slot 4"
+          },
+          "genTime5on": {
+            "type": "boolean",
+            "description": "Enable generator time slot 5"
+          },
+          "genTime6on": {
+            "type": "boolean",
+            "description": "Enable generator time slot 6"
+          },
+          "sellTime1on": {
+            "type": "boolean",
+            "description": "Enable sell-to-grid for time slot 1"
+          },
+          "sellTime2on": {
+            "type": "boolean",
+            "description": "Enable sell-to-grid for time slot 2"
+          },
+          "sellTime3on": {
+            "type": "boolean",
+            "description": "Enable sell-to-grid for time slot 3"
+          },
+          "sellTime4on": {
+            "type": "boolean",
+            "description": "Enable sell-to-grid for time slot 4"
+          },
+          "sellTime5on": {
+            "type": "boolean",
+            "description": "Enable sell-to-grid for time slot 5"
+          },
+          "sellTime6on": {
+            "type": "boolean",
+            "description": "Enable sell-to-grid for time slot 6"
+          },
+          "mondayOn": {
+            "type": "boolean"
+          },
+          "tuesdayOn": {
+            "type": "boolean"
+          },
+          "wednesdayOn": {
+            "type": "boolean"
+          },
+          "thursdayOn": {
+            "type": "boolean"
+          },
+          "fridayOn": {
+            "type": "boolean"
+          },
+          "saturdayOn": {
+            "type": "boolean"
+          },
+          "sundayOn": {
+            "type": "boolean"
+          }
         }
       },
       "InverterSettings": {
         "type": "object",
         "properties": {
-          "sellTime1": { "type": "string" },
-          "genTime2on": { "type": "string" },
-          "beep": { "type": "string" },
-          "sellTime2": { "type": "string" },
-          "wattOverExitFreqStopDelay": { "type": "string" },
-          "sellTime5": { "type": "string" },
-          "sellTime6": { "type": "string" },
-          "sellTime3": { "type": "string" },
-          "sellTime4": { "type": "string" },
-          "exMeterCtSwitch": { "type": "string" },
-          "sdChargeOn": { "type": "string" },
-          "lockInVoltVar": { "type": "string" },
-          "time2on": { "type": "string" },
-          "batWarn": { "type": "string" },
-          "wattVarEnable": { "type": "string" },
-          "reconnMinVolt": { "type": "string" },
-          "caFStart": { "type": "string" },
-          "pvMaxLimit": { "type": "string" },
-          "sensorsCheck": { "type": "string" },
-          "underFreq2Delay": { "type": "string" },
-          "varQac2": { "type": "string" },
-          "varQac3": { "type": "string" },
-          "varQac1": { "type": "string" },
-          "wattUnderExitFreq": { "type": "string" },
-          "overVolt1": { "type": "string" },
-          "overVolt2": { "type": "string" },
-          "varQac4": { "type": "string" },
-          "genPeakPower": { "type": "string" },
-          "meterB": { "type": "string" },
-          "eeprom": { "type": "string" },
-          "meterA": { "type": "string" },
-          "comSet": { "type": "string" },
-          "caVoltPressureEnable": { "type": "string" },
-          "meterC": { "type": "string" },
-          "wattUnderFreq1": { "type": "string" },
-          "solarMaxSellPower": { "type": "string" },
-          "acCoupleOnGridSideEnable": { "type": "string" },
-          "thursdayOn": { "type": "string" },
-          "time3On": { "type": "string" },
-          "batteryRestartCap": { "type": "string" },
-          "overFreq1Delay": { "type": "string" },
-          "bmsErrStop": { "type": "string" },
-          "checkTime": { "type": "string" },
-          "acOutputPowerLimit": { "type": "string" },
-          "atsSwitch": { "type": "string" },
-          "pv1SelfCheck": { "type": "string" },
-          "acCurrentUp": { "type": "string" },
-          "rsd": { "type": "string" },
-          "batteryOn": { "type": "string" },
-          "genTime1on": { "type": "string" },
-          "volt12": { "type": "string" },
-          "volt10": { "type": "string" },
-          "volt11": { "type": "string" },
-          "time1on": { "type": "string" },
-          "wattUnderFreq1StartDelay": { "type": "string" },
-          "rcd": { "type": "string" },
-          "chargeVolt": { "type": "string" },
-          "wednesdayOn": { "type": "string" },
-          "mpptMulti": { "type": "string" },
-          "floatVolt": { "type": "string" },
-          "workState": { "type": "string" },
-          "loadMode": { "type": "string" },
-          "sysWorkMode": { "type": "string" },
-          "sn": { "type": "string" },
-          "genCoolingTime": { "type": "string" },
-          "genPeakShaving": { "type": "string" },
-          "offGridImmediatelyOff": { "type": "string" },
-          "sellTime3Volt": { "type": "string" },
-          "sellTime2Pac": { "type": "string" },
-          "current12": { "type": "string" },
-          "time2On": { "type": "string" },
-          "current10": { "type": "string" },
-          "current11": { "type": "string" },
-          "batteryEfficiency": { "type": "string" },
-          "genAndGridSignal": { "type": "string" },
-          "pv3SelfCheck": { "type": "string" },
-          "wattV4": { "type": "string" },
-          "acFreqLow": { "type": "string" },
-          "wattV2": { "type": "string" },
-          "wattV3": { "type": "string" },
-          "wattV1": { "type": "string" },
-          "batteryEmptyV": { "type": "string" },
-          "open": { "type": "string" },
-          "reconnMaxFreq": { "type": "string" },
-          "standard": { "type": "string" },
-          "wattVarReactive2": { "type": "string" },
-          "disableFloatCharge": { "type": "string" },
-          "inverterType": { "type": "string" },
-          "wattVarReactive3": { "type": "string" },
-          "wattVarReactive4": { "type": "string" },
-          "solarPSU": { "type": "string" },
-          "fridayOn": { "type": "string" },
-          "wattVarReactive1": { "type": "string" },
-          "time4on": { "type": "string" },
-          "cap6": { "type": "string" },
-          "generatorForcedStart": { "type": "string" },
-          "overLongVolt": { "type": "string" },
-          "cap4": { "type": "string" },
-          "cap5": { "type": "string" },
-          "batteryChargeType": { "type": "string" },
-          "genOffVolt": { "type": "string" },
-          "cap2": { "type": "string" },
-          "cap3": { "type": "string" },
-          "absorptionVolt": { "type": "string" },
-          "genToLoad": { "type": "string" },
-          "mpptNum": { "type": "string" },
-          "underFreq2": { "type": "string" },
-          "underFreq1": { "type": "string" },
-          "wattPfEnable": { "type": "string" },
-          "remoteLock": { "type": "string" },
-          "generatorStartCap": { "type": "string" },
-          "batteryMaxCurrentCharge": { "type": "string" },
-          "overFreq1": { "type": "string" },
-          "tuesdayOn": { "type": "string" },
-          "genOnVolt": { "type": "string" },
-          "overFreq2": { "type": "string" },
-          "solar2WindInputEnable": { "type": "string" },
-          "caVStop": { "type": "string" },
-          "time5On": { "type": "string" },
-          "battMode": { "type": "string" },
-          "allowRemoteControl": { "type": "string" },
-          "genOnCap": { "type": "string" },
-          "gridAlwaysOn": { "type": "string" },
-          "batteryLowVolt": { "type": "string" },
-          "acFreqUp": { "type": "string" },
-          "cap1": { "type": "string" },
-          "chargeLimit": { "type": "string" },
-          "generatorStartVolt": { "type": "string" },
-          "overVolt1Delay": { "type": "string" },
-          "sellTime1Pac": { "type": "string" },
-          "californiaFreqPressureEnable": { "type": "string" },
-          "activePowerControl": { "type": "string" },
-          "batteryRestartVolt": { "type": "string" },
-          "zeroExportPower": { "type": "string" },
-          "overVolt2Delay": { "type": "string" },
-          "equChargeCycle": { "type": "string" },
-          "dischargeCurrent": { "type": "string" },
-          "solarSell": { "type": "string" },
-          "mpptVoltLow": { "type": "string" },
-          "time3on": { "type": "string" },
-          "wattVoltEnable": { "type": "string" },
-          "caFwEnable": { "type": "string" },
-          "maxOperatingTimeOfGen": { "type": "string" },
-          "micExportGridOff": { "type": "string" },
-          "importPower": { "type": "string" },
-          "pvLine": { "type": "string" },
-          "three41": { "type": "string" },
-          "caVwEnable": { "type": "string" },
-          "batteryShutdownVolt": { "type": "string" },
-          "volt3": { "type": "string" },
-          "volt4": { "type": "string" },
-          "volt1": { "type": "string" },
-          "volt2": { "type": "string" },
-          "startVoltUp": { "type": "string" },
-          "volt7": { "type": "string" },
-          "volt8": { "type": "string" },
-          "volt5": { "type": "string" },
-          "sellTime6Pac": { "type": "string" },
-          "volt6": { "type": "string" },
-          "time4On": { "type": "string" },
-          "sellTime4Volt": { "type": "string" },
-          "volt9": { "type": "string" },
-          "facLowProtect": { "type": "string" },
-          "wattOverFreq1": { "type": "string" },
-          "wattPf4": { "type": "string" },
-          "lowNoiseMode": { "type": "string" },
-          "tempco": { "type": "string" },
-          "arcFactFrz": { "type": "string" },
-          "wattPf1": { "type": "string" },
-          "wattPf2": { "type": "string" },
-          "wattPf3": { "type": "string" },
-          "meterSelect": { "type": "string" },
-          "genChargeOn": { "type": "string" },
-          "externalCtRatio": { "type": "string" },
-          "gridMode": { "type": "string" },
-          "sellTime5Pac": { "type": "string" },
-          "lowThrough": { "type": "string" },
-          "drmEnable": { "type": "string" },
-          "pv2SelfCheck": { "type": "string" },
-          "underFreq1Delay": { "type": "string" },
-          "energyMode": { "type": "string" },
-          "ampm": { "type": "string" },
-          "gridPeakShaving": { "type": "string" },
-          "time6on": { "type": "string" },
-          "fac": { "type": "string" },
-          "vacLowProtect": { "type": "string" },
-          "chargeCurrentLimit": { "type": "string" },
-          "caLv3": { "type": "string" },
-          "sundayOn": { "type": "string" },
-          "genTime6on": { "type": "string" },
-          "batteryImpedance": { "type": "string" },
-          "safetyType": { "type": "string" },
-          "varVolt4": { "type": "string" },
-          "varVolt3": { "type": "string" },
-          "varVolt2": { "type": "string" },
-          "specialFunction": { "type": "string" },
-          "varVolt1": { "type": "string" },
-          "mondayOn": { "type": "string" },
-          "commAddr": { "type": "string" },
-          "saturdayOn": { "type": "string" },
-          "dischargeLimit": { "type": "string" },
-          "atsEnable": { "type": "string" },
-          "exMeterCt": { "type": "string" },
-          "overFreq2Delay": { "type": "string" },
-          "phase": { "type": "string" },
-          "autoDim": { "type": "string" },
-          "batteryWorkStatus": { "type": "string" },
-          "genToLoadOn": { "type": "string" },
-          "timeSync": { "type": "string" },
-          "wattOverWgralFreq": { "type": "string" },
-          "sdBatteryCurrent": { "type": "string" },
-          "peakAndVallery": { "type": "string" },
-          "batteryEmptyVolt": { "type": "string" },
-          "batteryLowCap": { "type": "string" },
-          "underVolt2Delay": { "type": "string" },
-          "equChargeTime": { "type": "string" },
-          "battType": { "type": "string" },
-          "gridPeakPower": { "type": "string" },
-          "reset": { "type": "string" },
-          "vacHighProtect": { "type": "string" },
-          "genTime5on": { "type": "string" },
-          "deyeGenPowerDoubleFlag": { "type": "string" },
-          "pwm": { "type": "string" },
-          "time5on": { "type": "string" },
-          "highThrough": { "type": "string" },
-          "lockOutVoltVar": { "type": "string" },
-          "lockInWattPF": { "type": "string" },
-          "caVStart": { "type": "string" },
-          "acVoltUp": { "type": "string" },
-          "wattFreqEnable": { "type": "string" },
-          "wattOverExitFreq": { "type": "string" },
-          "sellTime5Volt": { "type": "string" },
-          "caFStop": { "type": "string" },
-          "lowPowerMode": { "type": "string" },
-          "varVoltEnable": { "type": "string" },
-          "acCoupleFreqUpper": { "type": "string" },
-          "impedanceLow": { "type": "string" },
-          "acType": { "type": "string" },
-          "facHighProtect": { "type": "string" },
-          "recoveryTime": { "type": "string" },
-          "underVolt2": { "type": "string" },
-          "lithiumMode": { "type": "string" },
-          "underVolt1": { "type": "string" },
-          "gridSignal": { "type": "string" },
-          "wattOverFreq1StartDelay": { "type": "string" },
-          "testCommand": { "type": "string" },
-          "time6On": { "type": "string" },
-          "signalIslandModeEnable": { "type": "string" },
-          "upsStandard": { "type": "string" },
-          "reconnMinFreq": { "type": "string" },
-          "parallelRegister2": { "type": "string" },
-          "parallelRegister1": { "type": "string" },
-          "startVoltLow": { "type": "string" },
-          "smartLoadOpenDelay": { "type": "string" },
-          "genTime4on": { "type": "string" },
-          "sellTime1Volt": { "type": "string" },
-          "wattVarActive4": { "type": "string" },
-          "wattVarActive3": { "type": "string" },
-          "genConnectGrid": { "type": "string" },
-          "flag2": { "type": "string" },
-          "softStart": { "type": "string" },
-          "lockOutWattPF": { "type": "string" },
-          "sdStartCap": { "type": "string" },
-          "current4": { "type": "string" },
-          "current3": { "type": "string" },
-          "current2": { "type": "string" },
-          "current1": { "type": "string" },
-          "gfdi": { "type": "string" },
-          "current8": { "type": "string" },
-          "current7": { "type": "string" },
-          "current6": { "type": "string" },
-          "current5": { "type": "string" },
-          "checkSelfTime": { "type": "string" },
-          "limit": { "type": "string" },
-          "wattW3": { "type": "string" },
-          "wattVarActive2": { "type": "string" },
-          "wattW4": { "type": "string" },
-          "wattVarActive1": { "type": "string" },
-          "externalCurrent": { "type": "string" },
-          "wattW1": { "type": "string" },
-          "wattW2": { "type": "string" },
-          "vnResponseTime": { "type": "string" },
-          "batteryShutdownCap": { "type": "string" },
-          "wattUnderExitFreqStopDelay": { "type": "string" },
-          "offset": { "type": "string" },
-          "sellTime4Pac": { "type": "string" },
-          "wattActivePf1": { "type": "string" },
-          "current9": { "type": "string" },
-          "dischargeVolt": { "type": "string" },
-          "qvResponseTime": { "type": "string" },
-          "wattActivePf4": { "type": "string" },
-          "time1On": { "type": "string" },
-          "wattActivePf2": { "type": "string" },
-          "four19": { "type": "string" },
-          "wattActivePf3": { "type": "string" },
-          "micExportAll": { "type": "string" },
-          "batteryMaxCurrentDischarge": { "type": "string" },
-          "isletProtect": { "type": "string" },
-          "lockOutChange": { "type": "string" },
-          "californiaVoltPressureEnable": { "type": "string" },
-          "equVoltCharge": { "type": "string" },
-          "batteryCap": { "type": "string" },
-          "genOffCap": { "type": "string" },
-          "genTime3on": { "type": "string" },
-          "sellTime6Volt": { "type": "string" },
-          "sellTime3Pac": { "type": "string" },
-          "acCoupleOnLoadSideEnable": { "type": "string" },
-          "sdStartVolt": { "type": "string" },
-          "generatorBatteryCurrent": { "type": "string" },
-          "reconnMaxVolt": { "type": "string" },
-          "modbusSn": { "type": "string" },
-          "inverterOutputVoltage": { "type": "string" },
-          "chargeCurrent": { "type": "string" },
-          "solar1WindInputEnable": { "type": "string" },
-          "dcVoltUp": { "type": "string" },
-          "parallel": { "type": "string" },
-          "limter": { "type": "string" },
-          "batErr": { "type": "string" },
-          "backupDelay": { "type": "string" },
-          "dischargeCurrentLimit": { "type": "string" },
-          "arcFactT": { "type": "string" },
-          "wattUnderWgalFreq": { "type": "string" },
-          "commBaudRate": { "type": "string" },
-          "equipMode": { "type": "string" },
-          "gridSideINVMeter2": { "type": "string" },
-          "underVolt1Delay": { "type": "string" },
-          "arcFaultType": { "type": "string" },
-          "arcFactB": { "type": "string" },
-          "normalUpwardSlope": { "type": "string" },
-          "arcFactC": { "type": "string" },
-          "pf": { "type": "string" },
-          "arcFactD": { "type": "string" },
-          "genMinSolar": { "type": "string" },
-          "sellTime2Volt": { "type": "string" },
-          "arcFactF": { "type": "string" },
-          "arcFactI": { "type": "string" },
-          "acVoltLow": { "type": "string" },
-          "genSignal": { "type": "string" },
-          "sellTime1on": { "type": "string" },
-          "sellTime2on": { "type": "string" },
-          "sellTime3on": { "type": "string" },
-          "sellTime4on": { "type": "string" },
-          "sellTime5on": { "type": "string" },
-          "sellTime6on": { "type": "string" }
+          "sellTime1": {
+            "type": "string"
+          },
+          "genTime2on": {
+            "type": "string"
+          },
+          "beep": {
+            "type": "string"
+          },
+          "sellTime2": {
+            "type": "string"
+          },
+          "wattOverExitFreqStopDelay": {
+            "type": "string"
+          },
+          "sellTime5": {
+            "type": "string"
+          },
+          "sellTime6": {
+            "type": "string"
+          },
+          "sellTime3": {
+            "type": "string"
+          },
+          "sellTime4": {
+            "type": "string"
+          },
+          "exMeterCtSwitch": {
+            "type": "string"
+          },
+          "sdChargeOn": {
+            "type": "string"
+          },
+          "lockInVoltVar": {
+            "type": "string"
+          },
+          "time2on": {
+            "type": "string"
+          },
+          "batWarn": {
+            "type": "string"
+          },
+          "wattVarEnable": {
+            "type": "string"
+          },
+          "reconnMinVolt": {
+            "type": "string"
+          },
+          "caFStart": {
+            "type": "string"
+          },
+          "pvMaxLimit": {
+            "type": "string"
+          },
+          "sensorsCheck": {
+            "type": "string"
+          },
+          "underFreq2Delay": {
+            "type": "string"
+          },
+          "varQac2": {
+            "type": "string"
+          },
+          "varQac3": {
+            "type": "string"
+          },
+          "varQac1": {
+            "type": "string"
+          },
+          "wattUnderExitFreq": {
+            "type": "string"
+          },
+          "overVolt1": {
+            "type": "string"
+          },
+          "overVolt2": {
+            "type": "string"
+          },
+          "varQac4": {
+            "type": "string"
+          },
+          "genPeakPower": {
+            "type": "string"
+          },
+          "meterB": {
+            "type": "string"
+          },
+          "eeprom": {
+            "type": "string"
+          },
+          "meterA": {
+            "type": "string"
+          },
+          "comSet": {
+            "type": "string"
+          },
+          "caVoltPressureEnable": {
+            "type": "string"
+          },
+          "meterC": {
+            "type": "string"
+          },
+          "wattUnderFreq1": {
+            "type": "string"
+          },
+          "solarMaxSellPower": {
+            "type": "string"
+          },
+          "acCoupleOnGridSideEnable": {
+            "type": "string"
+          },
+          "thursdayOn": {
+            "type": "string"
+          },
+          "time3On": {
+            "type": "string"
+          },
+          "batteryRestartCap": {
+            "type": "string"
+          },
+          "overFreq1Delay": {
+            "type": "string"
+          },
+          "bmsErrStop": {
+            "type": "string"
+          },
+          "checkTime": {
+            "type": "string"
+          },
+          "acOutputPowerLimit": {
+            "type": "string"
+          },
+          "atsSwitch": {
+            "type": "string"
+          },
+          "pv1SelfCheck": {
+            "type": "string"
+          },
+          "acCurrentUp": {
+            "type": "string"
+          },
+          "rsd": {
+            "type": "string"
+          },
+          "batteryOn": {
+            "type": "string"
+          },
+          "genTime1on": {
+            "type": "string"
+          },
+          "volt12": {
+            "type": "string"
+          },
+          "volt10": {
+            "type": "string"
+          },
+          "volt11": {
+            "type": "string"
+          },
+          "time1on": {
+            "type": "string"
+          },
+          "wattUnderFreq1StartDelay": {
+            "type": "string"
+          },
+          "rcd": {
+            "type": "string"
+          },
+          "chargeVolt": {
+            "type": "string"
+          },
+          "wednesdayOn": {
+            "type": "string"
+          },
+          "mpptMulti": {
+            "type": "string"
+          },
+          "floatVolt": {
+            "type": "string"
+          },
+          "workState": {
+            "type": "string"
+          },
+          "loadMode": {
+            "type": "string"
+          },
+          "sysWorkMode": {
+            "type": "string"
+          },
+          "sn": {
+            "type": "string"
+          },
+          "genCoolingTime": {
+            "type": "string"
+          },
+          "genPeakShaving": {
+            "type": "string"
+          },
+          "offGridImmediatelyOff": {
+            "type": "string"
+          },
+          "sellTime3Volt": {
+            "type": "string"
+          },
+          "sellTime2Pac": {
+            "type": "string"
+          },
+          "current12": {
+            "type": "string"
+          },
+          "time2On": {
+            "type": "string"
+          },
+          "current10": {
+            "type": "string"
+          },
+          "current11": {
+            "type": "string"
+          },
+          "batteryEfficiency": {
+            "type": "string"
+          },
+          "genAndGridSignal": {
+            "type": "string"
+          },
+          "pv3SelfCheck": {
+            "type": "string"
+          },
+          "wattV4": {
+            "type": "string"
+          },
+          "acFreqLow": {
+            "type": "string"
+          },
+          "wattV2": {
+            "type": "string"
+          },
+          "wattV3": {
+            "type": "string"
+          },
+          "wattV1": {
+            "type": "string"
+          },
+          "batteryEmptyV": {
+            "type": "string"
+          },
+          "open": {
+            "type": "string"
+          },
+          "reconnMaxFreq": {
+            "type": "string"
+          },
+          "standard": {
+            "type": "string"
+          },
+          "wattVarReactive2": {
+            "type": "string"
+          },
+          "disableFloatCharge": {
+            "type": "string"
+          },
+          "inverterType": {
+            "type": "string"
+          },
+          "wattVarReactive3": {
+            "type": "string"
+          },
+          "wattVarReactive4": {
+            "type": "string"
+          },
+          "solarPSU": {
+            "type": "string"
+          },
+          "fridayOn": {
+            "type": "string"
+          },
+          "wattVarReactive1": {
+            "type": "string"
+          },
+          "time4on": {
+            "type": "string"
+          },
+          "cap6": {
+            "type": "string"
+          },
+          "generatorForcedStart": {
+            "type": "string"
+          },
+          "overLongVolt": {
+            "type": "string"
+          },
+          "cap4": {
+            "type": "string"
+          },
+          "cap5": {
+            "type": "string"
+          },
+          "batteryChargeType": {
+            "type": "string"
+          },
+          "genOffVolt": {
+            "type": "string"
+          },
+          "cap2": {
+            "type": "string"
+          },
+          "cap3": {
+            "type": "string"
+          },
+          "absorptionVolt": {
+            "type": "string"
+          },
+          "genToLoad": {
+            "type": "string"
+          },
+          "mpptNum": {
+            "type": "string"
+          },
+          "underFreq2": {
+            "type": "string"
+          },
+          "underFreq1": {
+            "type": "string"
+          },
+          "wattPfEnable": {
+            "type": "string"
+          },
+          "remoteLock": {
+            "type": "string"
+          },
+          "generatorStartCap": {
+            "type": "string"
+          },
+          "batteryMaxCurrentCharge": {
+            "type": "string"
+          },
+          "overFreq1": {
+            "type": "string"
+          },
+          "tuesdayOn": {
+            "type": "string"
+          },
+          "genOnVolt": {
+            "type": "string"
+          },
+          "overFreq2": {
+            "type": "string"
+          },
+          "solar2WindInputEnable": {
+            "type": "string"
+          },
+          "caVStop": {
+            "type": "string"
+          },
+          "time5On": {
+            "type": "string"
+          },
+          "battMode": {
+            "type": "string"
+          },
+          "allowRemoteControl": {
+            "type": "string"
+          },
+          "genOnCap": {
+            "type": "string"
+          },
+          "gridAlwaysOn": {
+            "type": "string"
+          },
+          "batteryLowVolt": {
+            "type": "string"
+          },
+          "acFreqUp": {
+            "type": "string"
+          },
+          "cap1": {
+            "type": "string"
+          },
+          "chargeLimit": {
+            "type": "string"
+          },
+          "generatorStartVolt": {
+            "type": "string"
+          },
+          "overVolt1Delay": {
+            "type": "string"
+          },
+          "sellTime1Pac": {
+            "type": "string"
+          },
+          "californiaFreqPressureEnable": {
+            "type": "string"
+          },
+          "activePowerControl": {
+            "type": "string"
+          },
+          "batteryRestartVolt": {
+            "type": "string"
+          },
+          "zeroExportPower": {
+            "type": "string"
+          },
+          "overVolt2Delay": {
+            "type": "string"
+          },
+          "equChargeCycle": {
+            "type": "string"
+          },
+          "dischargeCurrent": {
+            "type": "string"
+          },
+          "solarSell": {
+            "type": "string"
+          },
+          "mpptVoltLow": {
+            "type": "string"
+          },
+          "time3on": {
+            "type": "string"
+          },
+          "wattVoltEnable": {
+            "type": "string"
+          },
+          "caFwEnable": {
+            "type": "string"
+          },
+          "maxOperatingTimeOfGen": {
+            "type": "string"
+          },
+          "micExportGridOff": {
+            "type": "string"
+          },
+          "importPower": {
+            "type": "string"
+          },
+          "pvLine": {
+            "type": "string"
+          },
+          "three41": {
+            "type": "string"
+          },
+          "caVwEnable": {
+            "type": "string"
+          },
+          "batteryShutdownVolt": {
+            "type": "string"
+          },
+          "volt3": {
+            "type": "string"
+          },
+          "volt4": {
+            "type": "string"
+          },
+          "volt1": {
+            "type": "string"
+          },
+          "volt2": {
+            "type": "string"
+          },
+          "startVoltUp": {
+            "type": "string"
+          },
+          "volt7": {
+            "type": "string"
+          },
+          "volt8": {
+            "type": "string"
+          },
+          "volt5": {
+            "type": "string"
+          },
+          "sellTime6Pac": {
+            "type": "string"
+          },
+          "volt6": {
+            "type": "string"
+          },
+          "time4On": {
+            "type": "string"
+          },
+          "sellTime4Volt": {
+            "type": "string"
+          },
+          "volt9": {
+            "type": "string"
+          },
+          "facLowProtect": {
+            "type": "string"
+          },
+          "wattOverFreq1": {
+            "type": "string"
+          },
+          "wattPf4": {
+            "type": "string"
+          },
+          "lowNoiseMode": {
+            "type": "string"
+          },
+          "tempco": {
+            "type": "string"
+          },
+          "arcFactFrz": {
+            "type": "string"
+          },
+          "wattPf1": {
+            "type": "string"
+          },
+          "wattPf2": {
+            "type": "string"
+          },
+          "wattPf3": {
+            "type": "string"
+          },
+          "meterSelect": {
+            "type": "string"
+          },
+          "genChargeOn": {
+            "type": "string"
+          },
+          "externalCtRatio": {
+            "type": "string"
+          },
+          "gridMode": {
+            "type": "string"
+          },
+          "sellTime5Pac": {
+            "type": "string"
+          },
+          "lowThrough": {
+            "type": "string"
+          },
+          "drmEnable": {
+            "type": "string"
+          },
+          "pv2SelfCheck": {
+            "type": "string"
+          },
+          "underFreq1Delay": {
+            "type": "string"
+          },
+          "energyMode": {
+            "type": "string"
+          },
+          "ampm": {
+            "type": "string"
+          },
+          "gridPeakShaving": {
+            "type": "string"
+          },
+          "time6on": {
+            "type": "string"
+          },
+          "fac": {
+            "type": "string"
+          },
+          "vacLowProtect": {
+            "type": "string"
+          },
+          "chargeCurrentLimit": {
+            "type": "string"
+          },
+          "caLv3": {
+            "type": "string"
+          },
+          "sundayOn": {
+            "type": "string"
+          },
+          "genTime6on": {
+            "type": "string"
+          },
+          "batteryImpedance": {
+            "type": "string"
+          },
+          "safetyType": {
+            "type": "string"
+          },
+          "varVolt4": {
+            "type": "string"
+          },
+          "varVolt3": {
+            "type": "string"
+          },
+          "varVolt2": {
+            "type": "string"
+          },
+          "specialFunction": {
+            "type": "string"
+          },
+          "varVolt1": {
+            "type": "string"
+          },
+          "mondayOn": {
+            "type": "string"
+          },
+          "commAddr": {
+            "type": "string"
+          },
+          "saturdayOn": {
+            "type": "string"
+          },
+          "dischargeLimit": {
+            "type": "string"
+          },
+          "atsEnable": {
+            "type": "string"
+          },
+          "exMeterCt": {
+            "type": "string"
+          },
+          "overFreq2Delay": {
+            "type": "string"
+          },
+          "phase": {
+            "type": "string"
+          },
+          "autoDim": {
+            "type": "string"
+          },
+          "batteryWorkStatus": {
+            "type": "string"
+          },
+          "genToLoadOn": {
+            "type": "string"
+          },
+          "timeSync": {
+            "type": "string"
+          },
+          "wattOverWgralFreq": {
+            "type": "string"
+          },
+          "sdBatteryCurrent": {
+            "type": "string"
+          },
+          "peakAndVallery": {
+            "type": "string"
+          },
+          "batteryEmptyVolt": {
+            "type": "string"
+          },
+          "batteryLowCap": {
+            "type": "string"
+          },
+          "underVolt2Delay": {
+            "type": "string"
+          },
+          "equChargeTime": {
+            "type": "string"
+          },
+          "battType": {
+            "type": "string"
+          },
+          "gridPeakPower": {
+            "type": "string"
+          },
+          "reset": {
+            "type": "string"
+          },
+          "vacHighProtect": {
+            "type": "string"
+          },
+          "genTime5on": {
+            "type": "string"
+          },
+          "deyeGenPowerDoubleFlag": {
+            "type": "string"
+          },
+          "pwm": {
+            "type": "string"
+          },
+          "time5on": {
+            "type": "string"
+          },
+          "highThrough": {
+            "type": "string"
+          },
+          "lockOutVoltVar": {
+            "type": "string"
+          },
+          "lockInWattPF": {
+            "type": "string"
+          },
+          "caVStart": {
+            "type": "string"
+          },
+          "acVoltUp": {
+            "type": "string"
+          },
+          "wattFreqEnable": {
+            "type": "string"
+          },
+          "wattOverExitFreq": {
+            "type": "string"
+          },
+          "sellTime5Volt": {
+            "type": "string"
+          },
+          "caFStop": {
+            "type": "string"
+          },
+          "lowPowerMode": {
+            "type": "string"
+          },
+          "varVoltEnable": {
+            "type": "string"
+          },
+          "acCoupleFreqUpper": {
+            "type": "string"
+          },
+          "impedanceLow": {
+            "type": "string"
+          },
+          "acType": {
+            "type": "string"
+          },
+          "facHighProtect": {
+            "type": "string"
+          },
+          "recoveryTime": {
+            "type": "string"
+          },
+          "underVolt2": {
+            "type": "string"
+          },
+          "lithiumMode": {
+            "type": "string"
+          },
+          "underVolt1": {
+            "type": "string"
+          },
+          "gridSignal": {
+            "type": "string"
+          },
+          "wattOverFreq1StartDelay": {
+            "type": "string"
+          },
+          "testCommand": {
+            "type": "string"
+          },
+          "time6On": {
+            "type": "string"
+          },
+          "signalIslandModeEnable": {
+            "type": "string"
+          },
+          "upsStandard": {
+            "type": "string"
+          },
+          "reconnMinFreq": {
+            "type": "string"
+          },
+          "parallelRegister2": {
+            "type": "string"
+          },
+          "parallelRegister1": {
+            "type": "string"
+          },
+          "startVoltLow": {
+            "type": "string"
+          },
+          "smartLoadOpenDelay": {
+            "type": "string"
+          },
+          "genTime4on": {
+            "type": "string"
+          },
+          "sellTime1Volt": {
+            "type": "string"
+          },
+          "wattVarActive4": {
+            "type": "string"
+          },
+          "wattVarActive3": {
+            "type": "string"
+          },
+          "genConnectGrid": {
+            "type": "string"
+          },
+          "flag2": {
+            "type": "string"
+          },
+          "softStart": {
+            "type": "string"
+          },
+          "lockOutWattPF": {
+            "type": "string"
+          },
+          "sdStartCap": {
+            "type": "string"
+          },
+          "current4": {
+            "type": "string"
+          },
+          "current3": {
+            "type": "string"
+          },
+          "current2": {
+            "type": "string"
+          },
+          "current1": {
+            "type": "string"
+          },
+          "gfdi": {
+            "type": "string"
+          },
+          "current8": {
+            "type": "string"
+          },
+          "current7": {
+            "type": "string"
+          },
+          "current6": {
+            "type": "string"
+          },
+          "current5": {
+            "type": "string"
+          },
+          "checkSelfTime": {
+            "type": "string"
+          },
+          "limit": {
+            "type": "string"
+          },
+          "wattW3": {
+            "type": "string"
+          },
+          "wattVarActive2": {
+            "type": "string"
+          },
+          "wattW4": {
+            "type": "string"
+          },
+          "wattVarActive1": {
+            "type": "string"
+          },
+          "externalCurrent": {
+            "type": "string"
+          },
+          "wattW1": {
+            "type": "string"
+          },
+          "wattW2": {
+            "type": "string"
+          },
+          "vnResponseTime": {
+            "type": "string"
+          },
+          "batteryShutdownCap": {
+            "type": "string"
+          },
+          "wattUnderExitFreqStopDelay": {
+            "type": "string"
+          },
+          "offset": {
+            "type": "string"
+          },
+          "sellTime4Pac": {
+            "type": "string"
+          },
+          "wattActivePf1": {
+            "type": "string"
+          },
+          "current9": {
+            "type": "string"
+          },
+          "dischargeVolt": {
+            "type": "string"
+          },
+          "qvResponseTime": {
+            "type": "string"
+          },
+          "wattActivePf4": {
+            "type": "string"
+          },
+          "time1On": {
+            "type": "string"
+          },
+          "wattActivePf2": {
+            "type": "string"
+          },
+          "four19": {
+            "type": "string"
+          },
+          "wattActivePf3": {
+            "type": "string"
+          },
+          "micExportAll": {
+            "type": "string"
+          },
+          "batteryMaxCurrentDischarge": {
+            "type": "string"
+          },
+          "isletProtect": {
+            "type": "string"
+          },
+          "lockOutChange": {
+            "type": "string"
+          },
+          "californiaVoltPressureEnable": {
+            "type": "string"
+          },
+          "equVoltCharge": {
+            "type": "string"
+          },
+          "batteryCap": {
+            "type": "string"
+          },
+          "genOffCap": {
+            "type": "string"
+          },
+          "genTime3on": {
+            "type": "string"
+          },
+          "sellTime6Volt": {
+            "type": "string"
+          },
+          "sellTime3Pac": {
+            "type": "string"
+          },
+          "acCoupleOnLoadSideEnable": {
+            "type": "string"
+          },
+          "sdStartVolt": {
+            "type": "string"
+          },
+          "generatorBatteryCurrent": {
+            "type": "string"
+          },
+          "reconnMaxVolt": {
+            "type": "string"
+          },
+          "modbusSn": {
+            "type": "string"
+          },
+          "inverterOutputVoltage": {
+            "type": "string"
+          },
+          "chargeCurrent": {
+            "type": "string"
+          },
+          "solar1WindInputEnable": {
+            "type": "string"
+          },
+          "dcVoltUp": {
+            "type": "string"
+          },
+          "parallel": {
+            "type": "string"
+          },
+          "limter": {
+            "type": "string"
+          },
+          "batErr": {
+            "type": "string"
+          },
+          "backupDelay": {
+            "type": "string"
+          },
+          "dischargeCurrentLimit": {
+            "type": "string"
+          },
+          "arcFactT": {
+            "type": "string"
+          },
+          "wattUnderWgalFreq": {
+            "type": "string"
+          },
+          "commBaudRate": {
+            "type": "string"
+          },
+          "equipMode": {
+            "type": "string"
+          },
+          "gridSideINVMeter2": {
+            "type": "string"
+          },
+          "underVolt1Delay": {
+            "type": "string"
+          },
+          "arcFaultType": {
+            "type": "string"
+          },
+          "arcFactB": {
+            "type": "string"
+          },
+          "normalUpwardSlope": {
+            "type": "string"
+          },
+          "arcFactC": {
+            "type": "string"
+          },
+          "pf": {
+            "type": "string"
+          },
+          "arcFactD": {
+            "type": "string"
+          },
+          "genMinSolar": {
+            "type": "string"
+          },
+          "sellTime2Volt": {
+            "type": "string"
+          },
+          "arcFactF": {
+            "type": "string"
+          },
+          "arcFactI": {
+            "type": "string"
+          },
+          "acVoltLow": {
+            "type": "string"
+          },
+          "genSignal": {
+            "type": "string"
+          },
+          "sellTime1on": {
+            "type": "string"
+          },
+          "sellTime2on": {
+            "type": "string"
+          },
+          "sellTime3on": {
+            "type": "string"
+          },
+          "sellTime4on": {
+            "type": "string"
+          },
+          "sellTime5on": {
+            "type": "string"
+          },
+          "sellTime6on": {
+            "type": "string"
+          }
         }
       },
       "InverterSettingsResponse": {
         "type": "object",
         "properties": {
-          "success": { "type": "boolean" },
-          "code": { "type": "integer" },
-          "msg": { "type": "string" },
-          "data": { "$ref": "#/components/schemas/InverterSettings" }
+          "success": {
+            "type": "boolean"
+          },
+          "code": {
+            "type": "integer"
+          },
+          "msg": {
+            "type": "string"
+          },
+          "data": {
+            "$ref": "#/components/schemas/InverterSettings"
+          }
         }
       },
       "Error": {
