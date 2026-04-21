@@ -1060,7 +1060,13 @@
                     "genTime3on": false,
                     "genTime4on": false,
                     "genTime5on": false,
-                    "genTime6on": false
+                    "genTime6on": false,
+                    "sellTime1on": false,
+                    "sellTime2on": false,
+                    "sellTime3on": false,
+                    "sellTime4on": true,
+                    "sellTime5on": true,
+                    "sellTime6on": false
                   }
                 },
                 "minimal": {
@@ -2561,6 +2567,12 @@
           "genTime4on": { "type": "boolean", "description": "Enable generator time slot 4" },
           "genTime5on": { "type": "boolean", "description": "Enable generator time slot 5" },
           "genTime6on": { "type": "boolean", "description": "Enable generator time slot 6" },
+          "sellTime1on": { "type": "boolean", "description": "Enable sell-to-grid for time slot 1" },
+          "sellTime2on": { "type": "boolean", "description": "Enable sell-to-grid for time slot 2" },
+          "sellTime3on": { "type": "boolean", "description": "Enable sell-to-grid for time slot 3" },
+          "sellTime4on": { "type": "boolean", "description": "Enable sell-to-grid for time slot 4" },
+          "sellTime5on": { "type": "boolean", "description": "Enable sell-to-grid for time slot 5" },
+          "sellTime6on": { "type": "boolean", "description": "Enable sell-to-grid for time slot 6" },
           "mondayOn": { "type": "boolean" },
           "tuesdayOn": { "type": "boolean" },
           "wednesdayOn": { "type": "boolean" },
@@ -2910,7 +2922,13 @@
           "arcFactF": { "type": "string" },
           "arcFactI": { "type": "string" },
           "acVoltLow": { "type": "string" },
-          "genSignal": { "type": "string" }
+          "genSignal": { "type": "string" },
+          "sellTime1on": { "type": "string" },
+          "sellTime2on": { "type": "string" },
+          "sellTime3on": { "type": "string" },
+          "sellTime4on": { "type": "string" },
+          "sellTime5on": { "type": "string" },
+          "sellTime6on": { "type": "string" }
         }
       },
       "InverterSettingsResponse": {
