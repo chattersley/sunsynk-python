@@ -3,7 +3,7 @@
   "info": {
     "title": "SunSynk Power View API",
     "description": "API specification for SunSynk Power View (Inverter monitoring system). Combined from Node-RED flows and Python client library.",
-    "version": "1.3.0",
+    "version": "1.4.0",
     "license": {
       "name": "MIT"
     }
