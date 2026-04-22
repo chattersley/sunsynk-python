@@ -45,6 +45,8 @@ Inverter settings to update. All properties are optional — only included field
 | `low_volt_cross_en`                            | *Optional[str]*                                | :heavy_minus_sign:                             | N/A                                            |
 | `generator_start_cap`                          | *Optional[str]*                                | :heavy_minus_sign:                             | N/A                                            |
 | `battery_low_cap`                              | *Optional[str]*                                | :heavy_minus_sign:                             | N/A                                            |
+| `battery_max_current_charge`                   | *Optional[str]*                                | :heavy_minus_sign:                             | Battery maximum charge current (A)             |
+| `battery_max_current_discharge`                | *Optional[str]*                                | :heavy_minus_sign:                             | Battery maximum discharge current (A)          |
 | `time1on`                                      | *Optional[bool]*                               | :heavy_minus_sign:                             | Enable time slot 1                             |
 | `time2on`                                      | *Optional[bool]*                               | :heavy_minus_sign:                             | Enable time slot 2                             |
 | `time3on`                                      | *Optional[bool]*                               | :heavy_minus_sign:                             | Enable time slot 3                             |
