@@ -1,16 +1,16 @@
 lockVersion: 2.0.0
 id: cd8d666b-f509-49a0-a4af-72e58bb4b75f
 management:
-  docChecksum: 7c3e956945de63775fcae897f5981f83
-  docVersion: 1.3.0
+  docChecksum: 372bd8ddd4e03a5a933399431e1ecd2e
+  docVersion: 1.4.0
   speakeasyVersion: 1.761.9
   generationVersion: 2.881.4
-  releaseVersion: 0.3.0
-  configChecksum: 6d4d76b5c4e559a1f2c29fa5df496ad4
+  releaseVersion: 0.4.0
+  configChecksum: 1c0a4d759993654650918253aa863898
 persistentEdits:
-  generation_id: 057c3a2f-2728-4439-a524-ccf93de865cb
-  pristine_commit_hash: 8cf228fc8f0b4399fd2c6b08bc936264bb6aa96b
-  pristine_tree_hash: 34396e4348779f4fa0ce92124a88d8d2ae2801dd
+  generation_id: 02e44227-0c89-4316-9cbb-dcd8311b351d
+  pristine_commit_hash: 322d7b7b676cacc5b4f54ac2e6274382d9df0974
+  pristine_tree_hash: b5f749bc1a9feabb3087426646382fd7202c3b57
 features:
   python:
     additionalDependencies: 1.0.0
@@ -239,8 +239,8 @@ trackedFiles:
     pristine_git_object: 1b9c499e4ff361b6ff0cd5d0d3fc7e508e8bf8d9
   docs/models/invertersettingsset.md:
     id: 6f68c4d20ebb
-    last_write_checksum: sha1:93c5fe61c59032762af48f2156d828575a26a44f
-    pristine_git_object: b2f87bcc86ccea4df2dbdd39efb2add470972c66
+    last_write_checksum: sha1:e7f1ae451a9cf8d5d474de6f0bbdc52cabf01ba5
+    pristine_git_object: 677cb9946ea1120837dd1516d27906e7bce68463
   docs/models/invertersresponse.md:
     id: 67e4bddae6b5
     last_write_checksum: sha1:d3f8902b4c4bbce99b1e6d8681ca6ab67b69a970
@@ -475,8 +475,8 @@ trackedFiles:
     pristine_git_object: a5486867ff010c2b69bcba04e5655d4701098785
   docs/sdks/settings/README.md:
     id: ffd4dbcfc0ce
-    last_write_checksum: sha1:2f27bf6ece9ec35561d045fd273231b04a7b506a
-    pristine_git_object: dac92929fb0bfc5fac69af865f2a346030036222
+    last_write_checksum: sha1:546a187c26ab4a9c61d606e5f0e69fe92accee7d
+    pristine_git_object: 0cd704eea82ad296a354dfe8723a8ee218303862
   py.typed:
     id: 258c3ed47ae4
     last_write_checksum: sha1:8efc425ffe830805ffcc0f3055871bdcdc542c60
@@ -487,8 +487,8 @@ trackedFiles:
     pristine_git_object: 31fcd7a7c93dbda80f4fa7d653be0a74ccb4a401
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:dfe43e8af76c3ec8b552f7f2a5fa3fb391f3d033
-    pristine_git_object: df7cb97e58d8a3849b4245ce7d2753bb879e3f62
+    last_write_checksum: sha1:a95d81d8ec93a0122aae5a9262c6b8b8c3d5b33e
+    pristine_git_object: bcf079741897379b1872535d0af6f620ac00b7b5
   scripts/publish.sh:
     id: fe273b08f514
     last_write_checksum: sha1:adc9b741c12ad1591ab4870eabe20f0d0a86cd1a
@@ -511,8 +511,8 @@ trackedFiles:
     pristine_git_object: 8d03873e72022ad3f31254c1db04f4564198ea72
   src/sunsynk_api_client/_version.py:
     id: 4f638efaf76d
-    last_write_checksum: sha1:e056f30bb1a8a3052cdf98fa0d7ae5fc50d0fdab
-    pristine_git_object: b551830cb3566f4e7b0d71e41e28636da9caf752
+    last_write_checksum: sha1:e9d53064a31fe7470849dacd69aa320815fbaea4
+    pristine_git_object: a013ca935418ecabca3546b03a11f4fa8d0a1110
   src/sunsynk_api_client/authentication.py:
     id: d27011b9ebd3
     last_write_checksum: sha1:b7662fb526ca820f5d5403d65b4ea6703c58a02c
@@ -703,8 +703,8 @@ trackedFiles:
     pristine_git_object: 436b9a7c72c23ca4fe766a7ac40881b48733ed41
   src/sunsynk_api_client/models/invertersettingsset.py:
     id: f1e8c68ff1a9
-    last_write_checksum: sha1:f86f84a13705323656b3d93f55e486de5871cd23
-    pristine_git_object: e6e1873f2de367c25f4d368716274ebad4656c61
+    last_write_checksum: sha1:98256e63dc156a1cb30458d4abce289d2fa2c6aa
+    pristine_git_object: c62761e831fa8302359433940278e9df52358c3b
   src/sunsynk_api_client/models/invertersresponse.py:
     id: aa037b65da18
     last_write_checksum: sha1:da0caf5627151bcfbf98a93992c3a078bee29ce7
@@ -867,8 +867,8 @@ trackedFiles:
     pristine_git_object: 8db965faa47fd7be97694b826678cea55d0ce777
   src/sunsynk_api_client/settings.py:
     id: 049d751d159c
-    last_write_checksum: sha1:5444b0201de1f451e777f2f08727ecd981153c52
-    pristine_git_object: 365e6376cd987684dd9c989754d9bba2db83160f
+    last_write_checksum: sha1:072477731f0f082f09f6d7a76bf834dac4e15563
+    pristine_git_object: 93d7f11259f1b745e15e56e92735ccfe178bd77f
   src/sunsynk_api_client/types/__init__.py:
     id: 9366151b80c1
     last_write_checksum: sha1:f9c95dc84cc9262aef8ffe731b4570584face827

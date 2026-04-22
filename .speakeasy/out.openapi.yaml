@@ -2,7 +2,7 @@ openapi: "3.0.3"
 info:
   title: "SunSynk Power View API"
   description: "API specification for SunSynk Power View (Inverter monitoring system). Combined from Node-RED flows and Python client library."
-  version: "1.3.0"
+  version: "1.4.0"
   license:
     name: "MIT"
 servers:
@@ -2160,6 +2160,12 @@ components:
           type: "string"
         batteryLowCap:
           type: "string"
+        batteryMaxCurrentCharge:
+          type: "string"
+          description: "Battery maximum charge current (A)"
+        batteryMaxCurrentDischarge:
+          type: "string"
+          description: "Battery maximum discharge current (A)"
         time1on:
           type: "boolean"
           description: "Enable time slot 1"
