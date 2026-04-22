@@ -3228,6 +3228,14 @@
           "batteryLowCap": {
             "type": "string"
           },
+          "batteryMaxCurrentCharge": {
+            "type": "string",
+            "description": "Battery maximum charge current (A)"
+          },
+          "batteryMaxCurrentDischarge": {
+            "type": "string",
+            "description": "Battery maximum discharge current (A)"
+          },
           "time1on": {
             "type": "boolean",
             "description": "Enable time slot 1"
