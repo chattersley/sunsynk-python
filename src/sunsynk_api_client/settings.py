@@ -237,6 +237,8 @@ class Settings(BaseSDK):
         low_volt_cross_en: Optional[str] = None,
         generator_start_cap: Optional[str] = None,
         battery_low_cap: Optional[str] = None,
+        battery_max_current_charge: Optional[str] = None,
+        battery_max_current_discharge: Optional[str] = None,
         time1on: Optional[bool] = None,
         time2on: Optional[bool] = None,
         time3on: Optional[bool] = None,
@@ -312,6 +314,8 @@ class Settings(BaseSDK):
         :param low_volt_cross_en:
         :param generator_start_cap:
         :param battery_low_cap:
+        :param battery_max_current_charge: Battery maximum charge current (A)
+        :param battery_max_current_discharge: Battery maximum discharge current (A)
         :param time1on: Enable time slot 1
         :param time2on: Enable time slot 2
         :param time3on: Enable time slot 3
@@ -393,6 +397,8 @@ class Settings(BaseSDK):
                 low_volt_cross_en=low_volt_cross_en,
                 generator_start_cap=generator_start_cap,
                 battery_low_cap=battery_low_cap,
+                battery_max_current_charge=battery_max_current_charge,
+                battery_max_current_discharge=battery_max_current_discharge,
                 time1on=time1on,
                 time2on=time2on,
                 time3on=time3on,
@@ -522,6 +528,8 @@ class Settings(BaseSDK):
         low_volt_cross_en: Optional[str] = None,
         generator_start_cap: Optional[str] = None,
         battery_low_cap: Optional[str] = None,
+        battery_max_current_charge: Optional[str] = None,
+        battery_max_current_discharge: Optional[str] = None,
         time1on: Optional[bool] = None,
         time2on: Optional[bool] = None,
         time3on: Optional[bool] = None,
@@ -597,6 +605,8 @@ class Settings(BaseSDK):
         :param low_volt_cross_en:
         :param generator_start_cap:
         :param battery_low_cap:
+        :param battery_max_current_charge: Battery maximum charge current (A)
+        :param battery_max_current_discharge: Battery maximum discharge current (A)
         :param time1on: Enable time slot 1
         :param time2on: Enable time slot 2
         :param time3on: Enable time slot 3
@@ -678,6 +688,8 @@ class Settings(BaseSDK):
                 low_volt_cross_en=low_volt_cross_en,
                 generator_start_cap=generator_start_cap,
                 battery_low_cap=battery_low_cap,
+                battery_max_current_charge=battery_max_current_charge,
+                battery_max_current_discharge=battery_max_current_discharge,
                 time1on=time1on,
                 time2on=time2on,
                 time3on=time3on,

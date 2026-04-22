@@ -63,6 +63,10 @@ class InverterSettingsSetTypedDict(TypedDict):
     low_volt_cross_en: NotRequired[str]
     generator_start_cap: NotRequired[str]
     battery_low_cap: NotRequired[str]
+    battery_max_current_charge: NotRequired[str]
+    r"""Battery maximum charge current (A)"""
+    battery_max_current_discharge: NotRequired[str]
+    r"""Battery maximum discharge current (A)"""
     time1on: NotRequired[bool]
     r"""Enable time slot 1"""
     time2on: NotRequired[bool]
@@ -238,6 +242,16 @@ class InverterSettingsSet(BaseModel):
         None
     )
 
+    battery_max_current_charge: Annotated[
+        Optional[str], pydantic.Field(alias="batteryMaxCurrentCharge")
+    ] = None
+    r"""Battery maximum charge current (A)"""
+
+    battery_max_current_discharge: Annotated[
+        Optional[str], pydantic.Field(alias="batteryMaxCurrentDischarge")
+    ] = None
+    r"""Battery maximum discharge current (A)"""
+
     time1on: Optional[bool] = None
     r"""Enable time slot 1"""
 
@@ -348,6 +362,8 @@ class InverterSettingsSet(BaseModel):
                 "lowVoltCrossEn",
                 "generatorStartCap",
                 "batteryLowCap",
+                "batteryMaxCurrentCharge",
+                "batteryMaxCurrentDischarge",
                 "time1on",
                 "time2on",
                 "time3on",
