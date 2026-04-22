@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.4.0](https://github.com/chattersley/sunsynk-python/compare/1.3.0...1.4.0) (2026-04-22)
+
+
+### Features
+
+* **spec:** add battery max charge/discharge current to set settings ([d9b407c](https://github.com/chattersley/sunsynk-python/commit/d9b407c4aa7b67821c53f58fad59827e63bd2ad1))
+* **spec:** add battery max charge/discharge current to set settings ([7c7db92](https://github.com/chattersley/sunsynk-python/commit/7c7db92e69cb91c01bec9bb7f1ae5c697a6c8ffd))
+
 ## [1.3.0](https://github.com/chattersley/sunsynk-python/compare/1.2.0...1.3.0) (2026-04-21)
 
 
