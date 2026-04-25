@@ -237,6 +237,8 @@ class Settings(BaseSDK):
         low_volt_cross_en: Optional[str] = None,
         generator_start_cap: Optional[str] = None,
         battery_low_cap: Optional[str] = None,
+        battery_restart_cap: Optional[str] = None,
+        battery_shutdown_cap: Optional[str] = None,
         battery_max_current_charge: Optional[str] = None,
         battery_max_current_discharge: Optional[str] = None,
         time1on: Optional[bool] = None,
@@ -314,6 +316,8 @@ class Settings(BaseSDK):
         :param low_volt_cross_en:
         :param generator_start_cap:
         :param battery_low_cap:
+        :param battery_restart_cap: Battery restart SOC threshold (%)
+        :param battery_shutdown_cap: Battery shutdown SOC threshold (%)
         :param battery_max_current_charge: Battery maximum charge current (A)
         :param battery_max_current_discharge: Battery maximum discharge current (A)
         :param time1on: Enable time slot 1
@@ -397,6 +401,8 @@ class Settings(BaseSDK):
                 low_volt_cross_en=low_volt_cross_en,
                 generator_start_cap=generator_start_cap,
                 battery_low_cap=battery_low_cap,
+                battery_restart_cap=battery_restart_cap,
+                battery_shutdown_cap=battery_shutdown_cap,
                 battery_max_current_charge=battery_max_current_charge,
                 battery_max_current_discharge=battery_max_current_discharge,
                 time1on=time1on,
@@ -528,6 +534,8 @@ class Settings(BaseSDK):
         low_volt_cross_en: Optional[str] = None,
         generator_start_cap: Optional[str] = None,
         battery_low_cap: Optional[str] = None,
+        battery_restart_cap: Optional[str] = None,
+        battery_shutdown_cap: Optional[str] = None,
         battery_max_current_charge: Optional[str] = None,
         battery_max_current_discharge: Optional[str] = None,
         time1on: Optional[bool] = None,
@@ -605,6 +613,8 @@ class Settings(BaseSDK):
         :param low_volt_cross_en:
         :param generator_start_cap:
         :param battery_low_cap:
+        :param battery_restart_cap: Battery restart SOC threshold (%)
+        :param battery_shutdown_cap: Battery shutdown SOC threshold (%)
         :param battery_max_current_charge: Battery maximum charge current (A)
         :param battery_max_current_discharge: Battery maximum discharge current (A)
         :param time1on: Enable time slot 1
@@ -688,6 +698,8 @@ class Settings(BaseSDK):
                 low_volt_cross_en=low_volt_cross_en,
                 generator_start_cap=generator_start_cap,
                 battery_low_cap=battery_low_cap,
+                battery_restart_cap=battery_restart_cap,
+                battery_shutdown_cap=battery_shutdown_cap,
                 battery_max_current_charge=battery_max_current_charge,
                 battery_max_current_discharge=battery_max_current_discharge,
                 time1on=time1on,

@@ -1,6 +1,6 @@
 [project]
 name = "sunsynk-python"
-version = "0.4.0"
+version = "0.4.1"
 description = "Python Client SDK for the SunSynk Power View API."
 authors = [{ name = "Speakeasy" },]
 readme = "README.md"
@@ -38,6 +38,7 @@ dev = [
     "mypy ==1.15.0",
     "pylint ==3.2.3",
     "pyright ==1.1.398",
+    "pytest>=9.0.3",
 ]
 
 [tool.setuptools.packages.find]

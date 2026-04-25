@@ -63,6 +63,10 @@ class InverterSettingsSetTypedDict(TypedDict):
     low_volt_cross_en: NotRequired[str]
     generator_start_cap: NotRequired[str]
     battery_low_cap: NotRequired[str]
+    battery_restart_cap: NotRequired[str]
+    r"""Battery restart SOC threshold (%)"""
+    battery_shutdown_cap: NotRequired[str]
+    r"""Battery shutdown SOC threshold (%)"""
     battery_max_current_charge: NotRequired[str]
     r"""Battery maximum charge current (A)"""
     battery_max_current_discharge: NotRequired[str]
@@ -242,6 +246,16 @@ class InverterSettingsSet(BaseModel):
         None
     )
 
+    battery_restart_cap: Annotated[
+        Optional[str], pydantic.Field(alias="batteryRestartCap")
+    ] = None
+    r"""Battery restart SOC threshold (%)"""
+
+    battery_shutdown_cap: Annotated[
+        Optional[str], pydantic.Field(alias="batteryShutdownCap")
+    ] = None
+    r"""Battery shutdown SOC threshold (%)"""
+
     battery_max_current_charge: Annotated[
         Optional[str], pydantic.Field(alias="batteryMaxCurrentCharge")
     ] = None
@@ -362,6 +376,8 @@ class InverterSettingsSet(BaseModel):
                 "lowVoltCrossEn",
                 "generatorStartCap",
                 "batteryLowCap",
+                "batteryRestartCap",
+                "batteryShutdownCap",
                 "batteryMaxCurrentCharge",
                 "batteryMaxCurrentDischarge",
                 "time1on",
