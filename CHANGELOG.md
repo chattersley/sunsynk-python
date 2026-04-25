@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.0](https://github.com/chattersley/sunsynk-python/compare/1.4.0...1.5.0) (2026-04-25)
+
+
+### Features
+
+* **sdk:** add batteryRestartCap and batteryShutdownCap to set inverter settings ([#9](https://github.com/chattersley/sunsynk-python/issues/9)) ([61dea0e](https://github.com/chattersley/sunsynk-python/commit/61dea0e56eb7c4cd36f036be59b42d31d75c9801))
+
 ## [1.4.0](https://github.com/chattersley/sunsynk-python/compare/1.3.0...1.4.0) (2026-04-22)
 
 
